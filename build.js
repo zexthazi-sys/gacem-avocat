@@ -58,6 +58,7 @@ function articleTemplate(slug, data, bodyHtml) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="icon" type="image/png" href="/favicon.png">
   <title>${titleEsc} &mdash; Gacem Avocat</title>
   <meta name="description" content="${descEsc}">
   <link rel="canonical" href="${canonUrl}">
