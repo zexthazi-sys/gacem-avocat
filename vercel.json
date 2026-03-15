@@ -3,6 +3,14 @@
   "outputDirectory": ".",
   "installCommand": "npm install",
   "framework": null,
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "gacem-avocat.com" }],
+      "destination": "https://www.gacem-avocat.com/$1",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     { "source": "/admin", "destination": "/admin/index.html" },
     { "source": "/admin/", "destination": "/admin/index.html" }
@@ -11,6 +19,14 @@
     {
       "source": "/admin/config.yml",
       "headers": [{ "key": "Content-Type", "value": "text/yaml; charset=utf-8" }]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    },
+    {
+      "source": "/favicon.png",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
     }
   ]
 }
