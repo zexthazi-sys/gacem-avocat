@@ -7,7 +7,7 @@
   <title>Gacem Avocat</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-behavior: smooth; }
@@ -23,45 +23,34 @@
       --degrade: radial-gradient(ellipse 160% 160% at 100% 100%, #6b4f6e 0%, #3d2f4a 40%, #2b2338 70%, #221e30 100%);
     }
 
-    /* ── SPLASH ── */
-    #splash {
-      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-      background: var(--degrade);
-      display: -webkit-flex; display: flex;
-      -webkit-align-items: center; align-items: center;
-      -webkit-justify-content: center; justify-content: center;
-      z-index: 9999;
-      -webkit-transition: opacity 0.7s ease; transition: opacity 0.7s ease;
+    /* ── INTRO ANIMATION ── */
+    #intro-overlay {
+      position: fixed; inset: 0; z-index: 9999;
+      background: #221e30; overflow: hidden;
     }
-    .splash-logo {
-      display: -webkit-flex; display: flex;
-      -webkit-flex-direction: column; flex-direction: column;
-      -webkit-align-items: center; align-items: center;
-      width: 100%; padding: 0 24px;
-    }
-    .splash-name {
-      font-family: 'Raleway', sans-serif; font-weight: 400;
-      font-size: 90px; font-size: clamp(48px, 13vw, 110px);
-      letter-spacing: 0.15em; padding-left: 0.15em;
-      color: #ffffff; opacity: 0;
-      -webkit-transform: translateY(10px); transform: translateY(10px);
-      -webkit-transition: opacity 0.9s ease, -webkit-transform 0.9s ease;
-      transition: opacity 0.9s ease, transform 0.9s ease;
-    }
-    .splash-sub {
-      font-family: 'Raleway', sans-serif; font-weight: 200;
-      font-size: 20px; font-size: clamp(14px, 2.8vw, 24px);
-      letter-spacing: 0.35em; padding-left: 0.35em;
-      color: #ffffff; text-transform: uppercase; margin-top: 20px;
+    #intro-overlay .intro-logo {
+      position: absolute; top: 50%; left: 50%;
+      -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%);
+      z-index: 2;
+      font-family: 'Raleway', sans-serif;
+      font-size: clamp(18px, 3vw, 28px);
+      letter-spacing: 0.25em; padding-left: 0.25em;
+      color: #ffffff; white-space: nowrap;
       opacity: 0;
-      -webkit-transform: translateY(6px); transform: translateY(6px);
-      -webkit-transition: opacity 0.6s ease, -webkit-transform 0.6s ease;
-      transition: opacity 0.6s ease, transform 0.6s ease;
+      -webkit-transition: opacity 0.8s ease-out; transition: opacity 0.8s ease-out;
     }
-    .splash-line {
-      height: 1px; width: 0;
-      background: rgba(255,255,255,0.3); margin-top: 22px;
-      -webkit-transition: width 0.5s ease; transition: width 0.5s ease;
+    #intro-overlay .intro-logo strong { font-weight: 600; font-style: normal; }
+    #intro-overlay .intro-logo span { font-weight: 300; }
+    #intro-overlay .intro-circle {
+      position: absolute; width: 10vmax; height: 10vmax;
+      border-radius: 50%; background: #6b4f6e;
+      z-index: 1; will-change: transform;
+    }
+    #intro-overlay .intro-circle-tl { top: -5vmax; left: -5vmax; }
+    #intro-overlay .intro-circle-br { bottom: -5vmax; right: -5vmax; }
+    #intro-overlay.intro-fade {
+      -webkit-transition: opacity 0.6s ease-in; transition: opacity 0.6s ease-in;
+      opacity: 0; pointer-events: none;
     }
 
     /* ── NAV ── */
@@ -397,15 +386,6 @@
 </head>
 <body>
 
-<!-- SPLASH -->
-<div id="splash">
-  <div class="splash-logo">
-    <div class="splash-name" id="splashName">Gacem</div>
-    <div class="splash-line" id="splashLine"></div>
-    <div class="splash-sub" id="splashSub">Avocat</div>
-  </div>
-</div>
-
 <!-- SITE -->
 <div id="site" style="opacity:0; -webkit-transition: opacity 0.7s ease; transition: opacity 0.7s ease;">
 
@@ -651,55 +631,65 @@
 </div>
 
 <script>
-(function() {
-  function startSplash() {
-    var name = document.getElementById('splashName');
-    var line = document.getElementById('splashLine');
-    var sub = document.getElementById('splashSub');
-    var splash = document.getElementById('splash');
-    var site = document.getElementById('site');
+(function () {
+  var site = document.getElementById('site');
 
-    if (!name || !splash || !site) return;
-
-    setTimeout(function() {
-      name.style.opacity = '1';
-      name.style.webkitTransform = 'translateY(0)';
-      name.style.transform = 'translateY(0)';
-    }, 100);
-
-    setTimeout(function() {
-      line.style.webkitTransition = 'width 0.5s ease';
-      line.style.transition = 'width 0.5s ease';
-      line.style.width = '60px';
-    }, 900);
-
-    setTimeout(function() {
-      sub.style.opacity = '1';
-      sub.style.webkitTransform = 'translateY(0)';
-      sub.style.transform = 'translateY(0)';
-    }, 1100);
-
-    setTimeout(function() {
-      splash.style.opacity = '0';
-      splash.style.pointerEvents = 'none';
-      site.style.opacity = '1';
-    }, 2400);
-
-    setTimeout(function() {
-      splash.style.display = 'none';
-    }, 3200);
+  /* ── Respect prefers-reduced-motion ── */
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (site) site.style.opacity = '1';
+    return;
   }
 
-  if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(function() {
-      setTimeout(startSplash, 200);
+  /* ── Timings ── */
+  var mobile = window.innerWidth < 768;
+  var s      = mobile ? 4 / 6 : 1; /* scale factor mobile = 4s / desktop = 6s */
+
+  var T_LOGO_SHOW     = Math.round(1000  * s); /* phase 2 : logo fade-in */
+  var T_CIRCLES_START = Math.round(2500  * s); /* phase 3 : cercles s'agrandissent */
+  var CIRCLE_DUR      = Math.round(2500  * s) + 'ms';
+  var T_FADE_START    = Math.round(4500  * s); /* phase 4 : overlay disparaît */
+  var T_REMOVE        = Math.round(5600  * s); /* nettoyage DOM */
+
+  /* ── Création de l'overlay ── */
+  var overlay = document.createElement('div');
+  overlay.id  = 'intro-overlay';
+  overlay.innerHTML =
+    '<div class="intro-logo"><strong>Gacem</strong><span> Avocat</span></div>' +
+    '<div class="intro-circle intro-circle-tl"></div>' +
+    '<div class="intro-circle intro-circle-br"></div>';
+  document.body.insertBefore(overlay, document.body.firstChild);
+  document.body.style.overflow = 'hidden';
+
+  var logo    = overlay.querySelector('.intro-logo');
+  var circles = overlay.querySelectorAll('.intro-circle');
+
+  /* ── Phase 2 : logo ── */
+  setTimeout(function () {
+    logo.style.opacity = '1';
+  }, T_LOGO_SHOW);
+
+  /* ── Phase 3 : expansion des cercles ── */
+  setTimeout(function () {
+    [].forEach.call(circles, function (c) {
+      c.style.webkitTransition = 'transform ' + CIRCLE_DUR + ' cubic-bezier(0.76,0,0.24,1)';
+      c.style.transition       = 'transform ' + CIRCLE_DUR + ' cubic-bezier(0.76,0,0.24,1)';
+      c.style.webkitTransform  = 'scale(15)';
+      c.style.transform        = 'scale(15)';
     });
-  } else {
-    window.addEventListener('load', function() {
-      setTimeout(startSplash, 300);
-    });
-  }
-})();
+  }, T_CIRCLES_START);
+
+  /* ── Phase 4 : fondu de sortie + révélation du site ── */
+  setTimeout(function () {
+    overlay.classList.add('intro-fade');
+    if (site) site.style.opacity = '1';
+  }, T_FADE_START);
+
+  /* ── Nettoyage ── */
+  setTimeout(function () {
+    if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
+    document.body.style.overflow = '';
+  }, T_REMOVE);
+}());
 </script>
 
 </body>
