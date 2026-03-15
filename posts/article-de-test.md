@@ -1,6 +1,6 @@
 ---
 title: Article de test
-date: 2026-03-15
+date: 2026-03-14
 category: Droit public
 description: Test contester une OQTF
 excerpt: Test contester une OQTF, test.
@@ -10,8 +10,6 @@ excerpt: Test contester une OQTF, test.
 *2. Test*
 
 **3. Test**
-
-
 
 > **Citation Test**
 
