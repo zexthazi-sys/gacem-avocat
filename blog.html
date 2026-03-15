@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Blog Juridique &mdash; Gacem Avocat | Droit public, urbanisme, marchés publics</title>
+  <meta name="description" content="Décryptages et analyses en droit public par Hakim Gacem, avocat au Barreau de Paris. Urbanisme, marchés publics, droit administratif.">
+  <link rel="canonical" href="https://gacem-avocat.com/blog.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-behavior: smooth; }
+    body { font-family: 'Raleway', sans-serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; overflow-x: hidden; }
+
+    :root {
+      --bleu-ardoise: #2d3f5c;
+      --bleu-fonce: #2c3e50;
+      --bleu-nuit: #1a1a2e;
+      --vert-sauge: #bdc9be;
+      --blanc: #ffffff;
+      --noir: #000000;
+      --degrade: radial-gradient(ellipse 160% 160% at 100% 100%, #6b4f6e 0%, #3d2f4a 40%, #2b2338 70%, #221e30 100%);
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: -webkit-sticky; position: sticky; top: 0; z-index: 50;
+      display: -webkit-flex; display: flex;
+      -webkit-align-items: center; align-items: center;
+      -webkit-justify-content: space-between; justify-content: space-between;
+      padding: 18px 48px;
+      background: var(--blanc);
+      border-bottom: 1px solid rgba(45,63,92,0.08);
+    }
+    .nav-logo {
+      font-family: 'Raleway', sans-serif; font-weight: 300;
+      font-size: 20px; letter-spacing: 0.15em; color: var(--bleu-nuit);
+      text-decoration: none;
+    }
+    .nav-logo span { font-weight: 100; }
+    .nav-links { display: -webkit-flex; display: flex; gap: 32px; }
+    .nav-links a {
+      font-family: 'Raleway', sans-serif; font-size: 11px;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--bleu-ardoise); text-decoration: none; font-weight: 400;
+      -webkit-transition: color 0.2s; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--bleu-nuit); }
+    .nav-links a.active { color: var(--bleu-nuit); border-bottom: 1px solid var(--vert-sauge); padding-bottom: 2px; }
+
+    /* ── BLOG HERO ── */
+    .blog-hero {
+      background: var(--degrade);
+      padding: 88px 64px 72px;
+    }
+    .blog-hero-inner { max-width: 640px; }
+    .s-tag {
+      font-family: 'Raleway', sans-serif; font-size: 10px;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--vert-sauge); margin-bottom: 12px; font-weight: 300;
+    }
+    .s-line { width: 36px; height: 1px; background: var(--vert-sauge); margin: 16px 0 36px; }
+    .blog-hero h1 {
+      font-family: 'Raleway', sans-serif;
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 200; color: var(--blanc);
+      line-height: 1.25; letter-spacing: 0.02em; margin-bottom: 20px;
+    }
+    .blog-hero p {
+      font-family: 'Raleway', sans-serif; font-weight: 200;
+      font-size: 14px; line-height: 1.9;
+      color: rgba(255,255,255,0.55); max-width: 480px;
+    }
+
+    /* ── ARTICLES LIST ── */
+    .articles-section { padding: 88px 64px; background: var(--blanc); }
+
+    .articles-grid {
+      display: -webkit-flex; display: flex;
+      -webkit-flex-direction: column; flex-direction: column;
+      gap: 2px; margin-top: 48px;
+    }
+
+    .article-card {
+      display: -webkit-flex; display: flex;
+      -webkit-flex-wrap: wrap; flex-wrap: wrap;
+      gap: 48px;
+      padding: 44px 40px;
+      background: #f0f2f4;
+      text-decoration: none;
+      -webkit-transition: background 0.3s; transition: background 0.3s;
+    }
+    .article-card:hover { background: var(--bleu-ardoise); }
+
+    .article-card-meta {
+      -webkit-flex: 0 0 140px; flex: 0 0 140px;
+      display: -webkit-flex; display: flex;
+      -webkit-flex-direction: column; flex-direction: column;
+      gap: 10px; padding-top: 4px;
+    }
+    .article-date {
+      font-family: 'Raleway', sans-serif; font-size: 10px;
+      letter-spacing: 0.12em; color: var(--vert-sauge);
+      font-weight: 300; text-transform: uppercase;
+    }
+    .article-category {
+      font-family: 'Raleway', sans-serif; font-size: 10px;
+      letter-spacing: 0.1em; color: #6b7a8d;
+      font-weight: 300; text-transform: uppercase;
+      -webkit-transition: color 0.3s; transition: color 0.3s;
+    }
+    .article-card:hover .article-category { color: rgba(255,255,255,0.4); }
+
+    .article-card-body { -webkit-flex: 1 1 300px; flex: 1 1 300px; }
+    .article-card-title {
+      font-family: 'Raleway', sans-serif; font-size: 20px;
+      font-weight: 300; color: var(--bleu-nuit);
+      margin-bottom: 14px; line-height: 1.3;
+      -webkit-transition: color 0.3s; transition: color 0.3s;
+    }
+    .article-card:hover .article-card-title { color: var(--blanc); }
+
+    .article-card-excerpt {
+      font-family: 'Raleway', sans-serif; font-size: 13px;
+      color: #6b7a8d; line-height: 1.85; font-weight: 300;
+      margin-bottom: 24px;
+      -webkit-transition: color 0.3s; transition: color 0.3s;
+    }
+    .article-card:hover .article-card-excerpt { color: rgba(255,255,255,0.6); }
+
+    .article-read-more {
+      font-family: 'Raleway', sans-serif; font-size: 10px;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--bleu-ardoise); font-weight: 400;
+      -webkit-transition: color 0.3s; transition: color 0.3s;
+    }
+    .article-card:hover .article-read-more { color: var(--vert-sauge); }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 24px 64px; background: var(--noir);
+      display: -webkit-flex; display: flex;
+      -webkit-align-items: center; align-items: center;
+      -webkit-justify-content: space-between; justify-content: space-between;
+      -webkit-flex-wrap: wrap; flex-wrap: wrap;
+      gap: 8px;
+    }
+    footer span {
+      font-family: 'Raleway', sans-serif; font-size: 10px;
+      color: rgba(255,255,255,0.2); letter-spacing: 0.1em; font-weight: 300;
+    }
+    footer a {
+      font-family: 'Raleway', sans-serif; font-size: 10px;
+      color: rgba(255,255,255,0.2); letter-spacing: 0.1em; font-weight: 300;
+      text-decoration: none;
+      -webkit-transition: color 0.2s; transition: color 0.2s;
+    }
+    footer a:hover { color: rgba(255,255,255,0.5); }
+
+    /* ── MOBILE ── */
+    @media screen and (max-width: 768px) {
+      nav { padding: 16px 20px; }
+      .nav-logo { font-size: 16px; }
+      .nav-links { gap: 16px; }
+      .nav-links a { font-size: 10px; }
+      .blog-hero { padding: 60px 20px 48px; }
+      .articles-section { padding: 60px 20px; }
+      .article-card { padding: 32px 20px; gap: 20px; }
+      .article-card-meta { -webkit-flex: 0 0 100%; flex: 0 0 100%; -webkit-flex-direction: row; flex-direction: row; gap: 16px; }
+      footer { padding: 20px; -webkit-justify-content: center; justify-content: center; text-align: center; }
+    }
+    @media screen and (max-width: 480px) {
+      .nav-links a { font-size: 9px; letter-spacing: 0.06em; }
+      .blog-hero { padding: 48px 16px 40px; }
+      .articles-section { padding: 48px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-logo">Gacem <span>Avocat</span></a>
+    <div class="nav-links">
+      <a href="/#cabinet">Cabinet</a>
+      <a href="/#expertises">Expertises</a>
+      <a href="/#parcours">Parcours</a>
+      <a href="/#contact">Contact</a>
+      <a href="/blog.html" class="active">Blog</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <header class="blog-hero">
+      <div class="blog-hero-inner">
+        <div class="s-tag">Gacem Avocat</div>
+        <div class="s-line"></div>
+        <h1>Droit public &mdash;<br>Analyses &amp; D&eacute;cryptages</h1>
+        <p>Réflexions juridiques sur l&rsquo;actualité du droit public, de l&rsquo;urbanisme et des marchés publics. Des analyses pratiques pour les entreprises et les collectivités.</p>
+      </div>
+    </header>
+
+    <section class="articles-section">
+      <div class="s-tag">Articles</div>
+      <div class="s-line"></div>
+
+      <div class="articles-grid" role="list">
+
+        <a href="/blog/recours-permis-construire.html" class="article-card" role="listitem">
+          <div class="article-card-meta">
+            <span class="article-date">10 mars 2026</span>
+            <span class="article-category">Urbanisme</span>
+          </div>
+          <div class="article-card-body">
+            <h2 class="article-card-title">Le recours contre un permis de construire&nbsp;: ce qu&rsquo;il faut savoir</h2>
+            <p class="article-card-excerpt">Voisin d&rsquo;un projet de construction, collectivité ou promoteur&nbsp;: la contestation d&rsquo;un permis de construire obéit à des règles strictes. Délais, qualité pour agir, effets suspensifs&nbsp;— tour d&rsquo;horizon des mécanismes essentiels du contentieux de l&rsquo;urbanisme.</p>
+            <span class="article-read-more">Lire l&rsquo;article &rarr;</span>
+          </div>
+        </a>
+
+        <a href="/blog/allotissement-marches-publics.html" class="article-card" role="listitem">
+          <div class="article-card-meta">
+            <span class="article-date">3 mars 2026</span>
+            <span class="article-category">March&eacute;s publics</span>
+          </div>
+          <div class="article-card-body">
+            <h2 class="article-card-title">L&rsquo;allotissement dans les march&eacute;s publics&nbsp;: enjeux et obligations pour les acheteurs</h2>
+            <p class="article-card-excerpt">Principe fondamental de la commande publique, l&rsquo;allotissement impose à l&rsquo;acheteur de diviser ses marchés en lots distincts. Obligations légales, dérogations admises et risques contentieux&nbsp;: ce que tout acheteur public doit maîtriser.</p>
+            <span class="article-read-more">Lire l&rsquo;article &rarr;</span>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <span>&copy; 2026 Gacem Avocat &middot; Tous droits r&eacute;serv&eacute;s</span>
+    <a href="/">Retour au site</a>
+  </footer>
+
+</body>
+</html>
