@@ -242,7 +242,7 @@ function articleTemplate(slug, data, bodyHtml) {
 
   <footer>
     <span>&copy; 2026 Gacem Avocat &middot; Tous droits r&eacute;serv&eacute;s</span>
-    <a href="/">Retour au site</a>
+    <a href="/mentions-legales.html">Mentions l&eacute;gales</a>
   </footer>
 
 </body>
