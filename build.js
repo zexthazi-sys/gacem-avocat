@@ -136,12 +136,12 @@ function articleTemplate(slug, data, bodyHtml) {
     footer span, footer a { font-size: 10px; color: rgba(255,255,255,0.55); letter-spacing: 0.1em; font-weight: 300; text-decoration: none; transition: color 0.2s; }
     footer a:hover { color: rgba(255,255,255,0.8); }
     @media (max-width: 768px) {
-      nav { padding: 16px 20px; } .nav-logo { font-size: 16px; } .nav-links { gap: 16px; } .nav-links a { font-size: 10px; }
+      nav { padding: 16px 20px; } .nav-logo { font-size: 16px; } .nav-links { gap: 12px; } .nav-links a { font-size: 10px; } .nav-blog { padding: 4px 8px; }
       .article-header { padding: 60px 20px 48px; } .article-body { padding: 48px 20px 60px; }
       .back-to-blog { padding: 24px 20px; } footer { padding: 20px; justify-content: center; text-align: center; }
     }
     @media (max-width: 480px) {
-      .nav-links a { font-size: 9px; letter-spacing: 0.06em; }
+      .nav-links a { font-size: 9px; letter-spacing: 0.06em; } .nav-blog { padding: 3px 7px; }
       .article-header { padding: 48px 16px 40px; } .article-body { padding: 40px 16px 48px; }
     }
   </style>
