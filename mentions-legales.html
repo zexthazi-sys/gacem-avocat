@@ -135,44 +135,65 @@
     /* ── HERO ── */
     .ml-hero {
       background: var(--bleu-nuit);
-      padding: 80px 64px 60px;
+      padding: 100px 64px 80px;
+    }
+    .ml-hero-inner {
+      max-width: 1080px;
+      margin: 0 auto;
     }
     .ml-hero h1 {
-      font-size: clamp(26px, 4vw, 42px);
-      font-weight: 300; letter-spacing: 0.12em;
+      font-size: clamp(28px, 4.5vw, 52px);
+      font-weight: 200; letter-spacing: 0.18em;
       color: var(--blanc); text-transform: uppercase;
+      line-height: 1.1;
+    }
+    .ml-hero-divider {
+      width: 40px; height: 1px;
+      background: var(--vert-sauge);
+      margin: 24px 0 20px;
     }
     .ml-hero p {
-      margin-top: 12px;
-      font-size: 13px; font-weight: 300; letter-spacing: 0.06em;
-      color: rgba(255,255,255,0.5);
+      font-size: 12px; font-weight: 300; letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.45);
+      max-width: 520px;
     }
 
     /* ── CONTENT ── */
     .ml-content {
       background: var(--beige);
-      padding: 80px 64px;
-      max-width: 860px;
+      padding: 0 64px 100px;
+    }
+    .ml-inner {
+      max-width: 1080px;
+      margin: 0 auto;
     }
     .ml-section {
-      margin-bottom: 52px;
+      display: -webkit-flex; display: flex;
+      gap: 64px;
+      padding: 52px 0;
+      border-bottom: 1px solid rgba(45,63,92,0.1);
     }
-    .ml-section:last-child { margin-bottom: 0; }
+    .ml-section:first-child { padding-top: 64px; }
+    .ml-section:last-child { border-bottom: none; padding-bottom: 0; }
+    .ml-section-label {
+      -webkit-flex: 0 0 200px; flex: 0 0 200px;
+      padding-top: 3px;
+    }
     .ml-section h2 {
-      font-size: 11px; font-weight: 500; letter-spacing: 0.2em;
+      font-size: 10px; font-weight: 500; letter-spacing: 0.22em;
       text-transform: uppercase; color: var(--vert-sauge);
-      margin-bottom: 16px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid rgba(122,158,135,0.25);
+    }
+    .ml-section-body {
+      -webkit-flex: 1; flex: 1;
     }
     .ml-section p, .ml-section address {
-      font-size: 14px; font-weight: 300; line-height: 1.85;
+      font-size: 14px; font-weight: 300; line-height: 1.9;
       color: var(--texte); font-style: normal;
     }
     .ml-section a {
       color: var(--bleu-ardoise);
       text-decoration: none;
-      border-bottom: 1px solid rgba(45,63,92,0.3);
+      border-bottom: 1px solid rgba(45,63,92,0.25);
       -webkit-transition: border-color 0.2s; transition: border-color 0.2s;
     }
     .ml-section a:hover { border-color: var(--bleu-ardoise); }
@@ -206,8 +227,11 @@
       .nav-links { gap: 12px; }
       .nav-links a { font-size: 10px; }
       .nav-blog { padding: 4px 8px; }
-      .ml-hero { padding: 60px 20px 48px; }
-      .ml-content { padding: 60px 20px; }
+      .ml-hero { padding: 64px 20px 52px; }
+      .ml-content { padding: 0 20px 72px; }
+      .ml-section { -webkit-flex-direction: column; flex-direction: column; gap: 16px; padding: 40px 0; }
+      .ml-section:first-child { padding-top: 48px; }
+      .ml-section-label { -webkit-flex: none; flex: none; }
       footer { padding: 20px; -webkit-justify-content: center; justify-content: center; text-align: center; }
     }
     @media screen and (max-width: 480px) {
@@ -232,59 +256,78 @@
   <main>
 
     <div class="ml-hero">
-      <h1>Mentions légales</h1>
-      <p>Informations légales conformément à la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique.</p>
+      <div class="ml-hero-inner">
+        <h1>Mentions légales</h1>
+        <div class="ml-hero-divider"></div>
+        <p>Informations légales conformément à la loi n°&nbsp;2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique.</p>
+      </div>
     </div>
 
     <div class="ml-content">
+      <div class="ml-inner">
 
-      <div class="ml-section">
-        <h2>Éditeur du site</h2>
-        <address>
-          Maître Hakim GACEM, Avocat au Barreau de Paris (serment en cours)<br>
-          Domicilié au CDAAP<br>
-          11 Boulevard Sébastopol, 5ème étage<br>
-          75001 Paris<br><br>
-          Email&nbsp;: <a href="mailto:hakim.gacem@outlook.fr">hakim.gacem@outlook.fr</a>
-        </address>
+        <div class="ml-section">
+          <div class="ml-section-label"><h2>Éditeur du site</h2></div>
+          <div class="ml-section-body">
+            <address>
+              Maître Hakim GACEM, Avocat au Barreau de Paris (serment en cours)<br>
+              Domicilié au CDAAP<br>
+              11 Boulevard Sébastopol, 5ème étage<br>
+              75001 Paris<br><br>
+              Email&nbsp;: <a href="mailto:hakim.gacem@outlook.fr">hakim.gacem@outlook.fr</a>
+            </address>
+          </div>
+        </div>
+
+        <div class="ml-section">
+          <div class="ml-section-label"><h2>Directeur de la publication</h2></div>
+          <div class="ml-section-body">
+            <p>Maître Hakim GACEM</p>
+          </div>
+        </div>
+
+        <div class="ml-section">
+          <div class="ml-section-label"><h2>Hébergement</h2></div>
+          <div class="ml-section-body">
+            <address>
+              Vercel Inc.<br>
+              440 N Barranca Ave #4133<br>
+              Covina, CA 91723, États-Unis<br>
+              <a href="https://vercel.com" target="_blank" rel="noopener noreferrer">vercel.com</a>
+            </address>
+            <p style="margin-top:12px;">Le nom de domaine <strong>gacem-avocat.com</strong> a été enregistré auprès de Vercel Inc.</p>
+          </div>
+        </div>
+
+        <div class="ml-section">
+          <div class="ml-section-label"><h2>Propriété intellectuelle</h2></div>
+          <div class="ml-section-body">
+            <p>L'ensemble des contenus présents sur ce site (textes, visuels, structure) est la propriété exclusive de Maître Hakim GACEM. Toute reproduction partielle ou totale est interdite sans autorisation préalable écrite.</p>
+          </div>
+        </div>
+
+        <div class="ml-section">
+          <div class="ml-section-label"><h2>Données personnelles</h2></div>
+          <div class="ml-section-body">
+            <p>Ce site ne collecte aucune donnée personnelle. Aucun cookie de traçage ni formulaire de collecte n'est utilisé. En cas d'évolution, une politique de confidentialité conforme au RGPD sera mise en place.</p>
+          </div>
+        </div>
+
+        <div class="ml-section">
+          <div class="ml-section-label"><h2>Responsabilité</h2></div>
+          <div class="ml-section-body">
+            <p>Les informations présentes sur ce site ont un caractère purement informatif et ne constituent pas un conseil juridique. La consultation de ce site ne crée pas de relation avocat-client.</p>
+          </div>
+        </div>
+
+        <div class="ml-section">
+          <div class="ml-section-label"><h2>Contact</h2></div>
+          <div class="ml-section-body">
+            <p><a href="mailto:hakim.gacem@outlook.fr">hakim.gacem@outlook.fr</a></p>
+          </div>
+        </div>
+
       </div>
-
-      <div class="ml-section">
-        <h2>Directeur de la publication</h2>
-        <p>Maître Hakim GACEM</p>
-      </div>
-
-      <div class="ml-section">
-        <h2>Hébergement</h2>
-        <address>
-          Vercel Inc.<br>
-          440 N Barranca Ave #4133<br>
-          Covina, CA 91723, États-Unis<br>
-          <a href="https://vercel.com" target="_blank" rel="noopener noreferrer">vercel.com</a>
-        </address>
-        <p style="margin-top:12px;">Le nom de domaine <strong>gacem-avocat.com</strong> a été enregistré auprès de Vercel Inc.</p>
-      </div>
-
-      <div class="ml-section">
-        <h2>Propriété intellectuelle</h2>
-        <p>L'ensemble des contenus présents sur ce site (textes, visuels, structure) est la propriété exclusive de Maître Hakim GACEM. Toute reproduction partielle ou totale est interdite sans autorisation préalable écrite.</p>
-      </div>
-
-      <div class="ml-section">
-        <h2>Données personnelles</h2>
-        <p>Ce site ne collecte aucune donnée personnelle. Aucun cookie de traçage ni formulaire de collecte n'est utilisé. En cas d'évolution, une politique de confidentialité conforme au RGPD sera mise en place.</p>
-      </div>
-
-      <div class="ml-section">
-        <h2>Responsabilité</h2>
-        <p>Les informations présentes sur ce site ont un caractère purement informatif et ne constituent pas un conseil juridique. La consultation de ce site ne crée pas de relation avocat-client.</p>
-      </div>
-
-      <div class="ml-section">
-        <h2>Contact</h2>
-        <p><a href="mailto:hakim.gacem@outlook.fr">hakim.gacem@outlook.fr</a></p>
-      </div>
-
     </div>
 
   </main>
