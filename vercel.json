@@ -2,5 +2,15 @@
   "buildCommand": "npm run build",
   "outputDirectory": ".",
   "installCommand": "npm install",
-  "framework": null
+  "framework": null,
+  "rewrites": [
+    { "source": "/admin", "destination": "/admin/index.html" },
+    { "source": "/admin/", "destination": "/admin/index.html" }
+  ],
+  "headers": [
+    {
+      "source": "/admin/config.yml",
+      "headers": [{ "key": "Content-Type", "value": "text/yaml; charset=utf-8" }]
+    }
+  ]
 }
