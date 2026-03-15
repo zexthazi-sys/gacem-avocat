@@ -11,91 +11,673 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-behavior: smooth; }
-    body { font-family: 'Raleway', sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-    :root { --bleu-ardoise: #2d3f5c; --bleu-fonce: #2c3e50; --bleu-nuit: #1a1a2e; --vert-sauge: #bdc9be; --blanc: #ffffff; --noir: #000000; --degrade: radial-gradient(ellipse 160% 160% at 100% 100%, #6b4f6e 0%, #3d2f4a 40%, #2b2338 70%, #221e30 100%); }
-    #splash { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--degrade); display: flex; align-items: center; justify-content: center; z-index: 9999; transition: opacity 0.7s ease; }
-    .splash-logo { display: flex; flex-direction: column; align-items: center; width: 100%; padding: 0 24px; }
-    .splash-name { font-weight: 300; font-size: clamp(28px,8vw,64px); letter-spacing: 0.15em; color: #fff; opacity: 0; transform: translateY(10px); transition: opacity 0.9s ease, transform 0.9s ease; }
-    .splash-sub { font-weight: 100; font-size: clamp(10px,1.8vw,14px); letter-spacing: 0.35em; color: #fff; text-transform: uppercase; margin-top: 14px; opacity: 0; transform: translateY(6px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .splash-line { height: 1px; width: 0; background: rgba(255,255,255,0.3); margin-top: 16px; transition: width 0.5s ease; }
-    nav { position: sticky; top: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; padding: 18px 48px; background: var(--blanc); border-bottom: 1px solid rgba(45,63,92,0.08); }
-    .nav-logo { font-weight: 300; font-size: 20px; letter-spacing: 0.15em; color: var(--bleu-nuit); }
+    body { font-family: 'Raleway', sans-serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; overflow-x: hidden; }
+
+    :root {
+      --bleu-ardoise: #2d3f5c;
+      --bleu-fonce: #2c3e50;
+      --bleu-nuit: #1a1a2e;
+      --vert-sauge: #bdc9be;
+      --blanc: #ffffff;
+      --noir: #000000;
+      --degrade: radial-gradient(ellipse 160% 160% at 100% 100%, #6b4f6e 0%, #3d2f4a 40%, #2b2338 70%, #221e30 100%);
+    }
+
+    /* ── SPLASH ── */
+    #splash {
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--degrade);
+      display: -webkit-flex; display: flex;
+      -webkit-align-items: center; align-items: center;
+      -webkit-justify-content: center; justify-content: center;
+      z-index: 9999;
+      -webkit-transition: opacity 0.7s ease; transition: opacity 0.7s ease;
+    }
+    .splash-logo {
+      display: -webkit-flex; display: flex;
+      -webkit-flex-direction: column; flex-direction: column;
+      -webkit-align-items: center; align-items: center;
+      width: 100%; padding: 0 24px;
+    }
+    .splash-name {
+      font-family: 'Raleway', sans-serif; font-weight: 300;
+      font-size: 90px; font-size: clamp(48px, 13vw, 110px);
+      letter-spacing: 0.15em; padding-left: 0.15em;
+      color: #ffffff; opacity: 0;
+      -webkit-transform: translateY(10px); transform: translateY(10px);
+      -webkit-transition: opacity 0.9s ease, -webkit-transform 0.9s ease;
+      transition: opacity 0.9s ease, transform 0.9s ease;
+    }
+    .splash-sub {
+      font-family: 'Raleway', sans-serif; font-weight: 100;
+      font-size: 20px; font-size: clamp(14px, 2.8vw, 24px);
+      letter-spacing: 0.35em; padding-left: 0.35em;
+      color: #ffffff; text-transform: uppercase; margin-top: 20px;
+      opacity: 0;
+      -webkit-transform: translateY(6px); transform: translateY(6px);
+      -webkit-transition: opacity 0.6s ease, -webkit-transform 0.6s ease;
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .splash-line {
+      height: 1px; width: 0;
+      background: rgba(255,255,255,0.3); margin-top: 22px;
+      -webkit-transition: width 0.5s ease; transition: width 0.5s ease;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: -webkit-sticky; position: sticky; top: 0; z-index: 50;
+      display: -webkit-flex; display: flex;
+      -webkit-align-items: center; align-items: center;
+      -webkit-justify-content: space-between; justify-content: space-between;
+      padding: 18px 48px;
+      background: var(--blanc);
+      border-bottom: 1px solid rgba(45,63,92,0.08);
+    }
+    .nav-logo {
+      font-family: 'Raleway', sans-serif; font-weight: 300;
+      font-size: 20px; letter-spacing: 0.15em; color: var(--bleu-nuit);
+    }
     .nav-logo span { font-weight: 100; }
-    .nav-links { display: flex; gap: 32px; }
-    .nav-links a { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--bleu-ardoise); text-decoration: none; font-weight: 400; transition: color 0.2s; }
+    .nav-links { display: -webkit-flex; display: flex; gap: 32px; }
+    .nav-links a {
+      font-family: 'Raleway', sans-serif; font-size: 11px;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--bleu-ardoise); text-decoration: none; font-weight: 400;
+      -webkit-transition: color 0.2s; transition: color 0.2s;
+    }
     .nav-links a:hover { color: var(--bleu-nuit); }
-    .hero { min-height: 90vh; background: var(--degrade); display: flex; align-items: center; padding: 80px 64px; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 90vh; min-height: 90dvh;
+      background: var(--degrade);
+      display: -webkit-flex; display: flex;
+      -webkit-align-items: center; align-items: center;
+      padding: 80px 64px;
+    }
     .hero-inner { max-width: 600px; width: 100%; }
-    .hero-tag { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--vert-sauge); margin-bottom: 32px; font-weight: 300; }
-    .hero-title { font-size: clamp(28px,5vw,52px); font-weight: 200; line-height: 1.25; color: var(--blanc); margin-bottom: 24px; }
+    .hero-tag {
+      font-family: 'Raleway', sans-serif; font-size: 10px;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--vert-sauge); margin-bottom: 32px; font-weight: 300;
+    }
+    .hero-title {
+      font-family: 'Raleway', sans-serif;
+      font-size: 48px; font-size: clamp(28px, 5vw, 52px);
+      font-weight: 200; line-height: 1.25;
+      color: var(--blanc); margin-bottom: 24px; letter-spacing: 0.02em;
+    }
     .hero-title strong { font-weight: 300; color: var(--vert-sauge); }
-    .hero-sub { font-weight: 200; font-size: 14px; line-height: 1.9; color: rgba(255,255,255,0.55); margin-bottom: 44px; max-width: 460px; }
-    .hero-cta { display: inline-block; padding: 14px 36px; border: 1px solid rgba(255,255,255,0.35); color: var(--blanc); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 300; text-decoration: none; background: transparent; transition: all 0.3s; }
+    .hero-sub {
+      font-family: 'Raleway', sans-serif; font-weight: 200;
+      font-size: 14px; line-height: 1.9;
+      color: rgba(255,255,255,0.55); margin-bottom: 44px; max-width: 460px;
+    }
+    .hero-cta {
+      display: inline-block; padding: 14px 36px;
+      border: 1px solid rgba(255,255,255,0.35);
+      color: var(--blanc); font-family: 'Raleway', sans-serif;
+      font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+      font-weight: 300; text-decoration: none; background: transparent;
+      -webkit-transition: all 0.3s; transition: all 0.3s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .hero-cta:hover { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.7); }
+
+    /* ── SECTIONS ── */
     section { padding: 88px 64px; }
-    .s-tag { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--vert-sauge); margin-bottom: 12px; font-weight: 300; }
+    .s-tag {
+      font-family: 'Raleway', sans-serif; font-size: 10px;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--vert-sauge); margin-bottom: 12px; font-weight: 300;
+    }
     .s-line { width: 36px; height: 1px; background: var(--vert-sauge); margin: 16px 0 36px; }
-    .s-title { font-size: clamp(22px,3.5vw,38px); font-weight: 200; color: var(--bleu-nuit); line-height: 1.2; }
+    .s-title {
+      font-family: 'Raleway', sans-serif;
+      font-size: 36px; font-size: clamp(22px, 3.5vw, 38px);
+      font-weight: 200; color: var(--bleu-nuit); line-height: 1.2;
+    }
+
+    /* ── CABINET ── */
     #cabinet { background: var(--blanc); }
-    .cabinet-grid { display: flex; flex-wrap: wrap; gap: 64px; margin-top: 48px; }
-    .cabinet-text { flex: 1 1 300px; }
-    .cabinet-text p { font-size: 15px; font-weight: 300; line-height: 1.9; color: var(--bleu-fonce); }
-    .cabinet-values { flex: 1 1 280px; display: flex; flex-direction: column; gap: 28px; }
+    .cabinet-grid {
+      display: -webkit-flex; display: flex;
+      -webkit-flex-wrap: wrap; flex-wrap: wrap;
+      gap: 64px; margin-top: 48px;
+    }
+    .cabinet-text { -webkit-flex: 1 1 300px; flex: 1 1 300px; }
+    .cabinet-text p {
+      font-family: 'Raleway', sans-serif; font-size: 15px;
+      font-weight: 300; line-height: 1.9; color: var(--bleu-fonce);
+    }
+    .cabinet-values {
+      -webkit-flex: 1 1 280px; flex: 1 1 280px;
+      display: -webkit-flex; display: flex;
+      -webkit-flex-direction: column; flex-direction: column;
+      gap: 28px;
+    }
     .val { border-left: 1px solid var(--vert-sauge); padding-left: 20px; }
-    .val h4 { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--bleu-ardoise); margin-bottom: 6px; font-weight: 500; }
-    .val p { font-size: 13px; color: #6b7a8d; line-height: 1.7; font-weight: 300; }
+    .val h4 {
+      font-family: 'Raleway', sans-serif; font-size: 11px;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--bleu-ardoise); margin-bottom: 6px; font-weight: 500;
+    }
+    .val p { font-family: 'Raleway', sans-serif; font-size: 13px; color: #6b7a8d; line-height: 1.7; font-weight: 300; }
+
+    /* ── EXPERTISES ── */
     #expertises { background: #f0f2f4; }
-    .exp-grid { display: flex; flex-wrap: wrap; gap: 2px; margin-top: 48px; }
-    .exp-card { background: var(--blanc); padding: 40px 36px; flex: 1 1 280px; transition: background 0.3s; cursor: default; }
+    .exp-grid {
+      display: -webkit-flex; display: flex;
+      -webkit-flex-wrap: wrap; flex-wrap: wrap;
+      gap: 2px; margin-top: 48px;
+    }
+    .exp-card {
+      background: var(--blanc); padding: 40px 36px;
+      -webkit-flex: 1 1 280px; flex: 1 1 280px;
+      -webkit-transition: background 0.3s; transition: background 0.3s;
+      cursor: default;
+    }
     .exp-card:hover { background: var(--bleu-ardoise); }
-    .exp-card:hover .exp-num, .exp-card:hover .exp-card-title, .exp-card:hover .exp-card-text { color: var(--blanc); }
+    .exp-card:hover .exp-num,
+    .exp-card:hover .exp-card-title,
+    .exp-card:hover .exp-card-text { color: var(--blanc); }
     .exp-card:hover .exp-num { color: var(--vert-sauge); }
-    .exp-num { font-size: 10px; letter-spacing: 0.15em; color: var(--vert-sauge); margin-bottom: 20px; font-weight: 300; }
-    .exp-card-title { font-size: 20px; font-weight: 300; color: var(--bleu-nuit); margin-bottom: 14px; transition: color 0.3s; }
-    .exp-card-text { font-size: 13px; color: #6b7a8d; line-height: 1.75; font-weight: 300; transition: color 0.3s; }
+    .exp-num {
+      font-family: 'Raleway', sans-serif; font-size: 10px;
+      letter-spacing: 0.15em; color: var(--vert-sauge);
+      margin-bottom: 20px; font-weight: 300;
+    }
+    .exp-card-title {
+      font-family: 'Raleway', sans-serif; font-size: 20px;
+      font-weight: 300; color: var(--bleu-nuit);
+      margin-bottom: 14px;
+      -webkit-transition: color 0.3s; transition: color 0.3s;
+    }
+    .exp-card-text {
+      font-family: 'Raleway', sans-serif; font-size: 13px;
+      color: #6b7a8d; line-height: 1.75; font-weight: 300;
+      -webkit-transition: color 0.3s; transition: color 0.3s;
+    }
+
+    /* ── PARCOURS ── */
     #parcours { background: var(--blanc); }
-    .parcours-intro { max-width: 640px; margin-bottom: 64px; }
-    .parcours-intro p { font-size: 15px; font-weight: 300; line-height: 1.9; color: var(--bleu-fonce); }
-    .parcours-grid { display: flex; flex-wrap: wrap; gap: 64px; }
-    .parcours-col { flex: 1 1 300px; }
-    .parcours-col-title { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--vert-sauge); margin-bottom: 28px; font-weight: 300; }
-    .timeline { display: flex; flex-direction: column; }
-    .tl-item { display: flex; gap: 20px; padding-bottom: 32px; }
+    .parcours-intro { max-width: 640px; margin-top: 36px; margin-bottom: 64px; }
+    .parcours-intro p {
+      font-family: 'Raleway', sans-serif; font-size: 15px;
+      font-weight: 300; line-height: 1.9; color: var(--bleu-fonce);
+    }
+    .parcours-grid {
+      display: -webkit-flex; display: flex;
+      -webkit-flex-wrap: wrap; flex-wrap: wrap;
+      gap: 64px;
+    }
+    .parcours-col { -webkit-flex: 1 1 300px; flex: 1 1 300px; }
+    .parcours-col-title {
+      font-family: 'Raleway', sans-serif; font-size: 10px;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--vert-sauge); margin-bottom: 28px; font-weight: 300;
+    }
+    .timeline {
+      display: -webkit-flex; display: flex;
+      -webkit-flex-direction: column; flex-direction: column;
+    }
+    .tl-item { display: -webkit-flex; display: flex; gap: 20px; padding-bottom: 32px; }
     .tl-item:last-child { padding-bottom: 0; }
-    .tl-left { display: flex; flex-direction: column; align-items: center; width: 14px; flex-shrink: 0; padding-top: 4px; }
-    .tl-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--vert-sauge); flex-shrink: 0; }
-    .tl-line { width: 1px; background: rgba(189,201,190,0.35); flex: 1; margin-top: 6px; }
+    .tl-left {
+      display: -webkit-flex; display: flex;
+      -webkit-flex-direction: column; flex-direction: column;
+      -webkit-align-items: center; align-items: center;
+      width: 14px; -webkit-flex-shrink: 0; flex-shrink: 0; padding-top: 4px;
+    }
+    .tl-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--vert-sauge); -webkit-flex-shrink: 0; flex-shrink: 0; }
+    .tl-line { width: 1px; background: rgba(189,201,190,0.35); -webkit-flex: 1; flex: 1; margin-top: 6px; }
     .tl-item:last-child .tl-line { display: none; }
-    .tl-date { font-size: 10px; letter-spacing: 0.1em; color: var(--vert-sauge); font-weight: 300; margin-bottom: 5px; }
-    .tl-title { font-size: 14px; font-weight: 400; color: var(--bleu-nuit); margin-bottom: 3px; line-height: 1.4; }
-    .tl-sub { font-size: 12px; font-weight: 300; color: #6b7a8d; line-height: 1.6; }
+    .tl-date {
+      font-family: 'Raleway', sans-serif; font-size: 10px;
+      letter-spacing: 0.1em; color: var(--vert-sauge); font-weight: 300; margin-bottom: 5px;
+    }
+    .tl-title {
+      font-family: 'Raleway', sans-serif; font-size: 14px;
+      font-weight: 400; color: var(--bleu-nuit); margin-bottom: 3px; line-height: 1.4;
+    }
+    .tl-sub {
+      font-family: 'Raleway', sans-serif; font-size: 12px;
+      font-weight: 300; color: #6b7a8d; line-height: 1.6;
+    }
+
+    /* ── LOGOS ── */
+    .logos-section { margin-top: 72px; }
+    .logos-section-title {
+      font-family: 'Raleway', sans-serif; font-size: 10px;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--vert-sauge); margin-bottom: 28px; font-weight: 300;
+    }
+    .logos-grid {
+      display: -webkit-flex; display: flex;
+      -webkit-flex-wrap: wrap; flex-wrap: wrap;
+      gap: 2px;
+    }
+    .logo-card {
+      -webkit-flex: 1 1 200px; flex: 1 1 200px;
+      background: #f0f2f4;
+      padding: 36px 28px;
+      display: -webkit-flex; display: flex;
+      -webkit-flex-direction: column; flex-direction: column;
+      -webkit-align-items: flex-start; align-items: flex-start;
+      -webkit-justify-content: space-between; justify-content: space-between;
+      min-height: 140px;
+      -webkit-transition: background 0.3s; transition: background 0.3s;
+    }
+    .logo-card:hover { background: #e4e8ec; }
+    .logo-card img {
+      max-width: 100%; max-height: 48px;
+      width: auto; height: auto; object-fit: contain;
+      -webkit-filter: grayscale(100%); filter: grayscale(100%); opacity: 0.65;
+      -webkit-transition: opacity 0.3s, filter 0.3s; transition: opacity 0.3s, -webkit-filter 0.3s;
+    }
+    .logo-card:hover img { -webkit-filter: grayscale(0%); filter: grayscale(0%); opacity: 1; }
+    .logo-card-label {
+      font-family: 'Raleway', sans-serif; font-size: 10px;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: #6b7a8d; font-weight: 400; margin-top: 18px;
+    }
+    @media screen and (max-width: 768px) {
+      .parcours-grid { gap: 40px; }
+      .logo-card { -webkit-flex: 1 1 calc(50% - 1px); flex: 1 1 calc(50% - 1px); }
+    }
+    @media screen and (max-width: 480px) {
+      .logo-card { -webkit-flex: 1 1 100%; flex: 1 1 100%; }
+    }
+
+    /* ── CONTACT ── */
     #contact { background: var(--bleu-nuit); }
     #contact .s-title { color: var(--blanc); }
-    .contact-grid { display: flex; flex-wrap: wrap; gap: 64px; margin-top: 48px; }
-    .contact-info { flex: 1 1 260px; }
-    .contact-info p { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 2.2; font-weight: 300; }
+    .contact-grid {
+      display: -webkit-flex; display: flex;
+      -webkit-flex-wrap: wrap; flex-wrap: wrap;
+      gap: 64px; margin-top: 48px;
+    }
+    .contact-info { -webkit-flex: 1 1 260px; flex: 1 1 260px; }
+    .contact-info p {
+      font-family: 'Raleway', sans-serif; font-size: 13px;
+      color: rgba(255,255,255,0.45); line-height: 2.2; font-weight: 300;
+    }
     .contact-info strong { color: var(--vert-sauge); font-weight: 300; }
-    .form { flex: 1 1 300px; display: flex; flex-direction: column; gap: 14px; }
-    .form input, .form textarea { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 13px 18px; color: var(--blanc); font-size: 13px; font-weight: 300; outline: none; border-radius: 0; }
+    .form {
+      -webkit-flex: 1 1 300px; flex: 1 1 300px;
+      display: -webkit-flex; display: flex;
+      -webkit-flex-direction: column; flex-direction: column;
+      gap: 14px;
+    }
+    .form input, .form textarea {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 13px 18px; color: var(--blanc);
+      font-family: 'Raleway', sans-serif; font-size: 13px;
+      font-weight: 300; outline: none;
+      -webkit-appearance: none; appearance: none;
+      border-radius: 0;
+      -webkit-transition: border-color 0.2s; transition: border-color 0.2s;
+    }
     .form input::placeholder, .form textarea::placeholder { color: rgba(255,255,255,0.25); }
+    .form input:focus, .form textarea:focus { border-color: rgba(189,201,190,0.5); }
     .form textarea { height: 110px; resize: vertical; }
-    .form button { align-self: flex-start; background: transparent; border: 1px solid rgba(255,255,255,0.25); color: var(--blanc); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; padding: 14px 32px; cursor: pointer; font-weight: 300; border-radius: 0; }
-    footer { padding: 24px 64px; background: var(--noir); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
-    footer span { font-size: 10px; color: rgba(255,255,255,0.2); letter-spacing: 0.1em; font-weight: 300; }
-    @media (max-width: 768px) { nav { padding: 16px 20px; } .nav-links { gap: 16px; } .nav-links a { font-size: 10px; } .hero { padding: 60px 20px; min-height: 80vh; } section { padding: 60px 20px; } .exp-card { flex: 1 1 100%; } .parcours-grid { gap: 40px; } footer { padding: 20px; justify-content: center; } }
-    @media (max-width: 480px) { .nav-links a { font-size: 9px; } .hero { padding: 48px 16px; } section { padding: 48px 16px; } }
+    .form button {
+      -webkit-align-self: flex-start; align-self: flex-start;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.25);
+      color: var(--blanc); font-family: 'Raleway', sans-serif;
+      font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+      padding: 14px 32px; cursor: pointer; font-weight: 300;
+      -webkit-appearance: none; appearance: none; border-radius: 0;
+      -webkit-transition: all 0.3s; transition: all 0.3s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .form button:hover { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.6); }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 24px 64px; background: var(--noir);
+      display: -webkit-flex; display: flex;
+      -webkit-align-items: center; align-items: center;
+      -webkit-justify-content: space-between; justify-content: space-between;
+      -webkit-flex-wrap: wrap; flex-wrap: wrap;
+      gap: 8px;
+    }
+    footer span {
+      font-family: 'Raleway', sans-serif; font-size: 10px;
+      color: rgba(255,255,255,0.2); letter-spacing: 0.1em; font-weight: 300;
+    }
+
+    /* ── MOBILE ── */
+    @media screen and (max-width: 768px) {
+      nav { padding: 16px 20px; }
+      .nav-logo { font-size: 16px; }
+      .nav-links { gap: 16px; }
+      .nav-links a { font-size: 10px; }
+      .hero { padding: 60px 20px; min-height: 80vh; min-height: 80dvh; }
+      .hero-title { font-size: clamp(26px, 7vw, 36px); }
+      .hero-sub { font-size: 13px; }
+      section { padding: 60px 20px; }
+      .cabinet-grid { gap: 40px; }
+      .exp-card { -webkit-flex: 1 1 100%; flex: 1 1 100%; }
+      .contact-grid { gap: 40px; }
+      footer { padding: 20px; -webkit-justify-content: center; justify-content: center; text-align: center; }
+    }
+
+    @media screen and (max-width: 480px) {
+      .nav-links a { font-size: 9px; letter-spacing: 0.06em; }
+      .hero { padding: 48px 16px; }
+      section { padding: 48px 16px; }
+    }
   </style>
 </head>
 <body>
-<div id="splash"><div class="splash-logo"><div class="splash-name" id="splashName">Gacem</div><div class="splash-line" id="splashLine"></div><div class="splash-sub" id="splashSub">Avocat</div></div></div>
-<div id="site" style="opacity:0;transition:opacity 0.7s ease">
-  <nav><div class="nav-logo">Gacem <span>Avocat</span></div><div class="nav-links"><a href="#cabinet">Cabinet</a><a href="#expertises">Expertises</a><a href="#parcours">Parcours</a><a href="#contact">Contact</a></div></nav>
-  <section class="hero"><div class="hero-inner"><div class="hero-tag">Cabinet d'avocat &middot; Droit public &middot; Paris</div><h1 class="hero-title">L'excellence juridique<br>au service de<br><strong>vos int&eacute;r&ecirc;ts</strong></h1><p class="hero-sub">Conseil et contentieux en droit public pour les entreprises et collectivit&eacute;s territoriales.</p><a class="hero-cta" href="#contact">Prendre contact</a></div></section>
-  <section id="cabinet"><div class="s-tag">Le cabinet</div><div class="s-line"></div><h2 class="s-title">Un engagement total<br>pour vos int&eacute;r&ecirc;ts</h2><div class="cabinet-grid"><div class="cabinet-text"><p>Gacem Avocat est un cabinet sp&eacute;cialis&eacute; en droit public, d&eacute;di&eacute; &agrave; l'accompagnement des entreprises et des collectivit&eacute;s territoriales.</p></div><div class="cabinet-values"><div class="val"><h4>Excellence</h4><p>Une analyse juridique approfondie et une strat&eacute;gie adapt&eacute;e &agrave; chaque dossier.</p></div><div class="val"><h4>Proximit&eacute;</h4><p>Un suivi personnalis&eacute; et une disponibilit&eacute; totale pour nos clients.</p></div><div class="val"><h4>Confidentialit&eacute;</h4><p>La discr&eacute;tion et la confidentialit&eacute; sont au c&oelig;ur de notre pratique.</p></div></div></div></section>
-  <section id="expertises"><div class="s-tag">Domaines d'expertise</div><div class="s-line"></div><h2 class="s-title">Nos sp&eacute;cialit&eacute;s</h2><div class="exp-grid"><div class="exp-card"><div class="exp-num">01</div><div class="exp-card-title">Droit administratif</div><div class="exp-card-text">Conseil et repr&eacute;sentation dans vos relations avec les administrations publiques.</div></div><div class="exp-card"><div class="exp-num">02</div><div class="exp-card-title">March&eacute;s publics</div><div class="exp-card-text">Accompagnement dans la passation, l'ex&eacute;cution et le contentieux des march&eacute;s publics.</div></div><div class="exp-card"><div class="exp-num">03</div><div class="exp-card-title">Urbanisme</div><div class="exp-card-text">Assistance juridique en droit de l'urbanisme, permis de construire, PLU.</div></div><div class="exp-card"><div class="exp-num">04</div><div class="exp-card-title">Contentieux administratif</div><div class="exp-card-text">D&eacute;fense de vos int&eacute;r&ecirc;ts devant les juridictions administratives.</div></div></div></section>
-  <section id="parcours"><div class="s-tag">Hakim Gacem</div><div class="s-line"></div><h2 class="s-title">Un parcours au c&oelig;ur<br>du droit public</h2><div class="parcours-intro" style="margin-top:36px"><p>Titulaire du CAPA et avocat au Barreau de Paris, Hakim Gacem a construit un parcours singulier alliant rigueur acad&eacute;mique, exp&eacute;rience institutionnelle et engagement public. Form&eacute; aux meilleures universit&eacute;s fran&ccedil;aises en droit public des affaires, il a exerc&eacute; au sein de juridictions administratives, de grands groupes priv&eacute;s et d'institutions locales &mdash; forgeant une vision globale et strat&eacute;gique du droit.</p></div><div class="parcours-grid"><div class="parcours-col"><div class="parcours-col-title">Exp&eacute;riences professionnelles</div><div class="timeline"><div class="tl-item"><div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-right"><div class="tl-date">Janv. 2025 &mdash; Sept. 2025</div><div class="tl-title">&Eacute;l&egrave;ve avocat &mdash; Droit public</div><div class="tl-sub">Centaure Avocats &middot; Paris<br>Stage final EFB &mdash; Droit public des affaires, p&eacute;nal, urbanisme</div></div></div><div class="tl-item"><div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-right"><div class="tl-date">Juil. 2024 &mdash; Janv. 2025</div><div class="tl-title">Aide &agrave; la d&eacute;cision</div><div class="tl-sub">Tribunal administratif de Versailles<br>Urbanisme, responsabilit&eacute;, commande publique</div></div></div><div class="tl-item"><div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-right"><div class="tl-date">Sept. 2021 &mdash; 2022</div><div class="tl-title">Collaborateur en affaires publiques</div><div class="tl-sub">Orange Groupe &middot; Issy-les-Moulineaux</div></div></div><div class="tl-item"><div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-right"><div class="tl-date">Avr. 2021 &mdash; Ao&ucirc;t 2021</div><div class="tl-title">Juriste stagiaire &mdash; Droit public</div><div class="tl-sub">MiPih (GIP num&eacute;rique en sant&eacute;) &middot; Toulouse</div></div></div><div class="tl-item"><div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-right"><div class="tl-date">Mars 2020 &mdash; Pr&eacute;sent</div><div class="tl-title">Conseiller municipal d&eacute;l&eacute;gu&eacute;</div><div class="tl-sub">Commune d'Onet-le-Ch&acirc;teau &middot; Aveyron</div></div></div><div class="tl-item"><div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-right"><div class="tl-date">Juin 2019</div><div class="tl-title">Juriste stagiaire</div><div class="tl-sub">Conseil d&eacute;partemental de l'Aveyron &middot; Rodez</div></div></div></div></div><div class="parcours-col"><div class="parcours-col-title">Formation</div><div class="timeline"><div class="tl-item"><div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-right"><div class="tl-date">Nov. 2025</div><div class="tl-title">CAPA &mdash; Certificat d'Aptitude &agrave; la Profession d'Avocat</div><div class="tl-sub">&Eacute;cole de Formation du Barreau &middot; IEJ Paris II Panth&eacute;on-Assas</div></div></div><div class="tl-item"><div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-right"><div class="tl-date">2021 &mdash; 2022</div><div class="tl-title">Master Droit &amp; Affaires publiques (M299)</div><div class="tl-sub">Paris Dauphine &mdash; PSL &middot; Lobbying, n&eacute;gociation, plaidoyer</div></div></div><div class="tl-item"><div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-right"><div class="tl-date">2020 &mdash; 2021</div><div class="tl-title">Master 1 &amp; 2 Droit public des affaires</div><div class="tl-sub">Universit&eacute; Toulouse I Capitole</div></div></div><div class="tl-item"><div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-right"><div class="tl-date">2016 &mdash; 2019</div><div class="tl-title">Licence en droit</div><div class="tl-sub">Universit&eacute; Toulouse I Capitole</div></div></div></div><div class="parcours-col-title" style="margin-top:48px">Engagements</div><div class="timeline"><div class="tl-item"><div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-right"><div class="tl-date">Depuis 2021</div><div class="tl-title">Membre des Jeunes IHEDN</div><div class="tl-sub">Institut des Hautes &Eacute;tudes de D&eacute;fense Nationale</div></div></div></div></div></div></section>
-  <section id="contact"><div class="s-tag" style="color:#bdc9be">Contact</div><div class="s-line"></div><h2 class="s-title">Parlons de<br>votre projet</h2><div class="contact-grid"><div class="contact-info"><p><strong>Gacem Avocat</strong><br>Barreau de Paris<br><br><strong>Email</strong><br>contact@gacem-avocat.fr<br><br><strong>T&eacute;l&eacute;phone</strong><br>+33 (0)6 51 54 00 54<br><br><strong>Disponibilit&eacute;</strong><br>Lundi &mdash; Vendredi &middot; 9h &mdash; 19h</p></div><div class="form"><input type="text" placeholder="Nom &amp; Pr&eacute;nom"><input type="email" placeholder="Adresse email"><input type="text" placeholder="Objet"><textarea placeholder="Votre message"></textarea><button type="submit">Envoyer le message</button></div></div></section>
-  <footer><span>&copy; 2026 Gacem Avocat &middot; Tous droits r&eacute;serv&eacute;s</span><span>Barreau de Paris</span></footer>
+
+<!-- SPLASH -->
+<div id="splash">
+  <div class="splash-logo">
+    <div class="splash-name" id="splashName">Gacem</div>
+    <div class="splash-line" id="splashLine"></div>
+    <div class="splash-sub" id="splashSub">Avocat</div>
+  </div>
 </div>
-<script>(function(){function s(){var n=document.getElementById('splashName'),l=document.getElementById('splashLine'),b=document.getElementById('splashSub'),sp=document.getElementById('splash'),si=document.getElementById('site');if(!n||!sp||!si)return;setTimeout(function(){n.style.opacity='1';n.style.transform='translateY(0)';},100);setTimeout(function(){l.style.transition='width 0.5s ease';l.style.width='60px';},900);setTimeout(function(){b.style.opacity='1';b.style.transform='translateY(0)';},1100);setTimeout(function(){sp.style.opacity='0';sp.style.pointerEvents='none';si.style.opacity='1';},2400);setTimeout(function(){sp.style.display='none';},3200);}if(document.fonts&&document.fonts.ready){document.fonts.ready.then(function(){setTimeout(s,200);});}else{window.addEventListener('load',function(){setTimeout(s,300);});}})();</script>
+
+<!-- SITE -->
+<div id="site" style="opacity:0; -webkit-transition: opacity 0.7s ease; transition: opacity 0.7s ease;">
+
+  <nav>
+    <div class="nav-logo">Gacem <span>Avocat</span></div>
+    <div class="nav-links">
+      <a href="#cabinet">Cabinet</a>
+      <a href="#expertises">Expertises</a>
+      <a href="#parcours">Parcours</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-tag">Cabinet d&#39;avocat &middot; Droit public &middot; Paris</div>
+      <h1 class="hero-title">L&#39;excellence juridique<br>au service de<br><strong>vos int&#233;r&#234;ts</strong></h1>
+      <p class="hero-sub">Conseil et contentieux en droit public pour les entreprises et collectivit&#233;s territoriales. Une expertise pointue, une approche sur mesure.</p>
+      <a class="hero-cta" href="#contact">Prendre contact</a>
+    </div>
+  </section>
+
+  <section id="cabinet">
+    <div class="s-tag">Le cabinet</div>
+    <div class="s-line"></div>
+    <h2 class="s-title">Un engagement total<br>pour vos int&#233;r&#234;ts</h2>
+    <div class="cabinet-grid">
+      <div class="cabinet-text">
+        <p>Gacem Avocat est un cabinet sp&#233;cialis&#233; en droit public, d&#233;di&#233; &#224; l&#39;accompagnement des entreprises et des collectivit&#233;s territoriales. Fond&#233; sur des valeurs d&#39;excellence et de rigueur, le cabinet offre une expertise reconnue en droit administratif, march&#233;s publics, urbanisme et contentieux administratif.</p>
+      </div>
+      <div class="cabinet-values">
+        <div class="val">
+          <h4>Excellence</h4>
+          <p>Une analyse juridique approfondie et une strat&#233;gie adapt&#233;e &#224; chaque dossier.</p>
+        </div>
+        <div class="val">
+          <h4>Proximit&#233;</h4>
+          <p>Un suivi personnalis&#233; et une disponibilit&#233; totale pour nos clients.</p>
+        </div>
+        <div class="val">
+          <h4>Confidentialit&#233;</h4>
+          <p>La discr&#233;tion et la confidentialit&#233; sont au c&#339;ur de notre pratique.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="expertises">
+    <div class="s-tag">Domaines d&#39;expertise</div>
+    <div class="s-line"></div>
+    <h2 class="s-title">Nos sp&#233;cialit&#233;s</h2>
+    <div class="exp-grid">
+      <div class="exp-card">
+        <div class="exp-num">01</div>
+        <div class="exp-card-title">Droit administratif</div>
+        <div class="exp-card-text">Conseil et repr&#233;sentation dans vos relations avec les administrations publiques et les autorit&#233;s de r&#233;gulation.</div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-num">02</div>
+        <div class="exp-card-title">March&#233;s publics</div>
+        <div class="exp-card-text">Accompagnement dans la passation, l&#39;ex&#233;cution et le contentieux des march&#233;s publics et contrats administratifs.</div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-num">03</div>
+        <div class="exp-card-title">Urbanisme</div>
+        <div class="exp-card-text">Assistance juridique en droit de l&#39;urbanisme, permis de construire, PLU et op&#233;rations d&#39;am&#233;nagement.</div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-num">04</div>
+        <div class="exp-card-title">Contentieux administratif</div>
+        <div class="exp-card-text">D&#233;fense de vos int&#233;r&#234;ts devant les juridictions administratives, du tribunal au Conseil d&#39;&#201;tat.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="parcours">
+    <div class="s-tag">Hakim Gacem</div>
+    <div class="s-line"></div>
+    <h2 class="s-title">Un parcours au c&#339;ur<br>du droit public</h2>
+    <div class="parcours-intro">
+      <p>Titulaire du CAPA et avocat au Barreau de Paris, Hakim Gacem a construit un parcours singulier alliant rigueur acad&#233;mique, exp&#233;rience institutionnelle et engagement public. Form&#233; aux meilleures universit&#233;s fran&#231;aises en droit public des affaires, il a exerc&#233; au sein de juridictions administratives, de grands groupes priv&#233;s et d&#39;institutions locales &mdash; forgeant une vision globale et strat&#233;gique du droit.</p>
+    </div>
+    <div class="parcours-grid">
+      <div class="parcours-col">
+        <div class="parcours-col-title">Exp&#233;riences professionnelles</div>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
+            <div class="tl-right">
+              <div class="tl-date">Janv. 2025 &mdash; Sept. 2025</div>
+              <div class="tl-title">&#201;l&#232;ve avocat &mdash; Droit public</div>
+              <div class="tl-sub">Centaure Avocats &middot; Paris<br>Stage final EFB &mdash; Droit public des affaires, p&#233;nal, urbanisme</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
+            <div class="tl-right">
+              <div class="tl-date">Juil. 2024 &mdash; Janv. 2025</div>
+              <div class="tl-title">Aide &#224; la d&#233;cision</div>
+              <div class="tl-sub">Tribunal administratif de Versailles<br>Urbanisme, responsabilit&#233;, commande publique</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
+            <div class="tl-right">
+              <div class="tl-date">Sept. 2021 &mdash; 2022</div>
+              <div class="tl-title">Collaborateur en affaires publiques</div>
+              <div class="tl-sub">Orange Groupe &middot; Issy-les-Moulineaux</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
+            <div class="tl-right">
+              <div class="tl-date">Avr. 2021 &mdash; Ao&#251;t 2021</div>
+              <div class="tl-title">Juriste stagiaire &mdash; Droit public</div>
+              <div class="tl-sub">MiPih (GIP num&#233;rique en sant&#233;) &middot; Toulouse</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
+            <div class="tl-right">
+              <div class="tl-date">Mars 2020 &mdash; Pr&#233;sent</div>
+              <div class="tl-title">Conseiller municipal d&#233;l&#233;gu&#233;</div>
+              <div class="tl-sub">Commune d&#39;Onet-le-Ch&#226;teau &middot; Aveyron</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
+            <div class="tl-right">
+              <div class="tl-date">Juin 2019</div>
+              <div class="tl-title">Juriste stagiaire</div>
+              <div class="tl-sub">Conseil d&#233;partemental de l&#39;Aveyron &middot; Rodez</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="parcours-col">
+        <div class="parcours-col-title">Formation</div>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
+            <div class="tl-right">
+              <div class="tl-date">Nov. 2025</div>
+              <div class="tl-title">CAPA &mdash; Certificat d&#39;Aptitude &#224; la Profession d&#39;Avocat</div>
+              <div class="tl-sub">&#201;cole de Formation du Barreau &middot; IEJ Paris II Panth&#233;on-Assas</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
+            <div class="tl-right">
+              <div class="tl-date">2021 &mdash; 2022</div>
+              <div class="tl-title">Master Droit &amp; Affaires publiques (M299)</div>
+              <div class="tl-sub">Paris Dauphine &mdash; PSL &middot; Lobbying, n&#233;gociation, plaidoyer</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
+            <div class="tl-right">
+              <div class="tl-date">2020 &mdash; 2021</div>
+              <div class="tl-title">Master 1 &amp; 2 Droit public des affaires</div>
+              <div class="tl-sub">Universit&#233; Toulouse I Capitole</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
+            <div class="tl-right">
+              <div class="tl-date">2016 &mdash; 2019</div>
+              <div class="tl-title">Licence en droit</div>
+              <div class="tl-sub">Universit&#233; Toulouse I Capitole</div>
+            </div>
+          </div>
+        </div>
+        <div class="parcours-col-title" style="margin-top:48px">Engagements</div>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
+            <div class="tl-right">
+              <div class="tl-date">Depuis 2021</div>
+              <div class="tl-title">Membre des Jeunes IHEDN</div>
+              <div class="tl-sub">Institut des Hautes &#201;tudes de D&#233;fense Nationale</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="logos-section">
+      <div class="logos-section-title">Institutions</div>
+      <div class="logos-grid">
+        <div class="logo-card">
+          <img src="assets/logo-toulouse-capitole.jpg" alt="Universit&#233; Toulouse 1 Capitole">
+          <div class="logo-card-label">Universit&#233; Toulouse 1 Capitole</div>
+        </div>
+        <div class="logo-card">
+          <img src="assets/logo-efb.png" alt="&#201;cole de Formation du Barreau de Paris">
+          <div class="logo-card-label">&#201;cole de Formation du Barreau</div>
+        </div>
+        <div class="logo-card">
+          <img src="assets/logo-dauphine.png" alt="Universit&#233; Paris Dauphine">
+          <div class="logo-card-label">Paris Dauphine &ndash; PSL</div>
+        </div>
+        <div class="logo-card">
+          <img src="assets/logo-orange.png" alt="Orange">
+          <div class="logo-card-label">Orange</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="s-tag" style="color:#bdc9be;">Contact</div>
+    <div class="s-line"></div>
+    <h2 class="s-title">Parlons de<br>votre projet</h2>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p>
+          <strong>Gacem Avocat</strong><br>
+          Barreau de Paris<br><br>
+          <strong>Email</strong><br>
+          contact@gacem-avocat.fr<br><br>
+          <strong>T&#233;l&#233;phone</strong><br>
+          +33 (0)1 XX XX XX XX<br><br>
+          <strong>Disponibilit&#233;</strong><br>
+          Lundi &mdash; Vendredi &middot; 9h &mdash; 19h
+        </p>
+      </div>
+      <div class="form">
+        <input type="text" placeholder="Nom &#38; Pr&#233;nom" autocomplete="name">
+        <input type="email" placeholder="Adresse email" autocomplete="email">
+        <input type="text" placeholder="Objet">
+        <textarea placeholder="Votre message"></textarea>
+        <button type="submit">Envoyer le message</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>&#169; 2026 Gacem Avocat &middot; Tous droits r&#233;serv&#233;s</span>
+    <span>Barreau de Paris</span>
+  </footer>
+
+</div>
+
+<script>
+(function() {
+  function startSplash() {
+    var name = document.getElementById('splashName');
+    var line = document.getElementById('splashLine');
+    var sub = document.getElementById('splashSub');
+    var splash = document.getElementById('splash');
+    var site = document.getElementById('site');
+
+    if (!name || !splash || !site) return;
+
+    setTimeout(function() {
+      name.style.opacity = '1';
+      name.style.webkitTransform = 'translateY(0)';
+      name.style.transform = 'translateY(0)';
+    }, 100);
+
+    setTimeout(function() {
+      line.style.webkitTransition = 'width 0.5s ease';
+      line.style.transition = 'width 0.5s ease';
+      line.style.width = '60px';
+    }, 900);
+
+    setTimeout(function() {
+      sub.style.opacity = '1';
+      sub.style.webkitTransform = 'translateY(0)';
+      sub.style.transform = 'translateY(0)';
+    }, 1100);
+
+    setTimeout(function() {
+      splash.style.opacity = '0';
+      splash.style.pointerEvents = 'none';
+      site.style.opacity = '1';
+    }, 2400);
+
+    setTimeout(function() {
+      splash.style.display = 'none';
+    }, 3200);
+  }
+
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(function() {
+      setTimeout(startSplash, 200);
+    });
+  } else {
+    window.addEventListener('load', function() {
+      setTimeout(startSplash, 300);
+    });
+  }
+})();
+</script>
+
 </body>
 </html>
