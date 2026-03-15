@@ -4,10 +4,87 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Administration &mdash; Gacem Avocat</title>
-  <!-- Empêche l'indexation de la page admin -->
   <meta name="robots" content="noindex, nofollow">
+  <!-- Empêche l'auto-init pour utiliser CMS.init() avec config JS -->
+  <script>window.CMS_MANUAL_INIT = true;</script>
 </head>
 <body>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script>
+    CMS.init({
+      config: {
+        backend: {
+          name: 'github',
+          repo: 'zexthazi-sys/gacem-avocat',
+          branch: 'main',
+          auth_type: 'pkce',
+          app_id: 'Ov23liLNXz7TkuCWn09g'
+        },
+        locale: 'fr',
+        site_url: 'https://gacem-avocat.com',
+        display_url: 'https://gacem-avocat.com',
+        media_folder: 'assets/uploads',
+        public_folder: '/assets/uploads',
+        collections: [
+          {
+            name: 'posts',
+            label: 'Articles de blog',
+            label_singular: 'Article',
+            folder: 'posts',
+            create: true,
+            delete: true,
+            slug: '{{slug}}',
+            preview_path: '/blog/{{slug}}.html',
+            summary: '{{title}} \u2014 {{date}}',
+            fields: [
+              {
+                label: 'Titre',
+                name: 'title',
+                widget: 'string',
+                hint: 'Titre complet de l\'article'
+              },
+              {
+                label: 'Date de publication',
+                name: 'date',
+                widget: 'datetime',
+                date_format: 'YYYY-MM-DD',
+                time_format: false,
+                format: 'YYYY-MM-DD'
+              },
+              {
+                label: 'Cat\u00e9gorie',
+                name: 'category',
+                widget: 'select',
+                options: [
+                  'Urbanisme',
+                  'March\u00e9s publics',
+                  'Droit administratif',
+                  'Droit public',
+                  'Contentieux'
+                ]
+              },
+              {
+                label: 'Meta description (SEO)',
+                name: 'description',
+                widget: 'text',
+                hint: '150\u2013160 caract\u00e8res max.'
+              },
+              {
+                label: 'Extrait',
+                name: 'excerpt',
+                widget: 'text',
+                hint: '2\u20133 phrases r\u00e9sumant l\'article.'
+              },
+              {
+                label: 'Corps de l\'article',
+                name: 'body',
+                widget: 'markdown'
+              }
+            ]
+          }
+        ]
+      }
+    });
+  </script>
 </body>
 </html>
