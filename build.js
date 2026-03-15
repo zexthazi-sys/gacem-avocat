@@ -23,7 +23,16 @@ const MONTHS_FR = [
   'juillet','août','septembre','octobre','novembre','décembre'
 ];
 function formatDateFr(dateStr) {
-  const d = new Date(dateStr + 'T12:00:00Z');
+  if (!dateStr) return '';
+  // gray-matter peut retourner un objet Date ou une string ISO/YYYY-MM-DD
+  let d;
+  if (dateStr instanceof Date) {
+    d = dateStr;
+  } else {
+    const s = String(dateStr);
+    d = s.includes('T') ? new Date(s) : new Date(s + 'T12:00:00Z');
+  }
+  if (isNaN(d.getTime())) return String(dateStr);
   return `${d.getUTCDate()} ${MONTHS_FR[d.getUTCMonth()]} ${d.getUTCFullYear()}`;
 }
 
@@ -203,11 +212,17 @@ for (const file of files) {
   fs.writeFileSync(outPath, html, 'utf-8');
   console.log(`  ✓ /blog/${slug}.html`);
 
+  // Normaliser la date en string YYYY-MM-DD (gray-matter peut retourner un objet Date)
+  const rawDate = data.date;
+  const dateStr = rawDate instanceof Date
+    ? rawDate.toISOString().slice(0, 10)
+    : String(rawDate || '').slice(0, 10);
+
   posts.push({
     slug,
     title:       data.title       || '',
-    date:        data.date        || '',
-    dateFr:      formatDateFr(data.date || new Date().toISOString().slice(0,10)),
+    date:        dateStr,
+    dateFr:      formatDateFr(dateStr || new Date().toISOString().slice(0,10)),
     category:    data.category    || '',
     description: data.description || '',
     excerpt:     data.excerpt     || '',
