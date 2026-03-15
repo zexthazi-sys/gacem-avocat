@@ -177,6 +177,16 @@
       .blog-hero { padding: 48px 16px 40px; }
       .articles-section { padding: 48px 16px; }
     }
+    .loading-state {
+      font-family: 'Raleway', sans-serif; font-size: 12px;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--vert-sauge); font-weight: 300;
+      padding: 48px 0;
+    }
+    .error-state {
+      font-family: 'Raleway', sans-serif; font-size: 13px;
+      color: #6b7a8d; font-weight: 300; padding: 48px 0;
+    }
   </style>
 </head>
 <body>
@@ -207,32 +217,8 @@
       <div class="s-tag">Articles</div>
       <div class="s-line"></div>
 
-      <div class="articles-grid" role="list">
-
-        <a href="/blog/recours-permis-construire.html" class="article-card" role="listitem">
-          <div class="article-card-meta">
-            <span class="article-date">10 mars 2026</span>
-            <span class="article-category">Urbanisme</span>
-          </div>
-          <div class="article-card-body">
-            <h2 class="article-card-title">Le recours contre un permis de construire&nbsp;: ce qu&rsquo;il faut savoir</h2>
-            <p class="article-card-excerpt">Voisin d&rsquo;un projet de construction, collectivité ou promoteur&nbsp;: la contestation d&rsquo;un permis de construire obéit à des règles strictes. Délais, qualité pour agir, effets suspensifs&nbsp;— tour d&rsquo;horizon des mécanismes essentiels du contentieux de l&rsquo;urbanisme.</p>
-            <span class="article-read-more">Lire l&rsquo;article &rarr;</span>
-          </div>
-        </a>
-
-        <a href="/blog/allotissement-marches-publics.html" class="article-card" role="listitem">
-          <div class="article-card-meta">
-            <span class="article-date">3 mars 2026</span>
-            <span class="article-category">March&eacute;s publics</span>
-          </div>
-          <div class="article-card-body">
-            <h2 class="article-card-title">L&rsquo;allotissement dans les march&eacute;s publics&nbsp;: enjeux et obligations pour les acheteurs</h2>
-            <p class="article-card-excerpt">Principe fondamental de la commande publique, l&rsquo;allotissement impose à l&rsquo;acheteur de diviser ses marchés en lots distincts. Obligations légales, dérogations admises et risques contentieux&nbsp;: ce que tout acheteur public doit maîtriser.</p>
-            <span class="article-read-more">Lire l&rsquo;article &rarr;</span>
-          </div>
-        </a>
-
+      <div class="articles-grid" id="articles-grid" role="list">
+        <div class="loading-state" aria-live="polite">Chargement des articles&hellip;</div>
       </div>
     </section>
 
@@ -242,6 +228,49 @@
     <span>&copy; 2026 Gacem Avocat &middot; Tous droits r&eacute;serv&eacute;s</span>
     <a href="/">Retour au site</a>
   </footer>
+
+<script>
+(function () {
+  var grid = document.getElementById('articles-grid');
+  if (!grid) return;
+
+  fetch('/posts/index.json')
+    .then(function (r) {
+      if (!r.ok) throw new Error('Erreur ' + r.status);
+      return r.json();
+    })
+    .then(function (posts) {
+      if (!posts || posts.length === 0) {
+        grid.innerHTML = '<p class="error-state">Aucun article pour le moment.</p>';
+        return;
+      }
+      grid.innerHTML = posts.map(function (p) {
+        return '<a href="/blog/' + p.slug + '.html" class="article-card" role="listitem">'
+          + '<div class="article-card-meta">'
+          + '<span class="article-date">' + escHtml(p.dateFr) + '</span>'
+          + '<span class="article-category">' + escHtml(p.category) + '</span>'
+          + '</div>'
+          + '<div class="article-card-body">'
+          + '<h2 class="article-card-title">' + escHtml(p.title) + '</h2>'
+          + '<p class="article-card-excerpt">' + escHtml(p.excerpt) + '</p>'
+          + '<span class="article-read-more">Lire l\u2019article \u2192</span>'
+          + '</div>'
+          + '</a>';
+      }).join('');
+    })
+    .catch(function () {
+      grid.innerHTML = '<p class="error-state">Impossible de charger les articles.</p>';
+    });
+
+  function escHtml(str) {
+    return String(str || '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+})();
+</script>
 
 </body>
 </html>
