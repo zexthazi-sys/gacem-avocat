@@ -92,10 +92,16 @@ function articleTemplate(slug, data, bodyHtml) {
     }
     .nav-logo { font-weight: 300; font-size: 20px; letter-spacing: 0.15em; color: var(--bleu-nuit); text-decoration: none; }
     .nav-logo span { font-weight: 100; }
-    .nav-links { display: flex; gap: 32px; }
-    .nav-links a { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--bleu-ardoise); text-decoration: none; font-weight: 400; transition: color 0.2s; }
+    .nav-links { display: flex; gap: 32px; align-items: center; }
+    .nav-links a { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--bleu-ardoise); text-decoration: none; font-weight: 400; position: relative; transition: color 0.2s; }
     .nav-links a:hover { color: var(--bleu-nuit); }
-    .nav-links a.active { color: var(--bleu-nuit); border-bottom: 1px solid var(--vert-sauge); padding-bottom: 2px; }
+    .nav-links a.active { color: var(--bleu-nuit); }
+    .nav-links a:not(.nav-blog)::after { content: ''; position: absolute; left: 0; bottom: -3px; width: 100%; height: 1px; background: var(--bleu-ardoise); transform: scaleX(0); transform-origin: left center; transition: transform 0.28s ease; }
+    .nav-links a:not(.nav-blog):hover::after, .nav-links a:not(.nav-blog).active::after { transform: scaleX(1); }
+    .nav-blog { border: 1px solid rgba(45,63,92,0.22); border-radius: 20px; padding: 5px 12px; background: rgba(45,63,92,0.04); transition: color 0.2s, background 0.25s, border-color 0.25s; }
+    .nav-blog::after { content: ' ↗'; font-size: 9px; vertical-align: 1px; }
+    .nav-blog:hover { background: rgba(45,63,92,0.09); border-color: rgba(45,63,92,0.4); }
+    .nav-blog.active { background: rgba(45,63,92,0.1); border-color: rgba(45,63,92,0.4); }
     .article-header { background: var(--degrade); padding: 88px 64px 72px; }
     .article-header-inner { max-width: 720px; }
     .article-back { display: inline-block; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.4); text-decoration: none; font-weight: 300; margin-bottom: 36px; transition: color 0.2s; }
@@ -149,7 +155,7 @@ function articleTemplate(slug, data, bodyHtml) {
       <a href="/#expertises">Expertises</a>
       <a href="/#parcours">Parcours</a>
       <a href="/#contact">Contact</a>
-      <a href="/blog.html" class="active">Blog</a>
+      <a href="/blog.html" class="active nav-blog">Blog</a>
     </div>
   </nav>
 

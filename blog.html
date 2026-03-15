@@ -41,15 +41,34 @@
       text-decoration: none;
     }
     .nav-logo span { font-weight: 100; }
-    .nav-links { display: -webkit-flex; display: flex; gap: 32px; }
+    .nav-links { display: -webkit-flex; display: flex; gap: 32px; -webkit-align-items: center; align-items: center; }
     .nav-links a {
       font-family: 'Raleway', sans-serif; font-size: 11px;
       letter-spacing: 0.1em; text-transform: uppercase;
       color: var(--bleu-ardoise); text-decoration: none; font-weight: 400;
+      position: relative;
       -webkit-transition: color 0.2s; transition: color 0.2s;
     }
     .nav-links a:hover { color: var(--bleu-nuit); }
-    .nav-links a.active { color: var(--bleu-nuit); border-bottom: 1px solid var(--vert-sauge); padding-bottom: 2px; }
+    .nav-links a.active { color: var(--bleu-nuit); }
+    .nav-links a:not(.nav-blog)::after {
+      content: ''; position: absolute; left: 0; bottom: -3px;
+      width: 100%; height: 1px; background: var(--bleu-ardoise);
+      -webkit-transform: scaleX(0); transform: scaleX(0);
+      -webkit-transform-origin: left center; transform-origin: left center;
+      -webkit-transition: -webkit-transform 0.28s ease; transition: transform 0.28s ease;
+    }
+    .nav-links a:not(.nav-blog):hover::after,
+    .nav-links a:not(.nav-blog).active::after { -webkit-transform: scaleX(1); transform: scaleX(1); }
+    .nav-blog {
+      border: 1px solid rgba(45,63,92,0.22); border-radius: 20px;
+      padding: 5px 12px; background: rgba(45,63,92,0.04);
+      -webkit-transition: color 0.2s, background 0.25s, border-color 0.25s;
+      transition: color 0.2s, background 0.25s, border-color 0.25s;
+    }
+    .nav-blog::after { content: ' ↗'; font-size: 9px; vertical-align: 1px; }
+    .nav-blog:hover { background: rgba(45,63,92,0.09); border-color: rgba(45,63,92,0.4); }
+    .nav-blog.active { background: rgba(45,63,92,0.1); border-color: rgba(45,63,92,0.4); }
 
     /* ── BLOG HERO ── */
     .blog-hero {
@@ -198,7 +217,7 @@
       <a href="/#expertises">Expertises</a>
       <a href="/#parcours">Parcours</a>
       <a href="/#contact">Contact</a>
-      <a href="/blog.html" class="active">Blog</a>
+      <a href="/blog.html" class="active nav-blog">Blog</a>
     </div>
   </nav>
 
