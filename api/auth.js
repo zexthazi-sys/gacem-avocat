@@ -5,7 +5,7 @@ module.exports = function handler(req, res) {
     res.status(500).send('GITHUB_CLIENT_ID non configuré');
     return;
   }
-  const callbackUrl = 'https://gacem-avocat.com/api/callback';
+  const callbackUrl = 'https://www.gacem-avocat.com/api/callback';
   const scope = 'repo,user';
   const url = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(callbackUrl)}&scope=${scope}`;
   res.redirect(302, url);
