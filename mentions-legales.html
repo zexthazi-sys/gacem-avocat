@@ -127,9 +127,10 @@
     .nav-links a {
       font-size: 11px; letter-spacing: 0.12em; font-weight: 400;
       color: rgba(26,37,53,0.65); text-decoration: none; text-transform: uppercase;
-      position: relative; padding-bottom: 2px;
+      position: relative;
       -webkit-transition: color 0.2s; transition: color 0.2s;
     }
+    .nav-links a:not(.nav-blog) { padding-bottom: 2px; }
     .nav-links a:hover { color: var(--bleu-nuit); }
     .nav-links a.active { color: var(--bleu-nuit); }
     .nav-links a:not(.nav-blog)::after {
