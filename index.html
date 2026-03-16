@@ -251,7 +251,15 @@
       display: -webkit-flex; display: flex;
       -webkit-align-items: center; align-items: center;
       padding: 80px 64px;
+      position: relative; overflow: hidden;
     }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: url('assets/musee-soulages.webp') center/cover no-repeat;
+      opacity: 0.18;
+      z-index: 0;
+    }
+    .hero-inner { position: relative; z-index: 1; }
     .hero-inner { max-width: 600px; width: 100%; }
     .hero-tag {
       font-family: 'Raleway', sans-serif; font-size: 11px;
