@@ -282,12 +282,19 @@
 
     /* ── FOOTER ── */
     footer {
-      padding: 28px 64px;
-      display: flex; justify-content: space-between; align-items: center;
-      border-top: 1px solid rgba(45,63,92,0.08);
-      font-size: 11px; letter-spacing: 0.08em;
-      color: var(--bleu-ardoise); opacity: 0.5;
+      padding: 24px 64px; background: var(--noir);
+      display: -webkit-flex; display: flex;
+      -webkit-align-items: center; align-items: center;
+      -webkit-justify-content: space-between; justify-content: space-between;
+      -webkit-flex-wrap: wrap; flex-wrap: wrap;
+      gap: 8px;
     }
+    footer span { font-family: 'Raleway', sans-serif; font-size: 11px;
+      color: rgba(255,255,255,0.55); letter-spacing: 0.1em; font-weight: 400; }
+    footer a { font-family: 'Raleway', sans-serif; font-size: 11px;
+      color: rgba(255,255,255,0.55); letter-spacing: 0.1em; font-weight: 400;
+      text-decoration: none; -webkit-transition: color 0.2s; transition: color 0.2s; }
+    footer a:hover { color: rgba(255,255,255,0.85); }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
