@@ -70,7 +70,9 @@ function articleTemplate(slug, data, bodyHtml) {
     t.parentNode.insertBefore(e, t);
   })(document, "script");
   <\/script>
-  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="/favicon-192.png">
   <title>${titleEsc} &mdash; Gacem Avocat</title>
   <meta name="description" content="${descEsc}">
   <link rel="canonical" href="${canonUrl}">
