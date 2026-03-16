@@ -353,94 +353,36 @@
       -webkit-transition: color 0.3s; transition: color 0.3s;
     }
 
-    /* ── PARCOURS ── */
+    /* ── PARCOURS TEASER ── */
     #parcours { background: var(--blanc); }
-    .parcours-intro { max-width: 640px; margin-top: 36px; margin-bottom: 64px; }
-    .parcours-intro p {
-      font-family: 'Raleway', sans-serif; font-size: 16px;
-      font-weight: 400; line-height: 1.9; color: var(--bleu-fonce);
-    }
-    .parcours-grid {
+    .parcours-teaser {
       display: -webkit-flex; display: flex;
-      -webkit-flex-wrap: wrap; flex-wrap: wrap;
-      gap: 64px;
-    }
-    .parcours-col { -webkit-flex: 1 1 300px; flex: 1 1 300px; }
-    .parcours-col-title {
-      font-family: 'Raleway', sans-serif; font-size: 11px;
-      letter-spacing: 0.22em; text-transform: uppercase;
-      color: var(--vert-sauge); margin-bottom: 28px; font-weight: 400;
-    }
-    .timeline {
-      display: -webkit-flex; display: flex;
-      -webkit-flex-direction: column; flex-direction: column;
-    }
-    .tl-item { display: -webkit-flex; display: flex; gap: 20px; padding-bottom: 32px; }
-    .tl-item:last-child { padding-bottom: 0; }
-    .tl-left {
-      display: -webkit-flex; display: flex;
-      -webkit-flex-direction: column; flex-direction: column;
       -webkit-align-items: center; align-items: center;
-      width: 14px; -webkit-flex-shrink: 0; flex-shrink: 0; padding-top: 4px;
-    }
-    .tl-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--vert-sauge); -webkit-flex-shrink: 0; flex-shrink: 0; }
-    .tl-line { width: 1px; background: rgba(189,201,190,0.35); -webkit-flex: 1; flex: 1; margin-top: 6px; }
-    .tl-item:last-child .tl-line { display: none; }
-    .tl-date {
-      font-family: 'Raleway', sans-serif; font-size: 11px;
-      letter-spacing: 0.1em; color: var(--vert-sauge); font-weight: 400; margin-bottom: 5px;
-    }
-    .tl-title {
-      font-family: 'Raleway', sans-serif; font-size: 15px;
-      font-weight: 400; color: var(--bleu-nuit); margin-bottom: 3px; line-height: 1.4;
-    }
-    .tl-sub {
-      font-family: 'Raleway', sans-serif; font-size: 13px;
-      font-weight: 400; color: #6b7a8d; line-height: 1.6;
-    }
-
-    /* ── LOGOS ── */
-    .logos-section { margin-top: 72px; }
-    .logos-section-title {
-      font-family: 'Raleway', sans-serif; font-size: 11px;
-      letter-spacing: 0.22em; text-transform: uppercase;
-      color: var(--vert-sauge); margin-bottom: 28px; font-weight: 400;
-    }
-    .logos-grid {
-      display: -webkit-flex; display: flex;
+      gap: 64px; margin-top: 48px;
       -webkit-flex-wrap: wrap; flex-wrap: wrap;
-      gap: 2px;
     }
-    .logo-card {
-      -webkit-flex: 1 1 200px; flex: 1 1 200px;
-      background: #f0f2f4;
-      padding: 36px 28px;
-      display: -webkit-flex; display: flex;
-      -webkit-flex-direction: column; flex-direction: column;
-      -webkit-align-items: flex-start; align-items: flex-start;
-      -webkit-justify-content: space-between; justify-content: space-between;
-      min-height: 140px;
-      -webkit-transition: background 0.3s; transition: background 0.3s;
+    .parcours-teaser-photo { -webkit-flex: 0 0 220px; flex: 0 0 220px; }
+    .parcours-teaser-photo img {
+      width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: top;
+      display: block; -webkit-filter: grayscale(15%); filter: grayscale(15%);
     }
-    .logo-card:hover { background: #e4e8ec; }
-    .logo-card img {
-      max-width: 100%; max-height: 48px;
-      width: auto; height: auto; object-fit: contain;
-      -webkit-filter: grayscale(100%); filter: grayscale(100%); opacity: 0.65;
-      -webkit-transition: opacity 0.3s, filter 0.3s; transition: opacity 0.3s, -webkit-filter 0.3s;
+    .parcours-teaser-content { -webkit-flex: 1 1 300px; flex: 1 1 300px; }
+    .parcours-teaser-content p {
+      font-family: 'Raleway', sans-serif; font-size: 15px;
+      font-weight: 300; line-height: 1.85; color: #4a5568; margin-bottom: 32px;
     }
-    .logo-card:hover img { -webkit-filter: grayscale(0%); filter: grayscale(0%); opacity: 1; }
-    .logo-card-label {
+    .parcours-cta {
+      display: inline-block;
       font-family: 'Raleway', sans-serif; font-size: 11px;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      color: #6b7a8d; font-weight: 400; margin-top: 18px;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--bleu-nuit); text-decoration: none; font-weight: 400;
+      border-bottom: 1px solid var(--bleu-ardoise); padding-bottom: 4px;
+      -webkit-transition: opacity 0.2s; transition: opacity 0.2s;
     }
+    .parcours-cta:hover { opacity: 0.55; }
     @media screen and (max-width: 768px) {
-      .parcours-grid { gap: 40px; }
-      .logo-card { -webkit-flex: 1 1 calc(50% - 1px); flex: 1 1 calc(50% - 1px); }
-    }
-    @media screen and (max-width: 480px) {
-      .logo-card { -webkit-flex: 1 1 100%; flex: 1 1 100%; }
+      .parcours-teaser { gap: 36px; }
+      .parcours-teaser-photo { -webkit-flex: unset; flex: unset; width: 160px; }
     }
 
     /* ── CONTACT ── */
@@ -562,7 +504,7 @@
     <div class="nav-links">
       <a href="#cabinet">Cabinet</a>
       <a href="#expertises">Expertises</a>
-      <a href="#parcours">Parcours</a>
+      <a href="/parcours.html">Parcours</a>
       <a href="#contact">Contact</a>
       <a href="/blog.html" class="nav-blog">Blog</a>
     </div>
@@ -635,132 +577,13 @@
     <h2 class="s-tag">Hakim Gacem</h2>
     <div class="s-line"></div>
     <p class="s-title">Un parcours au c&#339;ur<br>du droit public</p>
-    <div class="parcours-intro">
-      <p>Titulaire du CAPA et avocat au Barreau de Paris (serment en cours), Hakim Gacem a construit un parcours singulier alliant rigueur acad&#233;mique, exp&#233;rience institutionnelle et engagement public. Form&#233; aux meilleures universit&#233;s fran&#231;aises en droit public des affaires, il a exerc&#233; au sein de juridictions administratives, de grands groupes priv&#233;s et d&#39;institutions locales &mdash; forgeant une vision globale et strat&#233;gique du droit.</p>
-    </div>
-    <div class="parcours-grid">
-      <div class="parcours-col">
-        <div class="parcours-col-title">Exp&#233;riences professionnelles</div>
-        <div class="timeline">
-          <div class="tl-item">
-            <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
-            <div class="tl-right">
-              <div class="tl-date">Janv. 2025 &mdash; Sept. 2025</div>
-              <div class="tl-title">&#201;l&#232;ve avocat &mdash; Droit public</div>
-              <div class="tl-sub">Centaure Avocats &middot; Paris<br>Stage final EFB &mdash; Droit public des affaires, p&#233;nal, urbanisme</div>
-            </div>
-          </div>
-          <div class="tl-item">
-            <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
-            <div class="tl-right">
-              <div class="tl-date">Juil. 2024 &mdash; Janv. 2025</div>
-              <div class="tl-title">Aide &#224; la d&#233;cision</div>
-              <div class="tl-sub">Tribunal administratif de Versailles<br>Urbanisme, responsabilit&#233;, commande publique</div>
-            </div>
-          </div>
-          <div class="tl-item">
-            <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
-            <div class="tl-right">
-              <div class="tl-date">Sept. 2021 &mdash; 2022</div>
-              <div class="tl-title">Collaborateur en affaires publiques</div>
-              <div class="tl-sub">Orange Groupe &middot; Issy-les-Moulineaux</div>
-            </div>
-          </div>
-          <div class="tl-item">
-            <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
-            <div class="tl-right">
-              <div class="tl-date">Avr. 2021 &mdash; Ao&#251;t 2021</div>
-              <div class="tl-title">Juriste stagiaire &mdash; Droit public</div>
-              <div class="tl-sub">MiPih (GIP num&#233;rique en sant&#233;) &middot; Toulouse</div>
-            </div>
-          </div>
-          <div class="tl-item">
-            <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
-            <div class="tl-right">
-              <div class="tl-date">Mars 2020 &mdash; Pr&#233;sent</div>
-              <div class="tl-title">Conseiller municipal d&#233;l&#233;gu&#233;</div>
-              <div class="tl-sub">Commune d&#39;Onet-le-Ch&#226;teau &middot; Aveyron</div>
-            </div>
-          </div>
-          <div class="tl-item">
-            <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
-            <div class="tl-right">
-              <div class="tl-date">Juin 2019</div>
-              <div class="tl-title">Juriste stagiaire</div>
-              <div class="tl-sub">Conseil d&#233;partemental de l&#39;Aveyron &middot; Rodez</div>
-            </div>
-          </div>
-        </div>
+    <div class="parcours-teaser">
+      <div class="parcours-teaser-photo">
+        <img src="assets/photo-professionnelle.png" alt="Hakim Gacem, avocat au Barreau de Paris" loading="lazy">
       </div>
-      <div class="parcours-col">
-        <div class="parcours-col-title">Formation</div>
-        <div class="timeline">
-          <div class="tl-item">
-            <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
-            <div class="tl-right">
-              <div class="tl-date">Nov. 2025</div>
-              <div class="tl-title">CAPA &mdash; Certificat d&#39;Aptitude &#224; la Profession d&#39;Avocat</div>
-              <div class="tl-sub">&#201;cole de Formation du Barreau &middot; IEJ Paris II Panth&#233;on-Assas</div>
-            </div>
-          </div>
-          <div class="tl-item">
-            <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
-            <div class="tl-right">
-              <div class="tl-date">2021 &mdash; 2022</div>
-              <div class="tl-title">Master Droit &amp; Affaires publiques (M299)</div>
-              <div class="tl-sub">Paris Dauphine &mdash; PSL &middot; Lobbying, n&#233;gociation, plaidoyer</div>
-            </div>
-          </div>
-          <div class="tl-item">
-            <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
-            <div class="tl-right">
-              <div class="tl-date">2020 &mdash; 2021</div>
-              <div class="tl-title">Master 1 &amp; 2 Droit public des affaires</div>
-              <div class="tl-sub">Universit&#233; Toulouse I Capitole</div>
-            </div>
-          </div>
-          <div class="tl-item">
-            <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
-            <div class="tl-right">
-              <div class="tl-date">2016 &mdash; 2019</div>
-              <div class="tl-title">Licence en droit</div>
-              <div class="tl-sub">Universit&#233; Toulouse I Capitole</div>
-            </div>
-          </div>
-        </div>
-        <div class="parcours-col-title" style="margin-top:48px">Engagements</div>
-        <div class="timeline">
-          <div class="tl-item">
-            <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
-            <div class="tl-right">
-              <div class="tl-date">Depuis 2021</div>
-              <div class="tl-title">Membre des Jeunes IHEDN</div>
-              <div class="tl-sub">Institut des Hautes &#201;tudes de D&#233;fense Nationale</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="logos-section">
-      <div class="logos-section-title">Institutions</div>
-      <div class="logos-grid">
-        <div class="logo-card">
-          <img src="assets/logo-toulouse-capitole.jpg" alt="Universit&#233; Toulouse 1 Capitole" width="340" height="340" loading="lazy">
-          <div class="logo-card-label">Universit&#233; Toulouse 1 Capitole</div>
-        </div>
-        <div class="logo-card">
-          <img src="assets/logo-efb.png" alt="&#201;cole de Formation du Barreau de Paris" width="1315" height="689" loading="lazy">
-          <div class="logo-card-label">&#201;cole de Formation du Barreau</div>
-        </div>
-        <div class="logo-card">
-          <img src="assets/logo-dauphine.png" alt="Universit&#233; Paris Dauphine" width="225" height="225" loading="lazy">
-          <div class="logo-card-label">Paris Dauphine &ndash; PSL</div>
-        </div>
-        <div class="logo-card">
-          <img src="assets/logo-orange.png" alt="Orange" width="3840" height="3840" loading="lazy">
-          <div class="logo-card-label">Orange</div>
-        </div>
+      <div class="parcours-teaser-content">
+        <p>Titulaire du CAPA et avocat au Barreau de Paris, Hakim Gacem a construit un parcours &#224; la crois&#233;e de la rigueur acad&#233;mique et de l&#39;exp&#233;rience op&#233;rationnelle. Form&#233; en droit public des affaires &#224; Toulouse I Capitole et Paris Dauphine &mdash; PSL, puis &#224; l&#39;EFB, il a exerc&#233; au sein des juridictions administratives, du secteur priv&#233; et des institutions locales &mdash; forgeant une vision globale et strat&#233;gique du droit public.</p>
+        <a class="parcours-cta" href="/parcours.html">D&#233;couvrir le parcours complet</a>
       </div>
     </div>
   </section>
