@@ -81,7 +81,7 @@ function articleTemplate(slug, data, bodyHtml) {
   <meta property="og:url" content="${canonUrl}">
   <meta property="og:title" content="${titleEsc} &mdash; Gacem Avocat">
   <meta property="og:description" content="${descEsc}">
-  <meta property="og:image" content="https://www.gacem-avocat.com/assets/og-image.jpg">
+  <meta property="og:image" content="https://www.gacem-avocat.com/assets/og-image.webp">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:locale" content="fr_FR">
@@ -90,7 +90,7 @@ function articleTemplate(slug, data, bodyHtml) {
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${titleEsc} &mdash; Gacem Avocat">
   <meta name="twitter:description" content="${descEsc}">
-  <meta name="twitter:image" content="https://www.gacem-avocat.com/assets/og-image.jpg">
+  <meta name="twitter:image" content="https://www.gacem-avocat.com/assets/og-image.webp">
   <style>
     /* Raleway — auto-hébergé */
     @font-face {
