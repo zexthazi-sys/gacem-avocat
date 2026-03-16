@@ -76,6 +76,21 @@ function articleTemplate(slug, data, bodyHtml) {
   <title>${titleEsc} &mdash; Gacem Avocat</title>
   <meta name="description" content="${descEsc}">
   <link rel="canonical" href="${canonUrl}">
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="${canonUrl}">
+  <meta property="og:title" content="${titleEsc} &mdash; Gacem Avocat">
+  <meta property="og:description" content="${descEsc}">
+  <meta property="og:image" content="https://www.gacem-avocat.com/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Gacem Avocat">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${titleEsc} &mdash; Gacem Avocat">
+  <meta name="twitter:description" content="${descEsc}">
+  <meta name="twitter:image" content="https://www.gacem-avocat.com/assets/og-image.jpg">
   <style>
     /* Raleway — auto-hébergé */
     @font-face {
@@ -323,6 +338,13 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>${SITE_URL}/parcours.html</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
