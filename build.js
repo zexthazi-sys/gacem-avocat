@@ -50,7 +50,7 @@ function articleTemplate(slug, data, bodyHtml) {
   const descEsc    = escHtml(data.description);
   const dateFr     = formatDateFr(data.date);
   const catEsc     = escHtml(data.category);
-  const canonUrl   = `${SITE_URL}/blog/${slug}.html`;
+  const canonUrl   = `${SITE_URL}/blog/${slug}`;
 
   return `<!DOCTYPE html>
 <html lang="fr">
@@ -232,14 +232,14 @@ function articleTemplate(slug, data, bodyHtml) {
       <a href="/#expertises">Expertises</a>
       <a href="/#parcours">Parcours</a>
       <a href="/#contact">Contact</a>
-      <a href="/blog.html" class="active nav-blog">Blog</a>
+      <a href="/blog" class="active nav-blog">Blog</a>
     </div>
   </nav>
 
   <main>
     <header class="article-header">
       <div class="article-header-inner">
-        <a href="/blog.html" class="article-back">&larr; Blog</a>
+        <a href="/blog" class="article-back">&larr; Blog</a>
         <div class="article-meta">
           <span class="article-category-badge">${catEsc}</span>
           <span class="article-date-badge">${dateFr}</span>
@@ -261,12 +261,12 @@ function articleTemplate(slug, data, bodyHtml) {
   </main>
 
   <div class="back-to-blog">
-    <a href="/blog.html">&larr; Retour au blog</a>
+    <a href="/blog">&larr; Retour au blog</a>
   </div>
 
   <footer>
     <span>&copy; 2026 Gacem Avocat &middot; Tous droits r&eacute;serv&eacute;s</span>
-    <a href="/mentions-legales.html">Mentions l&eacute;gales</a>
+    <a href="/mentions-legales">Mentions l&eacute;gales</a>
   </footer>
 
 </body>
@@ -324,7 +324,7 @@ console.log('  ✓ /posts/index.json');
 const today = new Date().toISOString().slice(0, 10);
 const articleEntries = posts.map(p => `
   <url>
-    <loc>${SITE_URL}/blog/${p.slug}.html</loc>
+    <loc>${SITE_URL}/blog/${p.slug}</loc>
     <lastmod>${p.date}</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
@@ -341,14 +341,14 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
   </url>
 
   <url>
-    <loc>${SITE_URL}/parcours.html</loc>
+    <loc>${SITE_URL}/parcours</loc>
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>${SITE_URL}/blog.html</loc>
+    <loc>${SITE_URL}/blog</loc>
     <lastmod>${today}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>

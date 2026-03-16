@@ -3,6 +3,7 @@
   "outputDirectory": ".",
   "installCommand": "npm install",
   "framework": null,
+  "cleanUrls": true,
   "rewrites": [
     { "source": "/admin", "destination": "/admin/index.html" },
     { "source": "/admin/", "destination": "/admin/index.html" }

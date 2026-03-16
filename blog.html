@@ -21,10 +21,10 @@
   <link rel="apple-touch-icon" sizes="192x192" href="/favicon-192.png">
   <title>Blog Juridique &mdash; Gacem Avocat | Droit public, urbanisme, marchés publics</title>
   <meta name="description" content="Décryptages et analyses en droit public par Hakim Gacem, avocat au Barreau de Paris (serment en cours). Urbanisme, marchés publics, droit administratif.">
-  <link rel="canonical" href="https://www.gacem-avocat.com/blog.html">
+  <link rel="canonical" href="https://www.gacem-avocat.com/blog">
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.gacem-avocat.com/blog.html">
+  <meta property="og:url" content="https://www.gacem-avocat.com/blog">
   <meta property="og:title" content="Blog juridique — Gacem Avocat | Droit public, urbanisme, marchés publics">
   <meta property="og:description" content="Décryptages et analyses en droit public par Hakim Gacem, avocat au Barreau de Paris (serment en cours). Urbanisme, marchés publics, droit administratif.">
   <meta property="og:image" content="https://www.gacem-avocat.com/assets/og-image.jpg">
@@ -43,7 +43,7 @@
     "@type": "Blog",
     "name": "Blog juridique — Gacem Avocat",
     "description": "Analyses et décryptages en droit public, urbanisme et marchés publics.",
-    "url": "https://www.gacem-avocat.com/blog.html",
+    "url": "https://www.gacem-avocat.com/blog",
     "publisher": {
       "@type": "Organization",
       "name": "Gacem Avocat",
@@ -316,7 +316,7 @@
       <a href="/#expertises">Expertises</a>
       <a href="/#parcours">Parcours</a>
       <a href="/#contact">Contact</a>
-      <a href="/blog.html" class="active nav-blog">Blog</a>
+      <a href="/blog" class="active nav-blog">Blog</a>
     </div>
   </nav>
 
@@ -344,7 +344,7 @@
 
   <footer>
     <span>&copy; 2026 Gacem Avocat &middot; Tous droits r&eacute;serv&eacute;s</span>
-    <a href="/mentions-legales.html">Mentions l&eacute;gales</a>
+    <a href="/mentions-legales">Mentions l&eacute;gales</a>
   </footer>
 
 <script>
@@ -363,7 +363,7 @@
         return;
       }
       grid.innerHTML = posts.map(function (p) {
-        return '<a href="/blog/' + p.slug + '.html" class="article-card" role="listitem">'
+        return '<a href="/blog/' + p.slug + '" class="article-card" role="listitem">'
           + '<div class="article-card-meta">'
           + '<span class="article-date">' + escHtml(p.dateFr) + '</span>'
           + '<span class="article-category">' + escHtml(p.category) + '</span>'
