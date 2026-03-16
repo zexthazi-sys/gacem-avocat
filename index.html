@@ -208,7 +208,7 @@
     }
     .nav-logo {
       font-family: 'Raleway', sans-serif; font-weight: 400;
-      font-size: 24px; letter-spacing: 0.15em; color: var(--bleu-nuit);
+      font-size: 22px; letter-spacing: 0.15em; color: var(--bleu-nuit);
       text-decoration: none;
     }
     .nav-logo span { font-weight: 200; }
@@ -324,13 +324,12 @@
     /* ── EXPERTISES ── */
     #expertises { background: #f0f2f4; }
     .exp-grid {
-      display: -webkit-flex; display: flex;
-      -webkit-flex-wrap: wrap; flex-wrap: wrap;
+      display: -webkit-flex; display: flex; display: grid;
+      grid-template-columns: repeat(2, 1fr);
       gap: 2px; margin-top: 48px;
     }
     .exp-card {
       background: var(--blanc); padding: 40px 36px;
-      -webkit-flex: 1 1 280px; flex: 1 1 280px;
       -webkit-transition: background 0.3s; transition: background 0.3s;
       cursor: default;
     }
@@ -361,15 +360,20 @@
     .parcours-teaser {
       display: -webkit-flex; display: flex;
       -webkit-align-items: center; align-items: center;
-      gap: 72px; margin-top: 48px;
+      gap: 56px; margin-top: 48px;
       -webkit-flex-wrap: wrap; flex-wrap: wrap;
     }
-    .parcours-teaser-photo { -webkit-flex: 0 0 28%; flex: 0 0 28%; max-width: 336px; }
+    .parcours-teaser-photo { -webkit-flex: 0 0 32%; flex: 0 0 32%; max-width: 380px; }
     .parcours-teaser-photo img {
       width: 100%; display: block;
       -webkit-filter: grayscale(15%); filter: grayscale(15%);
     }
-    .parcours-teaser-content { -webkit-flex: 1 1 280px; flex: 1 1 280px; }
+    .parcours-teaser-content {
+      -webkit-flex: 1 1 280px; flex: 1 1 280px;
+      background: rgba(45, 63, 92, 0.04);
+      border-left: 3px solid var(--vert-sauge);
+      padding: 40px 44px;
+    }
     .parcours-teaser-content p {
       font-family: 'Raleway', sans-serif; font-size: 15px;
       font-weight: 300; line-height: 1.85; color: #4a5568; margin-bottom: 32px;
@@ -385,7 +389,9 @@
     .parcours-cta:hover { opacity: 0.55; }
     @media screen and (max-width: 768px) {
       .parcours-teaser { gap: 36px; }
-      .parcours-teaser-photo { -webkit-flex: unset; flex: unset; width: 50%; max-width: 224px; }
+      .parcours-teaser { -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: center; align-items: center; }
+      .parcours-teaser-photo { -webkit-flex: unset; flex: unset; width: 85%; max-width: none; margin: 0 auto; }
+      .parcours-teaser-content { padding: 28px 24px; }
     }
 
     /* ── CONTACT ── */
@@ -458,7 +464,7 @@
     /* ── MOBILE ── */
     @media screen and (max-width: 768px) {
       nav { padding: 16px 20px; }
-      .nav-logo { font-size: 16px; }
+      .nav-logo { font-size: 18px; }
       .nav-links { gap: 12px; }
       .nav-links a { font-size: 11px; }
       .nav-blog { padding: 4px 8px; }
@@ -478,7 +484,7 @@
       .hero-sub { font-size: 14px; }
       section { padding: 60px 20px; }
       .cabinet-grid { gap: 40px; }
-      .exp-card { -webkit-flex: 1 1 100%; flex: 1 1 100%; }
+      .exp-grid { grid-template-columns: 1fr; }
       .contact-grid { gap: 40px; }
       footer { padding: 20px; -webkit-justify-content: center; justify-content: center; text-align: center; }
     }

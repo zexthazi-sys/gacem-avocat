@@ -162,7 +162,7 @@ function articleTemplate(slug, data, bodyHtml) {
       padding: 18px 48px; background: var(--blanc);
       border-bottom: 1px solid rgba(45,63,92,0.08);
     }
-    .nav-logo { font-weight: 400; font-size: 20px; letter-spacing: 0.15em; color: var(--bleu-nuit); text-decoration: none; }
+    .nav-logo { font-weight: 400; font-size: 22px; letter-spacing: 0.15em; color: var(--bleu-nuit); text-decoration: none; }
     .nav-logo span { font-weight: 200; }
     .nav-links { display: flex; gap: 32px; align-items: center; }
     .nav-links a { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--bleu-ardoise); text-decoration: none; font-weight: 400; position: relative; transition: color 0.2s; }
@@ -208,7 +208,7 @@ function articleTemplate(slug, data, bodyHtml) {
     footer span, footer a { font-size: 10px; color: rgba(255,255,255,0.55); letter-spacing: 0.1em; font-weight: 400; text-decoration: none; transition: color 0.2s; }
     footer a:hover { color: rgba(255,255,255,0.8); }
     @media (max-width: 768px) {
-      nav { padding: 16px 20px; } .nav-logo { font-size: 16px; } .nav-links { gap: 12px; } .nav-links a { font-size: 10px; } .nav-blog { padding: 4px 8px; }
+      nav { padding: 16px 20px; } .nav-logo { font-size: 18px; } .nav-links { gap: 12px; } .nav-links a { font-size: 10px; } .nav-blog { padding: 4px 8px; }
       .article-header { padding: 60px 20px 48px; } .article-body { padding: 48px 20px 60px; }
       .back-to-blog { padding: 24px 20px; } footer { padding: 20px; justify-content: center; text-align: center; }
     }

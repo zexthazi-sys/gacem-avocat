@@ -87,11 +87,11 @@
       border-bottom: 1px solid rgba(45,63,92,0.08);
     }
     .nav-logo {
-      font-family: 'Raleway', sans-serif; font-weight: 300;
-      font-size: 20px; letter-spacing: 0.15em; color: var(--bleu-nuit);
+      font-family: 'Raleway', sans-serif; font-weight: 400;
+      font-size: 22px; letter-spacing: 0.15em; color: var(--bleu-nuit);
       text-decoration: none;
     }
-    .nav-logo span { font-weight: 100; }
+    .nav-logo span { font-weight: 200; }
     .nav-links { display: -webkit-flex; display: flex; gap: 32px; -webkit-align-items: center; align-items: center; }
     .nav-links a {
       font-family: 'Raleway', sans-serif; font-size: 12px;
@@ -187,16 +187,15 @@
       color: var(--bleu-ardoise); opacity: 0.5; margin-bottom: 24px;
     }
     .logos-grid {
-      display: flex; flex-wrap: wrap; gap: 24px; align-items: center;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
     }
     .logo-card {
       background: #fff;
-      padding: 20px 28px;
-      display: flex; flex-direction: column; align-items: center; gap: 10px;
-      min-width: 130px;
+      padding: 24px 20px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
     }
     .logo-card img {
-      height: 44px; width: auto; max-width: 120px;
+      height: 48px; width: auto; max-width: 140px;
       object-fit: contain; filter: grayscale(30%) opacity(0.85);
       transition: filter 0.2s;
     }
@@ -300,6 +299,7 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       nav { padding: 16px 24px; }
+      .nav-logo { font-size: 18px; }
       .nav-links { gap: 20px; }
       .page-hero { padding: 60px 24px 52px; }
       .section-presentation { padding: 56px 24px; }
@@ -321,8 +321,8 @@
       .nav-links { gap: 14px; }
       .nav-links a { font-size: 10px; letter-spacing: 0.08em; }
       .nav-blog { padding: 4px 9px; }
-      .logos-grid { gap: 16px; }
-      .logo-card { min-width: 100px; padding: 16px 20px; }
+      .logos-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+      .logo-card { padding: 16px 12px; }
     }
     @media (max-width: 480px) {
       nav { padding: 12px 16px; gap: 8px; }
