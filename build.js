@@ -13,7 +13,7 @@ const matter = require('gray-matter');
 const { marked } = require('marked');
 
 // ── Config ────────────────────────────────────────────────────────────────────
-const SITE_URL   = 'https://gacem-avocat.com';
+const SITE_URL   = 'https://www.gacem-avocat.com';
 const POSTS_DIR  = path.join(__dirname, 'posts');
 const BLOG_DIR   = path.join(__dirname, 'blog');
 
@@ -132,6 +132,8 @@ function articleTemplate(slug, data, bodyHtml) {
   </script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    :focus-visible { outline: 2px solid #bdc9be; outline-offset: 3px; }
     html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-behavior: smooth; }
     body { font-family: 'Raleway', sans-serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; overflow-x: hidden; }
     :root {
