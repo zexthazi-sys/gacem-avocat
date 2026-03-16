@@ -320,6 +320,33 @@ const indexPath = path.join(POSTS_DIR, 'index.json');
 fs.writeFileSync(indexPath, JSON.stringify(posts, null, 2), 'utf-8');
 console.log('  ✓ /posts/index.json');
 
+// Injecter le listing dans blog.html (rendu statique)
+const blogHtmlPath = path.join(__dirname, 'blog.html');
+let blogHtml = fs.readFileSync(blogHtmlPath, 'utf-8');
+
+const articlesHtml = posts.length === 0
+  ? '<p class="error-state">Aucun article pour le moment.</p>'
+  : posts.map(p => `
+        <a href="/blog/${p.slug}" class="article-card" role="listitem">
+          <div class="article-card-meta">
+            <span class="article-date">${escHtml(p.dateFr)}</span>
+            <span class="article-category">${escHtml(p.category)}</span>
+          </div>
+          <div class="article-card-body">
+            <h2 class="article-card-title">${escHtml(p.title)}</h2>
+            <p class="article-card-excerpt">${escHtml(p.excerpt)}</p>
+            <span class="article-read-more">Lire l\u2019article \u2192</span>
+          </div>
+        </a>`).join('\n');
+
+blogHtml = blogHtml.replace(
+  /<!-- BUILD:ARTICLES -->[\s\S]*?<!-- \/BUILD:ARTICLES -->/,
+  '<!-- BUILD:ARTICLES -->\n' + articlesHtml + '\n        <!-- /BUILD:ARTICLES -->'
+);
+
+fs.writeFileSync(blogHtmlPath, blogHtml, 'utf-8');
+console.log('  ✓ blog.html (listing statique)');
+
 // Générer sitemap.xml
 const today = new Date().toISOString().slice(0, 10);
 const articleEntries = posts.map(p => `

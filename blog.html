@@ -290,12 +290,6 @@
       .blog-hero { padding: 48px 16px 40px; }
       .articles-section { padding: 48px 16px; }
     }
-    .loading-state {
-      font-family: 'Raleway', sans-serif; font-size: 13px;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--vert-sauge); font-weight: 400;
-      padding: 48px 0;
-    }
     .error-state {
       font-family: 'Raleway', sans-serif; font-size: 14px;
       color: #6b7a8d; font-weight: 400; padding: 48px 0;
@@ -336,7 +330,8 @@
       <div class="s-line"></div>
 
       <div class="articles-grid" id="articles-grid" role="list">
-        <div class="loading-state" aria-live="polite">Chargement des articles&hellip;</div>
+        <!-- BUILD:ARTICLES -->
+        <!-- /BUILD:ARTICLES -->
       </div>
     </section>
 
@@ -347,48 +342,6 @@
     <a href="/mentions-legales">Mentions l&eacute;gales</a>
   </footer>
 
-<script>
-(function () {
-  var grid = document.getElementById('articles-grid');
-  if (!grid) return;
-
-  fetch('/posts/index.json')
-    .then(function (r) {
-      if (!r.ok) throw new Error('Erreur ' + r.status);
-      return r.json();
-    })
-    .then(function (posts) {
-      if (!posts || posts.length === 0) {
-        grid.innerHTML = '<p class="error-state">Aucun article pour le moment.</p>';
-        return;
-      }
-      grid.innerHTML = posts.map(function (p) {
-        return '<a href="/blog/' + p.slug + '" class="article-card" role="listitem">'
-          + '<div class="article-card-meta">'
-          + '<span class="article-date">' + escHtml(p.dateFr) + '</span>'
-          + '<span class="article-category">' + escHtml(p.category) + '</span>'
-          + '</div>'
-          + '<div class="article-card-body">'
-          + '<h2 class="article-card-title">' + escHtml(p.title) + '</h2>'
-          + '<p class="article-card-excerpt">' + escHtml(p.excerpt) + '</p>'
-          + '<span class="article-read-more">Lire l\u2019article \u2192</span>'
-          + '</div>'
-          + '</a>';
-      }).join('');
-    })
-    .catch(function () {
-      grid.innerHTML = '<p class="error-state">Impossible de charger les articles.</p>';
-    });
-
-  function escHtml(str) {
-    return String(str || '')
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;');
-  }
-})();
-</script>
 
 </body>
 </html>
