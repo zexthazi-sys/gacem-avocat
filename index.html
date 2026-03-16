@@ -175,7 +175,7 @@
       -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%);
       z-index: 2;
       font-family: 'Raleway', sans-serif;
-      font-size: clamp(22px, 3.6vw, 34px);
+      font-size: clamp(24px, 4vw, 37px);
       letter-spacing: 0.25em; padding-left: 0.25em;
       color: #ffffff; white-space: nowrap;
       opacity: 0;
@@ -646,10 +646,10 @@
   var s      = mobile ? 4 / 6 : 1; /* scale factor mobile = 4s / desktop = 6s */
 
   var T_LOGO_SHOW     = Math.round(1000  * s); /* phase 2 : logo fade-in */
-  var T_CIRCLES_START = Math.round(2500  * s); /* phase 3 : cercles s'agrandissent */
-  var CIRCLE_DUR      = Math.round(2500  * s) + 'ms';
-  var T_FADE_START    = Math.round(4500  * s); /* phase 4 : overlay disparaît */
-  var T_REMOVE        = Math.round(5600  * s); /* nettoyage DOM */
+  var T_CIRCLES_START = Math.round(2200  * s); /* phase 3 : cercles s'agrandissent */
+  var CIRCLE_DUR      = Math.round(2200  * s) + 'ms';
+  var T_FADE_START    = Math.round(4200  * s); /* phase 4 : overlay disparaît */
+  var T_REMOVE        = Math.round(5300  * s); /* nettoyage DOM */
 
   /* ── Création de l'overlay ── */
   var overlay = document.createElement('div');
@@ -674,8 +674,8 @@
     [].forEach.call(circles, function (c) {
       c.style.webkitTransition = 'transform ' + CIRCLE_DUR + ' cubic-bezier(0.76,0,0.24,1)';
       c.style.transition       = 'transform ' + CIRCLE_DUR + ' cubic-bezier(0.76,0,0.24,1)';
-      c.style.webkitTransform  = 'scale(15)';
-      c.style.transform        = 'scale(15)';
+      c.style.webkitTransform  = 'scale(25)';
+      c.style.transform        = 'scale(25)';
     });
   }, T_CIRCLES_START);
 
