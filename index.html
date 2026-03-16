@@ -173,7 +173,7 @@
       -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%);
       z-index: 2;
       font-family: 'Raleway', sans-serif;
-      font-size: clamp(18px, 3vw, 28px);
+      font-size: clamp(22px, 3.6vw, 34px);
       letter-spacing: 0.25em; padding-left: 0.25em;
       color: #ffffff; white-space: nowrap;
       opacity: 0;
@@ -206,12 +206,12 @@
     }
     .nav-logo {
       font-family: 'Raleway', sans-serif; font-weight: 400;
-      font-size: 20px; letter-spacing: 0.15em; color: var(--bleu-nuit);
+      font-size: 22px; letter-spacing: 0.15em; color: var(--bleu-nuit);
     }
     .nav-logo span { font-weight: 200; }
     .nav-links { display: -webkit-flex; display: flex; gap: 32px; -webkit-align-items: center; align-items: center; }
     .nav-links a {
-      font-family: 'Raleway', sans-serif; font-size: 11px;
+      font-family: 'Raleway', sans-serif; font-size: 12px;
       letter-spacing: 0.1em; text-transform: uppercase;
       color: var(--bleu-ardoise); text-decoration: none; font-weight: 400;
       position: relative;
@@ -234,7 +234,7 @@
       -webkit-transition: color 0.2s, background 0.25s, border-color 0.25s;
       transition: color 0.2s, background 0.25s, border-color 0.25s;
     }
-    .nav-blog::after { content: ' ↗'; font-size: 9px; vertical-align: 1px; }
+    .nav-blog::after { content: ' ↗'; font-size: 10px; vertical-align: 1px; }
     .nav-blog:hover { background: rgba(45,63,92,0.09); border-color: rgba(45,63,92,0.4); }
     .nav-blog.active { background: rgba(45,63,92,0.1); border-color: rgba(45,63,92,0.4); }
 
@@ -248,27 +248,27 @@
     }
     .hero-inner { max-width: 600px; width: 100%; }
     .hero-tag {
-      font-family: 'Raleway', sans-serif; font-size: 10px;
+      font-family: 'Raleway', sans-serif; font-size: 11px;
       letter-spacing: 0.22em; text-transform: uppercase;
       color: var(--vert-sauge); margin-bottom: 32px; font-weight: 400;
     }
     .hero-title {
       font-family: 'Raleway', sans-serif;
-      font-size: 48px; font-size: clamp(28px, 5vw, 52px);
+      font-size: 48px; font-size: clamp(30px, 5.5vw, 57px);
       font-weight: 300; line-height: 1.25;
       color: var(--blanc); margin-bottom: 24px; letter-spacing: 0.02em;
     }
     .hero-title strong { font-weight: 400; color: var(--vert-sauge); }
     .hero-sub {
       font-family: 'Raleway', sans-serif; font-weight: 300;
-      font-size: 14px; line-height: 1.9;
+      font-size: 15px; line-height: 1.9;
       color: rgba(255,255,255,0.55); margin-bottom: 44px; max-width: 460px;
     }
     .hero-cta {
       display: inline-block; padding: 14px 36px;
       border: 1px solid rgba(255,255,255,0.35);
       color: var(--blanc); font-family: 'Raleway', sans-serif;
-      font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+      font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
       font-weight: 400; text-decoration: none; background: transparent;
       -webkit-transition: all 0.3s; transition: all 0.3s;
       -webkit-tap-highlight-color: transparent;
@@ -278,14 +278,14 @@
     /* ── SECTIONS ── */
     section { padding: 88px 64px; }
     .s-tag {
-      font-family: 'Raleway', sans-serif; font-size: 10px;
+      font-family: 'Raleway', sans-serif; font-size: 11px;
       letter-spacing: 0.22em; text-transform: uppercase;
       color: var(--vert-sauge); margin-bottom: 12px; font-weight: 400;
     }
     .s-line { width: 36px; height: 1px; background: var(--vert-sauge); margin: 16px 0 36px; }
     .s-title {
       font-family: 'Raleway', sans-serif;
-      font-size: 36px; font-size: clamp(22px, 3.5vw, 38px);
+      font-size: 36px; font-size: clamp(24px, 3.85vw, 42px);
       font-weight: 300; color: var(--bleu-nuit); line-height: 1.2;
     }
 
@@ -298,7 +298,7 @@
     }
     .cabinet-text { -webkit-flex: 1 1 300px; flex: 1 1 300px; }
     .cabinet-text p {
-      font-family: 'Raleway', sans-serif; font-size: 15px;
+      font-family: 'Raleway', sans-serif; font-size: 16px;
       font-weight: 400; line-height: 1.9; color: var(--bleu-fonce);
     }
     .cabinet-values {
@@ -309,11 +309,11 @@
     }
     .val { border-left: 1px solid var(--vert-sauge); padding-left: 20px; }
     .val h4 {
-      font-family: 'Raleway', sans-serif; font-size: 11px;
+      font-family: 'Raleway', sans-serif; font-size: 12px;
       letter-spacing: 0.12em; text-transform: uppercase;
       color: var(--bleu-ardoise); margin-bottom: 6px; font-weight: 500;
     }
-    .val p { font-family: 'Raleway', sans-serif; font-size: 13px; color: #6b7a8d; line-height: 1.7; font-weight: 400; }
+    .val p { font-family: 'Raleway', sans-serif; font-size: 14px; color: #6b7a8d; line-height: 1.7; font-weight: 400; }
 
     /* ── EXPERTISES ── */
     #expertises { background: #f0f2f4; }
@@ -334,18 +334,18 @@
     .exp-card:hover .exp-card-text { color: var(--blanc); }
     .exp-card:hover .exp-num { color: var(--vert-sauge); }
     .exp-num {
-      font-family: 'Raleway', sans-serif; font-size: 10px;
+      font-family: 'Raleway', sans-serif; font-size: 11px;
       letter-spacing: 0.15em; color: var(--vert-sauge);
       margin-bottom: 20px; font-weight: 400;
     }
     .exp-card-title {
-      font-family: 'Raleway', sans-serif; font-size: 20px;
+      font-family: 'Raleway', sans-serif; font-size: 22px;
       font-weight: 400; color: var(--bleu-nuit);
       margin-bottom: 14px;
       -webkit-transition: color 0.3s; transition: color 0.3s;
     }
     .exp-card-text {
-      font-family: 'Raleway', sans-serif; font-size: 13px;
+      font-family: 'Raleway', sans-serif; font-size: 14px;
       color: #6b7a8d; line-height: 1.75; font-weight: 400;
       -webkit-transition: color 0.3s; transition: color 0.3s;
     }
@@ -354,7 +354,7 @@
     #parcours { background: var(--blanc); }
     .parcours-intro { max-width: 640px; margin-top: 36px; margin-bottom: 64px; }
     .parcours-intro p {
-      font-family: 'Raleway', sans-serif; font-size: 15px;
+      font-family: 'Raleway', sans-serif; font-size: 16px;
       font-weight: 400; line-height: 1.9; color: var(--bleu-fonce);
     }
     .parcours-grid {
@@ -364,7 +364,7 @@
     }
     .parcours-col { -webkit-flex: 1 1 300px; flex: 1 1 300px; }
     .parcours-col-title {
-      font-family: 'Raleway', sans-serif; font-size: 10px;
+      font-family: 'Raleway', sans-serif; font-size: 11px;
       letter-spacing: 0.22em; text-transform: uppercase;
       color: var(--vert-sauge); margin-bottom: 28px; font-weight: 400;
     }
@@ -384,22 +384,22 @@
     .tl-line { width: 1px; background: rgba(189,201,190,0.35); -webkit-flex: 1; flex: 1; margin-top: 6px; }
     .tl-item:last-child .tl-line { display: none; }
     .tl-date {
-      font-family: 'Raleway', sans-serif; font-size: 10px;
+      font-family: 'Raleway', sans-serif; font-size: 11px;
       letter-spacing: 0.1em; color: var(--vert-sauge); font-weight: 400; margin-bottom: 5px;
     }
     .tl-title {
-      font-family: 'Raleway', sans-serif; font-size: 14px;
+      font-family: 'Raleway', sans-serif; font-size: 15px;
       font-weight: 400; color: var(--bleu-nuit); margin-bottom: 3px; line-height: 1.4;
     }
     .tl-sub {
-      font-family: 'Raleway', sans-serif; font-size: 12px;
+      font-family: 'Raleway', sans-serif; font-size: 13px;
       font-weight: 400; color: #6b7a8d; line-height: 1.6;
     }
 
     /* ── LOGOS ── */
     .logos-section { margin-top: 72px; }
     .logos-section-title {
-      font-family: 'Raleway', sans-serif; font-size: 10px;
+      font-family: 'Raleway', sans-serif; font-size: 11px;
       letter-spacing: 0.22em; text-transform: uppercase;
       color: var(--vert-sauge); margin-bottom: 28px; font-weight: 400;
     }
@@ -428,7 +428,7 @@
     }
     .logo-card:hover img { -webkit-filter: grayscale(0%); filter: grayscale(0%); opacity: 1; }
     .logo-card-label {
-      font-family: 'Raleway', sans-serif; font-size: 10px;
+      font-family: 'Raleway', sans-serif; font-size: 11px;
       letter-spacing: 0.1em; text-transform: uppercase;
       color: #6b7a8d; font-weight: 400; margin-top: 18px;
     }
@@ -450,7 +450,7 @@
     }
     .contact-info { -webkit-flex: 1 1 260px; flex: 1 1 260px; }
     .contact-info p {
-      font-family: 'Raleway', sans-serif; font-size: 13px;
+      font-family: 'Raleway', sans-serif; font-size: 14px;
       color: rgba(255,255,255,0.45); line-height: 2.2; font-weight: 400;
     }
     .contact-info strong { color: var(--vert-sauge); font-weight: 400; }
@@ -464,7 +464,7 @@
       background: rgba(255,255,255,0.05);
       border: 1px solid rgba(255,255,255,0.1);
       padding: 13px 18px; color: var(--blanc);
-      font-family: 'Raleway', sans-serif; font-size: 13px;
+      font-family: 'Raleway', sans-serif; font-size: 14px;
       font-weight: 400; outline: none;
       -webkit-appearance: none; appearance: none;
       border-radius: 0;
@@ -478,7 +478,7 @@
       background: transparent;
       border: 1px solid rgba(255,255,255,0.25);
       color: var(--blanc); font-family: 'Raleway', sans-serif;
-      font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+      font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
       padding: 14px 32px; cursor: pointer; font-weight: 400;
       -webkit-appearance: none; appearance: none; border-radius: 0;
       -webkit-transition: all 0.3s; transition: all 0.3s;
@@ -496,11 +496,11 @@
       gap: 8px;
     }
     footer span {
-      font-family: 'Raleway', sans-serif; font-size: 10px;
+      font-family: 'Raleway', sans-serif; font-size: 11px;
       color: rgba(255,255,255,0.55); letter-spacing: 0.1em; font-weight: 400;
     }
     footer a {
-      font-family: 'Raleway', sans-serif; font-size: 10px;
+      font-family: 'Raleway', sans-serif; font-size: 11px;
       color: rgba(255,255,255,0.55); letter-spacing: 0.1em; font-weight: 400;
       text-decoration: none;
       -webkit-transition: color 0.2s; transition: color 0.2s;
@@ -512,11 +512,11 @@
       nav { padding: 16px 20px; }
       .nav-logo { font-size: 16px; }
       .nav-links { gap: 12px; }
-      .nav-links a { font-size: 10px; }
+      .nav-links a { font-size: 11px; }
       .nav-blog { padding: 4px 8px; }
       .hero { padding: 60px 20px; min-height: 80vh; min-height: 80dvh; }
-      .hero-title { font-size: clamp(26px, 7vw, 36px); }
-      .hero-sub { font-size: 13px; }
+      .hero-title { font-size: clamp(28px, 7.7vw, 40px); }
+      .hero-sub { font-size: 14px; }
       section { padding: 60px 20px; }
       .cabinet-grid { gap: 40px; }
       .exp-card { -webkit-flex: 1 1 100%; flex: 1 1 100%; }
@@ -525,7 +525,7 @@
     }
 
     @media screen and (max-width: 480px) {
-      .nav-links a { font-size: 9px; letter-spacing: 0.06em; }
+      .nav-links a { font-size: 10px; letter-spacing: 0.06em; }
       .nav-blog { padding: 3px 7px; }
       .hero { padding: 48px 16px; }
       section { padding: 48px 16px; }
