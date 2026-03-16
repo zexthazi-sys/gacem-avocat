@@ -307,16 +307,28 @@
     #cabinet { background: var(--blanc); }
     .cabinet-grid {
       display: -webkit-flex; display: flex;
-      -webkit-flex-wrap: wrap; flex-wrap: wrap;
-      gap: 64px; margin-top: 48px;
+      -webkit-align-items: stretch; align-items: stretch;
+      gap: 56px; margin-top: 48px;
     }
-    .cabinet-text { -webkit-flex: 1 1 300px; flex: 1 1 300px; }
+    .cabinet-photo {
+      -webkit-flex: 0 0 38%; flex: 0 0 38%; max-width: 460px;
+      overflow: hidden;
+    }
+    .cabinet-photo img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      -webkit-filter: grayscale(12%); filter: grayscale(12%);
+    }
+    .cabinet-content {
+      -webkit-flex: 1 1 0%; flex: 1 1 0%;
+      display: -webkit-flex; display: flex;
+      -webkit-flex-direction: column; flex-direction: column;
+      gap: 36px;
+    }
     .cabinet-text p {
       font-family: 'Raleway', sans-serif; font-size: 16px;
       font-weight: 400; line-height: 1.9; color: var(--bleu-fonce);
     }
     .cabinet-values {
-      -webkit-flex: 1 1 280px; flex: 1 1 280px;
       display: -webkit-flex; display: flex;
       -webkit-flex-direction: column; flex-direction: column;
       gap: 28px;
@@ -491,7 +503,9 @@
       .hero-title { font-size: clamp(28px, 7.7vw, 40px); }
       .hero-sub { font-size: 14px; }
       section { padding: 60px 20px; }
-      .cabinet-grid { gap: 40px; }
+      .cabinet-grid { -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: center; align-items: center; gap: 36px; }
+      .cabinet-photo { -webkit-flex: unset; flex: unset; width: 75%; max-width: none; }
+      .cabinet-content { -webkit-flex: unset; flex: unset; }
       .exp-grid { grid-template-columns: 1fr; }
       .contact-grid { gap: 40px; }
       footer { padding: 20px; -webkit-justify-content: center; justify-content: center; text-align: center; }
@@ -542,21 +556,26 @@
     <div class="s-line"></div>
     <h2 class="s-title">Un engagement total<br>pour vos int&#233;r&#234;ts</h2>
     <div class="cabinet-grid">
-      <div class="cabinet-text">
-        <p>Gacem Avocat est un cabinet sp&#233;cialis&#233; en droit public, d&#233;di&#233; &#224; l&#39;accompagnement des entreprises et des collectivit&#233;s territoriales. Fond&#233; sur des valeurs d&#39;excellence et de rigueur, le cabinet offre une expertise reconnue en droit administratif, march&#233;s publics, urbanisme et contentieux administratif.</p>
+      <div class="cabinet-photo">
+        <img src="assets/salle-reunion.webp" alt="Salle de r&#233;union du cabinet Gacem Avocat" loading="lazy">
       </div>
-      <div class="cabinet-values">
-        <div class="val">
-          <h4>Excellence</h4>
-          <p>Une analyse juridique approfondie et une strat&#233;gie adapt&#233;e &#224; chaque dossier.</p>
+      <div class="cabinet-content">
+        <div class="cabinet-text">
+          <p>Gacem Avocat est un cabinet sp&#233;cialis&#233; en droit public, d&#233;di&#233; &#224; l&#39;accompagnement des entreprises et des collectivit&#233;s territoriales. Fond&#233; sur des valeurs d&#39;excellence et de rigueur, le cabinet offre une expertise reconnue en droit administratif, march&#233;s publics, urbanisme et contentieux administratif.</p>
         </div>
-        <div class="val">
-          <h4>Proximit&#233;</h4>
-          <p>Un suivi personnalis&#233; et une disponibilit&#233; totale pour nos clients.</p>
-        </div>
-        <div class="val">
-          <h4>Confidentialit&#233;</h4>
-          <p>La discr&#233;tion et la confidentialit&#233; sont au c&#339;ur de notre pratique.</p>
+        <div class="cabinet-values">
+          <div class="val">
+            <h4>Excellence</h4>
+            <p>Une analyse juridique approfondie et une strat&#233;gie adapt&#233;e &#224; chaque dossier.</p>
+          </div>
+          <div class="val">
+            <h4>Proximit&#233;</h4>
+            <p>Un suivi personnalis&#233; et une disponibilit&#233; totale pour nos clients.</p>
+          </div>
+          <div class="val">
+            <h4>Confidentialit&#233;</h4>
+            <p>La discr&#233;tion et la confidentialit&#233; sont au c&#339;ur de notre pratique.</p>
+          </div>
         </div>
       </div>
     </div>
