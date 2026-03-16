@@ -229,6 +229,8 @@
     .nav-links a:not(.nav-blog):hover::after,
     .nav-links a:not(.nav-blog).active::after { -webkit-transform: scaleX(1); transform: scaleX(1); }
     .nav-blog {
+      display: -webkit-inline-flex; display: inline-flex;
+      -webkit-align-items: center; align-items: center;
       border: 1px solid rgba(45,63,92,0.22); border-radius: 20px;
       padding: 5px 12px; background: rgba(45,63,92,0.04);
       white-space: nowrap;
@@ -515,6 +517,17 @@
       .nav-links { gap: 12px; }
       .nav-links a { font-size: 11px; }
       .nav-blog { padding: 4px 8px; }
+    }
+    @media screen and (max-width: 600px) {
+      nav {
+        -webkit-flex-direction: column; flex-direction: column;
+        -webkit-align-items: flex-start; align-items: flex-start;
+        gap: 10px; padding: 14px 20px;
+      }
+      .nav-logo { font-size: 15px; }
+      .nav-links { gap: 14px; }
+      .nav-links a { font-size: 10px; letter-spacing: 0.08em; }
+      .nav-blog { padding: 4px 9px; }
       .hero { padding: 60px 20px; min-height: 80vh; min-height: 80dvh; }
       .hero-title { font-size: clamp(28px, 7.7vw, 40px); }
       .hero-sub { font-size: 14px; }
@@ -526,7 +539,8 @@
     }
 
     @media screen and (max-width: 480px) {
-      .nav-links a { font-size: 10px; letter-spacing: 0.06em; }
+      nav { padding: 12px 16px; gap: 8px; }
+      .nav-links a { font-size: 9px; letter-spacing: 0.06em; }
       .nav-blog { padding: 3px 7px; }
       .hero { padding: 48px 16px; }
       section { padding: 48px 16px; }
