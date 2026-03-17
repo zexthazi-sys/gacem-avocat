@@ -175,7 +175,7 @@
       -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%);
       z-index: 2;
       font-family: 'Raleway', sans-serif;
-      font-size: clamp(24px, 4vw, 37px);
+      font-size: clamp(22px, 3.6vw, 33px);
       letter-spacing: 0.25em; padding-left: 0.25em;
       color: #ffffff; white-space: nowrap;
       opacity: 0;
@@ -203,23 +203,32 @@
       -webkit-align-items: center; align-items: center;
       -webkit-justify-content: space-between; justify-content: space-between;
       padding: 18px 48px;
+      background: transparent;
+      border-bottom: 1px solid transparent;
+      -webkit-transition: background 0.4s, border-color 0.4s;
+      transition: background 0.4s, border-color 0.4s;
+    }
+    nav.nav-scrolled {
       background: var(--blanc);
-      border-bottom: 1px solid rgba(45,63,92,0.08);
+      border-bottom-color: rgba(45,63,92,0.08);
     }
     .nav-logo {
       font-family: 'Raleway', sans-serif; font-weight: 400;
-      font-size: 22px; letter-spacing: 0.15em; color: var(--bleu-nuit);
+      font-size: 22px; letter-spacing: 0.15em; color: var(--blanc);
       text-decoration: none;
+      -webkit-transition: color 0.4s; transition: color 0.4s;
     }
+    nav.nav-scrolled .nav-logo { color: var(--bleu-nuit); }
     .nav-logo span { font-weight: 200; }
     .nav-links { display: -webkit-flex; display: flex; gap: 32px; -webkit-align-items: center; align-items: center; }
     .nav-links a {
       font-family: 'Raleway', sans-serif; font-size: 12px;
       letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--bleu-ardoise); text-decoration: none; font-weight: 400;
+      color: rgba(255,255,255,0.8); text-decoration: none; font-weight: 400;
       position: relative;
-      -webkit-transition: color 0.2s; transition: color 0.2s;
+      -webkit-transition: color 0.4s; transition: color 0.4s;
     }
+    nav.nav-scrolled .nav-links a { color: var(--bleu-ardoise); }
     .nav-links a:hover { color: var(--bleu-nuit); }
     .nav-links a.active { color: var(--bleu-nuit); }
     .nav-links a:not(.nav-blog)::after {
@@ -234,11 +243,15 @@
     .nav-blog {
       display: -webkit-inline-flex; display: inline-flex;
       -webkit-align-items: center; align-items: center;
-      border: 1px solid rgba(45,63,92,0.22); border-radius: 20px;
-      padding: 5px 12px; background: rgba(45,63,92,0.04);
+      border: 1px solid rgba(255,255,255,0.35); border-radius: 20px;
+      padding: 5px 12px; background: transparent;
       white-space: nowrap;
-      -webkit-transition: color 0.2s, background 0.25s, border-color 0.25s;
-      transition: color 0.2s, background 0.25s, border-color 0.25s;
+      -webkit-transition: color 0.4s, background 0.4s, border-color 0.4s;
+      transition: color 0.4s, background 0.4s, border-color 0.4s;
+    }
+    nav.nav-scrolled .nav-blog {
+      border-color: rgba(45,63,92,0.22);
+      background: rgba(45,63,92,0.04);
     }
     .nav-blog::after { content: '  ↗'; font-size: 10px; vertical-align: 1px; }
     .nav-blog:hover { background: rgba(45,63,92,0.09); border-color: rgba(45,63,92,0.4); }
@@ -250,17 +263,18 @@
       background: var(--degrade);
       display: -webkit-flex; display: flex;
       -webkit-align-items: center; align-items: center;
-      padding: 80px 64px;
+      padding: 140px 64px 80px;
+      margin-top: -60px;
       position: relative; overflow: hidden;
     }
     .hero::before {
       content: ''; position: absolute; inset: 0;
       background: url('assets/musee-soulages.webp') center bottom/cover no-repeat;
-      opacity: 0.18;
+      opacity: 0.30;
       z-index: 0;
     }
     .hero-inner { position: relative; z-index: 1; }
-    .hero-inner { max-width: 600px; width: 100%; }
+    .hero-inner { max-width: 700px; width: 100%; margin: 0 auto; text-align: center; }
     .hero-caption {
       position: absolute; bottom: 1.2rem; right: 1.5rem; z-index: 1;
       font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
@@ -282,7 +296,7 @@
     .hero-sub {
       font-family: 'Raleway', sans-serif; font-weight: 300;
       font-size: 15px; line-height: 1.9;
-      color: rgba(255,255,255,0.55); margin-bottom: 44px; max-width: 460px;
+      color: rgba(255,255,255,0.55); margin-bottom: 44px; max-width: 520px; margin-left: auto; margin-right: auto;
     }
     .hero-cta {
       display: inline-block; padding: 14px 36px;
@@ -560,7 +574,7 @@
       .nav-links { gap: 14px; }
       .nav-links a { font-size: 10px; letter-spacing: 0.08em; }
       .nav-blog { padding: 4px 9px; }
-      .hero { padding: 60px 20px; min-height: 80vh; min-height: 80dvh; }
+      .hero { padding: 120px 20px 60px; margin-top: -90px; min-height: 80vh; min-height: 80dvh; }
       .hero-title { font-size: clamp(28px, 7.7vw, 40px); }
       .hero-sub { font-size: 14px; }
       section { padding: 60px 20px; }
@@ -588,7 +602,7 @@
 <div id="site" style="opacity:0; -webkit-transition: opacity 0.7s ease; transition: opacity 0.7s ease;">
 
   <!-- BANDEAU TRAVAUX — à supprimer -->
-  <div style="background:#f5c518;color:#1a1a1a;text-align:center;padding:9px 20px;font-family:'Raleway',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;">
+  <div style="background:#f5c518;color:#1a1a1a;text-align:center;padding:9px 20px;font-family:'Raleway',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;position:relative;z-index:60;">
     🚧 &nbsp;Site en cours de construction — merci de votre patience
   </div>
   <!-- /BANDEAU TRAVAUX -->
@@ -609,7 +623,6 @@
       <div class="hero-tag">Cabinet d&#39;avocat &middot; Droit public &middot; Paris</div>
       <h1 class="hero-title">L&#39;excellence juridique<br>au service de<br><strong>vos int&#233;r&#234;ts</strong></h1>
       <p class="hero-sub">Conseil et contentieux en droit public pour les entreprises et collectivit&#233;s territoriales. Une expertise pointue, une approche sur mesure.</p>
-      <a class="hero-cta" href="#contact">Prendre contact</a>
     </div>
     <span class="hero-caption">Mus&#233;e Soulages &middot; Rodez, Aveyron</span>
   </section>
@@ -786,6 +799,24 @@
     if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
     document.body.style.overflow = '';
   }, T_REMOVE);
+}());
+</script>
+
+<script>
+(function () {
+  var nav = document.querySelector('nav');
+  var hero = document.querySelector('.hero');
+  if (!nav || !hero) return;
+  function onScroll() {
+    var threshold = hero.offsetHeight - nav.offsetHeight;
+    if (window.scrollY > threshold) {
+      nav.classList.add('nav-scrolled');
+    } else {
+      nav.classList.remove('nav-scrolled');
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 }());
 </script>
 
