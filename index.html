@@ -279,7 +279,19 @@
       position: absolute; bottom: 1.2rem; right: 1.5rem; z-index: 1;
       font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
       color: rgba(255,255,255,0.55);
-      border-left: 1.5px solid #C9A96E; padding-left: 0.6rem;
+      padding-left: 0.6rem; padding-bottom: 8px;
+    }
+    .hero-caption::before {
+      content: ''; position: absolute; left: 0; top: 0;
+      width: 1.5px; height: calc(100% - 8px);
+      background: var(--vert-sauge);
+    }
+    .hero-caption::after {
+      content: ''; position: absolute; bottom: 0;
+      left: 50%; -webkit-transform: translateX(-50%); transform: translateX(-50%);
+      width: 50%; height: 2px;
+      background: linear-gradient(to right, #002395 33%, #ffffff 33%, #ffffff 66%, #ED2939 66%);
+      opacity: 0.5;
     }
     .hero-tag {
       font-family: 'Raleway', sans-serif; font-size: 11px;
