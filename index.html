@@ -364,10 +364,34 @@
     }
     .exp-card {
       background: var(--blanc); padding: 40px 36px;
-      -webkit-transition: background 0.3s; transition: background 0.3s;
-      cursor: default;
+      -webkit-transition: background 0.4s, box-shadow 0.4s, border-color 0.4s;
+      transition: background 0.4s, box-shadow 0.4s, border-color 0.4s;
+      cursor: default; position: relative; overflow: hidden;
+      border-bottom: 2px solid transparent;
     }
-    .exp-card:hover { background: var(--bleu-ardoise); }
+    .exp-card::after {
+      content: ''; position: absolute; inset: 0;
+      background-size: 55%; background-position: right bottom;
+      background-repeat: no-repeat;
+      opacity: 0.25;
+      -webkit-transition: opacity 0.5s ease, filter 0.5s ease, -webkit-filter 0.5s ease, background-size 0.5s ease;
+      transition: opacity 0.5s ease, filter 0.5s ease, background-size 0.5s ease;
+      pointer-events: none;
+    }
+    .exp-card:nth-child(1)::after { background-image: url('assets/droit-administratif.webp'); }
+    .exp-card:nth-child(2)::after { background-image: url('assets/marches-publics.webp'); }
+    .exp-card:nth-child(3)::after { background-image: url('assets/urbanisme.webp'); }
+    .exp-card:nth-child(4)::after { background-image: url('assets/contentieux.webp'); }
+    .exp-card:hover {
+      background: var(--bleu-ardoise);
+      box-shadow: 0 8px 32px rgba(45,63,92,0.18);
+      border-bottom-color: #C9A96E;
+    }
+    .exp-card:hover::after {
+      opacity: 0.18;
+      background-size: 60%;
+      -webkit-filter: invert(1); filter: invert(1);
+    }
     .exp-card:hover .exp-num,
     .exp-card:hover .exp-card-title,
     .exp-card:hover .exp-card-text { color: var(--blanc); }
@@ -376,17 +400,20 @@
       font-family: 'Raleway', sans-serif; font-size: 11px;
       letter-spacing: 0.15em; color: var(--vert-sauge);
       margin-bottom: 20px; font-weight: 400;
+      position: relative; z-index: 1;
     }
     .exp-card-title {
       font-family: 'Raleway', sans-serif; font-size: 22px;
-      font-weight: 400; color: var(--bleu-nuit);
+      font-weight: 500; color: var(--bleu-nuit);
       margin-bottom: 14px;
       -webkit-transition: color 0.3s; transition: color 0.3s;
+      position: relative; z-index: 1;
     }
     .exp-card-text {
       font-family: 'Raleway', sans-serif; font-size: 14px;
-      color: #6b7a8d; line-height: 1.75; font-weight: 400;
+      color: #6b7a8d; line-height: 1.75; font-weight: 450;
       -webkit-transition: color 0.3s; transition: color 0.3s;
+      position: relative; z-index: 1;
     }
 
     /* ── PARCOURS TEASER ── */
