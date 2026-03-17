@@ -269,6 +269,17 @@
       .back-to-blog { padding: 24px 20px; }
       footer { padding: 20px; -webkit-justify-content: center; justify-content: center; text-align: center; }
     }
+    @media screen and (max-width: 600px) {
+      nav {
+        -webkit-flex-direction: column; flex-direction: column;
+        -webkit-align-items: center; align-items: center;
+        gap: 10px; padding: 14px 20px;
+      }
+      .nav-logo { font-size: 15px; }
+      .nav-links { gap: 14px; }
+      .nav-links a { font-size: 10px; letter-spacing: 0.08em; }
+      .nav-blog { padding: 4px 9px; }
+    }
     @media screen and (max-width: 480px) {
       .nav-links a { font-size: 9px; letter-spacing: 0.06em; }
       .article-header { padding: 48px 16px 40px; }
