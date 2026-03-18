@@ -12,7 +12,7 @@
   };
   (function(d, s) {
     var t = d.getElementsByTagName(s)[0], e = d.createElement(s);
-    e.async = true; e.src = "//static.axept.io/sdk.js";
+    e.async = true; e.src = "https://static.axept.io/sdk.js";
     t.parentNode.insertBefore(e, t);
   })(document, "script");
   </script>
@@ -174,12 +174,13 @@
     }
     .presentation-text { flex: 1; }
     .s-tag {
-      font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase;
-      color: var(--bleu-ardoise); opacity: 0.5; margin-bottom: 12px;
+      font-family: 'Raleway', sans-serif; font-size: 11px;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--vert-sauge); margin-bottom: 12px; font-weight: 400;
     }
     .s-line {
-      width: 32px; height: 1px; background: var(--bleu-ardoise);
-      opacity: 0.25; margin-bottom: 28px;
+      width: 36px; height: 1px; background: var(--vert-sauge);
+      margin: 16px 0 36px;
     }
     .presentation-text h2 {
       font-weight: 200; font-size: clamp(22px, 3vw, 34px);
@@ -367,6 +368,8 @@
     <a href="/blog" class="nav-blog">Blog</a>
   </div>
 </nav>
+
+<main>
 
 <!-- HERO -->
 <div class="page-hero">
@@ -563,6 +566,8 @@
     </div>
   </div>
 </section>
+
+</main>
 
 <footer>
   <span>&copy; 2026 Gacem Avocat &middot; Tous droits r&eacute;serv&eacute;s</span>

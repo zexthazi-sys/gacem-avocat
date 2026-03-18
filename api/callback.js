@@ -15,6 +15,18 @@ module.exports = async function handler(req, res) {
     return;
   }
 
+  // Échappe une chaîne pour injection sûre dans un contexte JS entre quotes simples
+  function escapeJS(str) {
+    return String(str)
+      .replace(/\\/g, '\\\\')
+      .replace(/'/g, "\\'")
+      .replace(/"/g, '\\"')
+      .replace(/</g, '\\x3c')
+      .replace(/>/g, '\\x3e')
+      .replace(/\n/g, '\\n')
+      .replace(/\r/g, '\\r');
+  }
+
   let token, errorMsg;
 
   try {
@@ -37,19 +49,22 @@ module.exports = async function handler(req, res) {
   }
 
   if (errorMsg) {
+    const safeError = escapeJS(errorMsg);
     res.send(`<script>
-      window.opener && window.opener.postMessage('authorization:github:error:${errorMsg.replace(/'/g, "\\'")}', '*');
+      window.opener && window.opener.postMessage('authorization:github:error:${safeError}', '*');
       window.close();
     </script>`);
     return;
   }
+
+  const safeToken = escapeJS(token);
 
   // Retourne le token au CMS via postMessage (pattern standard Decap CMS)
   res.send(`<script>
     (function () {
       function receiveMessage(e) {
         window.opener.postMessage(
-          'authorization:github:success:{"token":"${token}","provider":"github"}',
+          'authorization:github:success:{"token":"${safeToken}","provider":"github"}',
           e.origin
         );
         window.removeEventListener('message', receiveMessage, false);

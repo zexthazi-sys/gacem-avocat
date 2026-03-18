@@ -66,7 +66,7 @@ function articleTemplate(slug, data, bodyHtml) {
   };
   (function(d, s) {
     var t = d.getElementsByTagName(s)[0], e = d.createElement(s);
-    e.async = true; e.src = "//static.axept.io/sdk.js";
+    e.async = true; e.src = "https://static.axept.io/sdk.js";
     t.parentNode.insertBefore(e, t);
   })(document, "script");
   <\/script>
@@ -230,7 +230,7 @@ function articleTemplate(slug, data, bodyHtml) {
     <div class="nav-links">
       <a href="/#cabinet">Cabinet</a>
       <a href="/#expertises">Expertises</a>
-      <a href="/#parcours">Parcours</a>
+      <a href="/parcours">Parcours</a>
       <a href="/#contact">Contact</a>
       <a href="/blog" class="active nav-blog">Blog</a>
     </div>
