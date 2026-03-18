@@ -171,7 +171,7 @@ function articleTemplate(slug, data, bodyHtml) {
     .nav-links a:not(.nav-blog)::after { content: ''; position: absolute; left: 0; bottom: -3px; width: 100%; height: 1px; background: var(--bleu-ardoise); transform: scaleX(0); transform-origin: left center; transition: transform 0.28s ease; }
     .nav-links a:not(.nav-blog):hover::after, .nav-links a:not(.nav-blog).active::after { transform: scaleX(1); }
     .nav-blog { display: inline-flex; align-items: center; border: 1px solid rgba(45,63,92,0.22); border-radius: 20px; padding: 5px 12px; background: rgba(45,63,92,0.04); white-space: nowrap; transition: color 0.2s, background 0.25s, border-color 0.25s; }
-    .nav-blog::after { content: '  ↗'; font-size: 9px; vertical-align: 1px; }
+
     .nav-blog:hover { background: rgba(45,63,92,0.09); border-color: rgba(45,63,92,0.4); }
     .nav-blog.active { background: rgba(45,63,92,0.1); border-color: rgba(45,63,92,0.4); }
     .article-header { background: var(--degrade); padding: 88px 64px 72px; }
