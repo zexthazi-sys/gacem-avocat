@@ -37,9 +37,8 @@ Cette décision QPC est une victoire pour les droits de la défense et pour le p
 
 ## Source :
 
-**Décision n° 2026-1101 QPC du 13 mars 2026**
-Conseil constitutionnel
+**Décision n° 2026-1101 QPC du 13 mars 2026** - Conseil constitutionnel
 
-*Article visé : Article 222-49 alinéa 1er du Code pénal*
+*Article visé : Article 222-49 alinéa 1er du Code pénal*\
 *Fondement : Article 8 de la Déclaration des droits de l'homme et du citoyen de 1789 (principe d'individualisation des peines)*
 *Publié le 13 mars 2026*
