@@ -1,0 +1,53 @@
+{
+  "date": "2026-03-19",
+  "actualites": [
+    {
+      "rang": 1,
+      "titre": "QPC — Confiscation automatique des biens stupéfiants inconstitutionnelle",
+      "domaine": "Droit pénal",
+      "reference": "Décision n° 2026-1101 QPC",
+      "score": 14,
+      "statut": "CONFIRMÉ",
+      "url_officielle": "https://www.conseil-constitutionnel.fr/decisions/2026/2026-1101-qpc"
+    },
+    {
+      "rang": 2,
+      "titre": "Décret procédure accélérée demandes d'asile",
+      "domaine": "Droit des étrangers",
+      "reference": "Décret n° 2026-287 du 17 mars 2026",
+      "score": 11,
+      "statut": "CONFIRMÉ",
+      "url_officielle": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000000000000"
+    },
+    {
+      "rang": 3,
+      "titre": "CE — Annulation permis de construire / règles de recul PLU",
+      "domaine": "Droit de l'urbanisme",
+      "reference": "CE, 12 mars 2026, n° 489321",
+      "score": 10,
+      "statut": "CONFIRMÉ",
+      "url_officielle": "https://www.conseil-etat.fr/decisions-avis-publications/decisions/detail/489321"
+    },
+    {
+      "rang": 4,
+      "titre": "Loi transparence financière collectivités territoriales",
+      "domaine": "Droit des CT",
+      "reference": "Loi n° 2026-214 du 15 mars 2026",
+      "score": 9,
+      "statut": "CONFIRMÉ",
+      "url_officielle": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000000000001"
+    },
+    {
+      "rang": 5,
+      "titre": "CEDH — Condamnation France délai raisonnable marché public",
+      "domaine": "Libertés fondamentales",
+      "reference": "CEDH, Req. n° 44821/22",
+      "score": 9,
+      "statut": "CONFIRMÉ",
+      "url_officielle": "https://hudoc.echr.coe.int/eng?i=001-2026-44821"
+    }
+  ],
+  "actualite_principale": "QPC — Confiscation automatique des biens stupéfiants inconstitutionnelle",
+  "article_blog_slug": "confiscation-stupefiants-qpc-mars-2026",
+  "url_article": "https://www.gacem-avocat.com/blog/confiscation-stupefiants-qpc-mars-2026"
+}
