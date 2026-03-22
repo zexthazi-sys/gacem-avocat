@@ -125,10 +125,10 @@
     .nav-logo span { font-weight: 200; }
     .nav-links { display: -webkit-flex; display: flex; gap: 32px; -webkit-align-items: center; align-items: center; }
     .nav-links a {
-      font-family: 'Raleway', sans-serif; font-size: 12px; letter-spacing: 0.1em; font-weight: 400;
+      font-family: 'Raleway', sans-serif; font-size: 12px; letter-spacing: 0.12em; font-weight: 400;
       color: var(--bleu-ardoise); text-decoration: none; text-transform: uppercase;
       position: relative;
-      -webkit-transition: color 0.2s; transition: color 0.2s;
+      -webkit-transition: color 0.5s ease; transition: color 0.5s ease;
     }
     .nav-links a:not(.nav-blog) { padding-bottom: 2px; }
     .nav-links a:hover { color: var(--bleu-nuit); }
@@ -145,12 +145,12 @@
     .nav-blog {
       display: -webkit-inline-flex; display: inline-flex;
       -webkit-align-items: center; align-items: center;
-      border: 1px solid rgba(45,63,92,0.22); border-radius: 20px;
-      padding: 5px 12px;
+      border: 1px solid rgba(45,63,92,0.22); border-radius: 3px;
+      padding: 6px 16px;
       white-space: nowrap;
-      background: rgba(45,63,92,0.04); white-space: nowrap;
-      -webkit-transition: background 0.2s, border-color 0.2s, color 0.2s;
-      transition: background 0.2s, border-color 0.2s, color 0.2s;
+      background: rgba(45,63,92,0.04);
+      -webkit-transition: background 0.5s ease, border-color 0.5s ease, color 0.5s ease;
+      transition: background 0.5s ease, border-color 0.5s ease, color 0.5s ease;
     }
 
     .nav-blog:hover { background: rgba(45,63,92,0.09); border-color: rgba(45,63,92,0.4); }
@@ -224,6 +224,7 @@
     /* ── FOOTER ── */
     footer {
       padding: 24px 64px; background: var(--noir);
+      border-top: 1px solid rgba(189,201,190,0.18);
       display: -webkit-flex; display: flex;
       -webkit-align-items: center; align-items: center;
       -webkit-justify-content: space-between; justify-content: space-between;

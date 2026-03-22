@@ -12,7 +12,7 @@
   };
   (function(d, s) {
     var t = d.getElementsByTagName(s)[0], e = d.createElement(s);
-    e.async = true; e.src = "//static.axept.io/sdk.js";
+    e.async = true; e.src = "https://static.axept.io/sdk.js";
     t.parentNode.insertBefore(e, t);
   })(document, "script");
   </script>
@@ -81,8 +81,10 @@
       -webkit-align-items: center; align-items: center;
       -webkit-justify-content: space-between; justify-content: space-between;
       padding: 18px 48px;
-      background: var(--blanc);
-      border-bottom: 1px solid rgba(45,63,92,0.08);
+      background: rgba(255,255,255,0.88);
+      -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(189,201,190,0.35);
+      border-bottom: 1px solid rgba(45,63,92,0.06);
     }
     .nav-logo {
       font-family: 'Raleway', sans-serif; font-weight: 400;
@@ -90,16 +92,37 @@
       text-decoration: none;
     }
     .nav-logo span { font-weight: 200; }
-    .nav-links { display: -webkit-flex; display: flex; gap: 32px; }
+    .nav-links { display: -webkit-flex; display: flex; gap: 32px; -webkit-align-items: center; align-items: center; }
     .nav-links a {
       font-family: 'Raleway', sans-serif; font-size: 12px;
-      letter-spacing: 0.1em; text-transform: uppercase;
+      letter-spacing: 0.12em; text-transform: uppercase;
       color: var(--bleu-ardoise); text-decoration: none; font-weight: 400;
       position: relative;
-      -webkit-transition: color 0.2s; transition: color 0.2s;
+      -webkit-transition: color 0.5s ease; transition: color 0.5s ease;
     }
+    .nav-links a:not(.nav-blog) { padding-bottom: 2px; }
     .nav-links a:hover { color: var(--bleu-nuit); }
-    .nav-links a.active { color: var(--bleu-nuit); border-bottom: 1px solid var(--vert-sauge); padding-bottom: 2px; }
+    .nav-links a.active { color: var(--bleu-nuit); }
+    .nav-links a:not(.nav-blog)::after {
+      content: ''; position: absolute; bottom: 0; left: 0;
+      width: 100%; height: 1px; background: var(--bleu-nuit);
+      -webkit-transform: scaleX(0); transform: scaleX(0);
+      -webkit-transform-origin: left center; transform-origin: left center;
+      -webkit-transition: -webkit-transform 0.28s ease; transition: transform 0.28s ease;
+    }
+    .nav-links a:not(.nav-blog):hover::after,
+    .nav-links a:not(.nav-blog).active::after { -webkit-transform: scaleX(1); transform: scaleX(1); }
+    .nav-blog {
+      display: -webkit-inline-flex; display: inline-flex;
+      -webkit-align-items: center; align-items: center;
+      border: 1px solid rgba(45,63,92,0.22); border-radius: 3px;
+      padding: 6px 16px;
+      white-space: nowrap;
+      background: rgba(45,63,92,0.04);
+      -webkit-transition: color 0.5s ease, background 0.5s ease, border-color 0.5s ease;
+      transition: color 0.5s ease, background 0.5s ease, border-color 0.5s ease;
+    }
+    .nav-blog:hover { background: rgba(45,63,92,0.09); border-color: rgba(45,63,92,0.4); }
 
     /* ── ARTICLE HEADER ── */
     .article-header {
@@ -244,7 +267,7 @@
 
     /* ── FOOTER ── */
     footer {
-      padding: 24px 64px; background: var(--noir);
+      padding: 24px 64px; background: var(--noir); border-top: 1px solid rgba(189,201,190,0.18);
       display: -webkit-flex; display: flex;
       -webkit-align-items: center; align-items: center;
       -webkit-justify-content: space-between; justify-content: space-between;
@@ -252,15 +275,15 @@
       gap: 8px;
     }
     footer span {
-      font-family: 'Raleway', sans-serif; font-size: 10px;
-      color: rgba(255,255,255,0.55); letter-spacing: 0.1em; font-weight: 300;
+      font-family: 'Raleway', sans-serif; font-size: 11px;
+      color: rgba(255,255,255,0.55); letter-spacing: 0.1em; font-weight: 400;
     }
     footer a {
-      font-family: 'Raleway', sans-serif; font-size: 10px;
-      color: rgba(255,255,255,0.55); letter-spacing: 0.1em; font-weight: 300;
+      font-family: 'Raleway', sans-serif; font-size: 11px;
+      color: rgba(255,255,255,0.55); letter-spacing: 0.1em; font-weight: 400;
       text-decoration: none; -webkit-transition: color 0.2s; transition: color 0.2s;
     }
-    footer a:hover { color: rgba(255,255,255,0.5); }
+    footer a:hover { color: rgba(255,255,255,0.85); }
 
     /* ── MOBILE ── */
     @media screen and (max-width: 768px) {
@@ -305,7 +328,7 @@
     <div class="nav-links">
       <a href="/#cabinet">Cabinet</a>
       <a href="/#expertises">Expertises</a>
-      <a href="/#parcours">Parcours</a>
+      <a href="/parcours">Parcours</a>
       <a href="/#contact">Contact</a>
       <a href="/blog" class="active nav-blog">Blog</a>
     </div>

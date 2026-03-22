@@ -149,7 +149,7 @@ function articleTemplate(slug, data, bodyHtml) {
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
-    :focus-visible { outline: 2px solid #bdc9be; outline-offset: 3px; }
+    :focus-visible { outline: 2px solid var(--vert-sauge); outline-offset: 3px; }
     html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-behavior: smooth; }
     body { font-family: 'Raleway', sans-serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; overflow-x: hidden; }
     :root {
@@ -160,18 +160,21 @@ function articleTemplate(slug, data, bodyHtml) {
     nav {
       position: -webkit-sticky; position: sticky; top: 0; z-index: 50;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 18px 48px; background: var(--blanc);
-      border-bottom: 1px solid rgba(45,63,92,0.08);
+      padding: 18px 48px;
+      background: rgba(255,255,255,0.88);
+      -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(189,201,190,0.35);
+      border-bottom: 1px solid rgba(45,63,92,0.06);
     }
     .nav-logo { font-weight: 400; font-size: 22px; letter-spacing: 0.15em; color: var(--bleu-nuit); text-decoration: none; }
     .nav-logo span { font-weight: 200; }
     .nav-links { display: flex; gap: 32px; align-items: center; }
-    .nav-links a { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--bleu-ardoise); text-decoration: none; font-weight: 400; position: relative; transition: color 0.2s; }
+    .nav-links a { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--bleu-ardoise); text-decoration: none; font-weight: 400; position: relative; transition: color 0.5s ease; }
     .nav-links a:hover { color: var(--bleu-nuit); }
     .nav-links a.active { color: var(--bleu-nuit); }
     .nav-links a:not(.nav-blog)::after { content: ''; position: absolute; left: 0; bottom: -3px; width: 100%; height: 1px; background: var(--bleu-ardoise); transform: scaleX(0); transform-origin: left center; transition: transform 0.28s ease; }
     .nav-links a:not(.nav-blog):hover::after, .nav-links a:not(.nav-blog).active::after { transform: scaleX(1); }
-    .nav-blog { display: inline-flex; align-items: center; border: 1px solid rgba(45,63,92,0.22); border-radius: 20px; padding: 5px 12px; background: rgba(45,63,92,0.04); white-space: nowrap; transition: color 0.2s, background 0.25s, border-color 0.25s; }
+    .nav-blog { display: inline-flex; align-items: center; border: 1px solid rgba(45,63,92,0.22); border-radius: 3px; padding: 6px 16px; background: rgba(45,63,92,0.04); white-space: nowrap; transition: color 0.5s ease, background 0.5s ease, border-color 0.5s ease; }
 
     .nav-blog:hover { background: rgba(45,63,92,0.09); border-color: rgba(45,63,92,0.4); }
     .nav-blog.active { background: rgba(45,63,92,0.1); border-color: rgba(45,63,92,0.4); }
@@ -205,7 +208,7 @@ function articleTemplate(slug, data, bodyHtml) {
     .back-to-blog { padding: 32px 64px; background: #f0f2f4; border-top: 1px solid rgba(45,63,92,0.06); }
     .back-to-blog a { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--bleu-ardoise); text-decoration: none; font-weight: 400; transition: color 0.2s; }
     .back-to-blog a:hover { color: var(--bleu-nuit); }
-    footer { padding: 24px 64px; background: var(--noir); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+    footer { padding: 24px 64px; background: var(--noir); border-top: 1px solid rgba(189,201,190,0.18); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
     footer span, footer a { font-size: 10px; color: rgba(255,255,255,0.55); letter-spacing: 0.1em; font-weight: 400; text-decoration: none; transition: color 0.2s; }
     footer a:hover { color: rgba(255,255,255,0.8); }
     @media (max-width: 768px) {

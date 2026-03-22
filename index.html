@@ -169,31 +169,30 @@
     /* ── INTRO ANIMATION ── */
     #intro-overlay {
       position: fixed; inset: 0; z-index: 9999;
-      background: #221e30; overflow: hidden;
+      background: radial-gradient(ellipse 160% 160% at 100% 100%, #6b4f6e 0%, #3d2f4a 40%, #2b2338 70%, #221e30 100%);
+      overflow: hidden;
+      display: -webkit-flex; display: flex;
+      -webkit-align-items: center; align-items: center;
+      -webkit-justify-content: center; justify-content: center;
+      -webkit-flex-direction: column; flex-direction: column;
     }
     #intro-overlay .intro-logo {
-      position: absolute; top: 50%; left: 50%;
-      -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%);
-      z-index: 2;
       font-family: 'Raleway', sans-serif;
-      font-size: clamp(22px, 3.6vw, 33px);
+      font-size: clamp(20px, 3.2vw, 30px);
+      letter-spacing: 0.45em; padding-left: 0.45em;
+      white-space: nowrap; opacity: 0;
+      -webkit-transition: opacity 0.9s ease, letter-spacing 0.9s cubic-bezier(0.16,1,0.3,1);
+      transition: opacity 0.9s ease, letter-spacing 0.9s cubic-bezier(0.16,1,0.3,1);
+    }
+    #intro-overlay .intro-logo.visible {
+      opacity: 1;
       letter-spacing: 0.25em; padding-left: 0.25em;
-      color: #ffffff; white-space: nowrap;
-      opacity: 0;
-      -webkit-transition: opacity 0.8s ease-out; transition: opacity 0.8s ease-out;
     }
-    #intro-overlay .intro-logo strong { font-weight: 600; font-style: normal; }
-    #intro-overlay .intro-logo span { font-weight: 300; }
-    #intro-overlay .intro-circle {
-      position: absolute; width: 10vmax; height: 10vmax;
-      border-radius: 50%; background: #2c3e50;
-      z-index: 1; will-change: transform;
-      transform: scale(0);
-    }
-    #intro-overlay .intro-circle-tl { top: -5vmax; left: -5vmax; }
-    #intro-overlay .intro-circle-br { bottom: -5vmax; right: -5vmax; }
+    #intro-overlay .intro-logo strong { font-weight: 400; color: #ffffff; }
+    #intro-overlay .intro-logo span   { font-weight: 200; color: #ffffff; }
     #intro-overlay.intro-fade {
-      -webkit-transition: opacity 0.6s ease-in; transition: opacity 0.6s ease-in;
+      -webkit-transition: opacity 0.8s cubic-bezier(0.4,0,1,1);
+      transition: opacity 0.8s cubic-bezier(0.4,0,1,1);
       opacity: 0; pointer-events: none;
     }
 
@@ -206,12 +205,14 @@
       padding: 18px 48px;
       background: transparent;
       border-bottom: 1px solid transparent;
-      -webkit-transition: background 0.4s, border-color 0.4s;
-      transition: background 0.4s, border-color 0.4s;
+      -webkit-transition: background 0.5s ease, border-color 0.5s ease, -webkit-backdrop-filter 0.5s ease;
+      transition: background 0.5s ease, border-color 0.5s ease, backdrop-filter 0.5s ease;
     }
     nav.nav-scrolled {
-      background: var(--blanc);
-      border-bottom-color: rgba(45,63,92,0.08);
+      background: rgba(255,255,255,0.88);
+      -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(189,201,190,0.35);
+      border-bottom-color: rgba(45,63,92,0.06);
     }
     .nav-logo {
       font-family: 'Raleway', sans-serif; font-weight: 400;
@@ -224,10 +225,10 @@
     .nav-links { display: -webkit-flex; display: flex; gap: 32px; -webkit-align-items: center; align-items: center; }
     .nav-links a {
       font-family: 'Raleway', sans-serif; font-size: 12px;
-      letter-spacing: 0.1em; text-transform: uppercase;
+      letter-spacing: 0.12em; text-transform: uppercase;
       color: rgba(255,255,255,0.8); text-decoration: none; font-weight: 400;
       position: relative;
-      -webkit-transition: color 0.4s; transition: color 0.4s;
+      -webkit-transition: color 0.5s ease; transition: color 0.5s ease;
     }
     nav.nav-scrolled .nav-links a { color: var(--bleu-ardoise); }
     .nav-links a:hover { color: var(--bleu-nuit); }
@@ -244,11 +245,11 @@
     .nav-blog {
       display: -webkit-inline-flex; display: inline-flex;
       -webkit-align-items: center; align-items: center;
-      border: 1px solid rgba(255,255,255,0.35); border-radius: 20px;
-      padding: 5px 12px; background: transparent;
+      border: 1px solid rgba(255,255,255,0.35); border-radius: 3px;
+      padding: 6px 16px; background: transparent;
       white-space: nowrap;
-      -webkit-transition: color 0.4s, background 0.4s, border-color 0.4s;
-      transition: color 0.4s, background 0.4s, border-color 0.4s;
+      -webkit-transition: color 0.5s ease, background 0.5s ease, border-color 0.5s ease;
+      transition: color 0.5s ease, background 0.5s ease, border-color 0.5s ease;
     }
     nav.nav-scrolled .nav-blog {
       border-color: rgba(45,63,92,0.22);
@@ -309,7 +310,7 @@
     .hero-sub {
       font-family: 'Raleway', sans-serif; font-weight: 300;
       font-size: 15px; line-height: 1.9;
-      color: rgba(255,255,255,0.55); margin-bottom: 44px; max-width: 520px; margin-left: auto; margin-right: auto;
+      color: rgba(255,255,255,0.70); margin-bottom: 44px; max-width: 520px; margin-left: auto; margin-right: auto;
     }
     .hero-cta {
       display: inline-block; padding: 14px 36px;
@@ -320,7 +321,7 @@
       -webkit-transition: all 0.3s; transition: all 0.3s;
       -webkit-tap-highlight-color: transparent;
     }
-    .hero-cta:hover { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.7); }
+    .hero-cta:hover { background: rgba(255,255,255,0.05); border-color: var(--vert-sauge); color: var(--vert-sauge); }
 
     /* ── SECTIONS ── */
     section { padding: 88px 64px; }
@@ -329,7 +330,7 @@
       letter-spacing: 0.22em; text-transform: uppercase;
       color: var(--vert-sauge); margin-bottom: 12px; font-weight: 400;
     }
-    .s-line { width: 36px; height: 1px; background: var(--vert-sauge); margin: 16px 0 36px; }
+    .s-line { width: 48px; height: 0.5px; background: var(--vert-sauge); margin: 16px 0 36px; }
     .s-title {
       font-family: 'Raleway', sans-serif;
       font-size: 36px; font-size: clamp(24px, 3.85vw, 42px);
@@ -337,7 +338,7 @@
     }
 
     /* ── CABINET ── */
-    #cabinet { background: var(--blanc); }
+    #cabinet { background: #fafaf8; }
     .cabinet-grid {
       display: -webkit-flex; display: flex;
       -webkit-align-items: stretch; align-items: stretch;
@@ -412,7 +413,7 @@
     .exp-card:hover {
       background: var(--bleu-ardoise);
       box-shadow: 0 8px 32px rgba(45,63,92,0.18);
-      border-bottom-color: #C9A96E;
+      border-bottom-color: var(--vert-sauge);
     }
     .exp-card:hover::after {
       opacity: 0.18;
@@ -551,6 +552,7 @@
     /* ── FOOTER ── */
     footer {
       padding: 24px 64px; background: var(--noir);
+      border-top: 1px solid rgba(189,201,190,0.18);
       display: -webkit-flex; display: flex;
       -webkit-align-items: center; align-items: center;
       -webkit-justify-content: space-between; justify-content: space-between;
@@ -763,51 +765,50 @@
     return;
   }
 
-  /* ── Timings ── */
-  var mobile = window.innerWidth < 768;
-  var s      = mobile ? 4 / 6 : 1; /* scale factor mobile = 4s / desktop = 6s */
+  /* ── Détection reload vs navigation interne ── */
+  var navEntry = performance && performance.getEntriesByType &&
+                 performance.getEntriesByType('navigation')[0];
+  var isReload = navEntry && navEntry.type === 'reload';
 
-  var T_LOGO_SHOW     = Math.round(1000  * s); /* phase 2 : logo fade-in */
-  var T_CIRCLES_START = Math.round(2200  * s); /* phase 3 : cercles s'agrandissent */
-  var CIRCLE_DUR      = Math.round(2200  * s) + 'ms';
-  var T_FADE_START    = Math.round(4200  * s); /* phase 4 : overlay disparaît */
-  var T_REMOVE        = Math.round(5300  * s); /* nettoyage DOM */
+  /* ── sessionStorage : skip si navigation interne (pas un reload) ── */
+  if (!isReload && sessionStorage.getItem('gacem_intro_done')) {
+    if (site) site.style.opacity = '1';
+    return;
+  }
+  sessionStorage.setItem('gacem_intro_done', '1');
+
+  /* ── Timings (ms) ──
+     Phase 1 · 0        : overlay visible
+     Phase 2 · 300ms    : logo apparaît (opacity + letter-spacing)
+     Phase 3 · 1600ms   : fondu de sortie + site révélé
+     Phase 4 · 2450ms   : nettoyage DOM
+  ── */
+  var T_LOGO   = 300;
+  var T_FADE   = 1600;
+  var T_REMOVE = 2450;
 
   /* ── Création de l'overlay ── */
   var overlay = document.createElement('div');
   overlay.id  = 'intro-overlay';
   overlay.innerHTML =
-    '<div class="intro-logo"><strong>Gacem</strong><span> Avocat</span></div>' +
-    '<div class="intro-circle intro-circle-tl"></div>' +
-    '<div class="intro-circle intro-circle-br"></div>';
+    '<div class="intro-logo"><strong>Gacem</strong><span> Avocat</span></div>';
   document.body.insertBefore(overlay, document.body.firstChild);
   document.body.style.overflow = 'hidden';
 
-  var logo    = overlay.querySelector('.intro-logo');
-  var circles = overlay.querySelectorAll('.intro-circle');
+  var logo = overlay.querySelector('.intro-logo');
 
-  /* ── Phase 2 : logo ── */
+  /* ── Phase 2 : logo apparaît avec letter-spacing animé ── */
   setTimeout(function () {
-    logo.style.opacity = '1';
-  }, T_LOGO_SHOW);
-
-  /* ── Phase 3 : expansion des cercles ── */
-  setTimeout(function () {
-    [].forEach.call(circles, function (c) {
-      c.style.webkitTransition = 'transform ' + CIRCLE_DUR + ' cubic-bezier(0.76,0,0.24,1)';
-      c.style.transition       = 'transform ' + CIRCLE_DUR + ' cubic-bezier(0.76,0,0.24,1)';
-      c.style.webkitTransform  = 'scale(25)';
-      c.style.transform        = 'scale(25)';
-    });
-  }, T_CIRCLES_START);
+    logo.classList.add('visible');
+  }, T_LOGO);
 
   /* ── Phase 4 : fondu de sortie + révélation du site ── */
   setTimeout(function () {
     overlay.classList.add('intro-fade');
     if (site) site.style.opacity = '1';
-  }, T_FADE_START);
+  }, T_FADE);
 
-  /* ── Nettoyage ── */
+  /* ── Phase 5 : nettoyage DOM ── */
   setTimeout(function () {
     if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
     document.body.style.overflow = '';
