@@ -773,13 +773,15 @@
     return;
   }
 
-  /* ── Détection reload vs navigation interne ── */
+  /* ── Détection du contexte d'arrivée ── */
   var navEntry = performance && performance.getEntriesByType &&
                  performance.getEntriesByType('navigation')[0];
   var isReload = navEntry && navEntry.type === 'reload';
+  var isExternal = !document.referrer ||
+                   document.referrer.indexOf(location.hostname) === -1;
 
-  /* ── sessionStorage : skip si navigation interne (pas un reload) ── */
-  if (!isReload && sessionStorage.getItem('gacem_intro_done')) {
+  /* ── sessionStorage : skip uniquement si navigation interne ── */
+  if (!isReload && !isExternal && sessionStorage.getItem('gacem_intro_done')) {
     if (site) site.style.opacity = '1';
     document.documentElement.classList.remove('splash-active');
     return;
