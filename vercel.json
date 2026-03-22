@@ -6,7 +6,13 @@
   "cleanUrls": true,
   "rewrites": [
     { "source": "/admin", "destination": "/admin/index.html" },
-    { "source": "/admin/", "destination": "/admin/index.html" }
+    { "source": "/admin/", "destination": "/admin/index.html" },
+    { "source": "/server.py", "destination": "/404.html", "statusCode": 404 },
+    { "source": "/BLOG_GUIDE.md", "destination": "/404.html", "statusCode": 404 },
+    { "source": "/GUIDE_ADMIN.md", "destination": "/404.html", "statusCode": 404 },
+    { "source": "/build.js", "destination": "/404.html", "statusCode": 404 },
+    { "source": "/package.json", "destination": "/404.html", "statusCode": 404 },
+    { "source": "/package-lock.json", "destination": "/404.html", "statusCode": 404 }
   ],
   "headers": [
     {
@@ -16,7 +22,8 @@
         { "key": "X-Content-Type-Options", "value": "nosniff" },
         { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
         { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" },
-        { "key": "Strict-Transport-Security", "value": "max-age=63072000; includeSubDomains; preload" }
+        { "key": "Strict-Transport-Security", "value": "max-age=63072000; includeSubDomains; preload" },
+        { "key": "Content-Security-Policy", "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://static.axept.io https://unpkg.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://formspree.io https://*.axept.io https://api.github.com; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' https://formspree.io; font-src 'self';" }
       ]
     },
     {

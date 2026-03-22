@@ -74,6 +74,8 @@ function articleTemplate(slug, data, bodyHtml) {
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
+  <link rel="preconnect" href="https://static.axept.io" crossorigin>
+  <link rel="preload" href="/assets/fonts/raleway-latin.woff2" as="font" type="font/woff2" crossorigin>
   <title>${titleEsc} &mdash; Gacem Avocat</title>
   <meta name="description" content="${descEsc}">
   <link rel="canonical" href="${canonUrl}">
