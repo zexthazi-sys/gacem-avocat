@@ -172,21 +172,23 @@
 
     /* ── INTRO ANIMATION ── */
     #intro-overlay {
-      position: fixed; inset: 0; z-index: 9999;
+      position: fixed; top: 0; right: 0; bottom: 0; left: 0; z-index: 9999;
       background: #1a1a2e;
       overflow: hidden;
       display: -webkit-flex; display: flex;
       -webkit-align-items: center; align-items: center;
       -webkit-justify-content: center; justify-content: center;
       -webkit-flex-direction: column; flex-direction: column;
+      will-change: opacity;
     }
     #intro-overlay .intro-logo {
       font-family: 'Raleway', sans-serif;
-      font-size: clamp(20px, 3.2vw, 30px);
+      font-size: 24px; font-size: clamp(20px, 3.2vw, 30px);
       letter-spacing: 0.45em; padding-left: 0.45em;
       white-space: nowrap; opacity: 0;
-      -webkit-transition: opacity 0.9s ease, letter-spacing 0.9s cubic-bezier(0.16,1,0.3,1);
-      transition: opacity 0.9s ease, letter-spacing 0.9s cubic-bezier(0.16,1,0.3,1);
+      will-change: opacity, letter-spacing;
+      -webkit-transition: opacity 0.9s ease, letter-spacing 0.9s cubic-bezier(0.16,1,0.3,1), padding-left 0.9s cubic-bezier(0.16,1,0.3,1);
+      transition: opacity 0.9s ease, letter-spacing 0.9s cubic-bezier(0.16,1,0.3,1), padding-left 0.9s cubic-bezier(0.16,1,0.3,1);
     }
     #intro-overlay .intro-logo.visible {
       opacity: 1;
@@ -793,9 +795,6 @@
   var T_LOGO   = 300;
   var T_FADE   = 1600;
   var T_REMOVE = 2450;
-
-  /* ── Fond html synchronisé (couvre les zones iOS Safari derrière la barre d'adresse) ── */
-  document.documentElement.classList.add('splash-active');
 
   /* ── Création de l'overlay ── */
   var overlay = document.createElement('div');
