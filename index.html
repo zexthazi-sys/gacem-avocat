@@ -171,7 +171,7 @@
 
     /* ── INTRO ANIMATION ── */
     #intro-overlay {
-      position: fixed; top: -150px; right: -150px; bottom: -150px; left: -150px; z-index: 9999;
+      position: fixed; inset: 0; z-index: 9999;
       background: radial-gradient(ellipse 160% 160% at 100% 100%, #6b4f6e 0%, #3d2f4a 40%, #2b2338 70%, #221e30 100%);
       overflow: hidden;
       display: -webkit-flex; display: flex;
@@ -791,6 +791,10 @@
   var T_FADE   = 1600;
   var T_REMOVE = 2450;
 
+  /* ── Fond html synchronisé (couvre les zones iOS Safari derrière la barre d'adresse) ── */
+  var splashBg = 'radial-gradient(ellipse 160% 160% at 100% 100%, #6b4f6e 0%, #3d2f4a 40%, #2b2338 70%, #221e30 100%)';
+  document.documentElement.style.background = splashBg;
+
   /* ── Création de l'overlay ── */
   var overlay = document.createElement('div');
   overlay.id  = 'intro-overlay';
@@ -816,6 +820,7 @@
   setTimeout(function () {
     if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
     document.body.style.overflow = '';
+    document.documentElement.style.background = '';
   }, T_REMOVE);
 }());
 </script>
