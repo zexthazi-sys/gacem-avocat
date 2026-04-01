@@ -512,13 +512,36 @@
 
     /* ── CONTACT ── */
     #contact { background: var(--bleu-nuit); }
-    #contact .s-title { color: var(--blanc); }
-    .contact-info { margin-top: 40px; max-width: 480px; }
-    .contact-info p {
-      font-family: 'Raleway', sans-serif; font-size: 14px;
-      color: rgba(255,255,255,0.45); line-height: 1.7; font-weight: 400;
+    .contact-inner {
+      display: -webkit-flex; display: flex;
+      gap: 80px; -webkit-align-items: flex-start; align-items: flex-start;
     }
-    .contact-info strong { color: var(--vert-sauge); font-weight: 400; }
+    .contact-left { -webkit-flex: 0 0 38%; flex: 0 0 38%; }
+    #contact .s-title { color: var(--blanc); }
+    .contact-right {
+      -webkit-flex: 1; flex: 1;
+      display: -webkit-flex; display: flex;
+      -webkit-flex-direction: column; flex-direction: column;
+      gap: 28px; padding-top: 6px;
+    }
+    .contact-item {
+      border-left: 1px solid rgba(189,201,190,0.18);
+      padding-left: 20px;
+    }
+    .contact-item strong {
+      display: block;
+      font-family: 'Raleway', sans-serif;
+      font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--vert-sauge); font-weight: 400; margin-bottom: 5px;
+    }
+    .contact-item span,
+    .contact-item a {
+      font-family: 'Raleway', sans-serif; font-size: 14px;
+      color: rgba(255,255,255,0.45); line-height: 1.6; font-weight: 400;
+      text-decoration: none;
+      -webkit-transition: color 0.2s; transition: color 0.2s;
+    }
+    .contact-item a:hover { color: var(--vert-sauge); }
 
     /* ── FOOTER ── */
     footer {
@@ -569,7 +592,8 @@
       .cabinet-photo img { position: relative; }
       .cabinet-content { -webkit-flex: unset; flex: unset; }
       .exp-grid { grid-template-columns: 1fr; }
-
+      .contact-inner { -webkit-flex-direction: column; flex-direction: column; gap: 40px; }
+      .contact-left { -webkit-flex: unset; flex: unset; }
       footer { padding: 20px; -webkit-justify-content: center; justify-content: center; text-align: center; }
     }
 
@@ -687,21 +711,31 @@
   </section>
 
   <section id="contact">
-    <div class="s-tag">Contact</div>
-    <div class="s-line"></div>
-    <h2 class="s-title">Parlons de<br>votre projet</h2>
-    <div class="contact-info">
-        <p>
-          <strong>Ma&#238;tre Hakim GACEM</strong><br>
-          Avocat au Barreau de Paris<br>(serment en cours)<br><br>
-          <strong>Email</strong><br>
-          <a href="mailto:contact@gacem-avocat.com" style="color:inherit;">contact@gacem-avocat.com</a><br><br>
-          <strong>T&#233;l&#233;phone</strong><br>
-          Sur rendez-vous<br><br>
-          <strong>Disponibilit&#233;</strong><br>
-          Lundi &mdash; Vendredi &middot; 9h &mdash; 19h
-        </p>
+    <div class="contact-inner">
+      <div class="contact-left">
+        <div class="s-tag">Contact</div>
+        <div class="s-line"></div>
+        <h2 class="s-title">Parlons de<br>votre projet</h2>
       </div>
+      <div class="contact-right">
+        <div class="contact-item">
+          <strong>Ma&#238;tre Hakim GACEM</strong>
+          <span>Avocat au Barreau de Paris<br>(serment en cours)</span>
+        </div>
+        <div class="contact-item">
+          <strong>Email</strong>
+          <a href="mailto:contact@gacem-avocat.com">contact@gacem-avocat.com</a>
+        </div>
+        <div class="contact-item">
+          <strong>T&#233;l&#233;phone</strong>
+          <span>Sur rendez-vous</span>
+        </div>
+        <div class="contact-item">
+          <strong>Disponibilit&#233;</strong>
+          <span>Lundi &mdash; Vendredi &middot; 9h &mdash; 19h</span>
+        </div>
+      </div>
+    </div>
   </section>
 
   </main>
