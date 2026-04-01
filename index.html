@@ -513,48 +513,12 @@
     /* ── CONTACT ── */
     #contact { background: var(--bleu-nuit); }
     #contact .s-title { color: var(--blanc); }
-    .contact-grid {
-      display: -webkit-flex; display: flex;
-      -webkit-flex-wrap: wrap; flex-wrap: wrap;
-      gap: 48px; margin-top: 40px;
-    }
-    .contact-info { -webkit-flex: 1 1 260px; flex: 1 1 260px; }
+    .contact-info { margin-top: 40px; max-width: 480px; }
     .contact-info p {
       font-family: 'Raleway', sans-serif; font-size: 14px;
       color: rgba(255,255,255,0.45); line-height: 1.7; font-weight: 400;
     }
     .contact-info strong { color: var(--vert-sauge); font-weight: 400; }
-    .form {
-      -webkit-flex: 1 1 300px; flex: 1 1 300px;
-      display: -webkit-flex; display: flex;
-      -webkit-flex-direction: column; flex-direction: column;
-      gap: 14px;
-    }
-    .form input, .form textarea {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      padding: 13px 18px; color: var(--blanc);
-      font-family: 'Raleway', sans-serif; font-size: 14px;
-      font-weight: 400; outline: none;
-      -webkit-appearance: none; appearance: none;
-      border-radius: 0;
-      -webkit-transition: border-color 0.2s; transition: border-color 0.2s;
-    }
-    .form input::placeholder, .form textarea::placeholder { color: rgba(255,255,255,0.25); }
-    .form input:focus, .form textarea:focus { border-color: rgba(189,201,190,0.5); }
-    .form textarea { height: 110px; resize: vertical; }
-    .form button {
-      -webkit-align-self: flex-start; align-self: flex-start;
-      background: transparent;
-      border: 1px solid rgba(255,255,255,0.25);
-      color: var(--blanc); font-family: 'Raleway', sans-serif;
-      font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
-      padding: 14px 32px; cursor: pointer; font-weight: 400;
-      -webkit-appearance: none; appearance: none; border-radius: 0;
-      -webkit-transition: all 0.3s; transition: all 0.3s;
-      -webkit-tap-highlight-color: transparent;
-    }
-    .form button:hover { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.6); }
 
     /* ── FOOTER ── */
     footer {
@@ -605,7 +569,7 @@
       .cabinet-photo img { position: relative; }
       .cabinet-content { -webkit-flex: unset; flex: unset; }
       .exp-grid { grid-template-columns: 1fr; }
-      .contact-grid { gap: 40px; }
+
       footer { padding: 20px; -webkit-justify-content: center; justify-content: center; text-align: center; }
     }
 
@@ -726,32 +690,18 @@
     <div class="s-tag" style="color:#bdc9be;">Contact</div>
     <div class="s-line"></div>
     <h2 class="s-title">Parlons de<br>votre projet</h2>
-    <div class="contact-grid">
-      <div class="contact-info">
+    <div class="contact-info">
         <p>
           <strong>Ma&#238;tre Hakim GACEM</strong><br>
           Avocat au Barreau de Paris<br>(serment en cours)<br><br>
           <strong>Email</strong><br>
-          <a href="mailto:hakim.gacem@outlook.fr" style="color:inherit;">hakim.gacem@outlook.fr</a><br><br>
+          <a href="mailto:contact@gacem-avocat.com" style="color:inherit;">contact@gacem-avocat.com</a><br><br>
           <strong>T&#233;l&#233;phone</strong><br>
           Sur rendez-vous<br><br>
           <strong>Disponibilit&#233;</strong><br>
           Lundi &mdash; Vendredi &middot; 9h &mdash; 19h
         </p>
       </div>
-      <form class="form" action="https://formspree.io/f/xpqyypbb" method="POST">
-        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
-        <label for="contact-name" class="sr-only">Nom &amp; Pr&#233;nom</label>
-        <input id="contact-name" type="text" name="name" placeholder="Nom &#38; Pr&#233;nom" autocomplete="name" required>
-        <label for="contact-email" class="sr-only">Adresse email</label>
-        <input id="contact-email" type="email" name="email" placeholder="Adresse email" autocomplete="email" required>
-        <label for="contact-subject" class="sr-only">Objet</label>
-        <input id="contact-subject" type="text" name="subject" placeholder="Objet" required>
-        <label for="contact-message" class="sr-only">Votre message</label>
-        <textarea id="contact-message" name="message" placeholder="Votre message" required></textarea>
-        <button type="submit">Envoyer le message</button>
-      </form>
-    </div>
   </section>
 
   </main>
