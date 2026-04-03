@@ -591,7 +591,6 @@
 
     /* ── BURGER MENU ── */
     .nav-burger { display: none; }
-    .mobile-exp { display: none; }
 
     @media (max-width: 768px) {
       nav { padding: 16px 24px; }
@@ -628,7 +627,7 @@
         -webkit-flex-direction: column; flex-direction: column;
         -webkit-align-items: center; align-items: center;
         -webkit-justify-content: center; justify-content: center;
-        gap: 0; padding: 80px 40px 60px;
+        gap: 0; padding: 80px 48px 60px;
         -webkit-transform: translateX(100%); transform: translateX(100%);
         -webkit-transition: -webkit-transform 0.35s cubic-bezier(0.4,0,0.2,1); transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
         min-height: 100vh; min-height: 100dvh;
@@ -636,34 +635,46 @@
       }
       .nav-links.open { -webkit-transform: translateX(0); transform: translateX(0); pointer-events: auto; }
 
-      .nav-links > a, .nav-dropdown > a {
-        font-family: 'Raleway', sans-serif; font-size: 18px !important;
-        letter-spacing: 0.14em !important; font-weight: 300;
+      .nav-links > a:not(.nav-blog):not(.nav-mobile-cnaps),
+      .nav-dropdown > a {
+        font-family: 'Raleway', sans-serif; font-size: 22px !important;
+        letter-spacing: 0.1em !important; font-weight: 300;
         color: var(--bleu-nuit) !important; text-decoration: none;
-        padding: 14px 0; display: block; width: 100%; text-align: center;
-        border-bottom: 1px solid rgba(45,63,92,0.07);
+        padding: 18px 0 !important; display: block !important; width: 100% !important;
+        text-align: center; border-bottom: 1px solid rgba(45,63,92,0.08);
         -webkit-transition: color 0.2s; transition: color 0.2s;
       }
-      .nav-links > a:hover, .nav-dropdown > a:hover { color: var(--bleu-ardoise) !important; }
+      .nav-links > a:not(.nav-blog):not(.nav-mobile-cnaps):hover,
+      .nav-dropdown > a:hover { color: var(--bleu-ardoise) !important; }
       .nav-links > a::after, .nav-dropdown > a::after { display: none !important; }
       .nav-dropdown { width: 100%; }
       .nav-dropdown > a .nav-chevron { display: none; }
       .exp-panel { display: none !important; }
 
-      .mobile-exp { display: block; width: 100%; border-bottom: 1px solid rgba(45,63,92,0.07); padding: 8px 0 12px; }
-      .mobile-exp-item {
-        font-family: 'Raleway', sans-serif; font-size: 10px; letter-spacing: 0.14em;
-        text-transform: uppercase; color: rgba(45,63,92,0.45); text-decoration: none;
-        display: block; padding: 6px 0; text-align: center;
+      .nav-mobile-cnaps {
+        font-family: 'Raleway', sans-serif; font-size: 11px !important;
+        letter-spacing: 0.18em !important; text-transform: uppercase;
+        color: var(--bleu-ardoise) !important; text-decoration: none;
+        padding: 14px 0 !important; display: -webkit-flex !important; display: flex !important;
+        -webkit-align-items: center; align-items: center;
+        -webkit-justify-content: center; justify-content: center;
+        gap: 8px; width: 100% !important;
+        border-bottom: 1px solid rgba(45,63,92,0.08);
         -webkit-transition: color 0.2s; transition: color 0.2s;
       }
-      .mobile-exp-item:hover { color: var(--bleu-ardoise); }
-      .mobile-exp-cnaps { color: var(--bleu-nuit) !important; font-weight: 500; padding-top: 10px; }
+      .nav-mobile-cnaps::before {
+        content: ''; display: inline-block; width: 5px; height: 5px;
+        border-radius: 50%; background: var(--vert-sauge); -webkit-flex-shrink: 0; flex-shrink: 0;
+      }
+      .nav-mobile-cnaps:hover { color: var(--bleu-nuit) !important; }
 
       .nav-blog {
-        margin-top: 28px !important; font-size: 10px !important; letter-spacing: 0.16em !important;
+        margin-top: 28px !important; font-size: 10px !important;
+        letter-spacing: 0.18em !important; text-transform: uppercase;
         border: 1px solid rgba(45,63,92,0.28) !important; border-radius: 3px !important;
-        padding: 12px 32px !important; width: auto; color: var(--bleu-ardoise) !important;
+        padding: 12px 36px !important;
+        width: auto !important; -webkit-align-self: center; align-self: center;
+        color: var(--bleu-ardoise) !important;
         display: -webkit-inline-flex !important; display: inline-flex !important;
         background: transparent !important;
       }
@@ -727,13 +738,7 @@
         </div>
       </div>
     </div>
-    <div class="mobile-exp">
-      <a href="/#expertises" class="mobile-exp-item">Droit administratif</a>
-      <a href="/#expertises" class="mobile-exp-item">Marchés publics</a>
-      <a href="/#expertises" class="mobile-exp-item">Urbanisme</a>
-      <a href="/#expertises" class="mobile-exp-item">Contentieux administratif</a>
-      <a href="/cnaps" class="mobile-exp-item mobile-exp-cnaps active">Sécurité privée — CNAPS</a>
-    </div>
+    <a href="/cnaps" class="nav-mobile-cnaps active">Sécurité privée — CNAPS</a>
     <a href="/parcours">Parcours</a>
     <a href="/#contact">Contact</a>
     <a href="/blog" class="nav-blog">Blog</a>
