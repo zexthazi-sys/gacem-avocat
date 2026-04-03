@@ -196,7 +196,7 @@
     /* ── NAV ── */
     nav {
       position: sticky; top: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
+      display: flex; align-items: center; justify-content: flex-end;
       padding: 18px 48px;
       background: rgba(255,255,255,0.88);
       -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
@@ -207,6 +207,7 @@
       font-family: 'Raleway', sans-serif; font-weight: 400;
       font-size: 22px; letter-spacing: 0.15em; color: var(--bleu-nuit);
       text-decoration: none;
+      position: absolute; left: 50%; -webkit-transform: translateX(-50%); transform: translateX(-50%);
     }
     .nav-logo span { font-weight: 200; }
     .nav-links { display: flex; gap: 32px; align-items: center; }
@@ -591,12 +592,13 @@
 
     /* ── BURGER MENU ── */
     .nav-burger { display: none; }
+    .nav-mobile-cnaps { display: none; }
 
     @media (max-width: 768px) {
       nav { padding: 16px 24px; }
       .nav-logo { font-size: 16px; }
       nav.nav-open { background: rgba(250,250,248,0.98) !important; -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
-      nav.nav-open .nav-logo { color: var(--bleu-nuit) !important; position: absolute; left: 50%; -webkit-transform: translateX(-50%); transform: translateX(-50%); z-index: 96; }
+      nav.nav-open .nav-logo { color: var(--bleu-nuit) !important; z-index: 96; }
 
       .nav-burger {
         display: -webkit-flex; display: flex;
