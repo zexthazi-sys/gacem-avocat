@@ -126,6 +126,67 @@
     }
     .nav-blog:hover { background: rgba(45,63,92,0.09); border-color: rgba(45,63,92,0.4); }
 
+    /* ── NAV DROPDOWN EXPERTISES ── */
+    .nav-dropdown {
+      position: relative;
+      display: -webkit-inline-flex; display: inline-flex;
+      -webkit-align-items: center; align-items: center;
+    }
+    .nav-dropdown > a { display: -webkit-inline-flex; display: inline-flex; -webkit-align-items: center; align-items: center; gap: 5px; }
+    .nav-chevron {
+      display: inline-block; width: 0; height: 0;
+      border-left: 3px solid transparent; border-right: 3px solid transparent;
+      border-top: 4px solid currentColor;
+      opacity: 0.45; margin-top: 1px;
+      -webkit-transition: -webkit-transform 0.2s ease; transition: transform 0.2s ease;
+    }
+    .nav-dropdown:hover .nav-chevron { -webkit-transform: rotate(180deg); transform: rotate(180deg); opacity: 0.7; }
+    .exp-panel {
+      position: absolute; top: 100%; left: 50%;
+      -webkit-transform: translateX(-50%) translateY(-6px); transform: translateX(-50%) translateY(-6px);
+      padding-top: 14px; width: 300px;
+      opacity: 0; pointer-events: none;
+      -webkit-transition: opacity 0.22s ease, -webkit-transform 0.22s ease;
+      transition: opacity 0.22s ease, transform 0.22s ease;
+      z-index: 200;
+    }
+    .nav-dropdown:hover .exp-panel {
+      opacity: 1; pointer-events: auto;
+      -webkit-transform: translateX(-50%) translateY(0); transform: translateX(-50%) translateY(0);
+    }
+    .exp-panel-inner {
+      background: #fafaf8;
+      border-top: 1.5px solid var(--vert-sauge);
+      border-radius: 0 0 3px 3px;
+      box-shadow: 0 12px 40px rgba(45,63,92,0.1), 0 2px 8px rgba(45,63,92,0.06);
+      padding: 8px 0 12px;
+    }
+    .exp-entry {
+      display: -webkit-flex; display: flex;
+      -webkit-flex-direction: row; flex-direction: row;
+      -webkit-align-items: center; align-items: center;
+      padding: 10px 24px;
+      text-decoration: none;
+      border-left: 2px solid transparent;
+      -webkit-transition: background 0.15s, border-color 0.15s; transition: background 0.15s, border-color 0.15s;
+    }
+    .exp-entry:hover { background: rgba(45,63,92,0.04); border-left-color: var(--vert-sauge); }
+    .exp-entry-title {
+      font-family: 'Raleway', sans-serif; font-size: 10px; font-weight: 500;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--bleu-ardoise); display: block;
+    }
+    .exp-divider { height: 1px; background: rgba(45,63,92,0.07); margin: 6px 0; }
+    .exp-entry-cnaps { gap: 10px; }
+    .exp-cnaps-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--vert-sauge); -webkit-flex-shrink: 0; flex-shrink: 0; }
+    .exp-entry-cnaps .exp-entry-title { color: var(--bleu-nuit); font-weight: 600; }
+    .exp-entry-cnaps:hover { background: rgba(189,201,190,0.12); border-left-color: var(--vert-sauge); }
+    @media (max-width: 768px) {
+      .exp-panel { position: fixed; left: 16px; right: 16px; width: auto; max-width: none; padding-top: 0; -webkit-transform: translateY(-6px) !important; transform: translateY(-6px) !important; }
+      .nav-dropdown.open .exp-panel { opacity: 1; pointer-events: auto; -webkit-transform: translateY(0) !important; transform: translateY(0) !important; }
+      .exp-panel-inner { border-radius: 3px; }
+    }
+
     /* ── ARTICLE HEADER ── */
     .article-header {
       background: var(--degrade);
@@ -320,19 +381,37 @@
 </head>
 <body>
 
-  <!-- BANDEAU TRAVAUX — à supprimer -->
-  <div style="background:#f5c518;color:#1a1a1a;text-align:center;padding:9px 20px;font-family:'Raleway',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;position:relative;z-index:60;">
-    🚧 &nbsp;Site en cours de construction — merci de votre patience
-  </div>
-  <!-- /BANDEAU TRAVAUX -->
   <nav>
-    <a href="/" class="nav-logo">Gacem <span>Avocat</span></a>
+    <a class="nav-logo" href="/">Gacem <span>Avocat</span></a>
     <div class="nav-links">
       <a href="/#cabinet">Cabinet</a>
-      <a href="/#expertises">Expertises</a>
+      <div class="nav-dropdown">
+        <a href="/#expertises">Expertises <span class="nav-chevron"></span></a>
+        <div class="exp-panel">
+          <div class="exp-panel-inner">
+            <a href="/#expertises" class="exp-entry">
+              <span class="exp-entry-title">Droit administratif</span>
+            </a>
+            <a href="/#expertises" class="exp-entry">
+              <span class="exp-entry-title">Marchés publics</span>
+            </a>
+            <a href="/#expertises" class="exp-entry">
+              <span class="exp-entry-title">Urbanisme</span>
+            </a>
+            <a href="/#expertises" class="exp-entry">
+              <span class="exp-entry-title">Contentieux administratif</span>
+            </a>
+            <div class="exp-divider"></div>
+            <a href="/cnaps" class="exp-entry exp-entry-cnaps">
+              <span class="exp-cnaps-dot"></span>
+              <span class="exp-entry-title">Sécurité privée — CNAPS</span>
+            </a>
+          </div>
+        </div>
+      </div>
       <a href="/parcours">Parcours</a>
       <a href="/#contact">Contact</a>
-      <a href="/blog" class="active nav-blog">Blog</a>
+      <a href="/blog" class="nav-blog active">Blog</a>
     </div>
   </nav>
 
@@ -429,6 +508,30 @@
     <span>&copy; 2026 Gacem Avocat &middot; Tous droits r&eacute;serv&eacute;s</span>
     <a href="/mentions-legales">Mentions l&eacute;gales</a>
   </footer>
+
+<script>
+/* ── Nav Dropdown : hover desktop / tap mobile ── */
+(function() {
+  var dd = document.querySelector('.nav-dropdown');
+  var trigger = dd && dd.querySelector('a');
+  if (!dd || !trigger) return;
+  trigger.addEventListener('click', function(e) {
+    if (window.innerWidth > 768) return;
+    if (!dd.classList.contains('open')) {
+      e.preventDefault();
+      var nav = document.querySelector('nav');
+      var panel = dd.querySelector('.exp-panel');
+      if (nav && panel) { panel.style.top = nav.getBoundingClientRect().bottom + 'px'; }
+      dd.classList.add('open');
+      setTimeout(function() {
+        document.addEventListener('click', function close(ev) {
+          if (!dd.contains(ev.target)) { dd.classList.remove('open'); document.removeEventListener('click', close); }
+        });
+      }, 10);
+    }
+  });
+})();
+</script>
 
 </body>
 </html>
