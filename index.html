@@ -23,6 +23,7 @@
   <link rel="preconnect" href="https://static.axept.io" crossorigin>
   <link rel="preload" href="/assets/fonts/raleway-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/musee-soulages.webp" as="image" type="image/webp">
+  <link rel="stylesheet" href="/css/style.css">
   <title>Hakim Gacem — Avocat en droit public à Paris</title>
   <meta name="google-site-verification" content="EKQEDIP9RzKq_uWiRfTBNSqcIky1xHl9v4ezVi0gpEw" />
   <meta name="description" content="Hakim Gacem, avocat au Barreau de Paris spécialisé en droit public. Conseil et contentieux en droit administratif, marchés publics et urbanisme.">
@@ -111,713 +112,6 @@
     ]
   }
   </script>
-  <style>
-    /* Raleway — auto-hébergé */
-    @font-face {
-      font-family: 'Raleway';
-      font-style: normal;
-      font-weight: 100 600;
-      font-display: swap;
-      src: url('/assets/fonts/raleway-cyrillic-ext.woff2') format('woff2');
-      unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
-    }
-    @font-face {
-      font-family: 'Raleway';
-      font-style: normal;
-      font-weight: 100 600;
-      font-display: swap;
-      src: url('/assets/fonts/raleway-cyrillic.woff2') format('woff2');
-      unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-    }
-    @font-face {
-      font-family: 'Raleway';
-      font-style: normal;
-      font-weight: 100 600;
-      font-display: swap;
-      src: url('/assets/fonts/raleway-vietnamese.woff2') format('woff2');
-      unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
-    }
-    @font-face {
-      font-family: 'Raleway';
-      font-style: normal;
-      font-weight: 100 600;
-      font-display: swap;
-      src: url('/assets/fonts/raleway-latin-ext.woff2') format('woff2');
-      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-    }
-    @font-face {
-      font-family: 'Raleway';
-      font-style: normal;
-      font-weight: 100 600;
-      font-display: swap;
-      src: url('/assets/fonts/raleway-latin.woff2') format('woff2');
-      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-    }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
-    :focus-visible { outline: 2px solid var(--vert-sauge); outline-offset: 3px; }
-    html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-behavior: smooth; }
-    html.splash-active { background: #1a1a2e; }
-    body { font-family: 'Raleway', sans-serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; overflow-x: hidden; }
-
-    :root {
-      --bleu-ardoise: #2d3f5c;
-      --bleu-fonce: #2c3e50;
-      --bleu-nuit: #1a1a2e;
-      --vert-sauge: #bdc9be;
-      --blanc: #ffffff;
-      --noir: #000000;
-      --gris-clair: #fafaf8;
-      --gris-texte: #5d6b7e;
-      --gris-ardoise: #4a5568;
-      --fond-expertises: #f0f2f4;
-      --degrade: radial-gradient(ellipse 160% 160% at 100% 100%, #6b4f6e 0%, #3d2f4a 40%, #2b2338 70%, #221e30 100%);
-    }
-
-    /* ── INTRO ANIMATION ── */
-    #intro-overlay {
-      position: fixed; top: 0; right: 0; bottom: 0; left: 0; z-index: 9999;
-      background: #1a1a2e; overflow: hidden;
-      will-change: opacity;
-    }
-    #intro-overlay .intro-logo {
-      position: absolute; top: 50%; left: 50%;
-      -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%);
-      z-index: 2;
-      font-family: 'Raleway', sans-serif;
-      font-size: 24px; font-size: clamp(24px, 4vw, 37px);
-      letter-spacing: 0.25em; padding-left: 0.25em;
-      color: #ffffff; white-space: nowrap;
-      opacity: 0;
-      -webkit-transition: opacity 0.8s ease-out, color 0.5s ease; transition: opacity 0.8s ease-out, color 0.5s ease;
-    }
-    #intro-overlay .intro-logo.dark { color: #1a1a2e; }
-    #intro-overlay .intro-logo strong { font-weight: 400; }
-    #intro-overlay .intro-logo span   { font-weight: 200; }
-    #intro-overlay .intro-circle {
-      position: absolute; width: 10vmax; height: 10vmax;
-      border-radius: 50%; background: #ffffff;
-      z-index: 1; will-change: transform;
-      -webkit-transform: scale(0); transform: scale(0);
-    }
-    #intro-overlay .intro-circle-tl { top: -5vmax; left: -5vmax; }
-    #intro-overlay .intro-circle-br { bottom: -5vmax; right: -5vmax; }
-    #intro-overlay.intro-fade {
-      -webkit-transition: opacity 0.6s ease-in; transition: opacity 0.6s ease-in;
-      opacity: 0; pointer-events: none;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: -webkit-sticky; position: sticky; top: 0; z-index: 100;
-      display: -webkit-grid; display: grid;
-      grid-template-columns: 1fr auto 1fr; column-gap: 32px;
-      -webkit-align-items: center; align-items: center;
-      padding: 18px 48px;
-      background: transparent;
-      -webkit-backdrop-filter: none; backdrop-filter: none;
-      border-bottom: 1px solid transparent;
-      -webkit-transition: background 0.55s ease, border-color 0.55s ease, -webkit-backdrop-filter 0.55s ease;
-      transition: background 0.55s ease, border-color 0.55s ease, backdrop-filter 0.55s ease;
-    }
-    nav.nav-blurred {
-      background: rgba(26,26,46,0.25);
-      -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
-    }
-    nav.nav-scrolled {
-      background: rgba(255,255,255,0.88);
-      -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
-      border-top: 1px solid rgba(189,201,190,0.35);
-      border-bottom-color: rgba(45,63,92,0.06);
-    }
-    .nav-logo {
-      font-family: 'Raleway', sans-serif; font-weight: 400;
-      font-size: 22px; letter-spacing: 0.15em; color: var(--blanc);
-      text-decoration: none;
-      -webkit-transition: color 0.44s; transition: color 0.44s;
-    }
-    nav.nav-scrolled .nav-logo { color: var(--bleu-nuit); }
-    .nav-logo span { font-weight: 200; }
-    .nav-left, .nav-right { display: -webkit-flex; display: flex; gap: 32px; -webkit-align-items: center; align-items: center; }
-    .nav-left { -webkit-justify-content: flex-end; justify-content: flex-end; }
-    .nav-right { -webkit-justify-content: flex-start; justify-content: flex-start; }
-    .nav-links { display: none; }
-    .nav-left a, .nav-right a {
-      font-family: 'Raleway', sans-serif; font-size: 12px;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      color: rgba(255,255,255,0.8); text-decoration: none; font-weight: 400;
-      position: relative;
-      -webkit-transition: color 0.55s ease; transition: color 0.55s ease;
-    }
-    nav.nav-scrolled .nav-left a, nav.nav-scrolled .nav-right a { color: var(--bleu-ardoise); }
-    .nav-left a:hover, .nav-right a:hover { color: var(--blanc); }
-    .nav-left a.active, .nav-right a.active { color: var(--blanc); }
-    nav.nav-scrolled .nav-left a:hover, nav.nav-scrolled .nav-right a:hover { color: var(--bleu-nuit); }
-    nav.nav-scrolled .nav-left a.active, nav.nav-scrolled .nav-right a.active { color: var(--bleu-nuit); }
-    .nav-left a:not(.nav-blog)::after, .nav-right a:not(.nav-blog)::after {
-      content: ''; position: absolute; left: 0; bottom: -3px;
-      width: 100%; height: 1px; background: rgba(255,255,255,0.6);
-      -webkit-transform: scaleX(0); transform: scaleX(0);
-      -webkit-transform-origin: left center; transform-origin: left center;
-      -webkit-transition: -webkit-transform 0.308s ease; transition: transform 0.308s ease;
-    }
-    nav.nav-scrolled .nav-left a:not(.nav-blog)::after,
-    nav.nav-scrolled .nav-right a:not(.nav-blog)::after { background: var(--bleu-ardoise); }
-    .nav-left a:not(.nav-blog):hover::after, .nav-right a:not(.nav-blog):hover::after,
-    .nav-left a.active::after, .nav-right a.active::after { -webkit-transform: scaleX(1); transform: scaleX(1); }
-    .nav-blog {
-      display: -webkit-inline-flex; display: inline-flex;
-      -webkit-align-items: center; align-items: center;
-      border: 1px solid rgba(255,255,255,0.35); border-radius: 3px;
-      padding: 6px 16px; background: transparent;
-      white-space: nowrap;
-      -webkit-transition: color 0.55s ease, background 0.55s ease, border-color 0.55s ease;
-      transition: color 0.55s ease, background 0.55s ease, border-color 0.55s ease;
-    }
-    nav.nav-scrolled .nav-blog {
-      border-color: rgba(45,63,92,0.22);
-      background: rgba(45,63,92,0.04);
-    }
-
-    .nav-blog:hover { background: rgba(45,63,92,0.09); border-color: rgba(45,63,92,0.4); }
-    .nav-blog.active { background: rgba(45,63,92,0.1); border-color: rgba(45,63,92,0.4); }
-
-    /* ── NAV DROPDOWN EXPERTISES ── */
-    .nav-dropdown {
-      position: relative;
-      display: -webkit-inline-flex; display: inline-flex;
-      -webkit-align-items: center; align-items: center;
-    }
-    .nav-dropdown > a { display: -webkit-inline-flex; display: inline-flex; -webkit-align-items: center; align-items: center; gap: 5px; }
-    .nav-chevron {
-      display: inline-block; width: 0; height: 0;
-      border-left: 3px solid transparent; border-right: 3px solid transparent;
-      border-top: 4px solid currentColor;
-      opacity: 0.45; margin-top: 1px;
-      -webkit-transition: -webkit-transform 0.22s ease; transition: transform 0.22s ease;
-    }
-    .nav-dropdown:hover .nav-chevron { -webkit-transform: rotate(180deg); transform: rotate(180deg); opacity: 0.7; }
-    .exp-panel {
-      position: absolute; top: 100%; left: 50%;
-      -webkit-transform: translateX(-50%) translateY(-6px); transform: translateX(-50%) translateY(-6px);
-      padding-top: 14px; width: 300px;
-      opacity: 0; pointer-events: none;
-      -webkit-transition: opacity 0.242s ease, -webkit-transform 0.242s ease;
-      transition: opacity 0.242s ease, transform 0.242s ease;
-      z-index: 200;
-    }
-    .nav-dropdown:hover .exp-panel {
-      opacity: 1; pointer-events: auto;
-      -webkit-transform: translateX(-50%) translateY(0); transform: translateX(-50%) translateY(0);
-    }
-    .exp-panel-inner {
-      background: var(--gris-clair);
-      border-top: 1.5px solid var(--vert-sauge);
-      border-radius: 0 0 3px 3px;
-      box-shadow: 0 12px 40px rgba(45,63,92,0.1), 0 2px 8px rgba(45,63,92,0.06);
-      padding: 8px 0 12px;
-    }
-    .exp-entry {
-      display: -webkit-flex; display: flex;
-      -webkit-flex-direction: row; flex-direction: row;
-      -webkit-align-items: center; align-items: center;
-      padding: 10px 24px;
-      text-decoration: none;
-      border-left: 2px solid transparent;
-      -webkit-transition: background 0.165s, border-color 0.165s; transition: background 0.165s, border-color 0.165s;
-    }
-    .exp-entry:hover { background: rgba(45,63,92,0.04); border-left-color: var(--vert-sauge); }
-    .exp-entry-title {
-      font-family: 'Raleway', sans-serif; font-size: 10px; font-weight: 500;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--bleu-ardoise); display: block;
-    }
-    .exp-divider { height: 1px; background: rgba(45,63,92,0.07); margin: 6px 0; }
-    .exp-entry-cnaps { gap: 10px; }
-    .exp-cnaps-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--vert-sauge); -webkit-flex-shrink: 0; flex-shrink: 0; }
-    .exp-entry-cnaps .exp-entry-title { color: var(--bleu-nuit); font-weight: 600; }
-    .exp-entry-cnaps:hover { background: rgba(189,201,190,0.12); border-left-color: var(--vert-sauge); }
-    @media (max-width: 768px) {
-      .exp-panel { position: fixed; left: 16px; right: 16px; width: auto; max-width: none; padding-top: 0; -webkit-transform: translateY(-6px) !important; transform: translateY(-6px) !important; }
-      .nav-dropdown.open .exp-panel { opacity: 1; pointer-events: auto; -webkit-transform: translateY(0) !important; transform: translateY(0) !important; }
-      .exp-panel-inner { border-radius: 3px; }
-    }
-
-    /* ── HERO ── */
-    .hero {
-      min-height: 90vh; min-height: 90dvh;
-      background: var(--degrade);
-      display: -webkit-flex; display: flex;
-      -webkit-align-items: center; align-items: center;
-      padding: 180px 64px 80px;
-      margin-top: -100px;
-      position: relative; overflow: hidden;
-    }
-    .hero::before {
-      content: ''; position: absolute; inset: 0;
-      background: url('assets/musee-soulages.webp') center bottom/cover no-repeat;
-      opacity: 0.30;
-      z-index: 0;
-    }
-    .hero-inner { position: relative; z-index: 1; }
-    .hero-inner { max-width: 700px; width: 100%; margin: 0 auto; text-align: center; }
-    .hero-caption {
-      position: absolute; bottom: 1.2rem; right: 1.5rem; z-index: 1;
-      font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
-      color: rgba(255,255,255,0.55);
-      padding-left: 0.6rem; padding-bottom: 8px;
-    }
-    .hero-caption::before {
-      content: ''; position: absolute; left: 0; top: 0;
-      width: 1.5px; height: calc(100% - 8px);
-      background: var(--vert-sauge);
-    }
-    .hero-caption::after { content: none; }
-    .hero-tag {
-      font-family: 'Raleway', sans-serif; font-size: 11px;
-      letter-spacing: 0.22em; text-transform: uppercase;
-      color: var(--vert-sauge); margin-bottom: 32px; font-weight: 400;
-    }
-    .hero-title {
-      font-family: 'Raleway', sans-serif;
-      font-size: 48px; font-size: clamp(30px, 5.5vw, 57px);
-      font-weight: 300; line-height: 1.25;
-      color: var(--blanc); margin-bottom: 24px; letter-spacing: 0.02em;
-    }
-    .hero-title strong { font-weight: 400; color: var(--vert-sauge); }
-    .hero-sub {
-      font-family: 'Raleway', sans-serif; font-weight: 300;
-      font-size: 15px; line-height: 1.9;
-      color: rgba(255,255,255,0.70); margin-bottom: 44px; max-width: 520px; margin-left: auto; margin-right: auto;
-    }
-    .hero-cta {
-      display: inline-block; padding: 15px 36px;
-      border: 1px solid rgba(255,255,255,0.35);
-      color: var(--blanc); font-family: 'Raleway', sans-serif;
-      font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
-      font-weight: 400; text-decoration: none; background: transparent;
-      -webkit-transition: all 0.3s; transition: all 0.3s;
-      -webkit-tap-highlight-color: transparent;
-    }
-    .hero-cta:hover { background: rgba(255,255,255,0.05); border-color: var(--vert-sauge); color: var(--vert-sauge); }
-
-    /* ── SECTIONS ── */
-    section { padding: 80px 64px; }
-    .s-tag {
-      font-family: 'Raleway', sans-serif; font-size: 11px;
-      letter-spacing: 0.22em; text-transform: uppercase;
-      color: var(--vert-sauge); margin-bottom: 12px; font-weight: 400;
-    }
-    .s-line { width: 48px; height: 0.5px; background: var(--vert-sauge); margin: 16px 0 32px; }
-    .s-title {
-      font-family: 'Raleway', sans-serif;
-      font-size: 36px; font-size: clamp(24px, 3.85vw, 42px);
-      font-weight: 300; color: var(--bleu-nuit); line-height: 1.2;
-    }
-
-    /* ── CABINET ── */
-    #cabinet { background: var(--gris-clair); }
-    .cabinet-grid {
-      display: -webkit-flex; display: flex;
-      -webkit-align-items: stretch; align-items: stretch;
-      gap: 48px; margin-top: 40px;
-    }
-    .cabinet-photo {
-      -webkit-flex: 0 0 35%; flex: 0 0 35%; max-width: 460px;
-      position: relative; overflow: hidden;
-    }
-    .cabinet-photo img {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%; object-fit: cover; display: block;
-      -webkit-filter: grayscale(20%); filter: grayscale(20%);
-      -webkit-transform: scale(1); transform: scale(1);
-      -webkit-transition: filter 0.6s ease, -webkit-filter 0.6s ease, transform 0.6s ease, -webkit-transform 0.6s ease;
-      transition: filter 0.6s ease, transform 0.6s ease;
-    }
-    .cabinet-photo:hover img {
-      -webkit-filter: grayscale(0%); filter: grayscale(0%);
-      -webkit-transform: scale(1.05); transform: scale(1.05);
-    }
-    .cabinet-content {
-      -webkit-flex: 1 1 0%; flex: 1 1 0%;
-      display: -webkit-flex; display: flex;
-      -webkit-flex-direction: column; flex-direction: column;
-      gap: 36px;
-    }
-    .cabinet-text p {
-      font-family: 'Raleway', sans-serif; font-size: 16px;
-      font-weight: 400; line-height: 1.9; color: var(--bleu-fonce);
-    }
-    .cabinet-values {
-      display: -webkit-flex; display: flex;
-      -webkit-flex-direction: column; flex-direction: column;
-      gap: 32px;
-    }
-    .val { border-left: 1px solid var(--vert-sauge); padding-left: 20px; }
-    .val h4 {
-      font-family: 'Raleway', sans-serif; font-size: 12px;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--bleu-ardoise); margin-bottom: 6px; font-weight: 500;
-    }
-    .val p { font-family: 'Raleway', sans-serif; font-size: 14px; color: var(--gris-texte); line-height: 1.7; font-weight: 400; }
-
-    /* ── EXPERTISES ── */
-    #expertises { background: var(--fond-expertises); }
-    .exp-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2px; margin-top: 36px;
-    }
-    .exp-card {
-      background: var(--blanc); padding: 40px 36px;
-      -webkit-transition: background 0.4s, box-shadow 0.4s, border-color 0.4s;
-      transition: background 0.4s, box-shadow 0.4s, border-color 0.4s;
-      cursor: default; position: relative; overflow: hidden;
-      border-bottom: 2px solid transparent;
-    }
-    .exp-card::after {
-      content: ''; position: absolute; inset: 0;
-      background-size: 55%; background-position: right bottom;
-      background-repeat: no-repeat;
-      opacity: 0.25;
-      -webkit-transition: opacity 0.5s ease, filter 0.5s ease, -webkit-filter 0.5s ease, background-size 0.5s ease;
-      transition: opacity 0.5s ease, filter 0.5s ease, background-size 0.5s ease;
-      pointer-events: none;
-    }
-    .exp-card:nth-child(1)::after { background-image: url('assets/droit-administratif.webp'); }
-    .exp-card:nth-child(2)::after { background-image: url('assets/marches-publics.webp'); }
-    .exp-card:nth-child(3)::after { background-image: url('assets/urbanisme.webp'); }
-    .exp-card:nth-child(4)::after { background-image: url('assets/contentieux.webp'); }
-    .exp-card:hover {
-      background: var(--bleu-ardoise);
-      box-shadow: 0 8px 32px rgba(45,63,92,0.18);
-      border-bottom-color: var(--vert-sauge);
-    }
-    .exp-card:hover::after {
-      opacity: 0.18;
-      background-size: 60%;
-      -webkit-filter: invert(1); filter: invert(1);
-    }
-    .exp-card:hover .exp-num,
-    .exp-card:hover .exp-card-title,
-    .exp-card:hover .exp-card-text { color: var(--blanc); }
-    .exp-card:hover .exp-num { color: var(--vert-sauge); }
-    .exp-num {
-      font-family: 'Raleway', sans-serif; font-size: 11px;
-      letter-spacing: 0.15em; color: var(--vert-sauge);
-      margin-bottom: 20px; font-weight: 400;
-      position: relative; z-index: 1;
-    }
-    .exp-card-title {
-      font-family: 'Raleway', sans-serif; font-size: 20px;
-      font-weight: 500; color: var(--bleu-nuit);
-      margin-bottom: 14px;
-      -webkit-transition: color 0.3s; transition: color 0.3s;
-      position: relative; z-index: 1;
-    }
-    .exp-card-text {
-      font-family: 'Raleway', sans-serif; font-size: 14px;
-      color: var(--gris-texte); line-height: 1.75; font-weight: 400;
-      -webkit-transition: color 0.3s; transition: color 0.3s;
-      position: relative; z-index: 1;
-    }
-
-    /* ── PARCOURS TEASER ── */
-    #parcours { background: var(--blanc); }
-    .parcours-teaser {
-      display: -webkit-flex; display: flex;
-      -webkit-align-items: center; align-items: center;
-      gap: 48px; margin-top: 40px;
-      -webkit-flex-wrap: wrap; flex-wrap: wrap;
-    }
-    .parcours-teaser-photo {
-      -webkit-flex: 0 0 28%; flex: 0 0 28%; max-width: 340px;
-      position: relative; overflow: hidden;
-    }
-    .parcours-teaser-photo::before {
-      content: ''; position: absolute;
-      top: 10px; left: 10px; right: -10px; bottom: -10px;
-      border: 1px solid var(--vert-sauge);
-      z-index: 0;
-      -webkit-transition: transform 0.5s ease; transition: transform 0.5s ease;
-    }
-    .parcours-teaser-photo:hover::before {
-      -webkit-transform: translate(-4px, -4px); transform: translate(-4px, -4px);
-    }
-    .parcours-teaser-photo img {
-      width: 100%; height: auto; display: block; position: relative; z-index: 1;
-      -webkit-filter: grayscale(20%); filter: grayscale(20%);
-      -webkit-transform: scale(1); transform: scale(1);
-      -webkit-transition: filter 0.6s ease, -webkit-filter 0.6s ease, transform 0.6s ease, -webkit-transform 0.6s ease;
-      transition: filter 0.6s ease, transform 0.6s ease;
-    }
-    .parcours-teaser-photo:hover img {
-      -webkit-filter: grayscale(0%); filter: grayscale(0%);
-      -webkit-transform: scale(1.04); transform: scale(1.04);
-    }
-    .parcours-teaser-content {
-      -webkit-flex: 1 1 280px; flex: 1 1 280px;
-      background: rgba(45, 63, 92, 0.04);
-      border-left: 3px solid var(--vert-sauge);
-      padding: 40px 44px;
-    }
-    .parcours-teaser-content p {
-      font-family: 'Raleway', sans-serif; font-size: 15px;
-      font-weight: 300; line-height: 1.85; color: var(--gris-ardoise); margin-bottom: 32px;
-    }
-    .parcours-cta {
-      display: inline-block;
-      font-family: 'Raleway', sans-serif; font-size: 11px;
-      letter-spacing: 0.15em; text-transform: uppercase;
-      color: var(--bleu-nuit); text-decoration: none; font-weight: 400;
-      border-bottom: 1px solid var(--bleu-ardoise); padding-bottom: 4px;
-      -webkit-transition: opacity 0.2s; transition: opacity 0.2s;
-    }
-    .parcours-cta:hover { opacity: 0.55; }
-    @media screen and (max-width: 768px) {
-      .parcours-teaser { gap: 36px; }
-      .parcours-teaser { -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: center; align-items: center; }
-      .parcours-teaser-photo { -webkit-flex: unset; flex: unset; width: 85%; max-width: none; margin: 0 auto; }
-      .parcours-teaser-content { padding: 28px 24px; }
-    }
-
-    /* ── CONTACT ── */
-    #contact { background: var(--bleu-nuit); }
-    .contact-inner {
-      display: -webkit-flex; display: flex;
-      gap: 80px; -webkit-align-items: flex-start; align-items: flex-start;
-    }
-    .contact-left { -webkit-flex: 0 0 38%; flex: 0 0 38%; }
-    #contact .s-title { color: var(--blanc); }
-    .contact-right {
-      -webkit-flex: 1; flex: 1;
-      display: -webkit-flex; display: flex;
-      -webkit-flex-direction: column; flex-direction: column;
-      gap: 28px; padding-top: 6px;
-    }
-    .contact-item {
-      border-left: 1px solid rgba(189,201,190,0.18);
-      padding-left: 20px;
-    }
-    .contact-item strong {
-      display: block;
-      font-family: 'Raleway', sans-serif;
-      font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
-      color: var(--vert-sauge); font-weight: 400; margin-bottom: 5px;
-    }
-    .contact-item span {
-      font-family: 'Raleway', sans-serif; font-size: 14px;
-      color: rgba(255,255,255,0.55); line-height: 1.6; font-weight: 400;
-    }
-    .contact-item a {
-      font-family: 'Raleway', sans-serif; font-size: 14px;
-      color: rgba(255,255,255,0.82); line-height: 1.6; font-weight: 400;
-      text-decoration: underline; text-underline-offset: 3px;
-      text-decoration-color: rgba(255,255,255,0.25);
-      -webkit-transition: color 0.2s, text-decoration-color 0.2s;
-      transition: color 0.2s, text-decoration-color 0.2s;
-    }
-    .contact-item a:hover {
-      color: var(--vert-sauge);
-      text-decoration-color: var(--vert-sauge);
-    }
-
-    .contact-cta {
-      display: inline-block; margin-top: 8px; padding: 15px 36px;
-      border: 1px solid rgba(255,255,255,0.35);
-      color: var(--blanc); font-family: 'Raleway', sans-serif;
-      font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
-      font-weight: 400; text-decoration: none; background: transparent;
-      -webkit-transition: all 0.3s; transition: all 0.3s;
-    }
-    .contact-cta:hover { background: rgba(255,255,255,0.05); border-color: var(--vert-sauge); color: var(--vert-sauge); }
-
-    /* ── FOOTER ── */
-    footer {
-      padding: 24px 64px; background: var(--noir);
-      border-top: 1px solid rgba(189,201,190,0.18);
-      display: -webkit-flex; display: flex;
-      -webkit-align-items: center; align-items: center;
-      -webkit-justify-content: space-between; justify-content: space-between;
-      -webkit-flex-wrap: wrap; flex-wrap: wrap;
-      gap: 8px;
-    }
-    footer span {
-      font-family: 'Raleway', sans-serif; font-size: 11px;
-      color: rgba(255,255,255,0.55); letter-spacing: 0.1em; font-weight: 400;
-    }
-    footer a {
-      font-family: 'Raleway', sans-serif; font-size: 11px;
-      color: rgba(255,255,255,0.55); letter-spacing: 0.1em; font-weight: 400;
-      text-decoration: none;
-      -webkit-transition: color 0.2s; transition: color 0.2s;
-    }
-    footer a:hover { color: rgba(255,255,255,0.85); }
-
-    /* ── BURGER MENU ── */
-    .nav-burger { display: none; }
-
-    /* Navigation universelle — burger affiché sur tous les écrans (décision de design) */
-    @media (max-width: 9999px) {
-      nav {
-        padding: 16px 24px;
-        display: -webkit-flex; display: flex;
-        -webkit-justify-content: flex-end; justify-content: flex-end;
-      }
-      .nav-left, .nav-right { display: none; }
-      .nav-logo {
-        font-size: 16px;
-        position: absolute; left: 50%;
-        -webkit-transform: translateX(-50%); transform: translateX(-50%);
-      }
-      nav.nav-open { background: var(--bleu-nuit) !important; -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
-      nav.nav-open .nav-logo { color: var(--blanc) !important; z-index: 96; }
-
-      .nav-burger {
-        display: -webkit-flex; display: flex;
-        -webkit-flex-direction: column; flex-direction: column;
-        -webkit-justify-content: center; justify-content: center;
-        -webkit-align-items: center; align-items: center;
-        width: 44px; height: 44px; gap: 4px;
-        background: none; border: 1px solid rgba(255,255,255,0.4); border-radius: 50%;
-        cursor: pointer; -webkit-flex-shrink: 0; flex-shrink: 0;
-        position: relative; z-index: 96;
-        -webkit-transition: border-color 0.275s, background 0.275s; transition: border-color 0.275s, background 0.275s;
-      }
-      nav.nav-scrolled .nav-burger { border-color: rgba(45,63,92,0.28); }
-      nav.nav-open .nav-burger { background: transparent; border-color: rgba(255,255,255,0.25); }
-      .nav-burger span {
-        display: block; width: 14px; height: 1.5px;
-        background: rgba(255,255,255,0.85); border-radius: 2px;
-        -webkit-transition: -webkit-transform 0.308s ease, opacity 0.22s; transition: transform 0.308s ease, opacity 0.22s;
-      }
-      nav.nav-scrolled .nav-burger span { background: var(--bleu-ardoise); }
-      nav.nav-open .nav-burger span { background: var(--gris-clair); }
-      .nav-burger[aria-expanded="true"] span:nth-child(1) { -webkit-transform: translateY(5.5px) rotate(45deg); transform: translateY(5.5px) rotate(45deg); }
-      .nav-burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
-      .nav-burger[aria-expanded="true"] span:nth-child(3) { -webkit-transform: translateY(-5.5px) rotate(-45deg); transform: translateY(-5.5px) rotate(-45deg); }
-
-      .nav-links {
-        display: -webkit-flex; display: flex;
-        position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 95;
-        background: var(--bleu-nuit);
-        -webkit-flex-direction: column; flex-direction: column;
-        -webkit-justify-content: center; justify-content: center;
-        padding: 100px 48px 60px; padding-left: clamp(48px, 12vw, 160px);
-        opacity: 0; visibility: hidden;
-        -webkit-transition: opacity 0.4s ease, visibility 0s 0.4s; transition: opacity 0.4s ease, visibility 0s 0.4s;
-        min-height: 100vh; min-height: 100dvh;
-        pointer-events: none; overflow-y: auto;
-      }
-      .nav-links.open { opacity: 1; visibility: visible; pointer-events: auto; -webkit-transition: opacity 0.4s ease, visibility 0s 0s; transition: opacity 0.4s ease, visibility 0s 0s; }
-
-      /* Cascade d'entrée */
-      .nav-links-main > * {
-        opacity: 0;
-        -webkit-transform: translateY(18px); transform: translateY(18px);
-        -webkit-transition: opacity 0.5s ease, -webkit-transform 0.5s ease; transition: opacity 0.5s ease, transform 0.5s ease;
-      }
-      .nav-links.open .nav-links-main > *:nth-child(1) { opacity: 1; -webkit-transform: none; transform: none; -webkit-transition-delay: 0.08s; transition-delay: 0.08s; }
-      .nav-links.open .nav-links-main > *:nth-child(2) { opacity: 1; -webkit-transform: none; transform: none; -webkit-transition-delay: 0.14s; transition-delay: 0.14s; }
-      .nav-links.open .nav-links-main > *:nth-child(3) { opacity: 1; -webkit-transform: none; transform: none; -webkit-transition-delay: 0.20s; transition-delay: 0.20s; }
-      .nav-links.open .nav-links-main > *:nth-child(4) { opacity: 1; -webkit-transform: none; transform: none; -webkit-transition-delay: 0.26s; transition-delay: 0.26s; }
-      .nav-links.open .nav-links-main > *:nth-child(5) { opacity: 1; -webkit-transform: none; transform: none; -webkit-transition-delay: 0.32s; transition-delay: 0.32s; }
-      .nav-links.open .nav-links-main > *:nth-child(6) { opacity: 1; -webkit-transform: none; transform: none; -webkit-transition-delay: 0.38s; transition-delay: 0.38s; }
-
-      /* Navigation principale — liens alignés à gauche */
-      .nav-links-main { display: -webkit-flex; display: flex; -webkit-flex-direction: column; flex-direction: column; }
-      .nav-links-main > a:not(.nav-mobile-cnaps) {
-        font-family: 'Raleway', sans-serif; font-size: clamp(28px, 6vw, 42px);
-        letter-spacing: 0.06em; font-weight: 200;
-        color: rgba(255,255,255,0.85); text-decoration: none;
-        padding: 14px 0; display: -webkit-flex; display: flex;
-        -webkit-align-items: baseline; align-items: baseline; gap: 16px;
-        -webkit-transition: color 0.28s; transition: color 0.28s;
-      }
-      .nav-links-main > a:not(.nav-mobile-cnaps):hover { color: var(--vert-sauge); }
-      .nav-links-main > a:not(.nav-mobile-cnaps).active { color: var(--vert-sauge); }
-      .nav-links-main > a::after { display: none !important; }
-      .nav-num {
-        font-size: 10px; letter-spacing: 0.2em; font-weight: 400;
-        color: var(--vert-sauge); opacity: 0.5; min-width: 24px;
-      }
-      .nav-links-main > a.active .nav-num { opacity: 1; }
-
-      /* CNAPS — sous-lien rattaché à Expertises */
-      /* Expertises — toggle bouton */
-      .nav-exp-toggle {
-        font-family: 'Raleway', sans-serif; font-size: clamp(28px, 6vw, 42px);
-        letter-spacing: 0.06em; font-weight: 200;
-        color: rgba(255,255,255,0.85); background: none; border: none;
-        padding: 14px 0; display: -webkit-flex; display: flex;
-        -webkit-align-items: baseline; align-items: baseline; gap: 16px;
-        cursor: pointer; -webkit-transition: color 0.28s; transition: color 0.28s;
-      }
-      .nav-exp-toggle:hover { color: var(--vert-sauge); }
-      .nav-exp-chevron {
-        display: inline-block; width: 7px; height: 7px; margin-left: 6px;
-        border-right: 1px solid rgba(255,255,255,0.4); border-bottom: 1px solid rgba(255,255,255,0.4);
-        -webkit-transform: rotate(45deg); transform: rotate(45deg);
-        -webkit-transition: -webkit-transform 0.3s ease; transition: transform 0.3s ease;
-        position: relative; top: -2px;
-      }
-      .nav-exp-toggle[aria-expanded="true"] .nav-exp-chevron {
-        -webkit-transform: rotate(-135deg); transform: rotate(-135deg); top: 2px;
-      }
-      .nav-exp-toggle[aria-expanded="true"] { color: var(--vert-sauge); }
-
-      /* Expertises — sous-menu */
-      .nav-exp-sub {
-        max-height: 0; overflow: hidden; padding-left: 40px;
-        -webkit-transition: max-height 0.4s ease, opacity 0.3s ease; transition: max-height 0.4s ease, opacity 0.3s ease;
-        opacity: 0;
-      }
-      .nav-exp-sub.open { max-height: 300px; opacity: 1; }
-      .nav-exp-sub a {
-        font-family: 'Raleway', sans-serif; font-size: 13px;
-        letter-spacing: 0.12em; font-weight: 300;
-        color: rgba(255,255,255,0.55); text-decoration: none;
-        padding: 9px 0; display: block;
-        -webkit-transition: color 0.25s; transition: color 0.25s;
-      }
-      .nav-exp-sub a:hover { color: rgba(255,255,255,0.9); }
-      .nav-exp-sub a::after { display: none !important; }
-      .nav-exp-cnaps {
-        color: var(--vert-sauge) !important; font-weight: 400 !important;
-        letter-spacing: 0.18em !important; font-size: 11px !important;
-        text-transform: uppercase; margin-top: 4px; padding-top: 12px !important;
-        border-top: 1px solid rgba(255,255,255,0.06);
-      }
-
-      .nav-mobile-cnaps { display: none; }
-      .nav-dropdown { width: 100%; }
-      .nav-dropdown > a .nav-chevron { display: none; }
-      .exp-panel { display: none !important; }
-
-      .nav-blog::after { display: none !important; }
-    }
-
-    /* ── MOBILE LAYOUT ── */
-    @media screen and (max-width: 600px) {
-      .hero { padding: 120px 20px 60px; margin-top: -90px; min-height: 80vh; min-height: 80dvh; }
-      .hero-title { font-size: clamp(28px, 7.7vw, 40px); }
-      .hero-sub { font-size: 14px; }
-      section { padding: 60px 20px; }
-      .cabinet-grid { -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: center; align-items: center; gap: 36px; }
-      .cabinet-photo { -webkit-flex: unset; flex: unset; width: 75%; max-width: none; aspect-ratio: 3/4; }
-      .cabinet-photo img { position: relative; }
-      .cabinet-content { -webkit-flex: unset; flex: unset; }
-      .exp-grid { grid-template-columns: 1fr; }
-      .contact-inner { -webkit-flex-direction: column; flex-direction: column; gap: 40px; }
-      .contact-left { -webkit-flex: unset; flex: unset; }
-      footer { padding: 20px; -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: center; align-items: center; -webkit-justify-content: center; justify-content: center; text-align: center; gap: 6px; }
-    }
-    @media screen and (max-width: 480px) {
-      nav { padding: 12px 20px; }
-      .hero { padding: 48px 16px; }
-      section { padding: 48px 16px; }
-    }
-  </style>
   <noscript><style>#site { opacity: 1 !important; }</style></noscript>
 </head>
 <body>
@@ -883,38 +177,38 @@
   <main>
   <section class="hero">
     <div class="hero-inner">
-      <div class="hero-tag">Cabinet d&#39;avocat &middot; Droit public &middot; Paris</div>
-      <h1 class="hero-title">L&#39;excellence juridique<br>au service de<br><strong>vos int&#233;r&#234;ts</strong></h1>
-      <p class="hero-sub">Conseil et contentieux en droit public pour les entreprises et collectivit&#233;s territoriales. Une expertise pointue, une approche sur mesure.</p>
+      <div class="hero-tag">Cabinet d'avocat &middot; Droit public &middot; Paris</div>
+      <h1 class="hero-title">L'excellence juridique<br>au service de<br><strong>vos intérêts</strong></h1>
+      <p class="hero-sub">Conseil et contentieux en droit public pour les entreprises et collectivités territoriales. Une expertise pointue, une approche sur mesure.</p>
       <a class="hero-cta" href="#contact">Me contacter</a>
     </div>
-    <span class="hero-caption">Mus&#233;e Soulages &middot; Rodez, Aveyron</span>
+    <span class="hero-caption">Musée Soulages &middot; Rodez, Aveyron</span>
   </section>
 
   <section id="cabinet">
-    <div class="s-tag">Le cabinet</div>
+    <div class="s-tag reveal">Le cabinet</div>
     <div class="s-line"></div>
-    <h2 class="s-title">Un engagement total<br>pour vos int&#233;r&#234;ts</h2>
+    <h2 class="s-title reveal">Un engagement total<br>pour vos intérêts</h2>
     <div class="cabinet-grid">
-      <div class="cabinet-photo">
-        <img src="assets/salle-reunion.webp" alt="Salle de r&#233;union du cabinet Gacem Avocat" loading="lazy" width="1920" height="2560">
+      <div class="cabinet-photo reveal-right">
+        <img src="assets/salle-reunion.webp" alt="Salle de réunion du cabinet Gacem Avocat" loading="lazy" width="1920" height="2560">
       </div>
-      <div class="cabinet-content">
+      <div class="cabinet-content reveal">
         <div class="cabinet-text">
-          <p>Gacem Avocat est un cabinet sp&#233;cialis&#233; en droit public, d&#233;di&#233; &#224; l&#39;accompagnement des entreprises et des collectivit&#233;s territoriales. Fond&#233; sur des valeurs d&#39;excellence et de rigueur, le cabinet offre une expertise reconnue en droit administratif, march&#233;s publics, urbanisme et contentieux administratif.</p>
+          <p>Gacem Avocat est un cabinet spécialisé en droit public, dédié à l'accompagnement des entreprises et des collectivités territoriales. Fondé sur des valeurs d'excellence et de rigueur, le cabinet offre une expertise reconnue en droit administratif, marchés publics, urbanisme et contentieux administratif.</p>
         </div>
         <div class="cabinet-values">
           <div class="val">
             <h4>Excellence</h4>
-            <p>Une analyse juridique approfondie et une strat&#233;gie adapt&#233;e &#224; chaque dossier.</p>
+            <p>Une analyse juridique approfondie et une stratégie adaptée à chaque dossier.</p>
           </div>
           <div class="val">
-            <h4>Proximit&#233;</h4>
-            <p>Un suivi personnalis&#233; et une disponibilit&#233; totale pour nos clients.</p>
+            <h4>Proximité</h4>
+            <p>Un suivi personnalisé et une disponibilité totale pour nos clients.</p>
           </div>
           <div class="val">
-            <h4>Confidentialit&#233;</h4>
-            <p>La discr&#233;tion et la confidentialit&#233; sont au c&#339;ur de notre pratique.</p>
+            <h4>Confidentialité</h4>
+            <p>La discrétion et la confidentialité sont au cœur de notre pratique.</p>
           </div>
         </div>
       </div>
@@ -922,58 +216,58 @@
   </section>
 
   <section id="expertises">
-    <div class="s-tag">Domaines d&#39;expertise</div>
+    <div class="s-tag reveal">Domaines d'expertise</div>
     <div class="s-line"></div>
-    <h2 class="s-title">Nos sp&#233;cialit&#233;s</h2>
+    <h2 class="s-title reveal">Nos spécialités</h2>
     <div class="exp-grid">
-      <div class="exp-card">
+      <div class="exp-card reveal reveal-delay-1">
         <div class="exp-num">01</div>
         <h3 class="exp-card-title">Droit administratif</h3>
-        <p class="exp-card-text">Conseil et repr&#233;sentation dans vos relations avec les administrations publiques et les autorit&#233;s de r&#233;gulation.</p>
+        <p class="exp-card-text">Conseil et représentation dans vos relations avec les administrations publiques et les autorités de régulation.</p>
       </div>
-      <div class="exp-card">
+      <div class="exp-card reveal reveal-delay-2">
         <div class="exp-num">02</div>
-        <h3 class="exp-card-title">March&#233;s publics</h3>
-        <p class="exp-card-text">Accompagnement dans la passation, l&#39;ex&#233;cution et le contentieux des march&#233;s publics et contrats administratifs.</p>
+        <h3 class="exp-card-title">Marchés publics</h3>
+        <p class="exp-card-text">Accompagnement dans la passation, l'exécution et le contentieux des marchés publics et contrats administratifs.</p>
       </div>
-      <div class="exp-card">
+      <div class="exp-card reveal reveal-delay-3">
         <div class="exp-num">03</div>
         <h3 class="exp-card-title">Urbanisme</h3>
-        <p class="exp-card-text">Assistance juridique en droit de l&#39;urbanisme, permis de construire, PLU et op&#233;rations d&#39;am&#233;nagement.</p>
+        <p class="exp-card-text">Assistance juridique en droit de l'urbanisme, permis de construire, PLU et opérations d'aménagement.</p>
       </div>
-      <div class="exp-card">
+      <div class="exp-card reveal reveal-delay-4">
         <div class="exp-num">04</div>
         <h3 class="exp-card-title">Contentieux administratif</h3>
-        <p class="exp-card-text">D&#233;fense de vos int&#233;r&#234;ts devant les juridictions administratives, du tribunal au Conseil d&#39;&#201;tat.</p>
+        <p class="exp-card-text">Défense de vos intérêts devant les juridictions administratives, du tribunal au Conseil d'État.</p>
       </div>
     </div>
   </section>
 
   <section id="parcours">
-    <div class="s-tag">Hakim Gacem</div>
+    <div class="s-tag reveal">Hakim Gacem</div>
     <div class="s-line"></div>
-    <h2 class="s-title">Un parcours au c&#339;ur<br>du droit public</h2>
-    <div class="parcours-teaser">
+    <h2 class="s-title reveal">Un parcours au cœur<br>du droit public</h2>
+    <div class="parcours-teaser reveal">
       <div class="parcours-teaser-photo">
         <img src="assets/photo-professionnelle-v2.webp" alt="Hakim Gacem, avocat au Barreau de Paris" loading="lazy" width="832" height="1248">
       </div>
       <div class="parcours-teaser-content">
-        <p>Titulaire du CAPA et avocat au Barreau de Paris, Hakim Gacem a construit un parcours &#224; la crois&#233;e de la rigueur acad&#233;mique et de l&#39;exp&#233;rience op&#233;rationnelle. Form&#233; en droit public des affaires &#224; Toulouse I Capitole et Paris Dauphine &mdash; PSL, puis &#224; l&#39;EFB, il a exerc&#233; au sein des juridictions administratives, du secteur priv&#233; et des institutions locales &mdash; forgeant une vision globale et strat&#233;gique du droit public.</p>
-        <a class="parcours-cta" href="/parcours">D&#233;couvrir le parcours complet</a>
+        <p>Titulaire du CAPA et avocat au Barreau de Paris, Hakim Gacem a construit un parcours à la croisée de la rigueur académique et de l'expérience opérationnelle. Formé en droit public des affaires à Toulouse I Capitole et Paris Dauphine — PSL, puis à l'EFB, il a exercé au sein des juridictions administratives, du secteur privé et des institutions locales — forgeant une vision globale et stratégique du droit public.</p>
+        <a class="parcours-cta" href="/parcours">Découvrir le parcours complet</a>
       </div>
     </div>
   </section>
 
   <section id="contact">
     <div class="contact-inner">
-      <div class="contact-left">
+      <div class="contact-left reveal">
         <div class="s-tag">Contact</div>
         <div class="s-line"></div>
         <h2 class="s-title">Parlons de<br>votre projet</h2>
       </div>
-      <div class="contact-right">
+      <div class="contact-right reveal reveal-delay-2">
         <div class="contact-item">
-          <strong>Ma&#238;tre Hakim GACEM</strong>
+          <strong>Maître Hakim GACEM</strong>
           <span>Avocat au Barreau de Paris<br>(serment en cours)</span>
         </div>
         <div class="contact-item">
@@ -981,12 +275,12 @@
           <span>contact@gacem-avocat.com</span>
         </div>
         <div class="contact-item">
-          <strong>T&#233;l&#233;phone</strong>
+          <strong>Téléphone</strong>
           <span>Sur rendez-vous</span>
         </div>
         <div class="contact-item">
-          <strong>Disponibilit&#233;</strong>
-          <span>Lundi &mdash; Vendredi &middot; 9h &mdash; 19h</span>
+          <strong>Disponibilité</strong>
+          <span>Lundi — Vendredi &middot; 9h — 19h</span>
         </div>
       </div>
     </div>
@@ -995,186 +289,13 @@
   </main>
 
   <footer>
-    <span>&#169; 2026 Gacem Avocat &middot; Tous droits r&#233;serv&#233;s</span>
-    <a href="/mentions-legales">Mentions l&eacute;gales</a>
+    <span>&#169; 2026 Gacem Avocat &middot; Tous droits réservés</span>
+    <a href="/mentions-legales">Mentions légales</a>
   </footer>
 
-</div>
-
-<script>
-(function () {
-  var site = document.getElementById('site');
-
-  /* ── Respect prefers-reduced-motion ── */
-  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    if (site) site.style.opacity = '1';
-    document.documentElement.classList.remove('splash-active');
-    return;
-  }
-
-  /* ── Détection du contexte d'arrivée ── */
-  var navEntry = performance && performance.getEntriesByType &&
-                 performance.getEntriesByType('navigation')[0];
-  var isReload = navEntry && navEntry.type === 'reload';
-  var isExternal = !document.referrer ||
-                   document.referrer.indexOf(location.hostname) === -1;
-
-  /* ── sessionStorage : skip uniquement si navigation interne ── */
-  if (!isReload && !isExternal && sessionStorage.getItem('gacem_intro_done')) {
-    if (site) site.style.opacity = '1';
-    document.documentElement.classList.remove('splash-active');
-    return;
-  }
-  sessionStorage.setItem('gacem_intro_done', '1');
-
-  /* ── Timings (ms) ──
-     Phase 1 · 0           : overlay visible (fond #1a1a2e)
-     Phase 2 · 1000ms      : logo apparaît (opacity fade-in)
-     Phase 3 · 2200ms      : cercles s'agrandissent (2.2s)
-     Phase 4 · 4200ms      : fondu de sortie + site révélé
-     Phase 5 · 5300ms      : nettoyage DOM
-     Mobile : timings × 4/6 (plus rapide)
-  ── */
-  var mobile = window.innerWidth < 768;
-  var s      = mobile ? 4 / 6 : 1;
-
-  var T_LOGO_SHOW     = Math.round(1000  * s);
-  var T_CIRCLES_START = Math.round(2200  * s);
-  var CIRCLE_DUR      = Math.round(2200  * s) + 'ms';
-  var T_FADE_START    = Math.round(4200  * s);
-  var T_REMOVE        = Math.round(5300  * s);
-
-  /* ── Création de l'overlay ── */
-  var overlay = document.createElement('div');
-  overlay.id  = 'intro-overlay';
-  overlay.innerHTML =
-    '<div class="intro-logo"><strong>Gacem</strong><span> Avocat</span></div>' +
-    '<div class="intro-circle intro-circle-tl"></div>' +
-    '<div class="intro-circle intro-circle-br"></div>';
-  document.body.insertBefore(overlay, document.body.firstChild);
-  document.body.style.overflow = 'hidden';
-
-  var logo    = overlay.querySelector('.intro-logo');
-  var circles = overlay.querySelectorAll('.intro-circle');
-
-  /* ── Phase 2 : logo apparaît ── */
-  setTimeout(function () {
-    logo.style.opacity = '1';
-  }, T_LOGO_SHOW);
-
-  /* ── Phase 3 : expansion des cercles + logo passe en noir ── */
-  setTimeout(function () {
-    [].forEach.call(circles, function (c) {
-      c.style.webkitTransition = 'transform ' + CIRCLE_DUR + ' cubic-bezier(0.76,0,0.24,1)';
-      c.style.transition       = 'transform ' + CIRCLE_DUR + ' cubic-bezier(0.76,0,0.24,1)';
-      c.style.webkitTransform  = 'scale(25)';
-      c.style.transform        = 'scale(25)';
-    });
-    /* Logo passe en bleu-nuit quand le blanc envahit l'écran */
-    setTimeout(function () { logo.classList.add('dark'); }, Math.round(parseInt(CIRCLE_DUR) * 0.35));
-  }, T_CIRCLES_START);
-
-  /* ── Phase 4 : fondu de sortie + révélation du site ── */
-  setTimeout(function () {
-    overlay.classList.add('intro-fade');
-    if (site) site.style.opacity = '1';
-  }, T_FADE_START);
-
-  /* ── Phase 5 : nettoyage DOM ── */
-  setTimeout(function () {
-    if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
-    document.body.style.overflow = '';
-    document.documentElement.classList.remove('splash-active');
-  }, T_REMOVE);
-}());
-</script>
-
-<script>
-(function () {
-  var nav = document.querySelector('nav');
-  var hero = document.querySelector('.hero');
-  if (!nav || !hero) return;
-  function onScroll() {
-    var threshold = hero.offsetHeight - nav.offsetHeight;
-    var y = window.scrollY;
-    if (y > threshold) {
-      nav.classList.remove('nav-blurred');
-      nav.classList.add('nav-scrolled');
-    } else if (y > 30) {
-      nav.classList.remove('nav-scrolled');
-      nav.classList.add('nav-blurred');
-    } else {
-      nav.classList.remove('nav-scrolled');
-      nav.classList.remove('nav-blurred');
-    }
-  }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-}());
-
-/* ── Burger Menu ── */
-(function() {
-  var burger = document.querySelector('.nav-burger');
-  var nav = document.querySelector('nav');
-  var links = document.querySelector('.nav-links');
-  if (!burger || !links) return;
-  function toggleMenu(open) {
-    links.classList.toggle('open', open);
-    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
-    nav.classList.toggle('nav-open', open);
-    document.body.style.overflow = open ? 'hidden' : '';
-    if (!open) {
-      var s = document.querySelector('.nav-exp-sub');
-      var t = document.querySelector('.nav-exp-toggle');
-      if (s) s.classList.remove('open');
-      if (t) t.setAttribute('aria-expanded', 'false');
-      burger.focus();
-    }
-  }
-  burger.addEventListener('click', function() { toggleMenu(!links.classList.contains('open')); });
-  links.querySelectorAll('a').forEach(function(a) {
-    a.addEventListener('click', function() { toggleMenu(false); });
-  });
-
-  /* Expertises sub-menu toggle */
-  var expToggle = document.querySelector('.nav-exp-toggle');
-  var expSub = document.querySelector('.nav-exp-sub');
-  if (expToggle && expSub) {
-    expToggle.addEventListener('click', function() {
-      var open = expSub.classList.toggle('open');
-      expToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-  }
-})();
-
-/* ── Active section tracking ── */
-(function() {
-  var sections = ['cabinet', 'expertises', 'parcours', 'contact'];
-  var navMap = {
-    'cabinet':    document.querySelector('.nav-links-main a[href="#cabinet"]'),
-    'expertises': document.querySelector('.nav-exp-toggle'),
-    'parcours':   document.querySelector('.nav-links-main a[href="/parcours"]'),
-    'contact':    document.querySelector('.nav-links-main a[href="#contact"]')
-  };
-  if (!window.IntersectionObserver) return;
-  var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      var id = entry.target.id;
-      var el = navMap[id];
-      if (!el) return;
-      if (entry.isIntersecting) {
-        el.classList.add('active');
-      } else {
-        el.classList.remove('active');
-      }
-    });
-  }, { rootMargin: '-30% 0px -60% 0px' });
-  sections.forEach(function(id) {
-    var el = document.getElementById(id);
-    if (el) observer.observe(el);
-  });
-})();
-</script>
-
+<script src="/js/splash.js"></script>
+<script src="/js/nav.js"></script>
+<script src="/js/observer.js"></script>
+<script src="/js/scroll-reveal.js"></script>
 </body>
 </html>

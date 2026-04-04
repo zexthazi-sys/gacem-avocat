@@ -12,7 +12,8 @@
     { "source": "/GUIDE_ADMIN.md", "destination": "/404.html", "statusCode": 404 },
     { "source": "/build.js", "destination": "/404.html", "statusCode": 404 },
     { "source": "/package.json", "destination": "/404.html", "statusCode": 404 },
-    { "source": "/package-lock.json", "destination": "/404.html", "statusCode": 404 }
+    { "source": "/package-lock.json", "destination": "/404.html", "statusCode": 404 },
+    { "source": "/posts/:path*", "destination": "/404.html", "statusCode": 404 }
   ],
   "headers": [
     {
@@ -32,6 +33,14 @@
     },
     {
       "source": "/assets/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    },
+    {
+      "source": "/css/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    },
+    {
+      "source": "/js/(.*)",
       "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
     },
     {

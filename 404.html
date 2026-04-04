@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- Axeptio — doit être le premier script du head -->
+  <script>
+  window.axeptioSettings = {
+    clientId: "69b7369ad57f3d304eeef408",
+    cookiesVersion: "d758b774-bf79-4f54-812a-fa89e32aff9c",
+  };
+  (function(d, s) {
+    var t = d.getElementsByTagName(s)[0], e = d.createElement(s);
+    e.async = true; e.src = "https://static.axept.io/sdk.js";
+    t.parentNode.insertBefore(e, t);
+  })(document, "script");
+  </script>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preconnect" href="https://static.axept.io" crossorigin>
+  <link rel="preload" href="/assets/fonts/raleway-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/cnaps.css">
+  <title>Page introuvable — Gacem Avocat</title>
+  <meta name="description" content="La page que vous recherchez n'existe pas ou a été déplacée.">
+  <meta name="robots" content="noindex, follow">
+  <style>
+    .error-page {
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 64px;
+      background: var(--gris-clair, #fafaf8);
+      text-align: center;
+    }
+    .error-page-inner { max-width: 520px; }
+    .error-code {
+      font-size: clamp(72px, 12vw, 120px);
+      font-weight: 200;
+      color: var(--bleu-nuit, #1a1a2e);
+      letter-spacing: 0.08em;
+      line-height: 1;
+      margin-bottom: 24px;
+      opacity: 0.12;
+    }
+    .error-page h1 {
+      font-size: clamp(22px, 3vw, 32px);
+      font-weight: 300;
+      color: var(--bleu-nuit, #1a1a2e);
+      letter-spacing: 0.04em;
+      margin-bottom: 16px;
+    }
+    .error-page p {
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--gris-ardoise, #4a5568);
+      line-height: 1.85;
+      margin-bottom: 40px;
+    }
+    .error-cta {
+      display: inline-block;
+      padding: 14px 36px;
+      border: 1px solid var(--bleu-ardoise, #2d3f5c);
+      color: var(--bleu-ardoise, #2d3f5c);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 400;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .error-cta:hover {
+      background: var(--bleu-ardoise, #2d3f5c);
+      color: var(--blanc, #ffffff);
+    }
+    @media (max-width: 600px) {
+      .error-page { padding: 60px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-left">
+    <a href="/#cabinet">Cabinet</a>
+    <div class="nav-dropdown">
+      <a href="/#expertises">Expertises <span class="nav-chevron"></span></a>
+      <div class="exp-panel">
+        <div class="exp-panel-inner">
+          <a href="/#expertises" class="exp-entry">
+            <span class="exp-entry-title">Droit administratif</span>
+          </a>
+          <a href="/#expertises" class="exp-entry">
+            <span class="exp-entry-title">Marchés publics</span>
+          </a>
+          <a href="/#expertises" class="exp-entry">
+            <span class="exp-entry-title">Urbanisme</span>
+          </a>
+          <a href="/#expertises" class="exp-entry">
+            <span class="exp-entry-title">Contentieux administratif</span>
+          </a>
+          <div class="exp-divider"></div>
+          <a href="/cnaps" class="exp-entry exp-entry-cnaps">
+            <span class="exp-cnaps-dot"></span>
+            <span class="exp-entry-title">Sécurité privée — CNAPS</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a class="nav-logo" href="/">Gacem <span>Avocat</span></a>
+  <button class="nav-burger" aria-label="Ouvrir le menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-right">
+    <a href="/#contact">Contact</a>
+    <a href="/blog" class="nav-blog">Blog</a>
+  </div>
+  <div class="nav-links">
+    <div class="nav-links-main">
+      <a href="/#cabinet"><span class="nav-num">01</span>Cabinet</a>
+      <button class="nav-exp-toggle" aria-expanded="false"><span class="nav-num">02</span>Expertises<span class="nav-exp-chevron"></span></button>
+      <div class="nav-exp-sub">
+        <a href="/#expertises">Droit administratif</a>
+        <a href="/#expertises">Marchés publics</a>
+        <a href="/#expertises">Urbanisme</a>
+        <a href="/#expertises">Contentieux administratif</a>
+        <a href="/cnaps" class="nav-exp-cnaps">Sécurité privée — CNAPS</a>
+      </div>
+      <a href="/parcours"><span class="nav-num">03</span>Parcours</a>
+      <a href="/#contact"><span class="nav-num">04</span>Contact</a>
+      <a href="/blog"><span class="nav-num">05</span>Blog</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="error-page">
+    <div class="error-page-inner">
+      <div class="error-code">404</div>
+      <h1>Page introuvable</h1>
+      <p>La page que vous recherchez n'existe pas ou a été déplacée.</p>
+      <a href="/" class="error-cta">Retour à l'accueil</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <span>© 2026 Gacem Avocat · Tous droits réservés</span>
+  <a href="/mentions-legales">Mentions légales</a>
+</footer>
+
+<script src="/js/nav.js"></script>
+<script src="/js/scroll-reveal.js"></script>
+
+</body>
+</html>
