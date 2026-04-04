@@ -11,7 +11,6 @@ nav {
 .nav-left a.active, .nav-right a.active { color: var(--bleu-nuit); }
 .nav-left a:not(.nav-blog)::after, .nav-right a:not(.nav-blog)::after { background: var(--bleu-ardoise); }
 @media (max-width: 9999px) {
-  .nav-burger { border: 1px solid rgba(45,63,92,0.28); }
   .nav-burger span { background: var(--bleu-ardoise); }
 }
 
@@ -38,25 +37,26 @@ nav {
     /* ── HERO ── */
     .page-hero {
       background: var(--degrade);
-      padding: 80px 64px 72px;
+      padding: 108px 64px 96px;
       text-align: center;
     }
     .page-hero-tag {
-      font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase;
-      color: rgba(255,255,255,0.5); margin-bottom: 20px;
+      font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase;
+      color: rgba(255,255,255,0.38); margin-bottom: 36px;
     }
     .page-hero h1 {
-      font-weight: 200; font-size: clamp(32px, 5vw, 56px);
-      letter-spacing: 0.04em; color: var(--blanc); line-height: 1.15;
-      margin-bottom: 10px;
+      font-weight: 200; font-size: clamp(34px, 5.5vw, 64px);
+      letter-spacing: 0.03em; color: var(--blanc); line-height: 1.1;
+      margin-bottom: 32px;
     }
     .page-hero-sub {
-      font-weight: 200; font-size: clamp(17px, 2.2vw, 22px);
-      color: var(--vert-sauge); letter-spacing: 0.02em; margin-bottom: 28px;
+      font-weight: 300; font-size: clamp(15px, 1.8vw, 18px);
+      color: var(--vert-sauge); letter-spacing: 0.06em;
+      text-transform: uppercase; margin-bottom: 36px;
     }
     .page-hero-text {
-      font-size: 15px; line-height: 1.85; font-weight: 300;
-      color: rgba(255,255,255,0.72); max-width: 640px; margin: 0 auto 40px;
+      font-size: 15px; line-height: 1.9; font-weight: 300;
+      color: rgba(255,255,255,0.58); max-width: 520px; margin: 0 auto 56px;
     }
     .hero-cta {
       display: inline-block; padding: 14px 36px;
