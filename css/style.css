@@ -625,7 +625,7 @@
         letter-spacing: 0.06em; font-weight: 200;
         color: rgba(255,255,255,0.85); text-decoration: none;
         padding: 14px 0; display: -webkit-flex; display: flex;
-        -webkit-align-items: baseline; align-items: baseline; gap: 16px;
+        -webkit-align-items: center; align-items: center; gap: 16px;
         -webkit-transition: color 0.28s; transition: color 0.28s;
       }
       .nav-links-main > a:not(.nav-mobile-cnaps):hover { color: var(--vert-sauge); }
