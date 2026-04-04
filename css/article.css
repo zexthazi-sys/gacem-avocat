@@ -1,57 +1,20 @@
-/* ── NAV OVERRIDE — article pages (toujours opaque, layout flex) ── */
+/* ── NAV OVERRIDE — toujours opaque sur pages article ── */
 nav {
-  position: -webkit-sticky; position: sticky; top: 0; z-index: 50;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 18px 48px;
   background: rgba(255,255,255,0.88);
   -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
   border-top: 1px solid rgba(189,201,190,0.35);
   border-bottom: 1px solid rgba(45,63,92,0.06);
 }
-.nav-links {
-  display: flex !important;
-  gap: 32px; align-items: center;
-}
-.nav-links a {
-  font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--bleu-ardoise); text-decoration: none; font-weight: 400;
-  position: relative; transition: color 0.5s ease;
-}
-.nav-links a:hover { color: var(--bleu-nuit); }
-.nav-links a.active { color: var(--bleu-nuit); }
-.nav-links a:not(.nav-blog)::after {
-  content: ''; position: absolute; left: 0; bottom: -3px;
-  width: 100%; height: 1px; background: var(--bleu-ardoise);
-  transform: scaleX(0); transform-origin: left center; transition: transform 0.28s ease;
-}
-.nav-links a:not(.nav-blog):hover::after, .nav-links a:not(.nav-blog).active::after { transform: scaleX(1); }
-.nav-blog {
-  display: inline-flex; align-items: center;
-  border: 1px solid rgba(45,63,92,0.22); border-radius: 3px;
-  padding: 6px 16px; background: rgba(45,63,92,0.04);
-  white-space: nowrap; transition: color 0.5s ease, background 0.5s ease, border-color 0.5s ease;
-}
-.nav-blog:hover { background: rgba(45,63,92,0.09); border-color: rgba(45,63,92,0.4); }
-.nav-blog.active { background: rgba(45,63,92,0.1); border-color: rgba(45,63,92,0.4); }
-
-/* Hide burger on article pages */
+.nav-logo { color: var(--bleu-nuit); }
+.nav-left a, .nav-right a { color: var(--bleu-ardoise); }
+.nav-left a:hover, .nav-right a:hover { color: var(--bleu-nuit); }
+.nav-left a.active, .nav-right a.active { color: var(--bleu-nuit); }
+.nav-left a:not(.nav-blog)::after, .nav-right a:not(.nav-blog)::after { background: var(--bleu-ardoise); }
 @media (max-width: 9999px) {
-  nav { padding: 18px 48px; display: flex; justify-content: space-between; }
-  .nav-logo { position: static; transform: none; font-size: 22px; }
-  .nav-links { display: flex !important; }
-  .nav-burger { display: none !important; }
-  .nav-left, .nav-right { display: none; }
-}
-@media (max-width: 768px) {
-  nav { padding: 16px 20px; }
-  .nav-logo { font-size: 18px; }
-  .nav-links { gap: 12px; }
-  .nav-links a { font-size: 10px; }
-  .nav-blog { padding: 4px 8px; }
+  .nav-burger span { background: var(--bleu-ardoise); }
 }
 @media (max-width: 480px) {
-  .nav-links a { font-size: 9px; letter-spacing: 0.06em; }
-  .nav-blog { padding: 3px 7px; }
+  nav { padding: 12px 20px; }
 }
 
 /* ── ARTICLE CONTENT ── */
