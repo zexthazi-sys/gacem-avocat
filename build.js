@@ -70,11 +70,12 @@ function articleTemplate(slug, data, bodyHtml) {
     t.parentNode.insertBefore(e, t);
   })(document, "script");
   <\/script>
-  <script src="/js/scroll-top.js"><\/script>
+  <script>if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; } window.scrollTo(0, 0);<\/script>
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#1a1a2e">
   <link rel="preconnect" href="https://static.axept.io" crossorigin>
   <link rel="preload" href="/assets/fonts/raleway-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/css/style.css">
@@ -102,7 +103,7 @@ function articleTemplate(slug, data, bodyHtml) {
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": ${JSON.stringify(data.title)},
-    "datePublished": ${JSON.stringify(data.date)},
+    "datePublished": ${JSON.stringify(data.date instanceof Date ? data.date.toISOString().slice(0,10) : String(data.date || '').slice(0,10))},
     "author": { "@type": "Person", "name": "Hakim Gacem" },
     "publisher": { "@type": "Organization", "name": "Gacem Avocat" },
     "description": ${JSON.stringify(data.description)}
@@ -112,13 +113,49 @@ function articleTemplate(slug, data, bodyHtml) {
 <body>
 
   <nav>
-    <a href="/" class="nav-logo">Gacem <span>Avocat</span></a>
-    <div class="nav-links">
+    <div class="nav-left">
       <a href="/#cabinet">Cabinet</a>
-      <a href="/#expertises">Expertises</a>
+      <div class="nav-dropdown">
+        <a href="/#expertises">Expertises <span class="nav-chevron"></span></a>
+        <div class="exp-panel">
+          <div class="exp-panel-inner">
+            <a href="/#expertises" class="exp-entry"><span class="exp-entry-title">Droit administratif</span></a>
+            <a href="/#expertises" class="exp-entry"><span class="exp-entry-title">Marchés publics</span></a>
+            <a href="/#expertises" class="exp-entry"><span class="exp-entry-title">Urbanisme</span></a>
+            <a href="/#expertises" class="exp-entry"><span class="exp-entry-title">Contentieux administratif</span></a>
+            <div class="exp-divider"></div>
+            <a href="/cnaps" class="exp-entry exp-entry-cnaps">
+              <span class="exp-cnaps-dot"></span>
+              <span class="exp-entry-title">Sécurité privée — CNAPS</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a class="nav-logo" href="/">Gacem <span>Avocat</span></a>
+    <button class="nav-burger" aria-label="Ouvrir le menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-right">
       <a href="/parcours">Parcours</a>
       <a href="/#contact">Contact</a>
       <a href="/blog" class="active nav-blog">Blog</a>
+    </div>
+    <div class="nav-links">
+      <div class="nav-links-main">
+        <a href="/#cabinet">Cabinet</a>
+        <button class="nav-exp-toggle" aria-expanded="false">Expertises<span class="nav-exp-chevron"></span></button>
+        <div class="nav-exp-sub">
+          <a href="/#expertises">Droit administratif</a>
+          <a href="/#expertises">Marchés publics</a>
+          <a href="/#expertises">Urbanisme</a>
+          <a href="/#expertises">Contentieux administratif</a>
+          <a href="/cnaps" class="nav-exp-cnaps">Sécurité privée — CNAPS</a>
+        </div>
+        <a href="/parcours">Parcours</a>
+        <a href="/#contact">Contact</a>
+        <a href="/blog" class="active">Blog</a>
+      </div>
     </div>
   </nav>
 
@@ -155,6 +192,7 @@ function articleTemplate(slug, data, bodyHtml) {
     <a href="/mentions-legales">Mentions légales</a>
   </footer>
 
+<script src="/js/nav.js"><\/script>
 <script src="/js/scroll-reveal.js"><\/script>
 <script src="/js/page-transition.js"><\/script>
 </body>
@@ -253,6 +291,20 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>${SITE_URL}/cnaps</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>${SITE_URL}/mentions-legales</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 
   <url>

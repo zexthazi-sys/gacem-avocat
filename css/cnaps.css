@@ -251,7 +251,6 @@ nav {
     .faq-answer {
       overflow: hidden; max-height: 0; opacity: 0;
       transition: max-height 0.35s ease, padding 0.35s ease, opacity 0.3s ease 0.05s;
-      will-change: max-height, opacity;
     }
     .faq-answer-inner {
       padding: 0 4px 22px;

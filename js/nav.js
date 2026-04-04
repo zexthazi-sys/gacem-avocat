@@ -54,4 +54,11 @@
       expToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
   }
+
+  /* Touche Escape pour fermer le menu */
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && links.classList.contains('open')) {
+      toggleMenu(false);
+    }
+  });
 })();

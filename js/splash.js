@@ -70,6 +70,14 @@
     setTimeout(function () { logo.classList.add('dark'); }, Math.round(parseInt(CIRCLE_DUR) * 0.35));
   }, T_CIRCLES_START);
 
+  /* ── Fallback de sécurité : garantit que le site est visible même en cas d'erreur JS ── */
+  var safetyTimer = setTimeout(function () {
+    if (site) site.style.opacity = '1';
+    if (overlay && overlay.parentNode) overlay.parentNode.removeChild(overlay);
+    document.body.style.overflow = '';
+    document.documentElement.classList.remove('splash-active');
+  }, Math.round(T_REMOVE * 1.5));
+
   /* ── Phase 4 : fondu de sortie + révélation du site ── */
   setTimeout(function () {
     overlay.classList.add('intro-fade');
@@ -78,6 +86,7 @@
 
   /* ── Phase 5 : nettoyage DOM ── */
   setTimeout(function () {
+    clearTimeout(safetyTimer);
     if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
     document.body.style.overflow = '';
     document.documentElement.classList.remove('splash-active');
