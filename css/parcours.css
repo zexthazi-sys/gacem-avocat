@@ -68,7 +68,7 @@ nav {
       margin: 16px 0 32px;
     }
     .presentation-text h2 {
-      font-weight: 200; font-size: clamp(22px, 3vw, 34px);
+      font-weight: 200; font-size: clamp(22px, 3vw, 36px);
       letter-spacing: 0.03em; color: var(--bleu-nuit);
       line-height: 1.3; margin-bottom: 28px;
     }
@@ -81,7 +81,7 @@ nav {
     /* ── LOGOS ── */
     .section-logos {
       background: var(--fond-section);
-      padding: 64px;
+      padding: 80px 64px;
     }
     .logos-inner { max-width: 1200px; margin: 0 auto; }
     .logos-block { margin-bottom: 48px; }
@@ -115,7 +115,7 @@ nav {
       max-width: 1200px; margin: 0 auto;
     }
     .section-timeline h2 {
-      font-weight: 200; font-size: clamp(22px, 3vw, 34px);
+      font-weight: 200; font-size: clamp(22px, 3vw, 36px);
       letter-spacing: 0.03em; color: var(--bleu-nuit);
       line-height: 1.3; margin-bottom: 56px;
     }
@@ -156,11 +156,11 @@ nav {
     /* ── ENGAGEMENTS ── */
     .section-engagements {
       background: var(--fond-section);
-      padding: 64px;
+      padding: 80px 64px;
     }
     .engagements-inner { max-width: 1200px; margin: 0 auto; }
     .engagements-inner h2 {
-      font-weight: 200; font-size: clamp(20px, 2.5vw, 28px);
+      font-weight: 200; font-size: clamp(22px, 3vw, 36px);
       letter-spacing: 0.03em; color: var(--bleu-nuit);
       margin-bottom: 40px;
     }

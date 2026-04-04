@@ -257,6 +257,7 @@ nav {
     /* ── CONTACT SECTION ── */
     .contact-solo {
       max-width: 560px;
+      margin: 0 auto;
     }
     .section-dark .s-tag { color: var(--vert-sauge); }
     .section-dark .s-line { background: var(--vert-sauge); }
