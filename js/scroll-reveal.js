@@ -12,7 +12,20 @@
     });
   }, { threshold: 0.15 });
 
-  document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(function (el) {
+  const els = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+  els.forEach(function (el) {
     observer.observe(el);
   });
+
+  // Fallback : révéler les éléments déjà visibles au chargement
+  setTimeout(function () {
+    els.forEach(function (el) {
+      if (el.classList.contains('revealed')) return;
+      var rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        el.classList.add('revealed');
+        observer.unobserve(el);
+      }
+    });
+  }, 100);
 })();

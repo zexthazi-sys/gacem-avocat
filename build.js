@@ -70,6 +70,7 @@ function articleTemplate(slug, data, bodyHtml) {
     t.parentNode.insertBefore(e, t);
   })(document, "script");
   <\/script>
+  <script src="/js/scroll-top.js"><\/script>
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -155,6 +156,7 @@ function articleTemplate(slug, data, bodyHtml) {
   </footer>
 
 <script src="/js/scroll-reveal.js"><\/script>
+<script src="/js/page-transition.js"><\/script>
 </body>
 </html>`;
 }
