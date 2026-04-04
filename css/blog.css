@@ -5,6 +5,11 @@ nav {
   border-top: 1px solid rgba(189,201,190,0.35);
   border-bottom: 1px solid rgba(45,63,92,0.06);
 }
+.nav-logo { color: var(--bleu-nuit); }
+.nav-left a, .nav-right a { color: var(--bleu-ardoise); }
+.nav-left a:hover, .nav-right a:hover { color: var(--bleu-nuit); }
+.nav-left a.active, .nav-right a.active { color: var(--bleu-nuit); }
+.nav-left a:not(.nav-blog)::after, .nav-right a:not(.nav-blog)::after { background: var(--bleu-ardoise); }
 @media (max-width: 9999px) {
   .nav-burger { border: 1px solid rgba(45,63,92,0.28); }
   .nav-burger span { background: var(--bleu-ardoise); }
