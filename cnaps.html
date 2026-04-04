@@ -190,6 +190,9 @@
       --vert-sauge: #bdc9be;
       --blanc: #ffffff;
       --noir: #000000;
+      --gris-clair: #fafaf8;
+      --gris-texte: #5d6b7e;
+      --gris-ardoise: #4a5568;
       --degrade: radial-gradient(ellipse 160% 160% at 100% 100%, #6b4f6e 0%, #3d2f4a 40%, #2b2338 70%, #221e30 100%);
     }
 
@@ -269,7 +272,7 @@
       -webkit-transform: translateX(-50%) translateY(0); transform: translateX(-50%) translateY(0);
     }
     .exp-panel-inner {
-      background: #fafaf8;
+      background: var(--gris-clair);
       border-top: 1.5px solid var(--vert-sauge);
       border-radius: 0 0 3px 3px;
       box-shadow: 0 12px 40px rgba(45,63,92,0.1), 0 2px 8px rgba(45,63,92,0.06);
@@ -305,9 +308,9 @@
     .s-tag {
       font-family: 'Raleway', sans-serif; font-size: 11px;
       letter-spacing: 0.22em; text-transform: uppercase;
-      color: var(--bleu-ardoise); margin-bottom: 12px; font-weight: 400;
+      color: var(--vert-sauge); margin-bottom: 12px; font-weight: 400;
     }
-    .s-line { width: 48px; height: 0.5px; background: var(--vert-sauge); margin: 16px 0 36px; }
+    .s-line { width: 48px; height: 0.5px; background: var(--vert-sauge); margin: 16px 0 32px; }
 
     /* ── CONTRASTE — exceptions fond sombre et hover ── */
 
@@ -399,7 +402,7 @@
     }
     .exp-card-text {
       font-family: 'Raleway', sans-serif; font-size: 14px;
-      color: #4a5568; line-height: 1.75; font-weight: 400;
+      color: var(--gris-ardoise); line-height: 1.75; font-weight: 400;
       transition: color 0.3s; position: relative; z-index: 1;
     }
 
@@ -413,10 +416,10 @@
     }
     .motif-item p {
       font-family: 'Raleway', sans-serif; font-size: 14px;
-      color: #4a5568; line-height: 1.75; font-weight: 400;
+      color: var(--gris-ardoise); line-height: 1.75; font-weight: 400;
     }
     .motifs-intro {
-      font-size: 15px; line-height: 1.85; color: #4a5568; font-weight: 300;
+      font-size: 15px; line-height: 1.85; color: var(--gris-ardoise); font-weight: 300;
       margin-bottom: 36px;
     }
     .motifs-conclusion {
@@ -452,7 +455,7 @@
       margin-bottom: 10px; letter-spacing: 0.02em;
     }
     .recours-step-text {
-      font-size: 14px; color: #4a5568; line-height: 1.85; font-weight: 300;
+      font-size: 14px; color: var(--gris-ardoise); line-height: 1.85; font-weight: 300;
     }
 
     /* ── ACCOMPAGNEMENT ── */
@@ -475,7 +478,7 @@
     .accompagnement-photo:hover img { filter: grayscale(0%); transform: scale(1.04); }
     .accompagnement-content { flex: 1; }
     .accompagnement-intro {
-      font-size: 15px; line-height: 1.85; color: #4a5568; font-weight: 300;
+      font-size: 15px; line-height: 1.85; color: var(--gris-ardoise); font-weight: 300;
       margin-bottom: 32px;
     }
     .accompagnement-steps { display: flex; flex-direction: column; gap: 0; margin-bottom: 32px; }
@@ -496,9 +499,9 @@
       font-size: 14px; font-weight: 500; color: var(--bleu-nuit);
       margin-bottom: 6px; letter-spacing: 0.04em; text-transform: uppercase; font-size: 11px;
     }
-    .acc-step-text { font-size: 14px; color: #4a5568; line-height: 1.75; font-weight: 300; }
+    .acc-step-text { font-size: 14px; color: var(--gris-ardoise); line-height: 1.75; font-weight: 300; }
     .accompagnement-note {
-      font-size: 13px; color: #4a5568; line-height: 1.7; font-weight: 300;
+      font-size: 13px; color: var(--gris-ardoise); line-height: 1.7; font-weight: 300;
       border-top: 1px solid rgba(45,63,92,0.08); padding-top: 20px; font-style: italic;
     }
 
@@ -537,7 +540,7 @@
     }
     .faq-answer-inner {
       padding: 0 4px 22px;
-      font-size: 14px; line-height: 1.85; color: #4a5568; font-weight: 300;
+      font-size: 14px; line-height: 1.85; color: var(--gris-ardoise); font-weight: 300;
     }
     .faq-answer.open { max-height: 400px; }
 
@@ -615,7 +618,7 @@
         -webkit-flex-direction: column; flex-direction: column;
         -webkit-justify-content: center; justify-content: center;
         -webkit-align-items: center; align-items: center;
-        width: 34px; height: 34px; gap: 4px;
+        width: 44px; height: 44px; gap: 4px;
         background: none; border: 1px solid rgba(45,63,92,0.28); border-radius: 50%;
         cursor: pointer; -webkit-flex-shrink: 0; flex-shrink: 0;
         position: relative; z-index: 96;
@@ -629,7 +632,7 @@
         -webkit-transition: -webkit-transform 0.308s ease, opacity 0.22s; transition: transform 0.308s ease, opacity 0.22s;
       }
       nav.nav-scrolled .nav-burger span { background: var(--bleu-ardoise); }
-      nav.nav-open .nav-burger span { background: #fafaf8; }
+      nav.nav-open .nav-burger span { background: var(--gris-clair); }
       .nav-burger[aria-expanded="true"] span:nth-child(1) { -webkit-transform: translateY(5.5px) rotate(45deg); transform: translateY(5.5px) rotate(45deg); }
       .nav-burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
       .nav-burger[aria-expanded="true"] span:nth-child(3) { -webkit-transform: translateY(-5.5px) rotate(-45deg); transform: translateY(-5.5px) rotate(-45deg); }
@@ -1097,6 +1100,7 @@
 
 <footer>
   <span>&copy; 2026 Gacem Avocat &middot; Tous droits r&eacute;serv&eacute;s</span>
+  <a href="mailto:contact@gacem-avocat.com">contact@gacem-avocat.com</a>
   <a href="/mentions-legales">Mentions l&eacute;gales</a>
 </footer>
 
@@ -1149,6 +1153,7 @@
       var t = document.querySelector('.nav-exp-toggle');
       if (s) s.classList.remove('open');
       if (t) t.setAttribute('aria-expanded', 'false');
+      burger.focus();
     }
   }
   burger.addEventListener('click', function() { toggleMenu(!links.classList.contains('open')); });

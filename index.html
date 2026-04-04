@@ -25,7 +25,7 @@
   <link rel="preload" href="assets/musee-soulages.webp" as="image" type="image/webp">
   <title>Hakim Gacem — Avocat en droit public à Paris</title>
   <meta name="google-site-verification" content="EKQEDIP9RzKq_uWiRfTBNSqcIky1xHl9v4ezVi0gpEw" />
-  <meta name="description" content="Hakim Gacem, avocat au Barreau de Paris (serment en cours), spécialisé en droit public. Conseil et contentieux en droit administratif, marchés publics, urbanisme pour entreprises et collectivités territoriales.">
+  <meta name="description" content="Hakim Gacem, avocat au Barreau de Paris spécialisé en droit public. Conseil et contentieux en droit administratif, marchés publics et urbanisme.">
   <link rel="canonical" href="https://www.gacem-avocat.com/">
   <!-- Open Graph -->
   <meta property="og:type" content="website">
@@ -167,6 +167,10 @@
       --vert-sauge: #bdc9be;
       --blanc: #ffffff;
       --noir: #000000;
+      --gris-clair: #fafaf8;
+      --gris-texte: #5d6b7e;
+      --gris-ardoise: #4a5568;
+      --fond-expertises: #f0f2f4;
       --degrade: radial-gradient(ellipse 160% 160% at 100% 100%, #6b4f6e 0%, #3d2f4a 40%, #2b2338 70%, #221e30 100%);
     }
 
@@ -307,7 +311,7 @@
       -webkit-transform: translateX(-50%) translateY(0); transform: translateX(-50%) translateY(0);
     }
     .exp-panel-inner {
-      background: #fafaf8;
+      background: var(--gris-clair);
       border-top: 1.5px solid var(--vert-sauge);
       border-radius: 0 0 3px 3px;
       box-shadow: 0 12px 40px rgba(45,63,92,0.1), 0 2px 8px rgba(45,63,92,0.06);
@@ -387,7 +391,7 @@
       color: rgba(255,255,255,0.70); margin-bottom: 44px; max-width: 520px; margin-left: auto; margin-right: auto;
     }
     .hero-cta {
-      display: inline-block; padding: 14px 36px;
+      display: inline-block; padding: 15px 36px;
       border: 1px solid rgba(255,255,255,0.35);
       color: var(--blanc); font-family: 'Raleway', sans-serif;
       font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
@@ -398,13 +402,13 @@
     .hero-cta:hover { background: rgba(255,255,255,0.05); border-color: var(--vert-sauge); color: var(--vert-sauge); }
 
     /* ── SECTIONS ── */
-    section { padding: 88px 64px; }
+    section { padding: 80px 64px; }
     .s-tag {
       font-family: 'Raleway', sans-serif; font-size: 11px;
       letter-spacing: 0.22em; text-transform: uppercase;
       color: var(--vert-sauge); margin-bottom: 12px; font-weight: 400;
     }
-    .s-line { width: 48px; height: 0.5px; background: var(--vert-sauge); margin: 16px 0 28px; }
+    .s-line { width: 48px; height: 0.5px; background: var(--vert-sauge); margin: 16px 0 32px; }
     .s-title {
       font-family: 'Raleway', sans-serif;
       font-size: 36px; font-size: clamp(24px, 3.85vw, 42px);
@@ -412,7 +416,7 @@
     }
 
     /* ── CABINET ── */
-    #cabinet { background: #fafaf8; }
+    #cabinet { background: var(--gris-clair); }
     .cabinet-grid {
       display: -webkit-flex; display: flex;
       -webkit-align-items: stretch; align-items: stretch;
@@ -455,12 +459,12 @@
       letter-spacing: 0.12em; text-transform: uppercase;
       color: var(--bleu-ardoise); margin-bottom: 6px; font-weight: 500;
     }
-    .val p { font-family: 'Raleway', sans-serif; font-size: 14px; color: #6b7a8d; line-height: 1.7; font-weight: 400; }
+    .val p { font-family: 'Raleway', sans-serif; font-size: 14px; color: var(--gris-texte); line-height: 1.7; font-weight: 400; }
 
     /* ── EXPERTISES ── */
-    #expertises { background: #f0f2f4; }
+    #expertises { background: var(--fond-expertises); }
     .exp-grid {
-      display: -webkit-flex; display: flex; display: grid;
+      display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 2px; margin-top: 36px;
     }
@@ -505,7 +509,7 @@
       position: relative; z-index: 1;
     }
     .exp-card-title {
-      font-family: 'Raleway', sans-serif; font-size: 22px;
+      font-family: 'Raleway', sans-serif; font-size: 20px;
       font-weight: 500; color: var(--bleu-nuit);
       margin-bottom: 14px;
       -webkit-transition: color 0.3s; transition: color 0.3s;
@@ -513,7 +517,7 @@
     }
     .exp-card-text {
       font-family: 'Raleway', sans-serif; font-size: 14px;
-      color: #6b7a8d; line-height: 1.75; font-weight: 400;
+      color: var(--gris-texte); line-height: 1.75; font-weight: 400;
       -webkit-transition: color 0.3s; transition: color 0.3s;
       position: relative; z-index: 1;
     }
@@ -559,7 +563,7 @@
     }
     .parcours-teaser-content p {
       font-family: 'Raleway', sans-serif; font-size: 15px;
-      font-weight: 300; line-height: 1.85; color: #4a5568; margin-bottom: 32px;
+      font-weight: 300; line-height: 1.85; color: var(--gris-ardoise); margin-bottom: 32px;
     }
     .parcours-cta {
       display: inline-block;
@@ -601,14 +605,32 @@
       font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
       color: var(--vert-sauge); font-weight: 400; margin-bottom: 5px;
     }
-    .contact-item span,
+    .contact-item span {
+      font-family: 'Raleway', sans-serif; font-size: 14px;
+      color: rgba(255,255,255,0.55); line-height: 1.6; font-weight: 400;
+    }
     .contact-item a {
       font-family: 'Raleway', sans-serif; font-size: 14px;
-      color: rgba(255,255,255,0.45); line-height: 1.6; font-weight: 400;
-      text-decoration: none;
-      -webkit-transition: color 0.2s; transition: color 0.2s;
+      color: rgba(255,255,255,0.82); line-height: 1.6; font-weight: 400;
+      text-decoration: underline; text-underline-offset: 3px;
+      text-decoration-color: rgba(255,255,255,0.25);
+      -webkit-transition: color 0.2s, text-decoration-color 0.2s;
+      transition: color 0.2s, text-decoration-color 0.2s;
     }
-    .contact-item a:hover { color: var(--vert-sauge); }
+    .contact-item a:hover {
+      color: var(--vert-sauge);
+      text-decoration-color: var(--vert-sauge);
+    }
+
+    .contact-cta {
+      display: inline-block; margin-top: 8px; padding: 15px 36px;
+      border: 1px solid rgba(255,255,255,0.35);
+      color: var(--blanc); font-family: 'Raleway', sans-serif;
+      font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+      font-weight: 400; text-decoration: none; background: transparent;
+      -webkit-transition: all 0.3s; transition: all 0.3s;
+    }
+    .contact-cta:hover { background: rgba(255,255,255,0.05); border-color: var(--vert-sauge); color: var(--vert-sauge); }
 
     /* ── FOOTER ── */
     footer {
@@ -635,6 +657,7 @@
     /* ── BURGER MENU ── */
     .nav-burger { display: none; }
 
+    /* Navigation universelle — burger affiché sur tous les écrans (décision de design) */
     @media (max-width: 9999px) {
       nav {
         padding: 16px 24px;
@@ -655,7 +678,7 @@
         -webkit-flex-direction: column; flex-direction: column;
         -webkit-justify-content: center; justify-content: center;
         -webkit-align-items: center; align-items: center;
-        width: 34px; height: 34px; gap: 4px;
+        width: 44px; height: 44px; gap: 4px;
         background: none; border: 1px solid rgba(255,255,255,0.4); border-radius: 50%;
         cursor: pointer; -webkit-flex-shrink: 0; flex-shrink: 0;
         position: relative; z-index: 96;
@@ -669,7 +692,7 @@
         -webkit-transition: -webkit-transform 0.308s ease, opacity 0.22s; transition: transform 0.308s ease, opacity 0.22s;
       }
       nav.nav-scrolled .nav-burger span { background: var(--bleu-ardoise); }
-      nav.nav-open .nav-burger span { background: #fafaf8; }
+      nav.nav-open .nav-burger span { background: var(--gris-clair); }
       .nav-burger[aria-expanded="true"] span:nth-child(1) { -webkit-transform: translateY(5.5px) rotate(45deg); transform: translateY(5.5px) rotate(45deg); }
       .nav-burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
       .nav-burger[aria-expanded="true"] span:nth-child(3) { -webkit-transform: translateY(-5.5px) rotate(-45deg); transform: translateY(-5.5px) rotate(-45deg); }
@@ -787,7 +810,7 @@
       .exp-grid { grid-template-columns: 1fr; }
       .contact-inner { -webkit-flex-direction: column; flex-direction: column; gap: 40px; }
       .contact-left { -webkit-flex: unset; flex: unset; }
-      footer { padding: 20px; -webkit-justify-content: center; justify-content: center; text-align: center; }
+      footer { padding: 20px; -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: center; align-items: center; -webkit-justify-content: center; justify-content: center; text-align: center; gap: 6px; }
     }
     @media screen and (max-width: 480px) {
       nav { padding: 12px 20px; }
@@ -795,6 +818,7 @@
       section { padding: 48px 16px; }
     }
   </style>
+  <noscript><style>#site { opacity: 1 !important; }</style></noscript>
 </head>
 <body>
 
@@ -862,6 +886,7 @@
       <div class="hero-tag">Cabinet d&#39;avocat &middot; Droit public &middot; Paris</div>
       <h1 class="hero-title">L&#39;excellence juridique<br>au service de<br><strong>vos int&#233;r&#234;ts</strong></h1>
       <p class="hero-sub">Conseil et contentieux en droit public pour les entreprises et collectivit&#233;s territoriales. Une expertise pointue, une approche sur mesure.</p>
+      <a class="hero-cta" href="#contact">Me contacter</a>
     </div>
     <span class="hero-caption">Mus&#233;e Soulages &middot; Rodez, Aveyron</span>
   </section>
@@ -903,34 +928,34 @@
     <div class="exp-grid">
       <div class="exp-card">
         <div class="exp-num">01</div>
-        <div class="exp-card-title">Droit administratif</div>
-        <div class="exp-card-text">Conseil et repr&#233;sentation dans vos relations avec les administrations publiques et les autorit&#233;s de r&#233;gulation.</div>
+        <h3 class="exp-card-title">Droit administratif</h3>
+        <p class="exp-card-text">Conseil et repr&#233;sentation dans vos relations avec les administrations publiques et les autorit&#233;s de r&#233;gulation.</p>
       </div>
       <div class="exp-card">
         <div class="exp-num">02</div>
-        <div class="exp-card-title">March&#233;s publics</div>
-        <div class="exp-card-text">Accompagnement dans la passation, l&#39;ex&#233;cution et le contentieux des march&#233;s publics et contrats administratifs.</div>
+        <h3 class="exp-card-title">March&#233;s publics</h3>
+        <p class="exp-card-text">Accompagnement dans la passation, l&#39;ex&#233;cution et le contentieux des march&#233;s publics et contrats administratifs.</p>
       </div>
       <div class="exp-card">
         <div class="exp-num">03</div>
-        <div class="exp-card-title">Urbanisme</div>
-        <div class="exp-card-text">Assistance juridique en droit de l&#39;urbanisme, permis de construire, PLU et op&#233;rations d&#39;am&#233;nagement.</div>
+        <h3 class="exp-card-title">Urbanisme</h3>
+        <p class="exp-card-text">Assistance juridique en droit de l&#39;urbanisme, permis de construire, PLU et op&#233;rations d&#39;am&#233;nagement.</p>
       </div>
       <div class="exp-card">
         <div class="exp-num">04</div>
-        <div class="exp-card-title">Contentieux administratif</div>
-        <div class="exp-card-text">D&#233;fense de vos int&#233;r&#234;ts devant les juridictions administratives, du tribunal au Conseil d&#39;&#201;tat.</div>
+        <h3 class="exp-card-title">Contentieux administratif</h3>
+        <p class="exp-card-text">D&#233;fense de vos int&#233;r&#234;ts devant les juridictions administratives, du tribunal au Conseil d&#39;&#201;tat.</p>
       </div>
     </div>
   </section>
 
   <section id="parcours">
-    <h2 class="s-tag">Hakim Gacem</h2>
+    <div class="s-tag">Hakim Gacem</div>
     <div class="s-line"></div>
-    <p class="s-title">Un parcours au c&#339;ur<br>du droit public</p>
+    <h2 class="s-title">Un parcours au c&#339;ur<br>du droit public</h2>
     <div class="parcours-teaser">
       <div class="parcours-teaser-photo">
-        <img src="assets/photo-professionnelle-v2.webp" alt="Hakim Gacem, avocat au Barreau de Paris" width="832" height="1248">
+        <img src="assets/photo-professionnelle-v2.webp" alt="Hakim Gacem, avocat au Barreau de Paris" loading="lazy" width="832" height="1248">
       </div>
       <div class="parcours-teaser-content">
         <p>Titulaire du CAPA et avocat au Barreau de Paris, Hakim Gacem a construit un parcours &#224; la crois&#233;e de la rigueur acad&#233;mique et de l&#39;exp&#233;rience op&#233;rationnelle. Form&#233; en droit public des affaires &#224; Toulouse I Capitole et Paris Dauphine &mdash; PSL, puis &#224; l&#39;EFB, il a exerc&#233; au sein des juridictions administratives, du secteur priv&#233; et des institutions locales &mdash; forgeant une vision globale et strat&#233;gique du droit public.</p>
@@ -963,6 +988,7 @@
           <strong>Disponibilit&#233;</strong>
           <span>Lundi &mdash; Vendredi &middot; 9h &mdash; 19h</span>
         </div>
+        <a class="contact-cta" href="mailto:contact@gacem-avocat.com">Envoyer un email</a>
       </div>
     </div>
   </section>
@@ -971,6 +997,7 @@
 
   <footer>
     <span>&#169; 2026 Gacem Avocat &middot; Tous droits r&#233;serv&#233;s</span>
+    <a href="mailto:contact@gacem-avocat.com">contact@gacem-avocat.com</a>
     <a href="/mentions-legales">Mentions l&eacute;gales</a>
   </footer>
 
@@ -1103,6 +1130,7 @@
       var t = document.querySelector('.nav-exp-toggle');
       if (s) s.classList.remove('open');
       if (t) t.setAttribute('aria-expanded', 'false');
+      burger.focus();
     }
   }
   burger.addEventListener('click', function() { toggleMenu(!links.classList.contains('open')); });
@@ -1119,6 +1147,34 @@
       expToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
   }
+})();
+
+/* ── Active section tracking ── */
+(function() {
+  var sections = ['cabinet', 'expertises', 'parcours', 'contact'];
+  var navMap = {
+    'cabinet':    document.querySelector('.nav-links-main a[href="#cabinet"]'),
+    'expertises': document.querySelector('.nav-exp-toggle'),
+    'parcours':   document.querySelector('.nav-links-main a[href="/parcours"]'),
+    'contact':    document.querySelector('.nav-links-main a[href="#contact"]')
+  };
+  if (!window.IntersectionObserver) return;
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      var id = entry.target.id;
+      var el = navMap[id];
+      if (!el) return;
+      if (entry.isIntersecting) {
+        el.classList.add('active');
+      } else {
+        el.classList.remove('active');
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+  sections.forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) observer.observe(el);
+  });
 })();
 </script>
 

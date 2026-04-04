@@ -1,58 +1,4 @@
-#!/usr/bin/env node
-/**
- * build.js — Gacem Avocat
- * Lit les fichiers Markdown dans /posts/, génère :
- *   - /blog/[slug].html  pour chaque article
- *   - /posts/index.json  pour blog.html
- *   - /sitemap.xml       mis à jour
- */
-
-const fs   = require('fs');
-const path = require('path');
-const matter = require('gray-matter');
-const { marked } = require('marked');
-
-// ── Config ────────────────────────────────────────────────────────────────────
-const SITE_URL   = 'https://www.gacem-avocat.com';
-const POSTS_DIR  = path.join(__dirname, 'posts');
-const BLOG_DIR   = path.join(__dirname, 'blog');
-
-// ── Helpers ───────────────────────────────────────────────────────────────────
-const MONTHS_FR = [
-  'janvier','février','mars','avril','mai','juin',
-  'juillet','août','septembre','octobre','novembre','décembre'
-];
-function formatDateFr(dateStr) {
-  if (!dateStr) return '';
-  // gray-matter peut retourner un objet Date ou une string ISO/YYYY-MM-DD
-  let d;
-  if (dateStr instanceof Date) {
-    d = dateStr;
-  } else {
-    const s = String(dateStr);
-    d = s.includes('T') ? new Date(s) : new Date(s + 'T12:00:00Z');
-  }
-  if (isNaN(d.getTime())) return String(dateStr);
-  return `${d.getUTCDate()} ${MONTHS_FR[d.getUTCMonth()]} ${d.getUTCFullYear()}`;
-}
-
-function escHtml(str) {
-  return String(str)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
-}
-
-// ── Article HTML template ─────────────────────────────────────────────────────
-function articleTemplate(slug, data, bodyHtml) {
-  const titleEsc   = escHtml(data.title);
-  const descEsc    = escHtml(data.description);
-  const dateFr     = formatDateFr(data.date);
-  const catEsc     = escHtml(data.category);
-  const canonUrl   = `${SITE_URL}/blog/${slug}`;
-
-  return `<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
@@ -69,21 +15,21 @@ function articleTemplate(slug, data, bodyHtml) {
     e.async = true; e.src = "https://static.axept.io/sdk.js";
     t.parentNode.insertBefore(e, t);
   })(document, "script");
-  <\/script>
+  </script>
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
   <link rel="preconnect" href="https://static.axept.io" crossorigin>
   <link rel="preload" href="/assets/fonts/raleway-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <title>${titleEsc} &mdash; Gacem Avocat</title>
-  <meta name="description" content="${descEsc}">
-  <link rel="canonical" href="${canonUrl}">
+  <title>Confiscation des biens en matière de stupéfiants : le Conseil constitutionnel redonne au juge sa liberté d'appréciation &mdash; Gacem Avocat</title>
+  <meta name="description" content="Le Conseil constitutionnel a déclaré inconstitutionnelle la confiscation automatique des biens en matière de trafic de stupéfiants. Une décision majeure qui redonne au juge pénal son pouvoir d'individualisation des peines.">
+  <link rel="canonical" href="https://www.gacem-avocat.com/blog/confiscation-stupefiants-qpc-mars-2026">
   <!-- Open Graph -->
   <meta property="og:type" content="article">
-  <meta property="og:url" content="${canonUrl}">
-  <meta property="og:title" content="${titleEsc} &mdash; Gacem Avocat">
-  <meta property="og:description" content="${descEsc}">
+  <meta property="og:url" content="https://www.gacem-avocat.com/blog/confiscation-stupefiants-qpc-mars-2026">
+  <meta property="og:title" content="Confiscation des biens en matière de stupéfiants : le Conseil constitutionnel redonne au juge sa liberté d'appréciation &mdash; Gacem Avocat">
+  <meta property="og:description" content="Le Conseil constitutionnel a déclaré inconstitutionnelle la confiscation automatique des biens en matière de trafic de stupéfiants. Une décision majeure qui redonne au juge pénal son pouvoir d'individualisation des peines.">
   <meta property="og:image" content="https://www.gacem-avocat.com/assets/og-image.webp">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -91,8 +37,8 @@ function articleTemplate(slug, data, bodyHtml) {
   <meta property="og:site_name" content="Gacem Avocat">
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="${titleEsc} &mdash; Gacem Avocat">
-  <meta name="twitter:description" content="${descEsc}">
+  <meta name="twitter:title" content="Confiscation des biens en matière de stupéfiants : le Conseil constitutionnel redonne au juge sa liberté d'appréciation &mdash; Gacem Avocat">
+  <meta name="twitter:description" content="Le Conseil constitutionnel a déclaré inconstitutionnelle la confiscation automatique des biens en matière de trafic de stupéfiants. Une décision majeure qui redonne au juge pénal son pouvoir d'individualisation des peines.">
   <meta name="twitter:image" content="https://www.gacem-avocat.com/assets/og-image.webp">
   <style>
     /* Raleway — auto-hébergé */
@@ -141,11 +87,11 @@ function articleTemplate(slug, data, bodyHtml) {
   {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": ${JSON.stringify(data.title)},
-    "datePublished": ${JSON.stringify(data.date)},
+    "headline": "Confiscation des biens en matière de stupéfiants : le Conseil constitutionnel redonne au juge sa liberté d'appréciation",
+    "datePublished": "2026-03-19T00:00:00.000Z",
     "author": { "@type": "Person", "name": "Hakim Gacem" },
     "publisher": { "@type": "Organization", "name": "Gacem Avocat" },
-    "description": ${JSON.stringify(data.description)}
+    "description": "Le Conseil constitutionnel a déclaré inconstitutionnelle la confiscation automatique des biens en matière de trafic de stupéfiants. Une décision majeure qui redonne au juge pénal son pouvoir d'individualisation des peines."
   }
   </script>
   <style>
@@ -242,17 +188,36 @@ function articleTemplate(slug, data, bodyHtml) {
       <div class="article-header-inner">
         <a href="/blog" class="article-back">&larr; Blog</a>
         <div class="article-meta">
-          <span class="article-category-badge">${catEsc}</span>
-          <span class="article-date-badge">${dateFr}</span>
+          <span class="article-category-badge">Droit pénal</span>
+          <span class="article-date-badge">19 mars 2026</span>
         </div>
-        <h1>${titleEsc}</h1>
-        <p class="article-intro">${escHtml(data.excerpt)}</p>
+        <h1>Confiscation des biens en matière de stupéfiants : le Conseil constitutionnel redonne au juge sa liberté d'appréciation</h1>
+        <p class="article-intro">Le Conseil constitutionnel vient de censurer la confiscation automatique des biens en matière de trafic de stupéfiants. Une décision QPC du 13 mars 2026 aux conséquences pratiques immédiates pour tous les dossiers pénaux en cours.</p>
       </div>
     </header>
 
     <article class="article-body">
       <div class="article-content">
-        ${bodyHtml}
+        <p>Le 13 mars 2026, le Conseil constitutionnel a rendu une décision qui marque un tournant important en droit pénal français. Saisi d'une question prioritaire de constitutionnalité (QPC), il a censuré une disposition du Code pénal qui contraignait le juge à prononcer automatiquement la confiscation des biens dans les affaires de trafic de stupéfiants. Une avancée majeure pour les droits de la défense.</p>
+<h2>La disposition censurée</h2>
+<p>L'article 222-49, alinéa 1er, du Code pénal prévoyait que la confiscation des biens liés à une infraction de trafic de stupéfiants était obligatoire. Concrètement, le juge pénal n'avait aucun pouvoir d'appréciation : dès lors qu'une condamnation pour trafic de stupéfiants était prononcée, la confiscation des biens devait suivre automatiquement, sans que le prévenu puisse faire valoir sa situation personnelle.</p>
+<h2>Le raisonnement du Conseil constitutionnel</h2>
+<p>Le Conseil constitutionnel fonde sa censure sur le <strong>principe d'individualisation des peines</strong>, qui découle de l'article 8 de la Déclaration des droits de l'homme et du citoyen de 1789. Ce principe fondamental exige que toute peine — y compris les mesures patrimoniales comme la confiscation — soit proportionnée aux circonstances de l'infraction et à la personnalité de son auteur.</p>
+<p>Or, une confiscation automatique ne permet pas cette individualisation : elle s'applique uniformément, sans que le juge puisse tenir compte de la gravité des faits, du rôle joué par le prévenu, ou de sa situation familiale et patrimoniale.</p>
+<h2>Les conséquences pratiques immédiates</h2>
+<ul>
+<li><strong>Le juge pénal retrouve un pouvoir d'appréciation complet</strong> sur la confiscation des biens liés aux infractions de stupéfiants.</li>
+<li><strong>La confiscation n'est plus automatique</strong> : elle devient facultative, et le juge devra motiver sa décision.</li>
+<li><strong>Cette décision s'applique à toutes les affaires non définitivement jugées</strong> au 13 mars 2026 : les dossiers en cours peuvent en bénéficier.</li>
+<li><strong>De nouveaux arguments de défense s'ouvrent</strong> : il sera désormais possible de plaider pour l'absence ou la limitation de confiscation en exposant la situation personnelle du prévenu.</li>
+</ul>
+<h2>Conclusion</h2>
+<p>Cette décision QPC est une victoire pour les droits de la défense et pour le principe de proportionnalité en droit pénal. Elle rappelle que même dans les domaines les plus sensibles — comme le trafic de stupéfiants — l'État de droit impose que chaque peine soit individualisée.</p>
+<h2>Source :</h2>
+<p><strong>Décision n° 2026-1101 QPC du 13 mars 2026</strong> - Conseil constitutionnel</p>
+<p><em>Article visé : Article 222-49 alinéa 1er du Code pénal</em><br>
+<em>Fondement : Article 8 de la Déclaration des droits de l'homme et du citoyen de 1789 (principe d'individualisation des peines)</em><br>
+<em>Publié le 13 mars 2026</em></p>
         <div class="article-cta">
           <p>Vous avez une question sur cet article ou souhaitez &ecirc;tre accompagn&eacute;&nbsp;?</p>
           <a href="/#contact" class="cta-btn">Prendre contact</a>
@@ -272,119 +237,4 @@ function articleTemplate(slug, data, bodyHtml) {
   </footer>
 
 </body>
-</html>`;
-}
-
-// ── Main ──────────────────────────────────────────────────────────────────────
-console.log('🔨 Build — Gacem Avocat');
-
-if (!fs.existsSync(BLOG_DIR)) fs.mkdirSync(BLOG_DIR, { recursive: true });
-
-const files = fs.readdirSync(POSTS_DIR).filter(f => f.endsWith('.md'));
-if (files.length === 0) { console.log('  Aucun article trouvé dans /posts/'); }
-
-const posts = [];
-
-for (const file of files) {
-  const slug    = file.replace('.md', '');
-  const raw     = fs.readFileSync(path.join(POSTS_DIR, file), 'utf-8');
-  const { data, content } = matter(raw);
-  const bodyHtml = marked.parse(content);
-
-  // Générer /blog/[slug].html
-  const html = articleTemplate(slug, data, bodyHtml);
-  const outPath = path.join(BLOG_DIR, `${slug}.html`);
-  fs.writeFileSync(outPath, html, 'utf-8');
-  console.log(`  ✓ /blog/${slug}.html`);
-
-  // Normaliser la date en string YYYY-MM-DD (gray-matter peut retourner un objet Date)
-  const rawDate = data.date;
-  const dateStr = rawDate instanceof Date
-    ? rawDate.toISOString().slice(0, 10)
-    : String(rawDate || '').slice(0, 10);
-
-  posts.push({
-    slug,
-    title:       data.title       || '',
-    date:        dateStr,
-    dateFr:      formatDateFr(dateStr || new Date().toISOString().slice(0,10)),
-    category:    data.category    || '',
-    description: data.description || '',
-    excerpt:     data.excerpt     || '',
-  });
-}
-
-// Trier par date décroissante
-posts.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-// Générer /posts/index.json
-const indexPath = path.join(POSTS_DIR, 'index.json');
-fs.writeFileSync(indexPath, JSON.stringify(posts, null, 2), 'utf-8');
-console.log('  ✓ /posts/index.json');
-
-// Injecter le listing dans blog.html (rendu statique)
-const blogHtmlPath = path.join(__dirname, 'blog.html');
-let blogHtml = fs.readFileSync(blogHtmlPath, 'utf-8');
-
-const articlesHtml = posts.length === 0
-  ? '<p class="error-state">Aucun article pour le moment.</p>'
-  : posts.map(p => `
-        <a href="/blog/${p.slug}" class="article-card" role="listitem">
-          <div class="article-card-meta">
-            <span class="article-date">${escHtml(p.dateFr)}</span>
-            <span class="article-category">${escHtml(p.category)}</span>
-          </div>
-          <div class="article-card-body">
-            <h2 class="article-card-title">${escHtml(p.title)}</h2>
-            <p class="article-card-excerpt">${escHtml(p.excerpt)}</p>
-            <span class="article-read-more">Lire l\u2019article \u2192</span>
-          </div>
-        </a>`).join('\n');
-
-blogHtml = blogHtml.replace(
-  /<!-- BUILD:ARTICLES -->[\s\S]*?<!-- \/BUILD:ARTICLES -->/,
-  '<!-- BUILD:ARTICLES -->\n' + articlesHtml + '\n        <!-- /BUILD:ARTICLES -->'
-);
-
-fs.writeFileSync(blogHtmlPath, blogHtml, 'utf-8');
-console.log('  ✓ blog.html (listing statique)');
-
-// Générer sitemap.xml
-const today = new Date().toISOString().slice(0, 10);
-const articleEntries = posts.map(p => `
-  <url>
-    <loc>${SITE_URL}/blog/${p.slug}</loc>
-    <lastmod>${p.date}</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-  </url>`).join('');
-
-const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <url>
-    <loc>${SITE_URL}/</loc>
-    <lastmod>${today}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
-
-  <url>
-    <loc>${SITE_URL}/parcours</loc>
-    <lastmod>${today}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>${SITE_URL}/blog</loc>
-    <lastmod>${today}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-${articleEntries}
-</urlset>
-`;
-fs.writeFileSync(path.join(__dirname, 'sitemap.xml'), sitemap, 'utf-8');
-console.log('  ✓ sitemap.xml');
-console.log(`\n✅ Build terminé — ${posts.length} article(s) généré(s)`);
+</html>
