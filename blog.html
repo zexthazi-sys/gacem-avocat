@@ -371,7 +371,7 @@
         -webkit-transition: border-color 0.275s, background 0.275s; transition: border-color 0.275s, background 0.275s;
       }
       nav.nav-scrolled .nav-burger { border-color: rgba(45,63,92,0.28); }
-      nav.nav-open .nav-burger { background: var(--bleu-nuit); border-color: var(--bleu-nuit); }
+      nav.nav-open .nav-burger { background: transparent; border-color: rgba(255,255,255,0.25); }
       .nav-burger span {
         display: block; width: 14px; height: 1.5px;
         background: var(--bleu-ardoise); border-radius: 2px;
@@ -384,76 +384,101 @@
       .nav-burger[aria-expanded="true"] span:nth-child(3) { -webkit-transform: translateY(-5.5px) rotate(-45deg); transform: translateY(-5.5px) rotate(-45deg); }
 
       .nav-links {
-        display: flex;
+        display: -webkit-flex; display: flex;
         position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 95;
         background: var(--bleu-nuit);
         -webkit-flex-direction: column; flex-direction: column;
-        -webkit-align-items: center; align-items: center;
         -webkit-justify-content: center; justify-content: center;
-        gap: 0; padding: 100px 48px 80px;
-        -webkit-transform: translateX(100%); transform: translateX(100%);
-        -webkit-transition: -webkit-transform 0.385s cubic-bezier(0.4,0,0.2,1); transition: transform 0.385s cubic-bezier(0.4,0,0.2,1);
+        padding: 100px 48px 60px; padding-left: clamp(48px, 12vw, 160px);
+        opacity: 0; visibility: hidden;
+        -webkit-transition: opacity 0.4s ease, visibility 0s 0.4s; transition: opacity 0.4s ease, visibility 0s 0.4s;
         min-height: 100vh; min-height: 100dvh;
         pointer-events: none; overflow-y: auto;
       }
-      .nav-links.open { -webkit-transform: translateX(0); transform: translateX(0); pointer-events: auto; }
+      .nav-links.open { opacity: 1; visibility: visible; pointer-events: auto; -webkit-transition: opacity 0.4s ease, visibility 0s 0s; transition: opacity 0.4s ease, visibility 0s 0s; }
 
       /* Cascade d'entrée */
-      .nav-links > * {
+      .nav-links-main > * {
         opacity: 0;
-        -webkit-transform: translateY(20px); transform: translateY(20px);
+        -webkit-transform: translateY(18px); transform: translateY(18px);
         -webkit-transition: opacity 0.5s ease, -webkit-transform 0.5s ease; transition: opacity 0.5s ease, transform 0.5s ease;
       }
-      .nav-links.open > *:nth-child(1) { opacity: 1; -webkit-transform: none; transform: none; -webkit-transition-delay: 0.10s; transition-delay: 0.10s; }
-      .nav-links.open > *:nth-child(2) { opacity: 1; -webkit-transform: none; transform: none; -webkit-transition-delay: 0.17s; transition-delay: 0.17s; }
-      .nav-links.open > *:nth-child(3) { opacity: 1; -webkit-transform: none; transform: none; -webkit-transition-delay: 0.24s; transition-delay: 0.24s; }
-      .nav-links.open > *:nth-child(4) { opacity: 1; -webkit-transform: none; transform: none; -webkit-transition-delay: 0.31s; transition-delay: 0.31s; }
-      .nav-links.open > *:nth-child(5) { opacity: 1; -webkit-transform: none; transform: none; -webkit-transition-delay: 0.38s; transition-delay: 0.38s; }
-      .nav-links.open > *:nth-child(6) { opacity: 1; -webkit-transform: none; transform: none; -webkit-transition-delay: 0.45s; transition-delay: 0.45s; }
+      .nav-links.open .nav-links-main > *:nth-child(1) { opacity: 1; -webkit-transform: none; transform: none; -webkit-transition-delay: 0.08s; transition-delay: 0.08s; }
+      .nav-links.open .nav-links-main > *:nth-child(2) { opacity: 1; -webkit-transform: none; transform: none; -webkit-transition-delay: 0.14s; transition-delay: 0.14s; }
+      .nav-links.open .nav-links-main > *:nth-child(3) { opacity: 1; -webkit-transform: none; transform: none; -webkit-transition-delay: 0.20s; transition-delay: 0.20s; }
+      .nav-links.open .nav-links-main > *:nth-child(4) { opacity: 1; -webkit-transform: none; transform: none; -webkit-transition-delay: 0.26s; transition-delay: 0.26s; }
+      .nav-links.open .nav-links-main > *:nth-child(5) { opacity: 1; -webkit-transform: none; transform: none; -webkit-transition-delay: 0.32s; transition-delay: 0.32s; }
+      .nav-links.open .nav-links-main > *:nth-child(6) { opacity: 1; -webkit-transform: none; transform: none; -webkit-transition-delay: 0.38s; transition-delay: 0.38s; }
 
-      /* Tous les liens principaux */
-      .nav-links > a:not(.nav-blog):not(.nav-mobile-cnaps),
-      .nav-dropdown > a {
-        font-family: 'Raleway', sans-serif; font-size: clamp(22px, 5vw, 28px) !important;
-        letter-spacing: 0.14em !important; font-weight: 200;
-        color: rgba(255,255,255,0.82) !important; text-decoration: none;
-        padding: 20px 0 !important; display: block !important; width: 100% !important;
-        text-align: center; border-bottom: none;
+      /* Navigation principale — liens alignés à gauche */
+      .nav-links-main { display: -webkit-flex; display: flex; -webkit-flex-direction: column; flex-direction: column; }
+      .nav-links-main > a:not(.nav-mobile-cnaps) {
+        font-family: 'Raleway', sans-serif; font-size: clamp(28px, 6vw, 42px);
+        letter-spacing: 0.06em; font-weight: 200;
+        color: rgba(255,255,255,0.85); text-decoration: none;
+        padding: 14px 0; display: -webkit-flex; display: flex;
+        -webkit-align-items: baseline; align-items: baseline; gap: 16px;
         -webkit-transition: color 0.28s; transition: color 0.28s;
       }
-      .nav-links > a:not(.nav-blog):not(.nav-mobile-cnaps):hover,
-      .nav-dropdown > a:hover { color: var(--vert-sauge) !important; }
-      .nav-links > a::after, .nav-dropdown > a::after { display: none !important; }
-
-      /* CNAPS — lien spécialité */
-      .nav-mobile-cnaps {
-        font-size: 9px !important; letter-spacing: 0.28em !important;
-        text-transform: uppercase !important; font-weight: 400 !important;
-        color: var(--vert-sauge) !important;
-        padding: 16px 0 !important; display: block !important; width: 100% !important;
-        text-align: center;
-        border-top: 1px solid rgba(255,255,255,0.07) !important;
-        border-bottom: 1px solid rgba(255,255,255,0.07) !important;
-        margin: 6px 0 !important;
-        -webkit-transition: color 0.28s; transition: color 0.28s;
+      .nav-links-main > a:not(.nav-mobile-cnaps):hover { color: var(--vert-sauge); }
+      .nav-links-main > a:not(.nav-mobile-cnaps).active { color: var(--vert-sauge); }
+      .nav-links-main > a::after { display: none !important; }
+      .nav-num {
+        font-size: 10px; letter-spacing: 0.2em; font-weight: 400;
+        color: var(--vert-sauge); opacity: 0.5; min-width: 24px;
       }
-      .nav-mobile-cnaps:hover { color: rgba(255,255,255,0.75) !important; }
+      .nav-links-main > a:not(.nav-mobile-cnaps).active .nav-num { opacity: 1; }
+
+      /* Expertises — toggle bouton */
+      .nav-exp-toggle {
+        font-family: 'Raleway', sans-serif; font-size: clamp(28px, 6vw, 42px);
+        letter-spacing: 0.06em; font-weight: 200;
+        color: rgba(255,255,255,0.85); background: none; border: none;
+        padding: 14px 0; display: -webkit-flex; display: flex;
+        -webkit-align-items: baseline; align-items: baseline; gap: 16px;
+        cursor: pointer; -webkit-transition: color 0.28s; transition: color 0.28s;
+      }
+      .nav-exp-toggle:hover { color: var(--vert-sauge); }
+      .nav-exp-chevron {
+        display: inline-block; width: 7px; height: 7px; margin-left: 6px;
+        border-right: 1px solid rgba(255,255,255,0.4); border-bottom: 1px solid rgba(255,255,255,0.4);
+        -webkit-transform: rotate(45deg); transform: rotate(45deg);
+        -webkit-transition: -webkit-transform 0.3s ease; transition: transform 0.3s ease;
+        position: relative; top: -2px;
+      }
+      .nav-exp-toggle[aria-expanded="true"] .nav-exp-chevron {
+        -webkit-transform: rotate(-135deg); transform: rotate(-135deg); top: 2px;
+      }
+      .nav-exp-toggle[aria-expanded="true"] { color: var(--vert-sauge); }
+
+      /* Expertises — sous-menu */
+      .nav-exp-sub {
+        max-height: 0; overflow: hidden; padding-left: 40px;
+        -webkit-transition: max-height 0.4s ease, opacity 0.3s ease; transition: max-height 0.4s ease, opacity 0.3s ease;
+        opacity: 0;
+      }
+      .nav-exp-sub.open { max-height: 300px; opacity: 1; }
+      .nav-exp-sub a {
+        font-family: 'Raleway', sans-serif; font-size: 13px;
+        letter-spacing: 0.12em; font-weight: 300;
+        color: rgba(255,255,255,0.55); text-decoration: none;
+        padding: 9px 0; display: block;
+        -webkit-transition: color 0.25s; transition: color 0.25s;
+      }
+      .nav-exp-sub a:hover { color: rgba(255,255,255,0.9); }
+      .nav-exp-sub a::after { display: none !important; }
+      .nav-exp-cnaps {
+        color: var(--vert-sauge) !important; font-weight: 400 !important;
+        letter-spacing: 0.18em !important; font-size: 11px !important;
+        text-transform: uppercase; margin-top: 4px; padding-top: 12px !important;
+        border-top: 1px solid rgba(255,255,255,0.06);
+      }
+
+      .nav-mobile-cnaps { display: none; }
       .nav-dropdown { width: 100%; }
       .nav-dropdown > a .nav-chevron { display: none; }
       .exp-panel { display: none !important; }
 
-      .nav-blog {
-        margin-top: 28px !important; font-size: 9px !important;
-        letter-spacing: 0.24em !important; text-transform: uppercase;
-        border: 1px solid rgba(255,255,255,0.18) !important; border-radius: 2px !important;
-        padding: 12px 44px !important;
-        width: auto !important; -webkit-align-self: center; align-self: center;
-        color: rgba(255,255,255,0.4) !important;
-        display: -webkit-inline-flex !important; display: inline-flex !important;
-        background: transparent !important;
-        -webkit-transition: border-color 0.3s, color 0.3s !important; transition: border-color 0.3s, color 0.3s !important;
-      }
-      .nav-blog:hover { border-color: rgba(255,255,255,0.42) !important; color: rgba(255,255,255,0.82) !important; }
       .nav-blog::after { display: none !important; }
 
       .blog-hero { padding: 60px 20px 48px; }
@@ -517,35 +542,20 @@
       <a href="/blog" class="nav-blog active">Blog</a>
     </div>
     <div class="nav-links">
-      <a href="/#cabinet">Cabinet</a>
-      <div class="nav-dropdown">
-        <a href="/#expertises">Expertises <span class="nav-chevron"></span></a>
-        <div class="exp-panel">
-          <div class="exp-panel-inner">
-            <a href="/#expertises" class="exp-entry">
-              <span class="exp-entry-title">Droit administratif</span>
-            </a>
-            <a href="/#expertises" class="exp-entry">
-              <span class="exp-entry-title">Marchés publics</span>
-            </a>
-            <a href="/#expertises" class="exp-entry">
-              <span class="exp-entry-title">Urbanisme</span>
-            </a>
-            <a href="/#expertises" class="exp-entry">
-              <span class="exp-entry-title">Contentieux administratif</span>
-            </a>
-            <div class="exp-divider"></div>
-            <a href="/cnaps" class="exp-entry exp-entry-cnaps">
-              <span class="exp-cnaps-dot"></span>
-              <span class="exp-entry-title">Sécurité privée — CNAPS</span>
-            </a>
-          </div>
+      <div class="nav-links-main">
+        <a href="/#cabinet"><span class="nav-num">01</span>Cabinet</a>
+        <button class="nav-exp-toggle" aria-expanded="false"><span class="nav-num">02</span>Expertises<span class="nav-exp-chevron"></span></button>
+        <div class="nav-exp-sub">
+          <a href="/#expertises">Droit administratif</a>
+          <a href="/#expertises">Marchés publics</a>
+          <a href="/#expertises">Urbanisme</a>
+          <a href="/#expertises">Contentieux administratif</a>
+          <a href="/cnaps" class="nav-exp-cnaps">Sécurité privée — CNAPS</a>
         </div>
+        <a href="/parcours"><span class="nav-num">03</span>Parcours</a>
+        <a href="/#contact"><span class="nav-num">04</span>Contact</a>
+        <a href="/blog" class="active"><span class="nav-num">05</span>Blog</a>
       </div>
-      <a href="/cnaps" class="nav-mobile-cnaps">Sécurité privée — CNAPS</a>
-      <a href="/parcours">Parcours</a>
-      <a href="/#contact">Contact</a>
-      <a href="/blog" class="nav-blog active">Blog</a>
     </div>
   </nav>
 
@@ -590,11 +600,27 @@
     burger.setAttribute('aria-expanded', open ? 'true' : 'false');
     nav.classList.toggle('nav-open', open);
     document.body.style.overflow = open ? 'hidden' : '';
+    if (!open) {
+      var s = document.querySelector('.nav-exp-sub');
+      var t = document.querySelector('.nav-exp-toggle');
+      if (s) s.classList.remove('open');
+      if (t) t.setAttribute('aria-expanded', 'false');
+    }
   }
   burger.addEventListener('click', function() { toggleMenu(!links.classList.contains('open')); });
   links.querySelectorAll('a').forEach(function(a) {
     a.addEventListener('click', function() { toggleMenu(false); });
   });
+
+  /* Expertises sub-menu toggle */
+  var expToggle = document.querySelector('.nav-exp-toggle');
+  var expSub = document.querySelector('.nav-exp-sub');
+  if (expToggle && expSub) {
+    expToggle.addEventListener('click', function() {
+      var open = expSub.classList.toggle('open');
+      expToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
 })();
 </script>
 
