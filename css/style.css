@@ -631,12 +631,7 @@
       .nav-links-main > a:not(.nav-mobile-cnaps):hover { color: var(--vert-sauge); }
       .nav-links-main > a:not(.nav-mobile-cnaps).active { color: var(--vert-sauge); }
       .nav-links-main > a::after { display: none !important; }
-      .nav-num {
-        font-size: 10px; letter-spacing: 0.2em; font-weight: 400;
-        color: var(--vert-sauge); opacity: 0.5; min-width: 24px;
-        align-self: center;
-      }
-      .nav-links-main > a.active .nav-num { opacity: 1; }
+
 
       /* CNAPS — sous-lien rattaché à Expertises */
       /* Expertises — toggle bouton */
