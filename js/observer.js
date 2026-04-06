@@ -1,17 +1,17 @@
 /* ── Active section tracking ── */
 (function() {
-  const sections = ['cabinet', 'expertises', 'parcours', 'contact'];
-  const navMap = {
-    'cabinet':    document.querySelector('.nav-links-main a[href="#cabinet"]'),
-    'expertises': document.querySelector('.nav-exp-toggle'),
-    'parcours':   document.querySelector('.nav-links-main a[href="/parcours"]'),
-    'contact':    document.querySelector('.nav-links-main a[href="#contact"]')
+  var sections = ['cabinet', 'expertises', 'parcours', 'contact'];
+  var navMap = {
+    'cabinet':    document.querySelector('.nav-desktop a[href="#cabinet"]'),
+    'expertises': document.querySelector('.nav-exp-btn'),
+    'parcours':   document.querySelector('.nav-desktop a[href="/parcours"]'),
+    'contact':    document.querySelector('.nav-desktop a[href="#contact"]')
   };
   if (!window.IntersectionObserver) return;
-  const observer = new IntersectionObserver(function(entries) {
+  var observer = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
-      const id = entry.target.id;
-      const el = navMap[id];
+      var id = entry.target.id;
+      var el = navMap[id];
       if (!el) return;
       if (entry.isIntersecting) {
         el.classList.add('active');
@@ -21,7 +21,7 @@
     });
   }, { rootMargin: '-30% 0px -60% 0px' });
   sections.forEach(function(id) {
-    const el = document.getElementById(id);
+    var el = document.getElementById(id);
     if (el) observer.observe(el);
   });
 })();

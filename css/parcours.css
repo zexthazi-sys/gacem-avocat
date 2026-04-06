@@ -1,18 +1,3 @@
-/* ── NAV OVERRIDE — toujours opaque sur sous-pages ── */
-nav {
-  background: rgba(255,255,255,0.88);
-  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
-  border-top: 1px solid rgba(189,201,190,0.35);
-  border-bottom: 1px solid rgba(45,63,92,0.06);
-}
-.nav-logo { color: var(--bleu-nuit); }
-.nav-left a, .nav-right a { color: var(--bleu-ardoise); }
-.nav-left a:hover, .nav-right a:hover { color: var(--bleu-nuit); }
-.nav-left a.active, .nav-right a.active { color: var(--bleu-nuit); }
-.nav-left a:not(.nav-blog)::after, .nav-right a:not(.nav-blog)::after { background: var(--bleu-ardoise); }
-@media (max-width: 9999px) {
-  .nav-burger span { background: var(--bleu-ardoise); }
-}
 /* ── HERO PARCOURS ── */
     .page-hero {
       background: var(--degrade);
@@ -55,7 +40,7 @@ nav {
     .s-tag {
       font-family: 'Raleway', sans-serif; font-size: 11px;
       letter-spacing: 0.22em; text-transform: uppercase;
-      color: var(--vert-sauge); margin-bottom: 12px; font-weight: 400;
+      color: var(--bleu-ardoise); margin-bottom: 12px; font-weight: 400;
     }
     .s-line {
       width: 48px; height: 0.5px; background: var(--vert-sauge);
@@ -99,7 +84,7 @@ nav {
     }
     .logo-card:hover img { filter: grayscale(0%) opacity(1); }
     .logo-card-label {
-      font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
+      font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
       color: var(--bleu-ardoise); opacity: 0.55; text-align: center;
     }
 

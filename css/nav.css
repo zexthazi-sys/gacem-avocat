@@ -1,0 +1,439 @@
+/* ══════════════════════════════════════════════════════
+   NAV.CSS — Site Header & Navigation
+   Desktop : Apple-style frosted-glass, mega-menu
+   Mobile  : slide-down panel avec sous-panneau Expertises
+   ══════════════════════════════════════════════════════ */
+
+/* ── SITE HEADER ── */
+.site-header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  height: 52px;
+  background: transparent;
+  border-bottom: none;
+  -webkit-transition: background 0.35s ease, -webkit-backdrop-filter 0.35s ease;
+  transition: background 0.35s ease, backdrop-filter 0.35s ease;
+}
+
+/* État 1 : scroll partiel sur hero — flou discret, texte blanc */
+.site-header.header-scrolled {
+  background: rgba(26, 26, 46, 0.18);
+  -webkit-backdrop-filter: saturate(140%) blur(16px);
+  backdrop-filter: saturate(140%) blur(16px);
+  border-bottom-color: rgba(255, 255, 255, 0.06);
+}
+
+/* État 2 : fond blanc — fond clair, texte foncé */
+.site-header.header-opaque {
+  background: rgba(255, 255, 255, 0.92);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+  border-bottom-color: rgba(45, 63, 92, 0.08);
+}
+
+.header-inner {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  height: 100%;
+  padding: 0 48px;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* ── LOGO ── */
+.nav-logo {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  letter-spacing: 0.15em;
+  color: var(--blanc);
+  text-decoration: none;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+  -webkit-flex-shrink: 0;
+  flex-shrink: 0;
+}
+.nav-logo span { font-weight: 200; }
+
+.site-header.header-opaque .nav-logo { color: var(--bleu-nuit); }
+
+/* ── DESKTOP NAV ── */
+.nav-desktop {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  gap: 36px;
+}
+
+.nav-desktop a,
+.nav-exp-btn {
+  font-family: 'Raleway', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.82);
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  position: relative;
+  -webkit-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+  display: -webkit-inline-flex;
+  display: inline-flex;
+  -webkit-align-items: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.nav-desktop a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: currentColor;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  -webkit-transition: -webkit-transform 0.2s ease;
+  transition: transform 0.2s ease;
+}
+
+.nav-desktop a:hover::after,
+.nav-desktop a.active::after { -webkit-transform: scaleX(1); transform: scaleX(1); }
+
+.nav-desktop a:hover,
+.nav-desktop a.active,
+.nav-exp-btn:hover { color: var(--blanc); }
+
+.site-header.header-opaque .nav-desktop a,
+.site-header.header-opaque .nav-exp-btn {
+  color: var(--bleu-ardoise);
+}
+
+.site-header.header-opaque .nav-desktop a:hover,
+.site-header.header-opaque .nav-desktop a.active,
+.site-header.header-opaque .nav-exp-btn:hover,
+.site-header.header-opaque .nav-exp-btn.active {
+  color: var(--bleu-nuit);
+}
+
+/* Chevron Expertises */
+.nav-exp-chevron {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  -webkit-transform: translateY(-1px) rotate(45deg);
+  transform: translateY(-1px) rotate(45deg);
+  -webkit-transition: -webkit-transform 0.2s ease;
+  transition: transform 0.2s ease;
+}
+
+.nav-exp-btn[aria-expanded="true"] .nav-exp-chevron {
+  -webkit-transform: translateY(-1px) rotate(-135deg);
+  transform: translateY(-1px) rotate(-135deg);
+}
+
+/* ── MEGA MENU (desktop Expertises) ── */
+.mega-menu {
+  position: fixed;
+  top: 52px;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.97);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid rgba(45, 63, 92, 0.08);
+  padding: 28px 48px;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  gap: 10px;
+  pointer-events: none;
+  -webkit-clip-path: inset(0 0 100% 0);
+  clip-path: inset(0 0 100% 0);
+  -webkit-transition: -webkit-clip-path 0.22s cubic-bezier(0.32, 0.72, 0, 1);
+  transition: clip-path 0.22s cubic-bezier(0.32, 0.72, 0, 1);
+  z-index: 199;
+}
+
+.mega-menu.open {
+  pointer-events: auto;
+  -webkit-clip-path: inset(0 0 0% 0);
+  clip-path: inset(0 0 0% 0);
+  -webkit-transition: none;
+  transition: none;
+}
+
+.mega-menu a {
+  font-family: 'Raleway', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--bleu-ardoise);
+  text-decoration: none;
+  padding: 11px 22px;
+  border: none;
+  -webkit-transition: color 0.2s;
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+
+.mega-menu a:hover {
+  color: var(--bleu-nuit);
+}
+
+.mega-menu a.nav-exp-cnaps {
+  color: var(--bleu-nuit);
+  font-weight: 700;
+}
+
+.mega-menu a.nav-exp-cnaps:hover {
+  color: var(--bleu-ardoise);
+}
+
+/* ── PAGE BLUR OVERLAY (desktop mega-menu) ── */
+.page-blur-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.18);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  z-index: 190;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: opacity 0.35s ease;
+  transition: opacity 0.35s ease;
+}
+
+.page-blur-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ── BURGER ── */
+.nav-burger {
+  display: none;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  gap: 4.5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.nav-burger span {
+  display: block;
+  width: 20px;
+  height: 1.5px;
+  background: rgba(255, 255, 255, 0.88);
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  -webkit-transition: background 0.3s, -webkit-transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s;
+  transition: background 0.3s, transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s;
+}
+
+.site-header.header-opaque .nav-burger span { background: var(--bleu-ardoise); }
+
+/* Burger → ✕ */
+.nav-burger[aria-expanded="true"] span:nth-child(1) {
+  -webkit-transform: translateY(6px) rotate(45deg);
+  transform: translateY(6px) rotate(45deg);
+}
+.nav-burger[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+}
+.nav-burger[aria-expanded="true"] span:nth-child(3) {
+  -webkit-transform: translateY(-6px) rotate(-45deg);
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* ── MOBILE MENU ── */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.96);
+  -webkit-backdrop-filter: saturate(180%) blur(24px);
+  backdrop-filter: saturate(180%) blur(24px);
+  z-index: 197;
+  overflow: hidden;
+  -webkit-clip-path: inset(0 0 100% 0);
+  clip-path: inset(0 0 100% 0);
+  -webkit-transition: -webkit-clip-path 0.52s cubic-bezier(0.32, 0.72, 0, 1);
+  transition: clip-path 0.52s cubic-bezier(0.32, 0.72, 0, 1);
+  pointer-events: none;
+}
+
+.mobile-menu.open {
+  -webkit-clip-path: inset(0 0 0% 0);
+  clip-path: inset(0 0 0% 0);
+  pointer-events: auto;
+}
+
+/* Panel slider */
+.menu-panels {
+  display: -webkit-flex;
+  display: flex;
+  width: 200%;
+  height: 100%;
+  -webkit-transition: -webkit-transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu-panels.show-sub {
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.menu-panel {
+  width: 50%;
+  height: 100%;
+  overflow-y: auto;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: center;
+  justify-content: center;
+  padding: 52px 0 32px;
+}
+
+.menu-panel a,
+.menu-exp-btn,
+.back-btn {
+  display: block;
+  width: 100%;
+  padding: 18px 40px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 15px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--bleu-nuit);
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  opacity: 0;
+  -webkit-transform: translateY(12px);
+  transform: translateY(12px);
+  -webkit-transition: opacity 0.4s ease, -webkit-transform 0.4s ease, color 0.15s;
+  transition: opacity 0.4s ease, transform 0.4s ease, color 0.15s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Stagger d'apparition des liens */
+.mobile-menu.open .back-btn                   { opacity: 1; -webkit-transform: none; transform: none; -webkit-transition-delay: 0.18s; transition-delay: 0.18s; }
+.mobile-menu.open .menu-panel a:nth-child(1),
+.mobile-menu.open .menu-exp-btn:nth-child(1)  { opacity: 1; -webkit-transform: none; transform: none; -webkit-transition-delay: 0.18s; transition-delay: 0.18s; }
+.mobile-menu.open .menu-panel a:nth-child(2),
+.mobile-menu.open .menu-exp-btn:nth-child(2)  { opacity: 1; -webkit-transform: none; transform: none; -webkit-transition-delay: 0.24s; transition-delay: 0.24s; }
+.mobile-menu.open .menu-panel a:nth-child(3),
+.mobile-menu.open .menu-exp-btn:nth-child(3)  { opacity: 1; -webkit-transform: none; transform: none; -webkit-transition-delay: 0.30s; transition-delay: 0.30s; }
+.mobile-menu.open .menu-panel a:nth-child(4),
+.mobile-menu.open .menu-exp-btn:nth-child(4)  { opacity: 1; -webkit-transform: none; transform: none; -webkit-transition-delay: 0.36s; transition-delay: 0.36s; }
+.mobile-menu.open .menu-panel a:nth-child(5),
+.mobile-menu.open .menu-exp-btn:nth-child(5)  { opacity: 1; -webkit-transform: none; transform: none; -webkit-transition-delay: 0.42s; transition-delay: 0.42s; }
+.mobile-menu.open .menu-panel a:nth-child(6),
+.mobile-menu.open .menu-exp-btn:nth-child(6)  { opacity: 1; -webkit-transform: none; transform: none; -webkit-transition-delay: 0.48s; transition-delay: 0.48s; }
+
+.menu-panel a:active { opacity: 0.5; }
+
+.menu-exp-btn {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+
+.menu-exp-btn .nav-exp-chevron {
+  -webkit-transform: rotate(-45deg) translateY(0);
+  transform: rotate(-45deg) translateY(0);
+}
+
+.back-btn {
+  padding: 18px 40px;
+  margin-bottom: 8px;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.back-chevron {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-left: 1.5px solid var(--bleu-ardoise);
+  border-bottom: 1.5px solid var(--bleu-ardoise);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.menu-panel a.active { color: var(--bleu-nuit); font-weight: 500; }
+
+.menu-panel a.nav-exp-cnaps {
+  color: var(--bleu-nuit);
+  font-weight: 500;
+}
+
+/* ── ACCESSIBILITÉ : mouvement réduit ── */
+@media (prefers-reduced-motion: reduce) {
+  .site-header,
+  .mega-menu,
+  .mobile-menu,
+  .menu-panels,
+  .nav-exp-chevron,
+  .nav-desktop a::after,
+  .nav-burger span,
+  .page-blur-overlay { transition: none !important; }
+}
+
+/* ── RESPONSIVE ── */
+@media (min-width: 768px) {
+  .nav-burger { display: none !important; }
+  .mobile-menu { display: none !important; }
+}
+
+@media (max-width: 767px) {
+  .nav-desktop { display: none !important; }
+  .mega-menu { display: none !important; }
+  .nav-burger { display: -webkit-flex; display: flex; }
+  .header-inner { padding: 0 20px; }
+  .nav-logo { font-size: 16px; }
+  .site-header { z-index: 200; }
+  /* Header opaque quand le menu mobile est ouvert */
+  .site-header.menu-open {
+    background: rgba(255, 255, 255, 0.97) !important;
+    -webkit-backdrop-filter: saturate(180%) blur(20px) !important;
+    backdrop-filter: saturate(180%) blur(20px) !important;
+  }
+  .site-header.menu-open .nav-logo { color: var(--bleu-nuit); }
+  .site-header.menu-open .nav-burger span { background: var(--bleu-ardoise); }
+}

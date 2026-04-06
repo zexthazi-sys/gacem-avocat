@@ -22,6 +22,10 @@ class CleanURLHandler(http.server.SimpleHTTPRequestHandler):
                 if parsed.query:
                     self.path += "?" + parsed.query
 
+    def end_headers(self):
+        self.send_header('Cache-Control', 'no-store')
+        super().end_headers()
+
     def do_GET(self):
         self._rewrite_clean_url()
         super().do_GET()

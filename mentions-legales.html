@@ -24,7 +24,8 @@
   <meta name="theme-color" content="#1a1a2e">
   <link rel="preconnect" href="https://static.axept.io" crossorigin>
   <link rel="preload" href="/assets/fonts/raleway-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/style.css?v=2">
+  <link rel="stylesheet" href="/css/nav.css?v=3">
   <link rel="stylesheet" href="/css/mentions-legales.css">
   <title>Mentions légales — Gacem Avocat</title>
   <meta name="description" content="Mentions légales du site gacem-avocat.com — Éditeur, hébergement, propriété intellectuelle, données personnelles.">
@@ -57,60 +58,48 @@
 </head>
 <body>
 
-  <nav>
-    <div class="nav-left">
-      <a href="/#cabinet">Cabinet</a>
-      <div class="nav-dropdown">
-        <a href="/#expertises">Expertises <span class="nav-chevron"></span></a>
-        <div class="exp-panel">
-          <div class="exp-panel-inner">
-            <a href="/#expertises" class="exp-entry">
-              <span class="exp-entry-title">Droit administratif</span>
-            </a>
-            <a href="/#expertises" class="exp-entry">
-              <span class="exp-entry-title">Marchés publics</span>
-            </a>
-            <a href="/#expertises" class="exp-entry">
-              <span class="exp-entry-title">Urbanisme</span>
-            </a>
-            <a href="/#expertises" class="exp-entry">
-              <span class="exp-entry-title">Contentieux administratif</span>
-            </a>
-            <div class="exp-divider"></div>
-            <a href="/cnaps" class="exp-entry exp-entry-cnaps">
-              <span class="exp-cnaps-dot"></span>
-              <span class="exp-entry-title">Sécurité privée — CNAPS</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <a class="nav-logo" href="/">Gacem <span>Avocat</span></a>
-    <button class="nav-burger" aria-label="Ouvrir le menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-    <div class="nav-right">
-      <a href="/parcours">Parcours</a>
-      <a href="/#contact">Contact</a>
-      <a href="/blog" class="nav-blog">Blog</a>
-    </div>
-    <div class="nav-links">
-      <div class="nav-links-main">
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="nav-logo" href="/">Gacem <span>Avocat</span></a>
+      <nav class="nav-desktop" aria-label="Navigation principale">
         <a href="/#cabinet">Cabinet</a>
-        <button class="nav-exp-toggle" aria-expanded="false">Expertises<span class="nav-exp-chevron"></span></button>
-        <div class="nav-exp-sub">
-          <a href="/#expertises">Droit administratif</a>
-          <a href="/#expertises">Marchés publics</a>
-          <a href="/#expertises">Urbanisme</a>
-          <a href="/#expertises">Contentieux administratif</a>
-          <a href="/cnaps" class="nav-exp-cnaps">Sécurité privée — CNAPS</a>
-        </div>
+        <button class="nav-exp-btn" aria-expanded="false" aria-haspopup="true">Expertises<span class="nav-exp-chevron" aria-hidden="true"></span></button>
+        <a href="/parcours">Parcours</a>
+        <a href="/#contact">Contact</a>
+        <a href="/blog">Blog</a>
+      </nav>
+      <button class="nav-burger" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mega-menu" role="region" aria-label="Expertises">
+      <a href="/#expertises">Droit administratif</a>
+      <a href="/#expertises">Marchés publics</a>
+      <a href="/#expertises">Urbanisme</a>
+      <a href="/#expertises">Contentieux administratif</a>
+      <a href="/cnaps" class="nav-exp-cnaps">Sécurité privée — CNAPS</a>
+    </div>
+  </header>
+  <div class="page-blur-overlay" aria-hidden="true"></div>
+  <div class="mobile-menu" aria-hidden="true">
+    <div class="menu-panels">
+      <div class="menu-panel menu-panel-main">
+        <a href="/#cabinet">Cabinet</a>
+        <button class="menu-exp-btn">Expertises<span class="nav-exp-chevron" aria-hidden="true"></span></button>
         <a href="/parcours">Parcours</a>
         <a href="/#contact">Contact</a>
         <a href="/blog">Blog</a>
       </div>
+      <div class="menu-panel menu-panel-exp">
+        <button class="back-btn"><span class="back-chevron" aria-hidden="true"></span></button>
+        <a href="/#expertises">Droit administratif</a>
+        <a href="/#expertises">Marchés publics</a>
+        <a href="/#expertises">Urbanisme</a>
+        <a href="/#expertises">Contentieux administratif</a>
+        <a href="/cnaps" class="nav-exp-cnaps">Sécurité privée — CNAPS</a>
+      </div>
     </div>
-  </nav>
+  </div>
 
   <main>
 
@@ -199,9 +188,9 @@
   </footer>
 
 
-<script src="/js/nav.js"></script>
-<script src="/js/scroll-reveal.js"></script>
-<script src="/js/page-transition.js"></script>
+<script src="/js/nav.js?v=2"></script>
+<script src="/js/scroll-reveal.js?v=1"></script>
+<script src="/js/page-transition.js?v=1"></script>
 
 </body>
 </html>
