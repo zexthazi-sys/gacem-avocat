@@ -13,12 +13,27 @@
   height: 52px;
   background: transparent;
   border-bottom: none;
-  -webkit-transition: background 0.35s ease, -webkit-backdrop-filter 0.35s ease;
-  transition: background 0.35s ease, backdrop-filter 0.35s ease;
+}
+
+/* ── NAV BACKDROP (couche verre unique, couvre header + mega-menu) ── */
+.nav-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 52px;
+  background: transparent;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  border-bottom: 1px solid transparent;
+  pointer-events: none;
+  z-index: 195;
+  -webkit-transition: height 0.22s cubic-bezier(0.32, 0.72, 0, 1), background 0.35s ease, -webkit-backdrop-filter 0.35s ease, border-color 0.35s ease;
+  transition: height 0.22s cubic-bezier(0.32, 0.72, 0, 1), background 0.35s ease, backdrop-filter 0.35s ease, border-color 0.35s ease;
 }
 
 /* État 1 : scroll partiel sur hero — flou discret, texte blanc */
-.site-header.header-scrolled {
+.nav-backdrop.header-scrolled {
   background: rgba(26, 26, 46, 0.18);
   -webkit-backdrop-filter: saturate(140%) blur(16px);
   backdrop-filter: saturate(140%) blur(16px);
@@ -26,11 +41,27 @@
 }
 
 /* État 2 : fond blanc — fond clair, texte foncé */
-.site-header.header-opaque {
+.nav-backdrop.header-opaque {
   background: rgba(255, 255, 255, 0.92);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   backdrop-filter: saturate(180%) blur(20px);
   border-bottom-color: rgba(45, 63, 92, 0.08);
+}
+
+/* Mega-menu ouvert : le backdrop s'étend pour couvrir le menu */
+.nav-backdrop.mega-open {
+  border-bottom-color: transparent;
+}
+.nav-backdrop.mega-open.header-opaque {
+  border-bottom-color: rgba(45, 63, 92, 0.12);
+}
+
+/* Menu mobile ouvert */
+.nav-backdrop.menu-open {
+  background: rgba(255, 255, 255, 0.97);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+  border-bottom-color: transparent;
 }
 
 .header-inner {
@@ -179,14 +210,9 @@
   color: rgba(255, 255, 255, 1);
 }
 
-/* Mega-menu : même background que le header selon son état */
-.site-header.header-scrolled .mega-menu {
-  background: rgba(26, 26, 46, 0.18);
-}
-
+/* Mega-menu : transparent — le nav-backdrop fournit le verre unifié */
 .site-header.header-opaque .mega-menu {
-  background: rgba(255, 255, 255, 0.92);
-  border-bottom: 1px solid rgba(45, 63, 92, 0.12);
+  border-bottom: none;
 }
 
 .site-header.header-opaque .mega-menu a {
@@ -400,6 +426,7 @@
 /* ── ACCESSIBILITÉ : mouvement réduit ── */
 @media (prefers-reduced-motion: reduce) {
   .site-header,
+  .nav-backdrop,
   .mega-menu,
   .mobile-menu,
   .menu-panels,
@@ -422,12 +449,7 @@
   .header-inner { padding: 0 20px; }
   .nav-logo { font-size: 16px; }
   .site-header { z-index: 200; }
-  /* Header opaque quand le menu mobile est ouvert */
-  .site-header.menu-open {
-    background: rgba(255, 255, 255, 0.97) !important;
-    -webkit-backdrop-filter: saturate(180%) blur(20px) !important;
-    backdrop-filter: saturate(180%) blur(20px) !important;
-  }
+  /* Header opaque quand le menu mobile est ouvert (background via nav-backdrop) */
   .site-header.menu-open .nav-logo { color: var(--bleu-nuit); }
   .site-header.menu-open .nav-burger span { background: var(--bleu-ardoise); }
 }

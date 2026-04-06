@@ -4,27 +4,35 @@
   var header = document.querySelector('.site-header');
   var hero   = document.querySelector('.hero');
 
+  /* ── NAV BACKDROP : couche verre unique pour header + mega-menu ── */
+  var navBackdrop = document.createElement('div');
+  navBackdrop.className = 'nav-backdrop';
+  document.body.insertBefore(navBackdrop, document.body.firstChild);
+
+  function setScrollState(state) {
+    navBackdrop.classList.remove('header-scrolled', 'header-opaque');
+    if (state) navBackdrop.classList.add(state);
+    if (header) {
+      header.classList.remove('header-scrolled', 'header-opaque');
+      if (state) header.classList.add(state);
+    }
+  }
+
   /* ── SCROLL : transparence sur homepage uniquement ── */
   if (header) {
     if (!hero) {
       /* Sous-pages : toujours opaque, couleurs foncées */
-      header.classList.add('header-opaque');
+      setScrollState('header-opaque');
     } else {
       function onScroll() {
         var y = window.scrollY;
         var threshold = hero.offsetHeight - 52;
         if (y > threshold) {
-          /* Sur fond blanc : fond clair + texte foncé */
-          header.classList.remove('header-scrolled');
-          header.classList.add('header-opaque');
+          setScrollState('header-opaque');
         } else if (y > 30) {
-          /* Début de scroll sur hero : flou discret, texte blanc */
-          header.classList.remove('header-opaque');
-          header.classList.add('header-scrolled');
+          setScrollState('header-scrolled');
         } else {
-          /* En haut : transparent */
-          header.classList.remove('header-opaque');
-          header.classList.remove('header-scrolled');
+          setScrollState(null);
         }
       }
       window.addEventListener('scroll', onScroll, { passive: true });
@@ -42,6 +50,8 @@
     megaMenu.classList.remove('open');
     if (blurOverlay) blurOverlay.classList.remove('active');
     if (expBtn) expBtn.setAttribute('aria-expanded', 'false');
+    navBackdrop.classList.remove('mega-open');
+    navBackdrop.style.height = '';
   }
 
   function openMegaMenu() {
@@ -49,6 +59,8 @@
     megaMenu.classList.add('open');
     if (blurOverlay) blurOverlay.classList.add('active');
     if (expBtn) expBtn.setAttribute('aria-expanded', 'true');
+    navBackdrop.classList.add('mega-open');
+    navBackdrop.style.height = (52 + megaMenu.offsetHeight) + 'px';
   }
 
   if (expBtn && megaMenu) {
@@ -88,6 +100,7 @@
     if (!mobileMenu) return;
     mobileMenu.classList.remove('open');
     if (header) header.classList.remove('menu-open');
+    navBackdrop.classList.remove('menu-open');
     if (burger) burger.setAttribute('aria-expanded', 'false');
     if (blurOverlay) blurOverlay.classList.remove('active');
     if (panels) panels.classList.remove('show-sub');
@@ -98,6 +111,7 @@
     if (!mobileMenu) return;
     mobileMenu.classList.add('open');
     if (header) header.classList.add('menu-open');
+    navBackdrop.classList.add('menu-open');
     if (burger) burger.setAttribute('aria-expanded', 'true');
     if (blurOverlay) blurOverlay.classList.add('active');
     document.body.style.overflow = 'hidden';

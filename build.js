@@ -79,7 +79,7 @@ function articleTemplate(slug, data, bodyHtml) {
   <link rel="preconnect" href="https://static.axept.io" crossorigin>
   <link rel="preload" href="/assets/fonts/raleway-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/css/style.css?v=2">
-  <link rel="stylesheet" href="/css/nav.css?v=3">
+  <link rel="stylesheet" href="/css/nav.css?v=4">
   <link rel="stylesheet" href="/css/article.css?v=1">
   <title>${titleEsc} — Gacem Avocat</title>
   <meta name="description" content="${descEsc}">
