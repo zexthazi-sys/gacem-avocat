@@ -138,8 +138,8 @@
   pointer-events: none;
   -webkit-clip-path: inset(0 0 100% 0);
   clip-path: inset(0 0 100% 0);
-  -webkit-transition: -webkit-clip-path 0.22s cubic-bezier(0.32, 0.72, 0, 1);
-  transition: clip-path 0.22s cubic-bezier(0.32, 0.72, 0, 1);
+  -webkit-transition: -webkit-clip-path 0.22s cubic-bezier(0.32, 0.72, 0, 1), background 0.35s ease;
+  transition: clip-path 0.22s cubic-bezier(0.32, 0.72, 0, 1), background 0.35s ease;
   z-index: 199;
 }
 
@@ -190,6 +190,7 @@
   background: rgba(255, 255, 255, 0.92);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid rgba(45, 63, 92, 0.12);
 }
 
 .site-header.header-opaque .mega-menu a {
