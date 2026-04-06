@@ -125,10 +125,10 @@
   top: 52px;
   left: 0;
   right: 0;
-  background: rgba(255, 255, 255, 0.97);
-  -webkit-backdrop-filter: saturate(180%) blur(20px);
-  backdrop-filter: saturate(180%) blur(20px);
-  border-bottom: 1px solid rgba(45, 63, 92, 0.08);
+  background: transparent;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  border-bottom: none;
   padding: 28px 48px;
   display: -webkit-flex;
   display: flex;
@@ -157,7 +157,7 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
   font-weight: 500;
-  color: var(--bleu-ardoise);
+  color: rgba(255, 255, 255, 0.65);
   text-decoration: none;
   padding: 11px 22px;
   border: none;
@@ -167,15 +167,41 @@
 }
 
 .mega-menu a:hover {
-  color: var(--bleu-nuit);
+  color: rgba(255, 255, 255, 1);
 }
 
 .mega-menu a.nav-exp-cnaps {
-  color: var(--bleu-nuit);
+  color: rgba(255, 255, 255, 0.9);
   font-weight: 700;
 }
 
 .mega-menu a.nav-exp-cnaps:hover {
+  color: rgba(255, 255, 255, 1);
+}
+
+/* Mega-menu : même background que le header selon son état */
+.site-header.header-scrolled .mega-menu {
+  background: rgba(26, 26, 46, 0.18);
+  -webkit-backdrop-filter: saturate(140%) blur(16px);
+  backdrop-filter: saturate(140%) blur(16px);
+}
+
+.site-header.header-opaque .mega-menu {
+  background: rgba(255, 255, 255, 0.92);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+}
+
+.site-header.header-opaque .mega-menu a {
+  color: var(--bleu-ardoise);
+}
+.site-header.header-opaque .mega-menu a:hover {
+  color: var(--bleu-nuit);
+}
+.site-header.header-opaque .mega-menu a.nav-exp-cnaps {
+  color: var(--bleu-nuit);
+}
+.site-header.header-opaque .mega-menu a.nav-exp-cnaps:hover {
   color: var(--bleu-ardoise);
 }
 
