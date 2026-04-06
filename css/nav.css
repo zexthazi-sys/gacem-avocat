@@ -182,14 +182,10 @@
 /* Mega-menu : même background que le header selon son état */
 .site-header.header-scrolled .mega-menu {
   background: rgba(26, 26, 46, 0.18);
-  -webkit-backdrop-filter: saturate(140%) blur(16px);
-  backdrop-filter: saturate(140%) blur(16px);
 }
 
 .site-header.header-opaque .mega-menu {
   background: rgba(255, 255, 255, 0.92);
-  -webkit-backdrop-filter: saturate(180%) blur(20px);
-  backdrop-filter: saturate(180%) blur(20px);
   border-bottom: 1px solid rgba(45, 63, 92, 0.12);
 }
 
