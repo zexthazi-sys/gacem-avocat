@@ -287,9 +287,9 @@
   display: flex;
   -webkit-flex-direction: column;
   flex-direction: column;
-  -webkit-justify-content: center;
-  justify-content: center;
-  padding: 52px 0 32px;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  padding: 100px 0 32px;
 }
 
 .menu-panel a,
@@ -299,7 +299,7 @@
   width: 100%;
   padding: 18px 40px;
   font-family: 'Raleway', sans-serif;
-  font-size: 15px;
+  font-size: 17px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   font-weight: 500;
