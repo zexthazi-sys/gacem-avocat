@@ -143,11 +143,6 @@
   transition: transform 0.2s ease;
 }
 
-.nav-exp-btn[aria-expanded="true"] .nav-exp-chevron {
-  -webkit-transform: translateY(-1px) rotate(-135deg);
-  transform: translateY(-1px) rotate(-135deg);
-}
-
 /* ── MEGA MENU (desktop Expertises) ── */
 .mega-menu {
   position: fixed;
