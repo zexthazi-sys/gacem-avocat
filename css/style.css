@@ -108,19 +108,36 @@
     .hero-tag {
       font-family: 'Raleway', sans-serif; font-size: 11px;
       letter-spacing: 0.22em; text-transform: uppercase;
-      color: var(--vert-sauge); margin-bottom: 32px; font-weight: 400;
+      color: var(--vert-sauge); margin-bottom: 64px; font-weight: 700;
     }
     .hero-title {
       font-family: 'Raleway', sans-serif;
-      font-size: 48px; font-size: clamp(30px, 5.5vw, 57px);
-      font-weight: 300; line-height: 1.25;
-      color: var(--blanc); margin-bottom: 24px; letter-spacing: 0.02em;
+      font-size: clamp(22px, 3.8vw, 38px);
+      font-weight: 350; line-height: 1.45;
+      color: var(--blanc); margin-bottom: 56px; letter-spacing: 0.02em;
     }
     .hero-title strong { font-weight: 400; color: var(--vert-sauge); }
     .hero-sub {
       font-family: 'Raleway', sans-serif; font-weight: 300;
       font-size: 15px; line-height: 1.9;
-      color: rgba(255,255,255,0.70); margin-bottom: 44px; max-width: 520px; margin-left: auto; margin-right: auto;
+      color: rgba(255,255,255,0.70); margin-bottom: 64px; max-width: 520px; margin-left: auto; margin-right: auto;
+    }
+    .hero-name {
+      display: block; margin-bottom: 16px;
+      font-family: 'Raleway', sans-serif; font-weight: 400;
+      font-size: 18px; letter-spacing: 0.12em;
+      color: var(--blanc);
+    }
+    .hero-credits {
+      display: block; margin-top: 0;
+      font-style: italic; font-size: 13px; font-weight: 400;
+      color: var(--vert-sauge); letter-spacing: 0.06em;
+      max-width: 420px; margin-left: auto; margin-right: auto;
+    }
+    .hero-credits-title {
+      font-style: italic; font-size: 13px;
+      font-weight: 400; letter-spacing: 0.06em;
+      margin-top: 8px;
     }
     .hero-cta {
       display: inline-block; padding: 15px 36px;
@@ -259,53 +276,46 @@
     .parcours-teaser {
       display: -webkit-flex; display: flex;
       -webkit-align-items: center; align-items: center;
-      gap: 48px; margin-top: 40px;
+      gap: 80px; margin-top: 40px;
       -webkit-flex-wrap: wrap; flex-wrap: wrap;
     }
     .parcours-teaser-photo {
       -webkit-flex: 0 0 28%; flex: 0 0 28%; max-width: 340px;
       position: relative; overflow: hidden;
     }
-    .parcours-teaser-photo::before {
-      content: ''; position: absolute;
-      top: 10px; left: 10px; right: -10px; bottom: -10px;
-      border: 1px solid var(--vert-sauge);
-      z-index: 0;
-      -webkit-transition: transform 0.5s ease; transition: transform 0.5s ease;
-    }
-    .parcours-teaser-photo:hover::before {
-      -webkit-transform: translate(-4px, -4px); transform: translate(-4px, -4px);
-    }
+    .parcours-teaser-photo::before { content: none; }
     .parcours-teaser-photo img {
-      width: 100%; height: auto; display: block; position: relative; z-index: 1;
+      width: 100%; height: auto; display: block;
       -webkit-filter: grayscale(20%); filter: grayscale(20%);
-      -webkit-transform: scale(1); transform: scale(1);
-      -webkit-transition: filter 0.6s ease, -webkit-filter 0.6s ease, transform 0.6s ease, -webkit-transform 0.6s ease;
+      -webkit-transition: filter 0.6s ease, transform 0.6s ease;
       transition: filter 0.6s ease, transform 0.6s ease;
     }
     .parcours-teaser-photo:hover img {
       -webkit-filter: grayscale(0%); filter: grayscale(0%);
-      -webkit-transform: scale(1.04); transform: scale(1.04);
+      -webkit-transform: scale(1.03); transform: scale(1.03);
     }
     .parcours-teaser-content {
       -webkit-flex: 1 1 280px; flex: 1 1 280px;
-      background: rgba(45, 63, 92, 0.04);
-      border-left: 3px solid var(--vert-sauge);
-      padding: 40px 44px;
+      padding: 0;
     }
     .parcours-teaser-content p {
-      font-family: 'Raleway', sans-serif; font-size: 15px;
-      font-weight: 300; line-height: 1.85; color: var(--gris-ardoise); margin-bottom: 32px;
+      font-family: 'Raleway', sans-serif; font-size: 16px;
+      font-weight: 300; line-height: 2; color: var(--gris-ardoise); margin-bottom: 36px;
     }
     .parcours-cta {
-      display: inline-block;
-      font-family: 'Raleway', sans-serif; font-size: 11px;
-      letter-spacing: 0.15em; text-transform: uppercase;
-      color: var(--bleu-nuit); text-decoration: none; font-weight: 400;
-      border-bottom: 1px solid var(--bleu-ardoise); padding-bottom: 4px;
-      -webkit-transition: opacity 0.2s; transition: opacity 0.2s;
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: 'Raleway', sans-serif; font-size: 12px;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--vert-sauge); text-decoration: none; font-weight: 700;
+      border-bottom: 1.5px solid var(--vert-sauge); padding-bottom: 3px;
+      -webkit-transition: gap 0.3s ease, opacity 0.2s; transition: gap 0.3s ease, opacity 0.2s;
     }
-    .parcours-cta:hover { opacity: 0.55; }
+    .parcours-cta::after {
+      content: '→'; font-size: 14px; font-weight: 300; letter-spacing: 0;
+      -webkit-transition: transform 0.3s ease; transition: transform 0.3s ease;
+    }
+    .parcours-cta:hover { gap: 16px; }
+    .parcours-cta:hover::after { -webkit-transform: translateX(4px); transform: translateX(4px); }
     @media screen and (max-width: 768px) {
       .parcours-teaser { gap: 36px; }
       .parcours-teaser { -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: center; align-items: center; }
@@ -411,15 +421,18 @@
     /* ── MOBILE LAYOUT ── */
     @media screen and (max-width: 600px) {
       .hero { padding: 110px 20px 60px; margin-top: -52px; min-height: 80vh; min-height: 80dvh; }
-      .hero-title { font-size: clamp(28px, 7.7vw, 40px); }
-      .hero-sub { font-size: 14px; }
+      .hero-tag { margin-bottom: 36px; }
+      .hero-title { font-size: clamp(20px, 5.5vw, 28px); margin-bottom: 32px; }
+      .hero-name { font-size: 15px; margin-bottom: 10px; }
+      .hero-sub { font-size: 13px; margin-bottom: 40px; }
+      .hero-credits { font-size: 12px; }
       section { padding: 60px 20px; }
       .cabinet-grid { -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: center; align-items: center; gap: 36px; }
       .cabinet-photo { -webkit-flex: unset; flex: unset; width: 75%; max-width: none; aspect-ratio: 3/4; }
       .cabinet-photo img { position: relative; }
       .cabinet-content { -webkit-flex: unset; flex: unset; }
       .exp-grid { grid-template-columns: 1fr; }
-      .parcours-teaser-content { border-left: none; border-top: 3px solid var(--vert-sauge); }
+      .parcours-teaser-content { padding: 0; }
       footer { padding: 20px; -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: center; align-items: center; -webkit-justify-content: center; justify-content: center; text-align: center; gap: 6px; }
     }
     @media screen and (max-width: 480px) {
