@@ -28,7 +28,7 @@
       --bleu-ardoise: #2d3f5c;
       --bleu-fonce: #2c3e50;
       --bleu-nuit: #1a1a2e;
-      --vert-sauge: #bdc9be;
+      --vert-sauge: #BDC9BE;
       --blanc: #ffffff;
       --noir: #000000;
       --gris-clair: #fafaf8;
@@ -117,6 +117,13 @@
       color: var(--blanc); margin-bottom: 56px; letter-spacing: 0.02em;
     }
     .hero-title strong { font-weight: 400; color: var(--vert-sauge); }
+    .highlight-offset {
+      background: linear-gradient(var(--vert-sauge), var(--vert-sauge));
+      background-size: 100% 45%;
+      background-repeat: no-repeat;
+      background-position: 0 100%;
+      padding: 0 6px 4px;
+    }
     .hero-sub {
       font-family: 'Raleway', sans-serif; font-weight: 300;
       font-size: 15px; line-height: 1.9;
@@ -384,11 +391,6 @@
       color: #fff;
       border-bottom-color: rgba(255,255,255,0.3);
     }
-    @media screen and (max-width: 768px) {
-      #contact { padding: 56px 24px 52px; }
-      .footer-cols { grid-template-columns: 1fr; gap: 28px; }
-    }
-
     /* contact-item conservé pour cnaps.html */
     .contact-item {
       border-left: 1px solid rgba(189,201,190,0.18);
@@ -472,6 +474,11 @@
         background: var(--blanc);
         -webkit-justify-content: flex-start; justify-content: flex-start;
       }
+    }
+
+    @media screen and (max-width: 768px) {
+      #contact { padding: 56px 24px 52px; }
+      .footer-cols { grid-template-columns: 1fr; gap: 28px; }
     }
 
     /* ── MOBILE LAYOUT ── */
