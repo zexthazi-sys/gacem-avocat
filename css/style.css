@@ -445,7 +445,8 @@
       /* Parcours */
       .parcours-card { margin-top: 40px; }
       .parcours-grid { -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: stretch; align-items: stretch; gap: 0; }
-      .parcours-photo { -webkit-order: 0; order: 0; -webkit-flex: unset; flex: unset; width: 100%; max-width: 100%; -webkit-clip-path: none; clip-path: none; height: 400px; min-height: 0; }
+      .parcours-photo { -webkit-order: 0; order: 0; -webkit-flex: unset; flex: unset; width: 100%; max-width: 100%; -webkit-clip-path: none; clip-path: none; height: auto; min-height: 0; }
+      .parcours-photo img { position: static; width: 100%; height: auto; object-fit: unset; }
       .parcours-content { -webkit-order: 1; order: 1; -webkit-flex: unset; flex: unset; padding: 28px 32px 36px; -webkit-justify-content: flex-start; justify-content: flex-start; }
     }
 
@@ -467,7 +468,7 @@
       .exp-card-title { font-size: 14px; margin-bottom: 6px; }
       .exp-card-text { font-size: 12px; line-height: 1.6; }
       .parcours-card { border-radius: 14px; }
-      .parcours-photo { height: 320px; }
+      .parcours-photo { height: auto; }
       .parcours-content { padding: 24px 20px 32px; }
       footer { padding: 20px; }
       .footer-bar { -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: center; align-items: center; -webkit-justify-content: center; justify-content: center; text-align: center; gap: 6px; }
