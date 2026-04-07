@@ -22,7 +22,7 @@
     /* ── HERO ── */
     .page-hero {
       background: var(--degrade);
-      padding: 108px 64px 96px;
+      padding: 80px 64px 72px;
       text-align: center;
     }
     .page-hero-tag {

@@ -67,7 +67,7 @@
     
         footer a.footer-active { color: rgba(255,255,255,0.85); }
 
-    @media (max-width: 767px) {
+    @media (max-width: 900px) {
       .ml-hero { padding: 64px 20px 52px; }
       .ml-hero h1 { font-size: 28px; }
       .ml-content { padding: 0 20px 72px; }
