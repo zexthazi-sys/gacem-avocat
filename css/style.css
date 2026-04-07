@@ -240,7 +240,7 @@
     }
     .exp-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 3px; margin-top: 0;
     }
     .exp-card {
@@ -259,7 +259,7 @@
       transition: filter 0.7s ease, transform 0.7s ease;
     }
     .exp-card-body {
-      padding: 28px 36px 36px;
+      padding: 20px 20px 24px;
       background: var(--blanc);
     }
     .exp-card:hover {
@@ -432,81 +432,45 @@
     footer a:hover { color: rgba(255,255,255,0.85); }
 
 
-    /* ── BREAKPOINTS INTERMÉDIAIRES ── */
-    @media screen and (max-width: 900px) {
-      .cabinet-grid { -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: stretch; align-items: stretch; gap: 0; }
-      .cabinet-photo {
-        -webkit-flex: unset; flex: unset; width: 100%; max-width: 100%;
-        height: 380px; -webkit-clip-path: none; clip-path: none;
-      }
-      .cabinet-photo::after {
-        content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 80px;
-        background: linear-gradient(to bottom, transparent, var(--gris-clair));
-        pointer-events: none;
-      }
-      .cabinet-content {
-        -webkit-flex: unset; flex: unset;
-        padding: 32px 36px 40px;
-        margin-top: -28px;
-        border-radius: 20px 20px 0 0;
-        position: relative; z-index: 1;
-        background: var(--blanc);
-      }
-      .parcours-card { max-width: 480px; margin-left: auto; margin-right: auto; margin-top: 40px; }
-      .parcours-grid { -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: stretch; align-items: stretch; gap: 0; }
-      .parcours-photo {
-        -webkit-order: 0; order: 0;
-        -webkit-flex: unset; flex: unset; width: 100%; max-width: 100%;
-        height: 420px; min-height: 0; -webkit-clip-path: none; clip-path: none;
-      }
-      .parcours-photo::after {
-        content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 80px;
-        background: linear-gradient(to bottom, transparent, var(--blanc));
-        pointer-events: none;
-      }
-      .parcours-content {
-        -webkit-order: 1; order: 1;
-        -webkit-flex: unset; flex: unset;
-        padding: 28px 32px 36px;
-        margin-top: -28px;
-        border-radius: 20px 20px 0 0;
-        position: relative; z-index: 1;
-        background: var(--blanc);
-        -webkit-justify-content: flex-start; justify-content: flex-start;
-      }
-    }
-
+    /* ── TABLET / MOBILE ── */
     @media screen and (max-width: 768px) {
+      /* Cabinet */
+      .cabinet-grid { -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: stretch; align-items: stretch; gap: 0; }
+      .cabinet-photo { -webkit-flex: unset; flex: unset; width: 100%; max-width: 100%; height: 380px; -webkit-clip-path: none; clip-path: none; }
+      .cabinet-photo::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 80px; background: linear-gradient(to bottom, transparent, var(--gris-clair)); pointer-events: none; }
+      .cabinet-content { -webkit-flex: unset; flex: unset; padding: 32px 36px 40px; margin-top: -28px; border-radius: 20px 20px 0 0; position: relative; z-index: 1; background: var(--blanc); }
+      /* Contact */
       #contact { padding: 56px 24px 52px; }
       .footer-cols { grid-template-columns: 1fr; gap: 28px; }
+      /* Parcours */
+      .parcours-card { margin-top: 40px; }
+      .parcours-grid { -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: stretch; align-items: stretch; gap: 0; }
+      .parcours-photo { -webkit-order: 0; order: 0; -webkit-flex: unset; flex: unset; width: 100%; max-width: 100%; -webkit-clip-path: none; clip-path: none; height: 400px; min-height: 0; }
+      .parcours-content { -webkit-order: 1; order: 1; -webkit-flex: unset; flex: unset; padding: 28px 32px 36px; -webkit-justify-content: flex-start; justify-content: flex-start; }
     }
 
-    /* ── MOBILE LAYOUT ── */
+    /* ── MOBILE ── */
     @media screen and (max-width: 600px) {
-      .hero { padding: 110px 20px 60px; margin-top: -52px; min-height: 80vh; min-height: 80dvh; }
+      .hero { padding: 110px 16px 48px; margin-top: -52px; min-height: 80vh; min-height: 80dvh; }
       .hero-tag { margin-bottom: 36px; }
       .hero-title { font-size: clamp(20px, 5.5vw, 28px); margin-bottom: 32px; }
       .hero-name { font-size: 15px; margin-bottom: 10px; }
       .hero-sub { font-size: 13px; margin-bottom: 40px; }
       .hero-credits { font-size: 12px; }
-      section { padding: 60px 20px; }
+      section { padding: 48px 16px; }
       .cabinet-card { border-radius: 14px; }
-      .cabinet-photo { height: 260px; min-height: 0; }
+      .cabinet-photo { height: 260px; }
       .cabinet-content { padding: 24px 20px 32px; margin-top: -24px; border-radius: 16px 16px 0 0; }
       .exp-capsule { border-radius: 14px; }
-      .exp-card > img { max-height: 160px; object-fit: cover; object-position: top; }
+      .exp-grid { grid-template-columns: repeat(2, 1fr); }
       .exp-card-body { padding: 14px 16px 20px; }
       .exp-card-title { font-size: 14px; margin-bottom: 6px; }
       .exp-card-text { font-size: 12px; line-height: 1.6; }
-      .parcours-card { border-radius: 14px; max-width: 100%; }
-      .parcours-photo { height: 380px; }
-      .parcours-content { padding: 24px 20px 32px; margin-top: -24px; border-radius: 16px 16px 0 0; }
+      .parcours-card { border-radius: 14px; }
+      .parcours-photo { height: 320px; }
+      .parcours-content { padding: 24px 20px 32px; }
       footer { padding: 20px; }
       .footer-bar { -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: center; align-items: center; -webkit-justify-content: center; justify-content: center; text-align: center; gap: 6px; }
-    }
-    @media screen and (max-width: 480px) {
-      .hero { padding: 48px 16px; }
-      section { padding: 48px 16px; }
     }
 
     /* ── SCROLL REVEAL ── */

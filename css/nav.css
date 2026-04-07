@@ -437,12 +437,12 @@
 }
 
 /* ── RESPONSIVE ── */
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   .nav-burger { display: none !important; }
   .mobile-menu { display: none !important; }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .nav-desktop { display: none !important; }
   .mega-menu { display: none !important; }
   .nav-burger { display: -webkit-flex; display: flex; }
