@@ -34,7 +34,7 @@
       --gris-clair: #fafaf8;
       --gris-texte: #5d6b7e;
       --gris-ardoise: #4a5568;
-      --fond-expertises: #f0f2f4;
+      --fond-expertises: #e2e5ea;
       --degrade: radial-gradient(ellipse 160% 160% at 100% 100%, #6b4f6e 0%, #3d2f4a 40%, #2b2338 70%, #221e30 100%);
       /* Variables additionnelles — sous-pages */
       --fond-section: #f7f8fa;
@@ -152,6 +152,7 @@
 
     /* ── SECTIONS ── */
     section { padding: 80px 64px; }
+    .s-inner { max-width: 960px; margin: 0 auto; }
     .s-tag {
       font-family: 'Raleway', sans-serif; font-size: 12px;
       letter-spacing: 0.22em; text-transform: uppercase;
@@ -165,15 +166,24 @@
     }
 
     /* ── CABINET ── */
-    #cabinet { background: var(--gris-clair); }
+    #cabinet { background: var(--gris-clair); overflow-x: hidden; }
+    .cabinet-card {
+      border-radius: 20px; overflow: hidden;
+      margin-top: 40px;
+      background: var(--blanc);
+      box-shadow: 0 2px 32px rgba(0,0,0,0.07);
+    }
     .cabinet-grid {
       display: -webkit-flex; display: flex;
       -webkit-align-items: stretch; align-items: stretch;
-      gap: 48px; margin-top: 40px;
+      gap: 0; margin-top: 0;
     }
     .cabinet-photo {
-      -webkit-flex: 0 0 35%; flex: 0 0 35%; max-width: 460px;
+      -webkit-flex: 0 0 44%; flex: 0 0 44%;
+      min-height: 480px;
       position: relative; overflow: hidden;
+      -webkit-clip-path: polygon(0 0, 100% 0, 75% 100%, 0 100%);
+      clip-path: polygon(0 0, 100% 0, 75% 100%, 0 100%);
     }
     .cabinet-photo img {
       position: absolute; inset: 0;
@@ -191,140 +201,139 @@
       -webkit-flex: 1 1 0%; flex: 1 1 0%;
       display: -webkit-flex; display: flex;
       -webkit-flex-direction: column; flex-direction: column;
-      gap: 36px;
+      gap: 36px; padding: 44px 56px;
     }
     .cabinet-text p {
       font-family: 'Raleway', sans-serif; font-size: 16px;
       font-weight: 400; line-height: 1.9; color: var(--bleu-fonce);
+    }
+    .cabinet-text strong {
+      font-weight: 600; color: var(--vert-sauge);
     }
     .cabinet-values {
       display: -webkit-flex; display: flex;
       -webkit-flex-direction: column; flex-direction: column;
       gap: 32px;
     }
-    .val { border-left: 1px solid var(--vert-sauge); padding-left: 20px; }
+    .val { border-left: 2px solid var(--vert-sauge); padding-left: 20px; }
     .val h4 {
       font-family: 'Raleway', sans-serif; font-size: 12px;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--bleu-ardoise); margin-bottom: 6px; font-weight: 500;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--vert-sauge); margin-bottom: 6px; font-weight: 700;
     }
     .val p { font-family: 'Raleway', sans-serif; font-size: 14px; color: var(--gris-texte); line-height: 1.7; font-weight: 400; }
 
     /* ── EXPERTISES ── */
-    #expertises { background: var(--fond-expertises); }
+    #expertises { background: var(--fond-expertises); overflow-x: hidden; }
+    .exp-capsule {
+      border-radius: 20px; overflow: hidden;
+      margin-top: 36px;
+      width: 100%;
+      box-shadow: 0 4px 48px rgba(0,0,0,0.13);
+    }
     .exp-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 2px; margin-top: 36px;
+      gap: 3px; margin-top: 0;
     }
     .exp-card {
-      background: var(--blanc); padding: 40px 36px;
-      -webkit-transition: background 0.4s, box-shadow 0.4s, border-color 0.4s;
-      transition: background 0.4s, box-shadow 0.4s, border-color 0.4s;
+      background: var(--blanc); padding: 0;
+      -webkit-transition: box-shadow 0.4s, border-color 0.4s;
+      transition: box-shadow 0.4s, border-color 0.4s;
       position: relative; overflow: hidden;
       border-bottom: 2px solid transparent;
     }
-    .exp-card::after {
-      content: ''; position: absolute; inset: 0;
-      background-size: 55%; background-position: right bottom;
-      background-repeat: no-repeat;
-      opacity: 0.25;
-      -webkit-transition: opacity 0.5s ease, filter 0.5s ease, -webkit-filter 0.5s ease, background-size 0.5s ease;
-      transition: opacity 0.5s ease, filter 0.5s ease, background-size 0.5s ease;
-      pointer-events: none;
+    .exp-card > img {
+      display: block; width: 100%; height: auto;
+      -webkit-filter: grayscale(30%) brightness(0.92);
+      filter: grayscale(30%) brightness(0.92);
+      -webkit-transform: scale(1); transform: scale(1);
+      -webkit-transition: filter 0.7s ease, -webkit-filter 0.7s ease, transform 0.7s ease, -webkit-transform 0.7s ease;
+      transition: filter 0.7s ease, transform 0.7s ease;
     }
-    .exp-card:nth-child(1)::after { background-image: url('/assets/droit-administratif.webp'); }
-    .exp-card:nth-child(2)::after { background-image: url('/assets/marches-publics.webp'); }
-    .exp-card:nth-child(3)::after { background-image: url('/assets/urbanisme.webp'); }
-    .exp-card:nth-child(4)::after { background-image: url('/assets/contentieux.webp'); }
+    .exp-card-body {
+      padding: 28px 36px 36px;
+      background: var(--blanc);
+    }
     .exp-card:hover {
-      background: var(--bleu-ardoise);
-      box-shadow: 0 8px 32px rgba(45,63,92,0.18);
+      box-shadow: 0 12px 40px rgba(10,18,40,0.15);
       border-bottom-color: var(--vert-sauge);
     }
-    .exp-card:hover::after {
-      opacity: 0.18;
-      background-size: 60%;
-      -webkit-filter: invert(1); filter: invert(1);
+    .exp-card:hover > img {
+      -webkit-filter: grayscale(0%) brightness(0.88);
+      filter: grayscale(0%) brightness(0.88);
+      -webkit-transform: scale(1.06); transform: scale(1.06);
     }
-    .exp-card:hover .exp-num,
-    .exp-card:hover .exp-card-title,
-    .exp-card:hover .exp-card-text { color: var(--blanc); }
-    .exp-card:hover .exp-num { color: var(--vert-sauge); }
     .exp-num {
       font-family: 'Raleway', sans-serif; font-size: 11px;
       letter-spacing: 0.15em; color: var(--bleu-ardoise);
-      margin-bottom: 20px; font-weight: 400;
-      position: relative; z-index: 1;
+      margin-bottom: 16px; font-weight: 400;
     }
     .exp-card-title {
       font-family: 'Raleway', sans-serif; font-size: 20px;
       font-weight: 500; color: var(--bleu-nuit);
-      margin-bottom: 14px;
-      -webkit-transition: color 0.3s; transition: color 0.3s;
-      position: relative; z-index: 1;
+      margin-bottom: 12px;
     }
     .exp-card-text {
       font-family: 'Raleway', sans-serif; font-size: 14px;
-      color: var(--gris-texte); line-height: 1.75; font-weight: 400;
-      -webkit-transition: color 0.3s; transition: color 0.3s;
-      position: relative; z-index: 1;
+      color: var(--gris-ardoise); line-height: 1.75; font-weight: 400;
     }
 
-    /* ── PARCOURS TEASER ── */
+    /* ── PARCOURS ── */
     #parcours { background: var(--blanc); }
-    .parcours-teaser {
+    .parcours-card {
+      border-radius: 20px; overflow: hidden;
+      margin-top: 40px; background: var(--blanc);
+      box-shadow: 0 2px 32px rgba(0,0,0,0.07);
+    }
+    .parcours-grid {
       display: -webkit-flex; display: flex;
-      -webkit-align-items: center; align-items: center;
-      gap: 80px; margin-top: 40px;
-      -webkit-flex-wrap: wrap; flex-wrap: wrap;
+      -webkit-align-items: stretch; align-items: stretch; gap: 0;
     }
-    .parcours-teaser-photo {
-      -webkit-flex: 0 0 28%; flex: 0 0 28%; max-width: 340px;
+    .parcours-photo {
+      -webkit-order: 2; order: 2;
+      -webkit-flex: 0 0 40%; flex: 0 0 40%; min-height: 480px;
       position: relative; overflow: hidden;
+      -webkit-clip-path: polygon(25% 0, 100% 0, 100% 100%, 0 100%);
+      clip-path: polygon(25% 0, 100% 0, 100% 100%, 0 100%);
     }
-    .parcours-teaser-photo::before { content: none; }
-    .parcours-teaser-photo img {
-      width: 100%; height: auto; display: block;
+    .parcours-photo img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%; object-fit: cover; object-position: center top;
       -webkit-filter: grayscale(20%); filter: grayscale(20%);
-      -webkit-transition: filter 0.6s ease, transform 0.6s ease;
+      -webkit-transition: filter 0.6s ease, -webkit-filter 0.6s ease, -webkit-transform 0.6s ease, transform 0.6s ease;
       transition: filter 0.6s ease, transform 0.6s ease;
     }
-    .parcours-teaser-photo:hover img {
+    .parcours-photo:hover img {
       -webkit-filter: grayscale(0%); filter: grayscale(0%);
       -webkit-transform: scale(1.03); transform: scale(1.03);
     }
-    .parcours-teaser-content {
-      -webkit-flex: 1 1 280px; flex: 1 1 280px;
-      padding: 0;
+    .parcours-content {
+      -webkit-order: 1; order: 1;
+      -webkit-flex: 1 1 0%; flex: 1 1 0%;
+      display: -webkit-flex; display: flex;
+      -webkit-flex-direction: column; flex-direction: column;
+      -webkit-justify-content: center; justify-content: center;
+      gap: 28px; padding: 44px 56px;
     }
-    .parcours-teaser-content p {
+    .parcours-content p {
       font-family: 'Raleway', sans-serif; font-size: 16px;
-      font-weight: 300; line-height: 2; color: var(--gris-ardoise); margin-bottom: 36px;
+      font-weight: 300; line-height: 2; color: var(--gris-ardoise);
     }
     .parcours-cta {
-      display: inline-flex; align-items: center; gap: 10px;
-      font-family: 'Raleway', sans-serif; font-size: 12px;
-      letter-spacing: 0.18em; text-transform: uppercase;
-      color: var(--vert-sauge); text-decoration: none; font-weight: 700;
-      border-bottom: 1.5px solid var(--vert-sauge); padding-bottom: 3px;
+      display: inline-flex; -webkit-align-items: center; align-items: center; gap: 8px;
+      font-family: 'Raleway', sans-serif; font-size: 15px;
+      font-weight: 300; color: var(--bleu-nuit); text-decoration: none;
       -webkit-transition: gap 0.3s ease, opacity 0.2s; transition: gap 0.3s ease, opacity 0.2s;
     }
     .parcours-cta::after {
-      content: '→'; font-size: 14px; font-weight: 300; letter-spacing: 0;
+      content: '→'; font-size: 15px; font-weight: 300;
       -webkit-transition: transform 0.3s ease; transition: transform 0.3s ease;
     }
-    .parcours-cta:hover { gap: 16px; }
+    .parcours-cta:hover { gap: 14px; opacity: 0.7; }
     .parcours-cta:hover::after { -webkit-transform: translateX(4px); transform: translateX(4px); }
-    @media screen and (max-width: 768px) {
-      .parcours-teaser { gap: 36px; }
-      .parcours-teaser { -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: center; align-items: center; }
-      .parcours-teaser-photo { -webkit-flex: unset; flex: unset; width: 85%; max-width: none; margin: 0 auto; }
-      .parcours-teaser-content { padding: 28px 24px; }
-    }
 
     /* ── CONTACT ── */
-    /* ── CONTACT / FOOTER MINIMALISTE ── */
     #contact {
       background: var(--bleu-nuit);
       padding: 80px 64px 72px;
@@ -338,7 +347,7 @@
         radial-gradient(ellipse 60% 70% at -5% -15%, rgba(20,35,65,0.85) 0%, transparent 65%),
         radial-gradient(ellipse 100% 50% at 50% 100%, rgba(10,18,40,0.6) 0%, transparent 70%);
     }
-    .footer-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+    .footer-inner { max-width: 960px; margin: 0 auto; position: relative; z-index: 1; }
     .footer-logo {
       font-family: 'Raleway', sans-serif; font-weight: 400;
       font-size: clamp(18px, 2.2vw, 26px); letter-spacing: 0.15em;
@@ -399,6 +408,9 @@
     footer {
       padding: 24px 64px; background: var(--noir);
       border-top: 1px solid rgba(189,201,190,0.18);
+    }
+    .footer-bar {
+      max-width: 960px; margin: 0 auto;
       display: -webkit-flex; display: flex;
       -webkit-align-items: center; align-items: center;
       -webkit-justify-content: space-between; justify-content: space-between;
@@ -418,6 +430,50 @@
     footer a:hover { color: rgba(255,255,255,0.85); }
 
 
+    /* ── BREAKPOINTS INTERMÉDIAIRES ── */
+    @media screen and (max-width: 900px) {
+      .cabinet-grid { -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: stretch; align-items: stretch; gap: 0; }
+      .cabinet-photo {
+        -webkit-flex: unset; flex: unset; width: 100%; max-width: 100%;
+        height: 380px; -webkit-clip-path: none; clip-path: none;
+      }
+      .cabinet-photo::after {
+        content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 80px;
+        background: linear-gradient(to bottom, transparent, var(--gris-clair));
+        pointer-events: none;
+      }
+      .cabinet-content {
+        -webkit-flex: unset; flex: unset;
+        padding: 32px 36px 40px;
+        margin-top: -28px;
+        border-radius: 20px 20px 0 0;
+        position: relative; z-index: 1;
+        background: var(--blanc);
+      }
+      .parcours-card { max-width: 480px; margin-left: auto; margin-right: auto; margin-top: 40px; }
+      .parcours-grid { -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: stretch; align-items: stretch; gap: 0; }
+      .parcours-photo {
+        -webkit-order: 0; order: 0;
+        -webkit-flex: unset; flex: unset; width: 100%; max-width: 100%;
+        height: 420px; min-height: 0; -webkit-clip-path: none; clip-path: none;
+      }
+      .parcours-photo::after {
+        content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 80px;
+        background: linear-gradient(to bottom, transparent, var(--blanc));
+        pointer-events: none;
+      }
+      .parcours-content {
+        -webkit-order: 1; order: 1;
+        -webkit-flex: unset; flex: unset;
+        padding: 28px 32px 36px;
+        margin-top: -28px;
+        border-radius: 20px 20px 0 0;
+        position: relative; z-index: 1;
+        background: var(--blanc);
+        -webkit-justify-content: flex-start; justify-content: flex-start;
+      }
+    }
+
     /* ── MOBILE LAYOUT ── */
     @media screen and (max-width: 600px) {
       .hero { padding: 110px 20px 60px; margin-top: -52px; min-height: 80vh; min-height: 80dvh; }
@@ -427,13 +483,19 @@
       .hero-sub { font-size: 13px; margin-bottom: 40px; }
       .hero-credits { font-size: 12px; }
       section { padding: 60px 20px; }
-      .cabinet-grid { -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: center; align-items: center; gap: 36px; }
-      .cabinet-photo { -webkit-flex: unset; flex: unset; width: 75%; max-width: none; aspect-ratio: 3/4; }
-      .cabinet-photo img { position: relative; }
-      .cabinet-content { -webkit-flex: unset; flex: unset; }
-      .exp-grid { grid-template-columns: 1fr; }
-      .parcours-teaser-content { padding: 0; }
-      footer { padding: 20px; -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: center; align-items: center; -webkit-justify-content: center; justify-content: center; text-align: center; gap: 6px; }
+      .cabinet-card { border-radius: 14px; }
+      .cabinet-photo { height: 260px; min-height: 0; }
+      .cabinet-content { padding: 24px 20px 32px; margin-top: -24px; border-radius: 16px 16px 0 0; }
+      .exp-capsule { border-radius: 14px; }
+      .exp-card > img { max-height: 160px; object-fit: cover; object-position: top; }
+      .exp-card-body { padding: 14px 16px 20px; }
+      .exp-card-title { font-size: 14px; margin-bottom: 6px; }
+      .exp-card-text { font-size: 12px; line-height: 1.6; }
+      .parcours-card { border-radius: 14px; max-width: 100%; }
+      .parcours-photo { height: 380px; }
+      .parcours-content { padding: 24px 20px 32px; margin-top: -24px; border-radius: 16px 16px 0 0; }
+      footer { padding: 20px; }
+      .footer-bar { -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: center; align-items: center; -webkit-justify-content: center; justify-content: center; text-align: center; gap: 6px; }
     }
     @media screen and (max-width: 480px) {
       .hero { padding: 48px 16px; }
