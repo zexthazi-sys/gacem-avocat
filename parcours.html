@@ -26,7 +26,7 @@
   <link rel="preload" href="/assets/fonts/raleway-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/css/style.css?v=60">
   <link rel="stylesheet" href="/css/nav.css?v=4">
-  <link rel="stylesheet" href="/css/parcours.css">
+  <link rel="stylesheet" href="/css/parcours.css?v=1">
   <title>Parcours — Hakim Gacem, Avocat au Barreau de Paris</title>
   <meta name="description" content="Découvrez le parcours de Hakim Gacem, avocat au Barreau de Paris (serment en cours), spécialisé en droit public — formation, expériences professionnelles et engagements.">
   <link rel="canonical" href="https://www.gacem-avocat.com/parcours">
@@ -112,12 +112,12 @@
 
 <!-- HERO -->
 <div class="page-hero">
-  <div class="page-hero-tag">Avocat au Barreau de Paris (serment en cours) &middot; Droit public</div>
-  <h1>Hakim Gacem —<br>un juriste<br><strong>ancré dans le terrain</strong></h1>
+  <h1>Hakim Gacem —<br>un <em>avocat</em><br><strong class="highlight-offset">ancré dans le terrain</strong></h1>
 </div>
 
 <!-- PRÉSENTATION -->
 <section class="section-presentation">
+  <div class="presentation-card">
   <div class="presentation-grid">
     <div class="presentation-photo reveal-left">
       <img src="assets/photo-professionnelle-v2.webp" alt="Hakim Gacem, avocat au Barreau de Paris" width="832" height="1248">
@@ -126,10 +126,11 @@
       <div class="s-tag">Qui suis-je</div>
       <div class="s-line"></div>
       <h2>Un parcours forgé<br>à l'intersection du droit<br>et de l'action publique</h2>
-      <p>Titulaire du CAPA et avocat au Barreau de Paris (serment en cours), j'ai construit mon parcours à la croisée de la rigueur académique et de l'expérience opérationnelle. Formé en droit public des affaires à l'Université Toulouse I Capitole et à Paris Dauphine — PSL, puis à l'École de Formation du Barreau, j'ai acquis une vision globale et stratégique du droit public, nourrie par des expériences aussi bien au sein des juridictions administratives que dans le secteur privé.</p>
-      <p>Avant d'exercer comme avocat, j'ai eu l'opportunité d'observer le droit public de l'intérieur : comme aide à la décision au Tribunal administratif de Versailles, comme juriste dans un groupement d'intérêt public en matière de santé numérique, et comme collaborateur en affaires publiques au sein d'un grand groupe privé. Ces expériences m'ont appris que le droit ne s'exerce jamais dans l'abstrait — il se construit dans la compréhension fine des enjeux institutionnels, économiques et politiques de chaque client.</p>
-      <p>En parallèle, mon engagement comme conseiller municipal délégué à Onet-le-Château renforce ma connaissance concrète du fonctionnement des collectivités territoriales et des contraintes qui pèsent sur les élus locaux — une sensibilité précieuse pour accompagner mes clients publics.</p>
+      <p>Avocat au Barreau de Paris (serment en cours), titulaire du CAPA, j'ai construit mon parcours à la croisée de la rigueur académique et de l'expérience opérationnelle. Formé en droit public des affaires à l'Université Toulouse I Capitole et à Paris Dauphine PSL, puis à l'École de Formation du Barreau, j'ai acquis une vision globale et stratégique du droit public, nourrie par des expériences au sein des juridictions administratives et dans le secteur privé.</p>
+      <p>Avant d'exercer, j'ai observé le droit public de l'intérieur : aide à la décision au Tribunal administratif de Versailles, juriste dans un groupement d'intérêt public en santé numérique, collaborateur en affaires publiques au sein d'un grand groupe privé. Ces expériences m'ont appris que le droit se construit dans la compréhension fine des enjeux institutionnels, économiques et politiques de chaque client.</p>
+      <p>Mon engagement comme conseiller municipal délégué à Onet-le-Château renforce ma connaissance concrète des collectivités territoriales et des contraintes pesant sur les élus locaux, une sensibilité précieuse pour accompagner mes clients publics.</p>
     </div>
+  </div>
   </div>
 </section>
 
@@ -194,6 +195,7 @@
   <div class="s-line"></div>
   <h2 class="reveal">Parcours détaillé</h2>
 
+  <div class="timeline-card">
   <div class="timeline-cols reveal">
 
     <!-- EXPÉRIENCES -->
@@ -283,6 +285,7 @@
     </div>
 
   </div>
+  </div>
 </section>
 
 <!-- ENGAGEMENTS -->
@@ -308,10 +311,31 @@
 
 </main>
 
-<footer>
-  <span>&copy; 2026 Gacem Avocat &middot; Tous droits réservés</span>
-  <a href="/mentions-legales">Mentions légales</a>
-</footer>
+  <section id="contact">
+    <div class="footer-inner">
+      <p class="footer-eyebrow">Contact</p>
+      <a class="footer-cta-mailto" href="mailto:contact@gacem-avocat.com">contact&#64;gacem&#8209;avocat.com</a>
+      <div class="footer-bottom">
+        <div class="footer-cols">
+          <div class="footer-col">
+            <p>Maître Hakim Gacem</p>
+            <p>Avocat au Barreau de Paris<br>(serment en cours)</p>
+          </div>
+          <div class="footer-col">
+            <p>11&nbsp;Boulevard&nbsp;Sébastopol, 5ème&nbsp;étage</p>
+            <p>75001&nbsp;Paris</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-bar">
+      <span>&#169; 2026 Gacem Avocat &middot; Tous droits réservés</span>
+      <a href="/mentions-legales">Mentions légales</a>
+    </div>
+  </footer>
 
 
 <script src="/js/nav.js?v=3"></script>

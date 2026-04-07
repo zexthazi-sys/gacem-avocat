@@ -8,7 +8,7 @@
       margin: 0 auto;
     }
     .ml-hero h1 {
-      font-size: clamp(28px, 4.5vw, 52px);
+      font-size: 52px;
       font-weight: 200; letter-spacing: 0.18em;
       color: var(--blanc); text-transform: uppercase;
       line-height: 1.1;
@@ -69,6 +69,7 @@
 
     @media (max-width: 767px) {
       .ml-hero { padding: 64px 20px 52px; }
+      .ml-hero h1 { font-size: 28px; }
       .ml-content { padding: 0 20px 72px; }
       .ml-section { -webkit-flex-direction: column; flex-direction: column; gap: 16px; padding: 40px 0; }
       .ml-section:first-child { padding-top: 48px; }

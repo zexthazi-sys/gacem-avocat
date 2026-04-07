@@ -2,41 +2,52 @@
     .page-hero {
       background: var(--degrade);
       padding: 80px 64px 72px;
+      text-align: center;
     }
     .page-hero-tag {
       font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase;
       color: rgba(255,255,255,0.5); margin-bottom: 20px;
     }
     .page-hero h1 {
-      font-weight: 200; font-size: clamp(32px, 5vw, 56px);
-      letter-spacing: 0.04em; color: var(--blanc); line-height: 1.15;
+      font-weight: 400; font-size: 44px;
+      letter-spacing: 0.04em; color: var(--blanc); line-height: 1.2;
     }
-    .page-hero h1 strong { font-weight: 300; color: var(--vert-sauge); }
+    .page-hero h1 em { font-style: normal; font-weight: 400; color: var(--vert-sauge); }
+    .page-hero h1 strong { font-weight: 400; color: var(--blanc); }
 
     /* ── PRÉSENTATION ── */
     .section-presentation {
       padding: 80px 64px;
       max-width: 1200px; margin: 0 auto;
     }
+    .presentation-card {
+      border-radius: 20px; overflow: hidden;
+      background: var(--blanc);
+      box-shadow: 0 2px 32px rgba(0,0,0,0.07);
+    }
     .presentation-grid {
-      display: flex; gap: 80px; align-items: flex-start;
+      display: flex; gap: 0; align-items: stretch;
     }
     .presentation-photo {
-      flex: 0 0 34%; max-width: 400px;
-      position: relative;
+      flex: 0 0 42%; min-height: 480px;
+      position: relative; overflow: hidden;
+      clip-path: polygon(0 0, 100% 0, 75% 100%, 0 100%);
     }
     .presentation-photo img {
-      width: 100%; height: auto; display: block; position: relative; z-index: 1;
+      position: absolute; inset: 0;
+      width: 100%; height: 100%; object-fit: cover; object-position: center top;
+      display: block;
       -webkit-filter: grayscale(20%); filter: grayscale(20%);
-      -webkit-transform: scale(1); transform: scale(1);
-      -webkit-transition: filter 0.6s ease, -webkit-filter 0.6s ease, transform 0.6s ease, -webkit-transform 0.6s ease;
+      -webkit-transition: filter 0.6s ease, transform 0.6s ease;
       transition: filter 0.6s ease, transform 0.6s ease;
     }
     .presentation-photo:hover img {
       -webkit-filter: grayscale(0%); filter: grayscale(0%);
-      -webkit-transform: scale(1.04); transform: scale(1.04);
+      -webkit-transform: scale(1.03); transform: scale(1.03);
     }
-    .presentation-text { flex: 1; }
+    .presentation-text {
+      flex: 1; padding: 44px 56px;
+    }
     .s-tag {
       font-family: 'Raleway', sans-serif; font-size: 11px;
       letter-spacing: 0.22em; text-transform: uppercase;
@@ -47,7 +58,7 @@
       margin: 16px 0 32px;
     }
     .presentation-text h2 {
-      font-weight: 200; font-size: clamp(22px, 3vw, 36px);
+      font-weight: 200; font-size: 36px;
       letter-spacing: 0.03em; color: var(--bleu-nuit);
       line-height: 1.3; margin-bottom: 28px;
     }
@@ -70,12 +81,20 @@
       color: var(--bleu-ardoise); opacity: 0.5; margin-bottom: 24px;
     }
     .logos-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
     }
     .logo-card {
       background: var(--blanc);
-      padding: 24px 20px;
+      padding: 28px 20px;
       display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
+      border-radius: 16px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      -webkit-transition: box-shadow 0.3s, transform 0.3s;
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .logo-card:hover {
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+      -webkit-transform: translateY(-3px); transform: translateY(-3px);
     }
     .logo-card img {
       height: 48px; width: auto; max-width: 140px;
@@ -94,9 +113,15 @@
       max-width: 1200px; margin: 0 auto;
     }
     .section-timeline h2 {
-      font-weight: 200; font-size: clamp(22px, 3vw, 36px);
+      font-weight: 200; font-size: 36px;
       letter-spacing: 0.03em; color: var(--bleu-nuit);
-      line-height: 1.3; margin-bottom: 56px;
+      line-height: 1.3; margin-bottom: 40px;
+    }
+    .timeline-card {
+      border-radius: 20px; overflow: hidden;
+      background: var(--blanc);
+      box-shadow: 0 2px 32px rgba(0,0,0,0.07);
+      padding: 44px 48px;
     }
     .timeline-cols {
       display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
@@ -139,17 +164,25 @@
     }
     .engagements-inner { max-width: 1200px; margin: 0 auto; }
     .engagements-inner h2 {
-      font-weight: 200; font-size: clamp(22px, 3vw, 36px);
+      font-weight: 200; font-size: 36px;
       letter-spacing: 0.03em; color: var(--bleu-nuit);
       margin-bottom: 40px;
     }
     .engagements-grid {
-      display: flex; flex-wrap: wrap; gap: 24px;
+      display: flex; flex-wrap: wrap; gap: 20px;
     }
     .engagement-card {
       background: var(--blanc);
-      padding: 28px 32px;
+      padding: 32px 36px;
       flex: 1 1 260px;
+      border-radius: 20px;
+      box-shadow: 0 2px 24px rgba(0,0,0,0.07);
+      -webkit-transition: box-shadow 0.3s, transform 0.3s;
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .engagement-card:hover {
+      box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+      -webkit-transform: translateY(-3px); transform: translateY(-3px);
     }
     .engagement-date {
       font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
@@ -163,26 +196,41 @@
       font-size: 12px; color: var(--gris-texte); font-weight: 300; line-height: 1.6;
     }
 
-    
-    /* ── RESPONSIVE ── */
+    /* ── RESPONSIVE 900px ── */
     @media (max-width: 900px) {
       .page-hero { padding: 60px 24px 52px; }
-      .section-presentation { padding: 56px 24px; }
-      .presentation-grid { flex-direction: column; align-items: center; gap: 40px; }
-      .presentation-photo { flex: unset; width: 60%; max-width: 320px; margin: 0 auto; }
+      .page-hero h1 { font-size: 32px; }
+      .presentation-text h2, .section-timeline h2, .engagements-inner h2 { font-size: 22px; }
+      .section-presentation { padding: 48px 24px; }
+      .presentation-card { border-radius: 14px; }
+      .presentation-grid { flex-direction: column; align-items: stretch; gap: 0; }
+      .presentation-photo { flex: unset; width: 100%; max-width: 100%; min-height: 0; clip-path: none; }
+      .presentation-photo img { position: static; width: 100%; height: auto; object-fit: unset; object-position: unset; }
+      .presentation-text { padding: 28px 32px 40px; margin-top: -28px; border-radius: 14px 14px 0 0; position: relative; z-index: 1; background: var(--blanc); box-shadow: 0 -8px 40px rgba(0,0,0,0.14), 0 -2px 8px rgba(0,0,0,0.06); }
       .section-logos { padding: 48px 24px; }
-      .section-timeline { padding: 56px 24px; }
+      .section-timeline { padding: 48px 24px; }
+      .timeline-card { border-radius: 14px; padding: 32px 28px; }
       .timeline-cols { grid-template-columns: 1fr; gap: 48px; }
       .section-engagements { padding: 48px 24px; }
       footer { padding: 20px; flex-direction: column; align-items: center; justify-content: center; gap: 6px; text-align: center; }
     }
 
-    /* ── MOBILE LAYOUT ── */
+    /* ── MOBILE 600px ── */
     @media screen and (max-width: 600px) {
-      .logos-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
-      .logo-card { padding: 16px 12px; }
-      .presentation-photo::before { display: none; }
-    }
-    @media screen and (max-width: 480px) {
-      nav { padding: 12px 20px; }
+      .page-hero { padding: 64px 20px 52px; }
+      .page-hero-tag { font-size: 9px; margin-bottom: 14px; }
+      .page-hero h1 { font-size: 26px; }
+      .section-presentation { padding: 32px 16px; }
+      .presentation-text { padding: 20px 20px 32px; margin-top: -20px; }
+      .presentation-text h2 { font-size: 20px; margin-bottom: 20px; }
+      .presentation-text p { font-size: 14px; }
+      .section-logos { padding: 40px 16px; }
+      .logos-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .logo-card { padding: 20px 12px; }
+      .section-timeline { padding: 40px 16px; }
+      .timeline-card { border-radius: 12px; padding: 24px 20px; }
+      .section-timeline h2 { font-size: 20px; margin-bottom: 28px; }
+      .section-engagements { padding: 40px 16px; }
+      .engagements-inner h2 { font-size: 20px; }
+      .engagement-card { padding: 24px 24px; border-radius: 16px; }
     }
