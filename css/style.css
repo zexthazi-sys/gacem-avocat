@@ -355,6 +355,30 @@
         radial-gradient(ellipse 100% 50% at 50% 100%, rgba(10,18,40,0.6) 0%, transparent 70%);
     }
     .footer-inner { max-width: 960px; margin: 0 auto; position: relative; z-index: 1; }
+    .footer-eyebrow {
+      font-family: 'Raleway', sans-serif; font-size: 12px;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--vert-sauge); font-weight: 500; margin-bottom: 20px;
+    }
+    .footer-headline {
+      font-family: 'Raleway', sans-serif;
+      font-size: clamp(36px, 5vw, 64px);
+      font-weight: 200; color: #fff; line-height: 1.1;
+      margin-bottom: 40px;
+    }
+    .footer-cta-mailto {
+      font-family: 'Raleway', sans-serif; font-size: 14px;
+      font-weight: 300; letter-spacing: 0.04em;
+      color: rgba(255,255,255,0.60); text-decoration: none;
+      display: block; margin-top: 8px; margin-bottom: 48px;
+      -webkit-transition: color 0.2s; transition: color 0.2s;
+    }
+    .footer-cta-mailto:hover { color: rgba(255,255,255,0.9); }
+    .footer-bottom {
+      display: -webkit-flex; display: flex;
+      -webkit-align-items: flex-end; align-items: flex-end;
+      -webkit-justify-content: space-between; justify-content: space-between;
+    }
     .footer-logo {
       font-family: 'Raleway', sans-serif; font-weight: 400;
       font-size: clamp(18px, 2.2vw, 26px); letter-spacing: 0.15em;
@@ -367,7 +391,7 @@
       margin: 48px 0;
     }
     .footer-cols {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px;
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 48px;
     }
     .footer-col p {
       font-family: 'Raleway', sans-serif; font-size: 13px;
@@ -439,16 +463,20 @@
       .cabinet-photo { -webkit-flex: unset; flex: unset; width: 100%; max-width: 100%; height: 380px; -webkit-clip-path: none; clip-path: none; }
       .cabinet-photo::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 80px; background: linear-gradient(to bottom, transparent, var(--gris-clair)); pointer-events: none; }
       .cabinet-content { -webkit-flex: unset; flex: unset; padding: 32px 36px 40px; margin-top: -28px; border-radius: 20px 20px 0 0; position: relative; z-index: 1; background: var(--blanc); }
+      /* Expertises */
+      .exp-grid { grid-template-columns: repeat(2, 1fr); }
       /* Contact */
-      #contact { padding: 56px 24px 52px; }
-      .footer-cols { grid-template-columns: 1fr; gap: 28px; }
+      #contact { padding: 72px 32px 64px; }
+      .footer-headline { font-size: clamp(28px, 6vw, 48px); margin-bottom: 28px; }
+      .footer-cols { grid-template-columns: 1fr; gap: 24px; }
+      .footer-bottom { -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: flex-start; align-items: flex-start; gap: 32px; }
+      .footer-cta-mailto { margin-bottom: 32px; }
       /* Parcours */
       .parcours-card { margin-top: 40px; }
       .parcours-grid { -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: stretch; align-items: stretch; gap: 0; }
       .parcours-photo { -webkit-order: 0; order: 0; -webkit-flex: unset; flex: unset; width: 100%; max-width: 100%; -webkit-clip-path: none; clip-path: none; height: auto; min-height: 0; position: relative; overflow: hidden; }
-      .parcours-photo::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 48px; background: linear-gradient(to bottom, transparent, var(--blanc)); pointer-events: none; }
       .parcours-photo img { position: static; width: 100%; height: auto; object-fit: unset; }
-      .parcours-content { -webkit-order: 1; order: 1; -webkit-flex: unset; flex: unset; padding: 28px 32px 36px; -webkit-justify-content: flex-start; justify-content: flex-start; margin-top: -12px; border-radius: 12px 12px 0 0; position: relative; z-index: 1; background: var(--blanc); }
+      .parcours-content { -webkit-order: 1; order: 1; -webkit-flex: unset; flex: unset; padding: 28px 32px 36px; -webkit-justify-content: flex-start; justify-content: flex-start; margin-top: -64px; border-radius: 24px 24px 0 0; position: relative; z-index: 1; background: var(--blanc); box-shadow: 0 -8px 40px rgba(0,0,0,0.14), 0 -2px 8px rgba(0,0,0,0.06); }
     }
 
     /* ── MOBILE ── */
@@ -470,8 +498,7 @@
       .exp-card-text { font-size: 12px; line-height: 1.6; }
       .parcours-card { border-radius: 14px; }
       .parcours-photo { height: auto; }
-      .parcours-photo::after { height: 40px; }
-      .parcours-content { padding: 24px 20px 32px; margin-top: -10px; border-radius: 10px 10px 0 0; }
+      .parcours-content { padding: 24px 20px 32px; margin-top: -56px; border-radius: 20px 20px 0 0; box-shadow: 0 -8px 36px rgba(0,0,0,0.14), 0 -2px 8px rgba(0,0,0,0.06); }
       footer { padding: 20px; }
       .footer-bar { -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: center; align-items: center; -webkit-justify-content: center; justify-content: center; text-align: center; gap: 6px; }
     }
