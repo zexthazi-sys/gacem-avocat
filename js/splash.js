@@ -25,20 +25,20 @@
 
   /* ── Timings (ms) ──
      Phase 1 · 0          : overlay visible (fond #1a1a2e)
-     Phase 2 · 500ms      : logo apparaît (opacity fade-in)
-     Phase 3 · 1200ms     : cercles s'agrandissent
-     Phase 4 · 2200ms     : fondu de sortie + site révélé  ← LCP < 2.5s
-     Phase 5 · 2900ms     : nettoyage DOM
+     Phase 2 · 700ms      : logo apparaît (opacity fade-in)
+     Phase 3 · 1700ms     : cercles s'agrandissent
+     Phase 4 · 3200ms     : fondu de sortie + site révélé
+     Phase 5 · 4000ms     : nettoyage DOM
      Mobile : timings × 4/6 (plus rapide)
   ── */
   const mobile = window.innerWidth < 768;
   const s      = mobile ? 4 / 6 : 1;
 
-  const T_LOGO_SHOW     = Math.round(500   * s);
-  const T_CIRCLES_START = Math.round(1200  * s);
-  const CIRCLE_DUR      = Math.round(1400  * s) + 'ms';
-  const T_FADE_START    = Math.round(2200  * s);
-  const T_REMOVE        = Math.round(2900  * s);
+  const T_LOGO_SHOW     = Math.round(700   * s);
+  const T_CIRCLES_START = Math.round(1700  * s);
+  const CIRCLE_DUR      = Math.round(1700  * s) + 'ms';
+  const T_FADE_START    = Math.round(3200  * s);
+  const T_REMOVE        = Math.round(4000  * s);
 
   /* ── Création de l'overlay ── */
   const overlay = document.createElement('div');

@@ -251,9 +251,9 @@
     /* ── MOBILE ── */
     @media screen and (max-width: 600px) {
       /* Carousel cnaps-grid */
-      .cnaps-grid { display: flex; flex-direction: row; overflow-x: auto; -webkit-overflow-scrolling: touch; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; gap: 10px; padding: 4px 20px 20px; scrollbar-width: none; }
+      .cnaps-grid { display: flex; flex-direction: row; overflow-x: auto; -webkit-overflow-scrolling: touch; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; touch-action: pan-x; gap: 10px; padding: 4px 20px 20px; scrollbar-width: none; }
       .cnaps-grid::-webkit-scrollbar { display: none; }
-      .cnaps-card { flex: 0 0 82%; scroll-snap-align: center; border-radius: 16px; }
+      .cnaps-card { flex: 0 0 82%; scroll-snap-align: center; border-radius: 16px; touch-action: pan-x; }
       .page-hero { padding: 64px 20px 52px; }
       .page-hero-tag { font-size: 9px; margin-bottom: 24px; }
       .page-hero h1 { font-size: 28px; }

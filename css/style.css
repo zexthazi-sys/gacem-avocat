@@ -373,7 +373,7 @@
     /* ── CONTACT ── */
     #contact {
       background: var(--bleu-nuit);
-      padding: 120px 64px 110px;
+      padding: 156px 64px 143px;
     }
     .footer-inner { max-width: 960px; margin: 0 auto; text-align: center; }
     .footer-eyebrow {
@@ -507,7 +507,7 @@
       /* Expertises */
       .exp-grid { grid-template-columns: repeat(2, 1fr); }
       /* Contact */
-      #contact { padding: 88px 32px 80px; }
+      #contact { padding: 114px 32px 104px; }
       .footer-headline { font-size: 36px; margin-bottom: 28px; }
       .footer-eyebrow { font-size: 14px; }
       .footer-cta-mailto { font-size: 14px; margin-bottom: 40px; }
@@ -634,6 +634,7 @@
         -webkit-scroll-snap-type: x mandatory;
         scroll-snap-type: x mandatory;
         overscroll-behavior-x: contain;
+        touch-action: pan-x;
         gap: 10px;
         padding: 4px 20px 20px;
         scrollbar-width: none; -ms-overflow-style: none;
@@ -643,6 +644,7 @@
         -webkit-flex: 0 0 82%; flex: 0 0 82%;
         scroll-snap-align: center;
         border-radius: 16px; overflow: hidden;
+        touch-action: pan-x;
       }
       .exp-card-body { padding: 16px 20px 24px; }
       .exp-card-title { font-size: 15px; margin-bottom: 8px; }
@@ -689,7 +691,7 @@
       .parcours-content {
         padding: 22px 20px 28px; margin-top: 12px; border-radius: 16px;
       }
-      #contact { padding: 64px 20px 60px; }
+      #contact { padding: 83px 20px 78px; }
       .footer-headline { font-size: 28px; }
       footer { padding: 20px; }
       .footer-bar { -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: center; align-items: center; -webkit-justify-content: center; justify-content: center; text-align: center; gap: 6px; }
