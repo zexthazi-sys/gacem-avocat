@@ -164,7 +164,7 @@
     .s-tag {
       font-family: 'Raleway', sans-serif; font-size: 12px;
       letter-spacing: 0.22em; text-transform: uppercase;
-      color: var(--bleu-ardoise); margin-bottom: 12px; font-weight: 500;
+      color: var(--bleu-ardoise); margin-bottom: 12px; font-weight: 400;
     }
     .s-line { width: 48px; height: 0.5px; background: var(--vert-sauge); margin: 16px 0 32px; }
     .s-title {

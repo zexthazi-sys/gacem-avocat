@@ -48,15 +48,6 @@
     .presentation-text {
       flex: 1; padding: 44px 56px;
     }
-    .s-tag {
-      font-family: 'Raleway', sans-serif; font-size: 11px;
-      letter-spacing: 0.22em; text-transform: uppercase;
-      color: var(--bleu-ardoise); margin-bottom: 12px; font-weight: 400;
-    }
-    .s-line {
-      width: 48px; height: 0.5px; background: var(--vert-sauge);
-      margin: 16px 0 32px;
-    }
     .presentation-text h2 {
       font-weight: 200; font-size: 36px;
       letter-spacing: 0.03em; color: var(--bleu-nuit);

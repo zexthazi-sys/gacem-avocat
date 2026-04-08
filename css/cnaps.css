@@ -1,21 +1,4 @@
-/* Reset pseudo-elements from index.html exp-cards (pas d'images sur ces cards) */
-.exp-card::before { display: none; content: none; }
-.exp-card::after { display: none; content: none; }
-
-/* ── COMMUNS ── */
-    .s-tag {
-      font-family: 'Raleway', sans-serif; font-size: 11px;
-      letter-spacing: 0.22em; text-transform: uppercase;
-      color: var(--bleu-ardoise); margin-bottom: 12px; font-weight: 400;
-    }
-    .s-line { width: 48px; height: 0.5px; background: var(--vert-sauge); margin: 16px 0 32px; }
-
-    /* ── CONTRASTE — exceptions fond sombre et hover ── */
-
-    /* Hover sur cartes : vert sauge (fond bleu ardoise) */
-    .exp-card:hover .exp-num { color: var(--vert-sauge); }
-
-    /* Sur fonds sombres : vert sauge (ratio ~7.5:1) */
+    /* ── CONTRASTE — fonds sombres ── */
     .section-dark .s-tag { color: var(--vert-sauge); }
     .section-dark .s-line { background: var(--vert-sauge); }
 
@@ -59,37 +42,37 @@
     .section-dark .section-header h2 { color: var(--blanc); }
 
     /* ── CARDS GRILLE 2×2 ── */
-    .exp-grid {
+    .cnaps-grid {
       display: grid; grid-template-columns: repeat(2, 1fr);
       gap: 2px;
     }
-    .exp-card {
+    .cnaps-card {
       background: var(--blanc); padding: 40px 36px;
       transition: background 0.4s, box-shadow 0.4s, border-color 0.4s;
       cursor: default; position: relative; overflow: hidden;
       border-bottom: 2px solid transparent;
     }
-    .section-light .exp-card { background: #ffffff; }
-    .exp-card:hover {
+    .section-light .cnaps-card { background: #ffffff; }
+    .cnaps-card:hover {
       background: var(--bleu-ardoise);
       box-shadow: 0 8px 32px rgba(45,63,92,0.18);
       border-bottom-color: var(--vert-sauge);
     }
-    .exp-card:hover .exp-num,
-    .exp-card:hover .exp-card-title,
-    .exp-card:hover .exp-card-text { color: var(--blanc); }
-    .exp-card:hover .exp-num { color: var(--vert-sauge); }
-    .exp-num {
+    .cnaps-card:hover .cnaps-num,
+    .cnaps-card:hover .cnaps-card-title,
+    .cnaps-card:hover .cnaps-card-text { color: var(--blanc); }
+    .cnaps-card:hover .cnaps-num { color: var(--vert-sauge); }
+    .cnaps-num {
       font-family: 'Raleway', sans-serif; font-size: 11px;
       letter-spacing: 0.15em; color: var(--bleu-ardoise);
       margin-bottom: 20px; font-weight: 500; position: relative; z-index: 1;
     }
-    .exp-card-title {
+    .cnaps-card-title {
       font-family: 'Raleway', sans-serif; font-size: 20px;
       font-weight: 500; color: var(--bleu-nuit); margin-bottom: 14px;
       transition: color 0.3s; position: relative; z-index: 1;
     }
-    .exp-card-text {
+    .cnaps-card-text {
       font-family: 'Raleway', sans-serif; font-size: 14px;
       color: var(--gris-ardoise); line-height: 1.75; font-weight: 400;
       transition: color 0.3s; position: relative; z-index: 1;
@@ -262,7 +245,7 @@
       .section-white, .section-light, .section-grey, .section-dark { padding: 48px 20px; }
       .section-header { margin-bottom: 36px; }
       .section-header h2 { font-size: 20px; }
-      .exp-grid { grid-template-columns: 1fr; }
+      .cnaps-grid { grid-template-columns: 1fr; }
       .exp-capsule { border-radius: 14px; }
       .motifs-intro { font-size: 14px; }
       .motifs-conclusion { font-size: 15px; padding: 24px 20px; }
