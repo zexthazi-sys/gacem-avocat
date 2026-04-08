@@ -115,7 +115,10 @@
     ]
   }
   </script>
-  <noscript><style>#site { opacity: 1 !important; }</style></noscript>
+  <noscript><style>
+    #site { opacity: 1 !important; }
+    .reveal, .reveal-left, .reveal-right { opacity: 1 !important; transform: none !important; }
+  </style></noscript>
 </head>
 <body>
 
@@ -250,6 +253,22 @@
       </div>
     </div>
     </div>
+    <div class="exp-nav" aria-label="Navigation expertises">
+      <div class="exp-dots" aria-hidden="true">
+        <span class="exp-dot active"></span>
+        <span class="exp-dot"></span>
+        <span class="exp-dot"></span>
+        <span class="exp-dot"></span>
+      </div>
+      <div class="exp-nav-btns">
+        <button class="exp-nav-prev" disabled aria-label="Précédent">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="exp-nav-next" aria-label="Suivant">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+    </div>
     </div>
   </section>
 
@@ -257,12 +276,16 @@
     <div class="s-inner">
     <div class="s-tag reveal">Maître Hakim Gacem</div>
     <div class="s-line"></div>
-    <h2 class="s-title reveal">Avocat au Barreau de Paris.</h2>
+    <h2 class="s-title reveal">Avocat.</h2>
     <p class="s-subtitle reveal">Ancien élu, ancien consultant en affaires publiques.</p>
     <div class="parcours-card reveal">
       <div class="parcours-grid">
         <div class="parcours-photo">
           <img src="assets/photo-professionnelle-v2.webp" alt="Hakim Gacem, avocat au Barreau de Paris" loading="lazy" width="832" height="1248">
+          <div class="parcours-identity" aria-hidden="true">
+            <span class="parcours-identity-name">Hakim Gacem</span>
+            <span class="parcours-identity-role">Avocat au Barreau de Paris</span>
+          </div>
         </div>
         <div class="parcours-content">
           <p>Avocat au Barreau de Paris, formé en droit public des affaires à Toulouse&nbsp;I Capitole et en affaires publiques à Paris Dauphine&nbsp;— PSL, puis à l'EFB. Ancien élu municipal, ancien consultant en affaires publiques.</p>
@@ -281,7 +304,7 @@
         <div class="footer-cols">
           <div class="footer-col">
             <p>Maître Hakim Gacem</p>
-            <p>Avocat au Barreau de Paris<br>(serment en cours)</p>
+            <p>Avocat au Barreau de Paris</p>
           </div>
           <div class="footer-col">
             <p>11&nbsp;Boulevard&nbsp;Sébastopol, 5ème&nbsp;étage</p>
@@ -304,6 +327,7 @@
 <script src="/js/splash.js?v=1"></script>
 <script src="/js/nav.js?v=3"></script>
 <script src="/js/scroll-reveal.js?v=1"></script>
+<script src="/js/carousel.js?v=2"></script>
 <script src="/js/page-transition.js?v=1"></script>
 </body>
 </html>

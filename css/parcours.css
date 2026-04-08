@@ -195,8 +195,20 @@
       .section-presentation { padding: 48px 24px; }
       .presentation-card { background: none; box-shadow: none; border-radius: 0; overflow: visible; }
       .presentation-grid { flex-direction: column; align-items: center; }
-      .presentation-photo { flex: unset; width: 100%; min-height: 0; clip-path: none; border-radius: 20px; overflow: hidden; }
-      .presentation-photo img { position: static; width: 100%; height: auto; object-fit: unset; display: block; }
+      .presentation-photo {
+        flex: unset; width: 100%; min-height: 0; clip-path: none;
+        border-radius: 20px; overflow: hidden;
+        position: relative; aspect-ratio: 4/5;
+      }
+      .presentation-photo img {
+        position: absolute; inset: 0;
+        width: 100%; height: 100%; object-fit: cover; object-position: center top;
+        display: block;
+      }
+      .presentation-photo::after {
+        content: ''; position: absolute; inset: 0; z-index: 1;
+        background: linear-gradient(to top, rgba(26,26,46,0.90) 0%, rgba(26,26,46,0.42) 32%, transparent 58%);
+      }
       .presentation-text { width: 100%; padding: 32px 28px 40px; background: var(--blanc); border-radius: 20px; box-shadow: 0 2px 24px rgba(0,0,0,0.06); margin-top: 24px; }
       .section-logos { padding: 48px 24px; }
       .section-timeline { padding: 48px 24px; }
