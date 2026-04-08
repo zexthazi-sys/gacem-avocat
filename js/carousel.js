@@ -47,22 +47,6 @@
 
     grid.addEventListener('scroll', updateButtons, { passive: true });
 
-    /* ── Verrouillage vertical iOS ── */
-    var touchStartX, touchStartY, isHorizontal;
-    grid.addEventListener('touchstart', function (e) {
-      touchStartX = e.touches[0].clientX;
-      touchStartY = e.touches[0].clientY;
-      isHorizontal = null;
-    }, { passive: true });
-    grid.addEventListener('touchmove', function (e) {
-      if (isHorizontal === null) {
-        var dx = Math.abs(e.touches[0].clientX - touchStartX);
-        var dy = Math.abs(e.touches[0].clientY - touchStartY);
-        if (dx > 5 || dy > 5) isHorizontal = dx > dy;
-      }
-      if (isHorizontal) e.preventDefault();
-    }, { passive: false });
-
     updateButtons();
     window.addEventListener('resize', updateButtons, { passive: true });
   });

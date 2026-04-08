@@ -631,12 +631,11 @@
         display: -webkit-flex; display: flex;
         grid-template-columns: unset;
         -webkit-flex-direction: row; flex-direction: row;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
+        overflow-x: auto; overflow-y: hidden;
         -webkit-scroll-snap-type: x mandatory;
         scroll-snap-type: x mandatory;
         overscroll-behavior-x: contain;
-        touch-action: pan-x;
+        touch-action: pan-x pan-y;
         gap: 10px;
         padding: 4px 20px 20px;
         scrollbar-width: none; -ms-overflow-style: none;
@@ -646,9 +645,9 @@
         -webkit-flex: 0 0 82%; flex: 0 0 82%;
         scroll-snap-align: center;
         border-radius: 16px; overflow: hidden;
-        touch-action: pan-x;
+        touch-action: pan-x pan-y;
       }
-      .exp-card * { touch-action: pan-x; }
+      .exp-card * { touch-action: pan-x pan-y; }
       .exp-card-body { padding: 16px 20px 24px; }
       .exp-card-title { font-size: 15px; margin-bottom: 8px; }
       .exp-card-text { font-size: 13px; line-height: 1.7; }
