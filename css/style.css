@@ -646,6 +646,7 @@
         border-radius: 16px; overflow: hidden;
         touch-action: pan-x;
       }
+      .exp-card * { touch-action: pan-x; }
       .exp-card-body { padding: 16px 20px 24px; }
       .exp-card-title { font-size: 15px; margin-bottom: 8px; }
       .exp-card-text { font-size: 13px; line-height: 1.7; }
