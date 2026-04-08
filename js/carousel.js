@@ -10,11 +10,17 @@
 
     if (!prevBtn || !nextBtn) return;
 
-    function cardStep() {
+    /* Cache cardStep — recalculé uniquement au resize, pas à chaque scroll */
+    var cachedStep = 0;
+    function computeStep() {
       var card = grid.querySelector('.exp-card, .cnaps-card');
       if (!card) return grid.clientWidth;
       var gap = parseFloat(window.getComputedStyle(grid).gap) || 10;
-      return card.offsetWidth + gap;
+      cachedStep = card.offsetWidth + gap;
+      return cachedStep;
+    }
+    function cardStep() {
+      return cachedStep || computeStep();
     }
 
     function activeIndex() {
@@ -47,7 +53,11 @@
 
     grid.addEventListener('scroll', updateButtons, { passive: true });
 
+    computeStep();
     updateButtons();
-    window.addEventListener('resize', updateButtons, { passive: true });
+    window.addEventListener('resize', function () {
+      computeStep();
+      updateButtons();
+    }, { passive: true });
   });
 }());

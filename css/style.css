@@ -634,8 +634,10 @@
         overflow-x: auto; overflow-y: hidden;
         -webkit-scroll-snap-type: x mandatory;
         scroll-snap-type: x mandatory;
+        scroll-padding-left: 20px;
         overscroll-behavior-x: contain;
         touch-action: pan-x pan-y;
+        will-change: scroll-position;
         gap: 10px;
         padding: 4px 20px 20px;
         scrollbar-width: none; -ms-overflow-style: none;
@@ -643,7 +645,7 @@
       .exp-grid::-webkit-scrollbar { display: none; }
       .exp-card {
         -webkit-flex: 0 0 82%; flex: 0 0 82%;
-        scroll-snap-align: center;
+        scroll-snap-align: start;
         border-radius: 16px; overflow: hidden;
         touch-action: pan-x pan-y;
       }
