@@ -202,11 +202,11 @@
       .page-hero h1 { font-size: 32px; }
       .presentation-text h2, .section-timeline h2, .engagements-inner h2 { font-size: 22px; }
       .section-presentation { padding: 48px 24px; }
-      .presentation-card { border-radius: 14px; }
-      .presentation-grid { flex-direction: column; align-items: stretch; gap: 0; }
-      .presentation-photo { flex: unset; width: 100%; max-width: 100%; min-height: 0; clip-path: none; }
-      .presentation-photo img { position: static; width: 100%; height: auto; object-fit: unset; object-position: unset; }
-      .presentation-text { padding: 28px 32px 40px; margin-top: -28px; border-radius: 14px 14px 0 0; position: relative; z-index: 1; background: var(--blanc); box-shadow: 0 -8px 40px rgba(0,0,0,0.14), 0 -2px 8px rgba(0,0,0,0.06); }
+      .presentation-card { border-radius: 14px; overflow: hidden; }
+      .presentation-grid { flex-direction: column; }
+      .presentation-photo { flex: unset; width: 100%; min-height: 0; height: 360px; clip-path: none; overflow: hidden; }
+      .presentation-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
+      .presentation-text { padding: 28px 28px 40px; }
       .section-logos { padding: 48px 24px; }
       .section-timeline { padding: 48px 24px; }
       .timeline-card { border-radius: 14px; padding: 32px 28px; }
@@ -221,7 +221,8 @@
       .page-hero-tag { font-size: 9px; margin-bottom: 14px; }
       .page-hero h1 { font-size: 26px; }
       .section-presentation { padding: 32px 16px; }
-      .presentation-text { padding: 20px 20px 32px; margin-top: -20px; }
+      .presentation-photo { height: 280px; }
+      .presentation-text { padding: 24px 20px 32px; }
       .presentation-text h2 { font-size: 20px; margin-bottom: 20px; }
       .presentation-text p { font-size: 14px; }
       .section-logos { padding: 40px 16px; }

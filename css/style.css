@@ -480,11 +480,12 @@
       section { padding: 60px 24px; }
       .s-title { font-size: 32px; }
       .s-subtitle { font-size: 18px; }
-      /* Cabinet */
-      .cabinet-grid { -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: stretch; align-items: stretch; gap: 0; }
-      .cabinet-photo { -webkit-flex: unset; flex: unset; width: 100%; max-width: 100%; height: 380px; -webkit-clip-path: none; clip-path: none; }
-      .cabinet-photo::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 80px; background: linear-gradient(to bottom, transparent, var(--gris-clair)); pointer-events: none; }
-      .cabinet-content { -webkit-flex: unset; flex: unset; padding: 32px 36px 40px; margin-top: -28px; border-radius: 20px 20px 0 0; position: relative; z-index: 1; background: var(--blanc); }
+      /* Cabinet — monobloc */
+      .cabinet-card { border-radius: 14px; overflow: hidden; }
+      .cabinet-grid { -webkit-flex-direction: column; flex-direction: column; }
+      .cabinet-photo { -webkit-flex: unset; flex: unset; width: 100%; min-height: 0; height: 320px; -webkit-clip-path: none; clip-path: none; }
+      .cabinet-photo img { object-position: center center; }
+      .cabinet-content { -webkit-flex: unset; flex: unset; padding: 32px 28px; }
       /* Expertises */
       .exp-grid { grid-template-columns: repeat(2, 1fr); }
       /* Contact */
@@ -497,12 +498,12 @@
       .footer-cols { grid-template-columns: 1fr; gap: 32px; }
       .footer-col p { font-size: 14px; }
       .footer-bottom { -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: center; align-items: center; gap: 32px; }
-      /* Parcours */
-      .parcours-card { margin-top: 40px; }
-      .parcours-grid { -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: stretch; align-items: stretch; gap: 0; }
-      .parcours-photo { -webkit-order: 0; order: 0; -webkit-flex: unset; flex: unset; width: 100%; max-width: 100%; -webkit-clip-path: none; clip-path: none; height: auto; min-height: 0; position: relative; overflow: hidden; }
-      .parcours-photo img { position: static; width: 100%; height: auto; object-fit: unset; }
-      .parcours-content { -webkit-order: 1; order: 1; -webkit-flex: unset; flex: unset; padding: 28px 32px 36px; -webkit-justify-content: flex-start; justify-content: flex-start; margin-top: -64px; border-radius: 24px 24px 0 0; position: relative; z-index: 1; background: var(--blanc); box-shadow: 0 -8px 40px rgba(0,0,0,0.14), 0 -2px 8px rgba(0,0,0,0.06); }
+      /* Parcours — monobloc */
+      .parcours-card { margin-top: 40px; border-radius: 14px; overflow: hidden; }
+      .parcours-grid { -webkit-flex-direction: column; flex-direction: column; }
+      .parcours-photo { -webkit-order: 0; order: 0; -webkit-flex: unset; flex: unset; width: 100%; min-height: 0; height: 360px; -webkit-clip-path: none; clip-path: none; overflow: hidden; }
+      .parcours-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
+      .parcours-content { -webkit-order: 1; order: 1; -webkit-flex: unset; flex: unset; padding: 28px 28px 36px; }
     }
 
     /* ── MOBILE ── */
@@ -522,17 +523,15 @@
       .hero-sub { font-size: 13px; margin-bottom: 40px; }
       .hero-credits { font-size: 12px; }
       section { padding: 48px 16px; }
-      .cabinet-card { border-radius: 14px; }
       .cabinet-photo { height: 260px; }
-      .cabinet-content { padding: 24px 20px 32px; margin-top: -24px; border-radius: 16px 16px 0 0; }
+      .cabinet-content { padding: 24px 20px 32px; }
       .exp-capsule { border-radius: 14px; }
       .exp-grid { grid-template-columns: repeat(2, 1fr); }
       .exp-card-body { padding: 14px 16px 20px; }
       .exp-card-title { font-size: 14px; margin-bottom: 6px; }
       .exp-card-text { font-size: 12px; line-height: 1.6; }
-      .parcours-card { border-radius: 14px; }
-      .parcours-photo { height: auto; }
-      .parcours-content { padding: 24px 20px 32px; margin-top: -56px; border-radius: 20px 20px 0 0; box-shadow: 0 -8px 36px rgba(0,0,0,0.14), 0 -2px 8px rgba(0,0,0,0.06); }
+      .parcours-photo { height: 280px; }
+      .parcours-content { padding: 24px 20px 32px; }
       #contact { padding: 64px 20px 60px; }
       .footer-headline { font-size: 28px; }
       footer { padding: 20px; }
