@@ -155,8 +155,8 @@
       border: none; border-radius: 980px;
       background: var(--vert-sauge); color: var(--blanc);
       font-family: 'Raleway', sans-serif;
-      font-size: 16px; letter-spacing: 0.02em;
-      font-weight: 600; text-decoration: none;
+      font-size: 14px; letter-spacing: 0.05em;
+      font-weight: 500; text-decoration: none;
       -webkit-transition: background 0.25s ease, color 0.25s ease;
       transition: background 0.25s ease, color 0.25s ease;
       -webkit-tap-highlight-color: transparent;
@@ -359,16 +359,18 @@
       display: inline-flex; -webkit-align-items: center; align-items: center;
       -webkit-align-self: center; align-self: center;
       gap: 10px; font-family: 'Raleway', sans-serif; font-size: 14px;
-      font-weight: 500; letter-spacing: 0.03em;
+      font-weight: 500; letter-spacing: 0.05em;
       color: var(--blanc); background: var(--bleu-nuit);
       text-decoration: none; border-radius: 980px;
       padding: 14px 32px;
-      -webkit-transition: opacity 0.2s ease; transition: opacity 0.2s ease;
+      -webkit-transition: background 0.25s ease, color 0.25s ease;
+      transition: background 0.25s ease, color 0.25s ease;
+      -webkit-tap-highlight-color: transparent;
     }
     .parcours-cta::after {
       content: '›'; font-size: 20px; font-weight: 300; line-height: 1;
     }
-    .parcours-cta:hover { opacity: 0.75; }
+    .parcours-cta:hover { background: #131324; }
 
     /* ── CONTACT ── */
     #contact {
@@ -548,13 +550,13 @@
       .hero { padding: 110px 16px 48px; margin-top: -52px; min-height: 80vh; min-height: 80dvh; }
       .hero-tag { margin-bottom: 52px; font-size: 10px; }
       .hero-title { font-size: 21px; margin-bottom: 40px; }
-      .hero-cta { font-size: 14px; padding: 12px 28px; }
+      .hero-cta { font-size: 13px; padding: 12px 28px; }
       .s-tag { font-size: 10px; }
       .s-title { font-size: 24px; }
       .s-subtitle { font-size: 16px; margin-top: 14px; }
       .cabinet-text p { font-size: 14px; }
       .parcours-content p { font-size: 14px; }
-      .parcours-cta { font-size: 13px; padding: 12px 26px; }
+      .parcours-cta { font-size: 13px; padding: 12px 28px; }
       #intro-overlay .intro-logo { font-size: 24px; }
       .hero-name { font-size: 15px; margin-bottom: 10px; }
       .hero-sub { font-size: 13px; margin-bottom: 40px; }
