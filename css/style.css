@@ -480,12 +480,12 @@
       section { padding: 60px 24px; }
       .s-title { font-size: 32px; }
       .s-subtitle { font-size: 18px; }
-      /* Cabinet — monobloc */
-      .cabinet-card { border-radius: 14px; overflow: hidden; }
-      .cabinet-grid { -webkit-flex-direction: column; flex-direction: column; }
-      .cabinet-photo { -webkit-flex: unset; flex: unset; width: 100%; min-height: 0; height: 320px; -webkit-clip-path: none; clip-path: none; }
-      .cabinet-photo img { object-position: center center; }
-      .cabinet-content { -webkit-flex: unset; flex: unset; padding: 32px 28px; }
+      /* Cabinet — deux blocs autonomes Apple-style */
+      .cabinet-card { background: none; box-shadow: none; border-radius: 0; overflow: visible; }
+      .cabinet-grid { -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: center; align-items: center; }
+      .cabinet-photo { -webkit-flex: unset; flex: unset; width: 100%; min-height: 0; -webkit-clip-path: none; clip-path: none; border-radius: 20px; overflow: hidden; }
+      .cabinet-photo img { position: static; width: 100%; height: auto; object-fit: unset; display: block; }
+      .cabinet-content { -webkit-flex: unset; flex: unset; width: 100%; padding: 32px 28px 36px; background: var(--blanc); border-radius: 20px; box-shadow: 0 2px 24px rgba(0,0,0,0.06); margin-top: 24px; }
       /* Expertises */
       .exp-grid { grid-template-columns: repeat(2, 1fr); }
       /* Contact */
@@ -498,12 +498,12 @@
       .footer-cols { grid-template-columns: 1fr; gap: 32px; }
       .footer-col p { font-size: 14px; }
       .footer-bottom { -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: center; align-items: center; gap: 32px; }
-      /* Parcours — monobloc */
-      .parcours-card { margin-top: 40px; border-radius: 14px; overflow: hidden; }
-      .parcours-grid { -webkit-flex-direction: column; flex-direction: column; }
-      .parcours-photo { -webkit-order: 0; order: 0; -webkit-flex: unset; flex: unset; width: 100%; min-height: 0; height: 360px; -webkit-clip-path: none; clip-path: none; overflow: hidden; }
-      .parcours-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
-      .parcours-content { -webkit-order: 1; order: 1; -webkit-flex: unset; flex: unset; padding: 28px 28px 36px; }
+      /* Parcours — deux blocs autonomes Apple-style */
+      .parcours-card { margin-top: 40px; background: none; box-shadow: none; border-radius: 0; overflow: visible; }
+      .parcours-grid { -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: center; align-items: center; }
+      .parcours-photo { -webkit-order: 0; order: 0; -webkit-flex: unset; flex: unset; width: 100%; min-height: 0; -webkit-clip-path: none; clip-path: none; border-radius: 20px; overflow: hidden; }
+      .parcours-photo img { position: static; width: 100%; height: auto; object-fit: unset; display: block; }
+      .parcours-content { -webkit-order: 1; order: 1; -webkit-flex: unset; flex: unset; width: 100%; padding: 32px 28px 36px; background: var(--blanc); border-radius: 20px; box-shadow: 0 2px 24px rgba(0,0,0,0.06); margin-top: 24px; }
     }
 
     /* ── MOBILE ── */
@@ -523,15 +523,15 @@
       .hero-sub { font-size: 13px; margin-bottom: 40px; }
       .hero-credits { font-size: 12px; }
       section { padding: 48px 16px; }
-      .cabinet-photo { height: 260px; }
-      .cabinet-content { padding: 24px 20px 32px; }
+      .cabinet-photo { border-radius: 16px; }
+      .cabinet-content { padding: 24px 20px 32px; margin-top: 20px; border-radius: 16px; }
       .exp-capsule { border-radius: 14px; }
       .exp-grid { grid-template-columns: repeat(2, 1fr); }
       .exp-card-body { padding: 14px 16px 20px; }
       .exp-card-title { font-size: 14px; margin-bottom: 6px; }
       .exp-card-text { font-size: 12px; line-height: 1.6; }
-      .parcours-photo { height: 280px; }
-      .parcours-content { padding: 24px 20px 32px; }
+      .parcours-photo { border-radius: 16px; }
+      .parcours-content { padding: 24px 20px 32px; margin-top: 20px; border-radius: 16px; }
       #contact { padding: 64px 20px 60px; }
       .footer-headline { font-size: 28px; }
       footer { padding: 20px; }
