@@ -232,7 +232,7 @@
       .accompagnement-photo {
         flex: unset; width: 100%; min-height: 0; clip-path: none;
         border-radius: 20px; overflow: hidden;
-        position: relative; aspect-ratio: 4/5;
+        position: relative; aspect-ratio: 1/1;
       }
       .accompagnement-photo img {
         position: absolute; inset: 0;
@@ -266,6 +266,7 @@
       .exp-capsule { border-radius: 14px; }
       .motifs-intro { font-size: 14px; }
       .motifs-conclusion { font-size: 15px; padding: 24px 20px; }
+      .accompagnement-photo { aspect-ratio: 4/5; }
       .recours-card { border-radius: 14px; padding: 24px 20px; }
       .recours-step-title { font-size: 15px; }
       .faq-question { font-size: 14px; padding: 18px 4px; }

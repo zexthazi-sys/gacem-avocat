@@ -198,7 +198,7 @@
       .presentation-photo {
         flex: unset; width: 100%; min-height: 0; clip-path: none;
         border-radius: 20px; overflow: hidden;
-        position: relative; aspect-ratio: 4/5;
+        position: relative; aspect-ratio: 1/1;
       }
       .presentation-photo img {
         position: absolute; inset: 0;
@@ -224,7 +224,7 @@
       .page-hero-tag { font-size: 9px; margin-bottom: 14px; }
       .page-hero h1 { font-size: 26px; }
       .section-presentation { padding: 32px 16px; }
-      .presentation-photo { border-radius: 16px; }
+      .presentation-photo { border-radius: 16px; aspect-ratio: 4/5; }
       .presentation-text { padding: 24px 20px 32px; margin-top: 20px; border-radius: 16px; }
       .presentation-text h2 { font-size: 20px; margin-bottom: 20px; }
       .presentation-text p { font-size: 14px; }
