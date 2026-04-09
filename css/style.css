@@ -525,7 +525,7 @@
         -webkit-order: 0; order: 0; -webkit-flex: unset; flex: unset;
         width: 100%; min-height: 0; -webkit-clip-path: none; clip-path: none;
         border-radius: 20px; overflow: hidden;
-        position: relative; aspect-ratio: 4/5;
+        position: relative; aspect-ratio: 1/1;
       }
       .parcours-photo img {
         position: absolute; inset: 0;
@@ -552,7 +552,7 @@
       .hero-title { font-size: 21px; margin-bottom: 40px; }
       .hero-cta { font-size: 13px; padding: 12px 28px; }
       .s-tag { font-size: 10px; }
-      .s-title { font-size: 24px; }
+      .s-title { font-size: 24px; font-weight: 400; }
       .s-subtitle { font-size: 16px; margin-top: 14px; }
       .cabinet-text p { font-size: 14px; }
       .parcours-content p { font-size: 14px; }
@@ -564,6 +564,7 @@
       section { padding: 48px 20px; }
       .cabinet-photo { width: calc(100% + 40px); margin-left: -20px; margin-right: -20px; margin-bottom: 0; }
       .cabinet-content { padding: 24px 20px 28px; margin-top: -48px; border-radius: 20px; position: relative; z-index: 1; box-shadow: 0 8px 40px rgba(0,0,0,0.12); }
+      .parcours-photo { aspect-ratio: 4/5; }
       /* ── EXPERTISES — chevrons de navigation ── */
       .exp-nav {
         display: -webkit-flex; display: flex;

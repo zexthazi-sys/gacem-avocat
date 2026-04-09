@@ -50,7 +50,7 @@
 
 /* Mega-menu ouvert : le backdrop s'étend pour couvrir le menu */
 .nav-backdrop.mega-open {
-  border-bottom-color: transparent;
+  border-bottom-color: rgba(255, 255, 255, 0.12);
 }
 .nav-backdrop.mega-open.header-opaque {
   border-bottom-color: rgba(45, 63, 92, 0.12);
@@ -201,14 +201,6 @@
   color: rgba(255, 255, 255, 1);
 }
 
-.mega-menu a.nav-exp-cnaps {
-  color: rgba(255, 255, 255, 0.9);
-  font-weight: 700;
-}
-
-.mega-menu a.nav-exp-cnaps:hover {
-  color: rgba(255, 255, 255, 1);
-}
 
 /* Mega-menu : transparent — le nav-backdrop fournit le verre unifié */
 .site-header.header-opaque .mega-menu {
@@ -220,12 +212,6 @@
 }
 .site-header.header-opaque .mega-menu a:hover {
   color: var(--bleu-nuit);
-}
-.site-header.header-opaque .mega-menu a.nav-exp-cnaps {
-  color: var(--bleu-nuit);
-}
-.site-header.header-opaque .mega-menu a.nav-exp-cnaps:hover {
-  color: var(--bleu-ardoise);
 }
 
 /* ── PAGE BLUR OVERLAY (desktop mega-menu) ── */
