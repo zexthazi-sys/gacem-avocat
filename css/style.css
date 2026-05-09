@@ -391,12 +391,20 @@
     }
     .footer-cta-mailto {
       font-family: 'Raleway', sans-serif; font-size: 16px;
-      font-weight: 400; letter-spacing: 0.04em;
-      color: rgba(255,255,255,0.70); text-decoration: none;
-      display: block; margin-top: 8px; margin-bottom: 56px;
+      font-weight: 500; letter-spacing: 0.04em;
+      color: rgba(255,255,255,0.88); text-decoration: none;
+      display: block; margin-top: 8px; margin-bottom: 6px;
       -webkit-transition: color 0.2s; transition: color 0.2s;
     }
-    .footer-cta-mailto:hover { color: rgba(255,255,255,0.95); }
+    .footer-cta-mailto:hover { color: #fff; }
+    .footer-cta-tel {
+      font-family: 'Raleway', sans-serif; font-size: 16px;
+      font-weight: 500; letter-spacing: 0.04em;
+      color: rgba(255,255,255,0.88); text-decoration: none;
+      display: block; margin-bottom: 50px;
+      -webkit-transition: color 0.2s; transition: color 0.2s;
+    }
+    .footer-cta-tel:hover { color: #fff; }
     .footer-bottom {
       display: -webkit-flex; display: flex;
       -webkit-align-items: center; align-items: center;
@@ -419,11 +427,11 @@
     }
     .footer-col p {
       font-family: 'Raleway', sans-serif; font-size: 15px;
-      font-weight: 400; color: rgba(255,255,255,0.75);
+      font-weight: 500; color: rgba(255,255,255,0.86);
       line-height: 1.9; letter-spacing: 0.03em;
     }
     .footer-col p:first-child {
-      color: var(--vert-sauge); font-weight: 500; margin-bottom: 4px;
+      color: var(--vert-sauge); font-weight: 600; margin-bottom: 4px;
     }
     .footer-email {
       font-family: 'Raleway', sans-serif; font-size: 15px;
@@ -512,7 +520,8 @@
       #contact { padding: 114px 32px 104px; }
       .footer-headline { font-size: 36px; margin-bottom: 28px; }
       .footer-eyebrow { font-size: 14px; }
-      .footer-cta-mailto { font-size: 14px; margin-bottom: 40px; }
+      .footer-cta-mailto { font-size: 14px; margin-bottom: 4px; }
+      .footer-cta-tel { font-size: 14px; margin-bottom: 36px; }
       .footer-logo { font-size: 18px; }
       .footer-rule { margin: 32px auto; }
       .footer-cols { grid-template-columns: 1fr; gap: 32px; }
