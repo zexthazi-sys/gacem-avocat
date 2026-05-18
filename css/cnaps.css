@@ -246,7 +246,7 @@
       }
       .accompagnement-content { width: 100%; padding: 32px 28px 40px; background: var(--blanc); border-radius: 20px; box-shadow: 0 2px 24px rgba(0,0,0,0.06); margin-top: 24px; }
       .recours-card { border-radius: 14px; padding: 32px 32px; }
-      footer { padding: 24px; flex-direction: column; gap: 8px; text-align: center; }
+      footer { padding: 20px 24px; }
     }
 
     /* ── MOBILE ── */
@@ -274,5 +274,4 @@
       .accompagnement-photo { border-radius: 16px; }
       .accompagnement-content { padding: 24px 20px 32px; margin-top: 20px; border-radius: 16px; }
       .accompagnement-intro { font-size: 14px; }
-      footer { padding: 20px; justify-content: center; }
     }

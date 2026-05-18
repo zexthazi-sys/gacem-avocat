@@ -490,6 +490,8 @@
 
     /* ── TABLET (aligné sur 900px comme parcours/cnaps/blog/article) ── */
     @media screen and (max-width: 900px) {
+      /* Footer */
+      footer { padding: 20px 24px; }
       /* Hero */
       .hero { padding: 100px 40px 56px; min-height: 60vh; min-height: 60dvh; }
       .hero-title { font-size: 28px; margin-bottom: 48px; }
