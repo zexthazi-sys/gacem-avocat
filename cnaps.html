@@ -26,7 +26,7 @@
   <link rel="preload" href="/assets/fonts/raleway-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/css/style.css?v=60">
   <link rel="stylesheet" href="/css/nav.css?v=4">
-  <link rel="stylesheet" href="/css/cnaps.css?v=1">
+  <link rel="stylesheet" href="/css/cnaps.css?v=3">
   <title>Avocat CNAPS Paris — Carte professionnelle sécurité privée</title>
   <meta name="description" content="Carte CNAPS refusée ou retirée ? Hakim Gacem, avocat en droit public à Paris, vous défend devant le tribunal administratif. Aide juridictionnelle acceptée.">
   <link rel="canonical" href="https://www.gacem-avocat.com/cnaps">
@@ -52,8 +52,7 @@
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.gacem-avocat.com" },
-      { "@type": "ListItem", "position": 2, "name": "Expertises", "item": "https://www.gacem-avocat.com/#expertises" },
-      { "@type": "ListItem", "position": 3, "name": "Recours CNAPS", "item": "https://www.gacem-avocat.com/cnaps" }
+      { "@type": "ListItem", "position": 2, "name": "Sécurité privée — CNAPS", "item": "https://www.gacem-avocat.com/cnaps" }
     ]
   }
   </script>
@@ -82,15 +81,16 @@
     }
   }
   </script>
-  <!-- Schema.org JSON-LD — LegalService -->
+  <!-- Schema.org JSON-LD — Attorney / LegalService -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "LegalService",
+    "@type": ["Attorney", "LegalService"],
     "@id": "https://www.gacem-avocat.com/cnaps#service",
-    "name": "Avocat CNAPS — Recours refus carte professionnelle sécurité privée",
-    "description": "Hakim Gacem, avocat en droit public au Barreau de Paris, accompagne les agents de sécurité privée dans leurs recours contre les décisions de refus, retrait ou non-renouvellement de carte professionnelle CNAPS devant les tribunaux administratifs.",
+    "name": "Maître Hakim Gacem",
+    "description": "Maître Hakim Gacem, avocat au Barreau de Paris en droit public, accompagne agents, dirigeants et entreprises de sécurité privée dans leurs recours contre les décisions du CNAPS (refus et retrait de carte professionnelle, d'agrément ou d'autorisation d'exercice, sanctions disciplinaires) devant le tribunal administratif.",
     "url": "https://www.gacem-avocat.com/cnaps",
+    "image": "https://www.gacem-avocat.com/assets/photo-professionnelle-v2.webp",
     "email": "contact@gacem-avocat.com",
     "telephone": "+33768886453",
     "priceRange": "€€",
@@ -109,26 +109,29 @@
       "latitude": 48.8600,
       "longitude": 2.3479
     },
-    "areaServed": [
-      { "@type": "Country", "name": "France" },
-      { "@type": "City", "name": "Paris" }
-    ],
+    "areaServed": { "@type": "Country", "name": "FR" },
     "serviceType": [
+      "Avocat CNAPS",
       "Recours CNAPS",
       "Recours gracieux CNAPS",
       "Référé-suspension CNAPS",
       "Contentieux administratif sécurité privée",
-      "Défense refus carte professionnelle"
+      "Défense refus carte professionnelle",
+      "Recours agrément dirigeant",
+      "Recours autorisation d'exercice",
+      "Sanctions disciplinaires CNAPS"
     ],
     "knowsAbout": [
       "CNAPS",
       "Carte professionnelle sécurité privée",
+      "Agrément de dirigeant",
+      "Autorisation d'exercice",
+      "Sanctions disciplinaires",
       "Contentieux administratif",
       "Recours gracieux",
       "Référé-suspension",
       "Tribunal administratif",
       "Agent de sécurité",
-      "Gardien",
       "Convoyeur de fonds",
       "Vidéoprotection"
     ],
@@ -166,8 +169,7 @@
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.gacem-avocat.com" },
-        { "@type": "ListItem", "position": 2, "name": "Expertises", "item": "https://www.gacem-avocat.com/#expertises" },
-        { "@type": "ListItem", "position": 3, "name": "Avocat CNAPS", "item": "https://www.gacem-avocat.com/cnaps" }
+        { "@type": "ListItem", "position": 2, "name": "Sécurité privée — CNAPS", "item": "https://www.gacem-avocat.com/cnaps" }
       ]
     }
   }
@@ -280,8 +282,8 @@
 <!-- ── HERO ── -->
 <div class="page-hero">
   <div class="page-hero-tag">Droit de la sécurité privée &middot; CNAPS &middot; Contentieux administratif</div>
-  <h1><strong>Refus</strong>, <strong>retrait</strong> de carte professionnelle <span class="highlight-offset">CNAPS</span></h1>
-  <p class="page-hero-text">Votre carte professionnelle a été refusée ou retirée par le CNAPS&nbsp;? Je vous accompagne dans votre recours devant le tribunal administratif, du recours gracieux au référé-suspension.</p>
+  <h1><strong>Avocat</strong> <span class="highlight-offset">CNAPS</span>&nbsp;— <strong>Refus</strong> et <strong>retrait</strong> de carte professionnelle</h1>
+  <p class="page-hero-text">Votre carte professionnelle a été refusée ou retirée par le CNAPS&nbsp;? Je vous défends devant le tribunal administratif.</p>
   <a href="#contact" class="hero-cta">Demander une consultation</a>
 </div>
 
@@ -336,6 +338,147 @@
   </div>
 </div>
 
+<!-- ── SECTION A — Agrément de dirigeant ── -->
+<!-- À valider : Me Gacem -->
+<div class="section-white">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="s-tag">Dirigeants &amp; associés</div>
+      <div class="s-line"></div>
+      <h2>L'agrément de dirigeant d'entreprise de sécurité privée</h2>
+    </div>
+    <p class="motifs-intro">Les exploitants individuels, dirigeants, gérants et associés d'une entreprise de sécurité privée ne peuvent exercer sans obtenir au préalable un agrément du CNAPS. Cette obligation, distincte de la carte professionnelle de l'agent, conditionne directement la possibilité de créer ou de diriger une société de surveillance, de protection physique, de transport de fonds ou de formation aux métiers de la sécurité privée.</p>
+    <div class="motifs-list">
+      <div class="motif-item">
+        <h3>Une moralité renforcée</h3>
+        <p>Contrairement à l'agent, le dirigeant doit présenter un bulletin n°&nbsp;2 du casier judiciaire vierge. Le CNAPS apprécie également la compatibilité de votre comportement avec les fonctions de direction au regard de l'ensemble des éléments de l'enquête administrative.</p>
+      </div>
+      <div class="motif-item">
+        <h3>Un agrément à durée limitée</h3>
+        <p>L'agrément est délivré pour une durée limitée et doit être renouvelé avant son expiration. Toute modification substantielle de votre situation doit en outre être déclarée au CNAPS, sous peine de retrait.</p>
+      </div>
+      <div class="motif-item">
+        <h3>Refus, suspension ou retrait : des décisions contestables</h3>
+        <p>L'agrément peut être refusé, suspendu ou retiré par le CNAPS pour un motif de moralité ou de manquement professionnel. Comme pour la carte professionnelle, ces décisions sont des actes administratifs susceptibles de recours&nbsp;: recours gracieux, recours contentieux devant le tribunal administratif et, en cas d'urgence, référé-suspension.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── SECTION B — Autorisation d'exercice ── -->
+<!-- À valider : Me Gacem -->
+<div class="section-light">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="s-tag">Entreprises de sécurité</div>
+      <div class="s-line"></div>
+      <h2>L'autorisation d'exercice des entreprises de sécurité privée</h2>
+    </div>
+    <p class="motifs-intro">Toute personne morale exerçant une activité de sécurité privée doit obtenir une autorisation d'exercice du CNAPS. Cette autorisation est exigée pour l'établissement principal de l'entreprise comme pour chacun de ses établissements secondaires&nbsp;: sans elle, aucune prestation ne peut être exécutée légalement.</p>
+    <div class="motifs-list">
+      <div class="motif-item">
+        <h3>Les activités concernées</h3>
+        <p>Surveillance et gardiennage, protection physique des personnes, transport de fonds, vidéoprotection et télésurveillance, sûreté aéroportuaire et activités de formation aux métiers de la sécurité privée sont toutes soumises à autorisation préalable du CNAPS.</p>
+      </div>
+      <div class="motif-item">
+        <h3>Une autorisation par établissement</h3>
+        <p>L'autorisation est délivrée à l'entreprise pour son établissement principal et doit être obtenue pour chaque établissement secondaire. L'ouverture d'une nouvelle agence implique donc une démarche complète auprès de la délégation territoriale du CNAPS compétente.</p>
+      </div>
+      <div class="motif-item">
+        <h3>Refus et retrait : recours devant le tribunal administratif</h3>
+        <p>Le CNAPS peut refuser ou retirer l'autorisation d'exercice pour défaut de moralité du dirigeant, non-respect des obligations réglementaires ou manquement professionnel. Ces décisions, qui peuvent entraîner la cessation d'activité, sont contestables devant le tribunal administratif, y compris en référé-suspension.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── SECTION C — Sanctions disciplinaires ── -->
+<!-- À valider : Me Gacem -->
+<div class="section-grey">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="s-tag">Discipline CNAPS</div>
+      <div class="s-line"></div>
+      <h2>Les sanctions disciplinaires du CNAPS</h2>
+    </div>
+    <p class="motifs-intro">Au titre de sa mission disciplinaire, le CNAPS peut prononcer, par l'intermédiaire de sa commission de discipline, des sanctions à l'encontre des agents, dirigeants ou entreprises de sécurité privée qui méconnaissent leurs obligations professionnelles ou déontologiques.</p>
+    <div class="exp-capsule">
+    <div class="cnaps-grid">
+      <div class="cnaps-card reveal reveal-delay-1">
+        <div class="cnaps-num">01</div>
+        <div class="cnaps-card-title">Avertissement</div>
+        <div class="cnaps-card-text">Sanction la plus légère, mais qui figure au dossier et peut peser en cas de récidive ou de renouvellement de la carte professionnelle ou de l'agrément.</div>
+      </div>
+      <div class="cnaps-card reveal reveal-delay-2">
+        <div class="cnaps-num">02</div>
+        <div class="cnaps-card-title">Blâme</div>
+        <div class="cnaps-card-text">Sanction morale plus sévère que l'avertissement, qui peut être prise en compte dans l'appréciation de la moralité lors d'un futur contrôle du CNAPS.</div>
+      </div>
+      <div class="cnaps-card reveal reveal-delay-3">
+        <div class="cnaps-num">03</div>
+        <div class="cnaps-card-title">Interdiction temporaire d'exercice</div>
+        <div class="cnaps-card-text">Sanction privative de droits&nbsp;: l'agent, le dirigeant ou l'entreprise ne peut plus exercer son activité pendant la durée fixée. Effet immédiat dès notification.</div>
+      </div>
+      <div class="cnaps-card reveal reveal-delay-4">
+        <div class="cnaps-num">04</div>
+        <div class="cnaps-card-title">Pénalité financière</div>
+        <div class="cnaps-card-text">Le CNAPS peut prononcer une pénalité pécuniaire, cumulable avec une autre sanction et susceptible d'atteindre un montant significatif pour une entreprise.</div>
+      </div>
+    </div>
+    </div>
+    <p class="motifs-conclusion">Les sanctions disciplinaires du CNAPS sont des <strong>actes administratifs</strong>&nbsp;: elles peuvent être contestées devant le tribunal administratif, par voie de recours en annulation et, lorsque l'urgence le justifie, par référé-suspension.</p>
+  </div>
+</div>
+
+<!-- ── SECTION D — Contrôle et audit ── -->
+<!-- À valider : Me Gacem -->
+<div class="section-white">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="s-tag">Contrôles &amp; audits</div>
+      <div class="s-line"></div>
+      <h2>Le contrôle du CNAPS et l'audit de conformité</h2>
+    </div>
+    <p class="motifs-intro">Les agents du CNAPS disposent d'un pouvoir de contrôle étendu&nbsp;: ils peuvent vérifier à tout moment, et sans préavis, le respect par les agents et les entreprises de leurs obligations réglementaires. Un audit de conformité préventif permet d'anticiper sereinement ces contrôles et d'éviter le déclenchement d'une procédure disciplinaire.</p>
+    <div class="motifs-list">
+      <div class="motif-item">
+        <h3>Contrôles inopinés du CNAPS</h3>
+        <p>Les contrôles peuvent porter sur les conditions matérielles d'exercice, la régularité des cartes professionnelles et des agréments, le respect du code de déontologie, la tenue des registres ou la conformité des contrats. Toute irrégularité constatée peut déboucher sur une saisine de la commission de discipline.</p>
+      </div>
+      <div class="motif-item">
+        <h3>Audit de conformité préventif</h3>
+        <p>Le cabinet réalise un audit complet de votre situation&nbsp;: carte professionnelle, agrément, autorisation d'exercice, déontologie, documents internes. Cet audit identifie les risques et propose les actions correctrices à mettre en œuvre avant un contrôle ou un renouvellement.</p>
+      </div>
+      <div class="motif-item">
+        <h3>Assistance lors des contrôles et auditions</h3>
+        <p>Lorsqu'un contrôle est en cours ou qu'une audition est programmée devant la commission de discipline du CNAPS, je vous accompagne pour préparer vos réponses, garantir le respect du contradictoire et défendre vos intérêts à chaque étape de la procédure.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── SECTION E — Métiers concernés ── -->
+<!-- À valider : Me Gacem -->
+<div class="section-light">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="s-tag">Périmètre</div>
+      <div class="s-line"></div>
+      <h2>Les métiers de la sécurité privée concernés</h2>
+    </div>
+    <p class="motifs-intro">Toutes les professions soumises à carte professionnelle ou à agrément CNAPS peuvent être concernées par un refus, un retrait, une sanction disciplinaire ou un contrôle. Le cabinet intervient sur l'ensemble de ces métiers.</p>
+    <ul class="metiers-list">
+      <li>Agent de sécurité et de gardiennage</li>
+      <li>Garde du corps (protection rapprochée)</li>
+      <li>Agent cynophile</li>
+      <li>Convoyeur de fonds</li>
+      <li>Opérateur de vidéoprotection et télésurveillance</li>
+      <li>Agent de sûreté aéroportuaire</li>
+      <li>Détective privé (agent de recherches privées)</li>
+    </ul>
+  </div>
+</div>
+
 <!-- ── SECTION 2 — Comprendre les motifs de refus ── -->
 <div class="section-grey">
   <div class="section-inner">
@@ -344,22 +487,22 @@
       <div class="s-line"></div>
       <h2>Pourquoi le CNAPS refuse votre carte professionnelle</h2>
     </div>
-    <p class="motifs-intro">Pour délivrer une carte professionnelle, le CNAPS réalise une enquête administrative et de moralité. Il consulte le bulletin n°2 du casier judiciaire (B2) ainsi que le fichier des antécédents judiciaires (TAJ). Sur la base de cette enquête, le CNAPS peut considérer que votre comportement ou vos agissements sont incompatibles avec l'exercice d'une activité de sécurité privée (article L.&nbsp;612-20 du Code de la sécurité intérieure).</p>
+    <p class="motifs-intro">Pour délivrer une carte professionnelle ou une autorisation préalable d'entrer en formation, le CNAPS réalise une enquête administrative et de moralité. Il consulte le bulletin n°&nbsp;2 du casier judiciaire (B2) ainsi que le fichier des antécédents judiciaires (TAJ). Sur la base de cette enquête, le CNAPS peut considérer que votre comportement ou vos agissements sont incompatibles avec l'exercice d'une activité de sécurité privée.</p>
     <div class="motifs-list">
       <div class="motif-item">
-        <h4>Mention au TAJ ou au casier judiciaire</h4>
+        <h3>Mention au TAJ ou au casier judiciaire</h3>
         <p>Une inscription au TAJ, même suite à une plainte classée sans suite ou un rappel à la loi, peut suffire au CNAPS pour refuser votre carte. Or, la jurisprudence rappelle régulièrement que ces mentions ne justifient pas automatiquement un refus.</p>
       </div>
       <div class="motif-item">
-        <h4>Faits anciens ou isolés</h4>
+        <h3>Faits anciens ou isolés</h3>
         <p>Le CNAPS fonde parfois ses refus sur des faits remontant à plusieurs années, sans tenir compte de votre évolution personnelle et professionnelle. Le juge administratif peut censurer ces décisions disproportionnées.</p>
       </div>
       <div class="motif-item">
-        <h4>Procédure pénale en cours ou classée</h4>
+        <h3>Procédure pénale en cours ou classée</h3>
         <p>Une mise en cause pénale, même sans condamnation, peut entraîner un refus. Le tribunal administratif vérifie si le CNAPS a correctement apprécié la réalité et la gravité des faits reprochés.</p>
       </div>
       <div class="motif-item">
-        <h4>Erreur dans le fichier TAJ</h4>
+        <h3>Erreur dans le fichier TAJ</h3>
         <p>Des mentions erronées ou obsolètes dans le TAJ peuvent fonder un refus injustifié. Dans ce cas, la contestation du refus peut s'accompagner d'une demande d'effacement du TAJ.</p>
       </div>
     </div>

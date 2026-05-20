@@ -82,6 +82,7 @@
     /* ── MOTIFS (val style) ── */
     .motifs-list { display: flex; flex-direction: column; gap: 28px; margin-top: 8px; }
     .motif-item { border-left: 1px solid var(--vert-sauge); padding-left: 20px; }
+    .motif-item h3,
     .motif-item h4 {
       font-family: 'Raleway', sans-serif; font-size: 13px;
       letter-spacing: 0.1em; text-transform: uppercase;
@@ -90,6 +91,22 @@
     .motif-item p {
       font-family: 'Raleway', sans-serif; font-size: 14px;
       color: var(--gris-ardoise); line-height: 1.75; font-weight: 400;
+    }
+
+    /* ── LISTE MÉTIERS (sobre) ── */
+    .metiers-list {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 16px 40px; margin-top: 12px; padding: 0;
+      list-style: none;
+    }
+    .metiers-list li {
+      font-family: 'Raleway', sans-serif; font-size: 15px;
+      color: var(--bleu-nuit); font-weight: 400; line-height: 1.6;
+      padding-left: 22px; position: relative;
+    }
+    .metiers-list li::before {
+      content: ''; position: absolute; left: 0; top: 0.72em;
+      width: 10px; height: 1px; background: var(--vert-sauge);
     }
     .motifs-intro {
       font-size: 15px; line-height: 1.85; color: var(--gris-ardoise); font-weight: 300;
@@ -274,4 +291,6 @@
       .accompagnement-photo { border-radius: 16px; }
       .accompagnement-content { padding: 24px 20px 32px; margin-top: 20px; border-radius: 16px; }
       .accompagnement-intro { font-size: 14px; }
+      .metiers-list { grid-template-columns: 1fr; gap: 12px; }
+      .metiers-list li { font-size: 14px; }
     }
