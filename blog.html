@@ -5,18 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <!-- Axeptio — doit être le premier script du head -->
-  <script>
-  window.axeptioSettings = {
-    clientId: "69b7369ad57f3d304eeef408",
-    cookiesVersion: "d758b774-bf79-4f54-812a-fa89e32aff9c",
-  };
-  (function(d, s) {
-    var t = d.getElementsByTagName(s)[0], e = d.createElement(s);
-    e.async = true; e.src = "https://static.axept.io/sdk.js";
-    t.parentNode.insertBefore(e, t);
-  })(document, "script");
-  </script>
-  <script>if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; } window.scrollTo(0, 0);</script>
+  <script src="/js/axeptio-init.js?v=__V_AXEPTIO_JS__"></script>
+  <script src="/js/scroll-init.js?v=__V_SCROLL_INIT_JS__"></script>
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -24,9 +14,9 @@
   <meta name="theme-color" content="#1a1a2e">
   <link rel="preconnect" href="https://static.axept.io" crossorigin>
   <link rel="preload" href="/assets/fonts/raleway-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/css/style.css?v=60">
-  <link rel="stylesheet" href="/css/nav.css?v=4">
-  <link rel="stylesheet" href="/css/blog.css?v=1">
+  <link rel="stylesheet" href="/css/style.css?v=__V_STYLE_CSS__">
+  <link rel="stylesheet" href="/css/nav.css?v=__V_NAV_CSS__">
+  <link rel="stylesheet" href="/css/blog.css?v=__V_BLOG_CSS__">
   <title>Blog juridique — Droit public | Gacem Avocat</title>
   <meta name="description" content="Analyses en droit public par Hakim Gacem, avocat à Paris : urbanisme, marchés publics, droit administratif, droit pénal, sécurité privée (CNAPS).">
   <link rel="canonical" href="https://www.gacem-avocat.com/blog">
@@ -80,50 +70,10 @@
 </head>
 <body>
 
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="nav-logo" href="/">Gacem <span>Avocat</span></a>
-      <nav class="nav-desktop" aria-label="Navigation principale">
-        <a href="/#cabinet">Cabinet</a>
-        <button class="nav-exp-btn" aria-expanded="false" aria-haspopup="true">Expertises</button>
-        <a href="/parcours">Parcours</a>
-        <a href="/#contact">Contact</a>
-        <a href="/blog" class="active">Blog</a>
-      </nav>
-      <button class="nav-burger" aria-label="Ouvrir le menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-    <div class="mega-menu" role="region" aria-label="Expertises">
-      <a href="/#expertises">Droit administratif</a>
-      <a href="/#expertises">Marchés publics</a>
-      <a href="/#expertises">Urbanisme</a>
-      <a href="/#expertises">Contentieux administratif</a>
-      <a href="/cnaps" class="nav-exp-cnaps">Sécurité privée — CNAPS</a>
-    </div>
-  </header>
-  <div class="page-blur-overlay" aria-hidden="true"></div>
-  <div class="mobile-menu" aria-hidden="true">
-    <div class="menu-panels">
-      <div class="menu-panel menu-panel-main">
-        <a href="/#cabinet">Cabinet</a>
-        <button class="menu-exp-btn">Expertises<span class="nav-exp-chevron" aria-hidden="true"></span></button>
-        <a href="/parcours">Parcours</a>
-        <a href="/#contact">Contact</a>
-        <a href="/blog" class="active">Blog</a>
-      </div>
-      <div class="menu-panel menu-panel-exp">
-        <button class="back-btn"><span class="back-chevron" aria-hidden="true"></span></button>
-        <a href="/#expertises">Droit administratif</a>
-        <a href="/#expertises">Marchés publics</a>
-        <a href="/#expertises">Urbanisme</a>
-        <a href="/#expertises">Contentieux administratif</a>
-        <a href="/cnaps" class="nav-exp-cnaps">Sécurité privée — CNAPS</a>
-      </div>
-    </div>
-  </div>
+<!-- @partial header -->
+<!-- /@partial -->
 
-  <main>
+  <main id="main">
 
     <header class="blog-hero">
       <div class="blog-hero-inner">
@@ -146,38 +96,17 @@
 
   </main>
 
-  <section id="contact">
-    <div class="footer-inner">
-      <p class="footer-eyebrow">Contact</p>
-      <a class="footer-cta-mailto" href="mailto:contact@gacem-avocat.com">contact&#64;gacem&#8209;avocat.com</a>
-      <a class="footer-cta-tel" href="tel:+33768886453">07&nbsp;68&nbsp;88&nbsp;64&nbsp;53</a>
-      <div class="footer-bottom">
-        <div class="footer-cols">
-          <div class="footer-col">
-            <p>Maître Hakim Gacem</p>
-            <p>Avocat au Barreau de Paris</p>
-          </div>
-          <div class="footer-col">
-            <p>11&nbsp;Boulevard&nbsp;Sébastopol, 5ème&nbsp;étage</p>
-            <p>75001&nbsp;Paris</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- @partial contact-section -->
+<!-- /@partial -->
 
-  <footer>
-    <div class="footer-bar">
-      <span>&#169; 2026 Gacem Avocat &middot; Tous droits réservés</span>
-      <a href="/mentions-legales">Mentions légales</a>
-    </div>
-  </footer>
+<!-- @partial footer -->
+<!-- /@partial -->
 
 
 
-<script src="/js/nav.js?v=3"></script>
-<script src="/js/scroll-reveal.js?v=1"></script>
-<script src="/js/page-transition.js?v=1"></script>
+<script src="/js/nav.js?v=__V_NAV_JS__"></script>
+<script src="/js/scroll-reveal.js?v=__V_SCROLL_REVEAL_JS__"></script>
+<script src="/js/page-transition.js?v=__V_PAGE_TRANSITION_JS__"></script>
 
 </body>
 </html>

@@ -34,31 +34,31 @@
 
 /* État 1 : scroll partiel sur hero — flou discret, texte blanc */
 .nav-backdrop.header-scrolled {
-  background: rgba(26, 26, 46, 0.18);
+  background: var(--bleu-nuit-18);
   -webkit-backdrop-filter: saturate(140%) blur(16px);
   backdrop-filter: saturate(140%) blur(16px);
-  border-bottom-color: rgba(255, 255, 255, 0.06);
+  border-bottom-color: var(--blanc-06);
 }
 
 /* État 2 : fond blanc — fond clair, texte foncé */
 .nav-backdrop.header-opaque {
-  background: rgba(255, 255, 255, 0.92);
+  background: var(--blanc-92);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   backdrop-filter: saturate(180%) blur(20px);
-  border-bottom-color: rgba(45, 63, 92, 0.08);
+  border-bottom-color: var(--bleu-ardoise-08);
 }
 
 /* Mega-menu ouvert : le backdrop s'étend pour couvrir le menu */
 .nav-backdrop.mega-open {
-  border-bottom-color: rgba(255, 255, 255, 0.12);
+  border-bottom-color: var(--blanc-12);
 }
 .nav-backdrop.mega-open.header-opaque {
-  border-bottom-color: rgba(45, 63, 92, 0.12);
+  border-bottom-color: var(--bleu-ardoise-12);
 }
 
 /* Menu mobile ouvert */
 .nav-backdrop.menu-open {
-  background: rgba(255, 255, 255, 0.97);
+  background: var(--blanc-97);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   backdrop-filter: saturate(180%) blur(20px);
   border-bottom-color: transparent;
@@ -110,7 +110,7 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.82);
+  color: var(--blanc-82);
   text-decoration: none;
   background: none;
   border: none;
@@ -188,7 +188,7 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.65);
+  color: var(--blanc-65);
   text-decoration: none;
   padding: 11px 22px;
   border: none;
@@ -198,7 +198,7 @@
 }
 
 .mega-menu a:hover {
-  color: rgba(255, 255, 255, 1);
+  color: var(--blanc);
 }
 
 
@@ -218,7 +218,7 @@
 .page-blur-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.18);
+  background: var(--noir-18);
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
   z-index: 190;
@@ -256,7 +256,7 @@
   display: block;
   width: 20px;
   height: 1.5px;
-  background: rgba(255, 255, 255, 0.88);
+  background: var(--blanc-88);
   -webkit-transform-origin: center;
   transform-origin: center;
   -webkit-transition: background 0.3s, -webkit-transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s;
@@ -287,7 +287,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(255, 255, 255, 0.96);
+  background: var(--blanc-96);
   -webkit-backdrop-filter: saturate(180%) blur(24px);
   backdrop-filter: saturate(180%) blur(24px);
   z-index: 197;

@@ -154,3 +154,24 @@
   });
 
 }());
+
+/* ── Activation automatique du lien correspondant à la page courante ──
+ * Ajoute la classe .active sur les liens de la nav qui correspondent à
+ * l'URL actuelle. Évite d'avoir à dupliquer le HTML de la nav par page.
+ */
+(function () {
+  var path = location.pathname.replace(/\/$/, '') || '/';
+  var rules = [
+    { match: /^\/parcours$/,           selector: '.nav-desktop a[href="/parcours"], .menu-panel-main a[href="/parcours"]' },
+    { match: /^\/blog(\/.*)?$/,        selector: '.nav-desktop a[href="/blog"], .menu-panel-main a[href="/blog"]' },
+    { match: /^\/cnaps$/,              selector: 'a[href="/cnaps"]' },
+    { match: /^\/mentions-legales$/,   selector: '.footer-bar a[href="/mentions-legales"]', cls: 'footer-active' }
+  ];
+  rules.forEach(function (r) {
+    if (!r.match.test(path)) return;
+    var className = r.cls || 'active';
+    document.querySelectorAll(r.selector).forEach(function (el) {
+      el.classList.add(className);
+    });
+  });
+}());

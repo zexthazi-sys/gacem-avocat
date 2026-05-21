@@ -2,9 +2,12 @@
 /**
  * build.js — Gacem Avocat
  * Lit les fichiers Markdown dans /posts/, génère :
- *   - /blog/[slug].html  pour chaque article
- *   - /posts/index.json  pour blog.html
- *   - /sitemap.xml       mis à jour
+ *   - /blog/[slug].html         pour chaque article
+ *   - /posts/index.json         pour blog.html
+ *   - /sitemap.xml              mis à jour
+ *   - Réécrit aussi les pages statiques pour injecter :
+ *       - les partials header/footer/contact (factorisation HTML)
+ *       - les versions centralisées des assets (cache-busting unifié)
  */
 
 const fs   = require('fs');
@@ -17,6 +20,64 @@ const { marked } = require('marked');
 const SITE_URL   = 'https://www.gacem-avocat.com';
 const POSTS_DIR  = path.join(__dirname, 'posts');
 const BLOG_DIR   = path.join(__dirname, 'blog');
+const PARTIALS_DIR = path.join(__dirname, 'partials');
+
+// ── Versions centralisées des assets ──────────────────────────────────────────
+// Pour invalider le cache d'un fichier après modification, augmenter sa valeur
+// ici (et seulement ici). Build.js propage la nouvelle version dans toutes les
+// pages HTML en remplaçant les markers __V_*__.
+const VERSIONS = {
+  STYLE_CSS:     62,   // /css/style.css
+  NAV_CSS:        5,   // /css/nav.css
+  ARTICLE_CSS:    2,   // /css/article.css
+  BLOG_CSS:       1,   // /css/blog.css
+  CNAPS_CSS:      3,   // /css/cnaps.css
+  PARCOURS_CSS:   1,   // /css/parcours.css
+  ML_CSS:         1,   // /css/mentions-legales.css
+  NAV_JS:         4,   // /js/nav.js
+  SCROLL_REVEAL_JS: 1, // /js/scroll-reveal.js
+  PAGE_TRANSITION_JS: 1,
+  SPLASH_JS:      1,
+  CAROUSEL_JS:    2,
+  FAQ_JS:         1,
+  AXEPTIO_JS:     1,
+  SCROLL_INIT_JS: 1,
+};
+
+// ── Partials (HTML factorisés) ────────────────────────────────────────────────
+// Chargés une fois au démarrage. Modifier un partial = modifier toutes les pages
+// au prochain build.
+const PARTIALS = {
+  header:           fs.readFileSync(path.join(PARTIALS_DIR, 'header.html'), 'utf-8').trim(),
+  'contact-section':fs.readFileSync(path.join(PARTIALS_DIR, 'contact-section.html'), 'utf-8').trim(),
+  footer:           fs.readFileSync(path.join(PARTIALS_DIR, 'footer.html'), 'utf-8').trim(),
+};
+
+// Remplace tous les markers <!-- @partial NAME --> ... <!-- /@partial --> par le
+// contenu du partial correspondant. Idempotent (peut être rejoué).
+function injectPartials(html) {
+  return html.replace(
+    /<!-- @partial ([\w-]+) -->[\s\S]*?<!-- \/@partial -->/g,
+    function (_, name) {
+      if (!PARTIALS[name]) {
+        console.warn(`⚠️  Partial inconnu : "${name}" — laissé tel quel`);
+        return `<!-- @partial ${name} -->\n<!-- PARTIAL "${name}" INTROUVABLE -->\n<!-- /@partial -->`;
+      }
+      return `<!-- @partial ${name} -->\n${PARTIALS[name]}\n<!-- /@partial -->`;
+    }
+  );
+}
+
+// Remplace les markers __V_XXX__ par la valeur centralisée dans VERSIONS.
+function applyVersions(html) {
+  return html.replace(/__V_([A-Z_]+)__/g, function (full, key) {
+    if (typeof VERSIONS[key] === 'undefined') {
+      console.warn(`⚠️  Version inconnue : "${key}" — marker laissé tel quel`);
+      return full;
+    }
+    return String(VERSIONS[key]);
+  });
+}
 
 // ── Last-mod date helper ─────────────────────────────────────────────────────
 // Priorité : 1) date du dernier commit git, 2) mtime du fichier, 3) aujourd'hui.
@@ -98,18 +159,8 @@ ${related.map(p => `            <li><a href="/blog/${p.slug}"><span class="relat
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <!-- Axeptio — doit être le premier script du head -->
-  <script>
-  window.axeptioSettings = {
-    clientId: "69b7369ad57f3d304eeef408",
-    cookiesVersion: "d758b774-bf79-4f54-812a-fa89e32aff9c",
-  };
-  (function(d, s) {
-    var t = d.getElementsByTagName(s)[0], e = d.createElement(s);
-    e.async = true; e.src = "https://static.axept.io/sdk.js";
-    t.parentNode.insertBefore(e, t);
-  })(document, "script");
-  <\/script>
-  <script>if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; } window.scrollTo(0, 0);<\/script>
+  <script src="/js/axeptio-init.js?v=__V_AXEPTIO_JS__"><\/script>
+  <script src="/js/scroll-init.js?v=__V_SCROLL_INIT_JS__"><\/script>
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -117,9 +168,9 @@ ${related.map(p => `            <li><a href="/blog/${p.slug}"><span class="relat
   <meta name="theme-color" content="#1a1a2e">
   <link rel="preconnect" href="https://static.axept.io" crossorigin>
   <link rel="preload" href="/assets/fonts/raleway-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/css/style.css?v=2">
-  <link rel="stylesheet" href="/css/nav.css?v=4">
-  <link rel="stylesheet" href="/css/article.css?v=2">
+  <link rel="stylesheet" href="/css/style.css?v=__V_STYLE_CSS__">
+  <link rel="stylesheet" href="/css/nav.css?v=__V_NAV_CSS__">
+  <link rel="stylesheet" href="/css/article.css?v=__V_ARTICLE_CSS__">
   <title>${titleEsc} — Gacem Avocat</title>
   <meta name="description" content="${descEsc}">
   <link rel="canonical" href="${canonUrl}">
@@ -169,50 +220,10 @@ ${related.map(p => `            <li><a href="/blog/${p.slug}"><span class="relat
 </head>
 <body>
 
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="nav-logo" href="/">Gacem <span>Avocat</span></a>
-      <nav class="nav-desktop" aria-label="Navigation principale">
-        <a href="/#cabinet">Cabinet</a>
-        <button class="nav-exp-btn" aria-expanded="false" aria-haspopup="true">Expertises</button>
-        <a href="/parcours">Parcours</a>
-        <a href="/#contact">Contact</a>
-        <a href="/blog" class="active">Blog</a>
-      </nav>
-      <button class="nav-burger" aria-label="Ouvrir le menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-    <div class="mega-menu" role="region" aria-label="Expertises">
-      <a href="/#expertises">Droit administratif</a>
-      <a href="/#expertises">Marchés publics</a>
-      <a href="/#expertises">Urbanisme</a>
-      <a href="/#expertises">Contentieux administratif</a>
-      <a href="/cnaps" class="nav-exp-cnaps">Sécurité privée — CNAPS</a>
-    </div>
-  </header>
-  <div class="page-blur-overlay" aria-hidden="true"></div>
-  <div class="mobile-menu" aria-hidden="true">
-    <div class="menu-panels">
-      <div class="menu-panel menu-panel-main">
-        <a href="/#cabinet">Cabinet</a>
-        <button class="menu-exp-btn">Expertises<span class="nav-exp-chevron" aria-hidden="true"></span></button>
-        <a href="/parcours">Parcours</a>
-        <a href="/#contact">Contact</a>
-        <a href="/blog" class="active">Blog</a>
-      </div>
-      <div class="menu-panel menu-panel-exp">
-        <button class="back-btn"><span class="back-chevron" aria-hidden="true"></span></button>
-        <a href="/#expertises">Droit administratif</a>
-        <a href="/#expertises">Marchés publics</a>
-        <a href="/#expertises">Urbanisme</a>
-        <a href="/#expertises">Contentieux administratif</a>
-        <a href="/cnaps" class="nav-exp-cnaps">Sécurité privée — CNAPS</a>
-      </div>
-    </div>
-  </div>
+<!-- @partial header -->
+<!-- /@partial -->
 
-  <main>
+  <main id="main">
     <header class="article-header">
       <div class="article-header-inner">
         <a href="/blog" class="article-back">&larr; Blog</a>
@@ -241,14 +252,12 @@ ${relatedHtml}
     <a href="/blog">&larr; Retour au blog</a>
   </div>
 
-  <footer>
-    <span>&copy; 2026 Gacem Avocat &middot; Tous droits réservés</span>
-    <a href="/mentions-legales">Mentions légales</a>
-  </footer>
+<!-- @partial footer -->
+<!-- /@partial -->
 
-<script src="/js/nav.js?v=2"><\/script>
-<script src="/js/scroll-reveal.js?v=1"><\/script>
-<script src="/js/page-transition.js?v=1"><\/script>
+<script src="/js/nav.js?v=__V_NAV_JS__"><\/script>
+<script src="/js/scroll-reveal.js?v=__V_SCROLL_REVEAL_JS__"><\/script>
+<script src="/js/page-transition.js?v=__V_PAGE_TRANSITION_JS__"><\/script>
 </body>
 </html>`;
 }
@@ -290,7 +299,9 @@ const allPosts = rawPosts.map(r => ({
 // ── Passe 2 : générer le HTML de chaque article ──────────────────────────────
 const posts = [];
 for (const r of rawPosts) {
-  const html = articleTemplate(r.slug, r.data, r.bodyHtml, allPosts);
+  let html = articleTemplate(r.slug, r.data, r.bodyHtml, allPosts);
+  // Injecter partials + propager les versions des assets
+  html = applyVersions(injectPartials(html));
   const outPath = path.join(BLOG_DIR, `${r.slug}.html`);
   fs.writeFileSync(outPath, html, 'utf-8');
   console.log(`  ✓ /blog/${r.slug}.html`);
@@ -330,13 +341,40 @@ const articlesHtml = posts.length === 0
           </div>
         </a>`).join('\n');
 
+const articlesPattern = /<!-- BUILD:ARTICLES -->[\s\S]*?<!-- \/BUILD:ARTICLES -->/;
+if (!articlesPattern.test(blogHtml)) {
+  console.error('❌ ERREUR : markers <!-- BUILD:ARTICLES --> introuvables dans blog.html');
+  console.error('   Le build est interrompu pour éviter de déployer un blog vide.');
+  process.exit(1);
+}
 blogHtml = blogHtml.replace(
-  /<!-- BUILD:ARTICLES -->[\s\S]*?<!-- \/BUILD:ARTICLES -->/,
+  articlesPattern,
   '<!-- BUILD:ARTICLES -->\n' + articlesHtml + '\n        <!-- /BUILD:ARTICLES -->'
 );
 
+// blog.html contient déjà les markers @partial header/contact-section/footer,
+// on les remplace ici avant d'écrire.
+blogHtml = applyVersions(injectPartials(blogHtml));
+
 fs.writeFileSync(blogHtmlPath, blogHtml, 'utf-8');
 console.log('  ✓ blog.html (listing statique)');
+
+// ── Pages statiques : injection partials + versions ──────────────────────────
+// Toutes les pages HTML à la racine contiennent des markers <!-- @partial ... -->
+// et __V_*__. Build.js les transforme à chaque exécution.
+const STATIC_PAGES = ['index.html', 'cnaps.html', 'parcours.html', 'mentions-legales.html', '404.html'];
+STATIC_PAGES.forEach(function (filename) {
+  const filepath = path.join(__dirname, filename);
+  if (!fs.existsSync(filepath)) {
+    console.warn(`  ⚠️  ${filename} introuvable, ignoré`);
+    return;
+  }
+  let html = fs.readFileSync(filepath, 'utf-8');
+  html = injectPartials(html);
+  html = applyVersions(html);
+  fs.writeFileSync(filepath, html, 'utf-8');
+  console.log(`  ✓ ${filename} (partials + versions injectés)`);
+});
 
 // Générer sitemap.xml — chaque URL reçoit la date du dernier commit du fichier
 // source. La page /blog reçoit la date du post le plus récent (puisque c'est ce
