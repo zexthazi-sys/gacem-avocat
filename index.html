@@ -25,17 +25,17 @@
   <link rel="preconnect" href="https://static.axept.io" crossorigin>
   <link rel="preload" href="/assets/fonts/raleway-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/musee-soulages.webp" as="image" type="image/webp">
-  <link rel="stylesheet" href="/css/style.css?v=60">
+  <link rel="stylesheet" href="/css/style.css?v=61">
   <link rel="stylesheet" href="/css/nav.css?v=4">
   <title>Hakim Gacem — Avocat en droit public à Paris</title>
   <meta name="google-site-verification" content="EKQEDIP9RzKq_uWiRfTBNSqcIky1xHl9v4ezVi0gpEw" />
-  <meta name="description" content="Hakim Gacem, avocat au Barreau de Paris spécialisé en droit public. Conseil et contentieux en droit administratif, marchés publics et urbanisme.">
+  <meta name="description" content="Hakim Gacem, avocat au Barreau de Paris en droit public : droit administratif, marchés publics, urbanisme, contentieux et recours CNAPS sécurité privée.">
   <link rel="canonical" href="https://www.gacem-avocat.com/">
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.gacem-avocat.com/">
   <meta property="og:title" content="Hakim Gacem — Avocat en droit public à Paris">
-  <meta property="og:description" content="Cabinet spécialisé en droit administratif, marchés publics, urbanisme et contentieux. Une expertise reconnue au service des entreprises et collectivités.">
+  <meta property="og:description" content="Hakim Gacem, avocat au Barreau de Paris en droit public : droit administratif, marchés publics, urbanisme, contentieux et recours CNAPS sécurité privée.">
   <meta property="og:image" content="https://www.gacem-avocat.com/assets/og-image.webp">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -44,7 +44,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Hakim Gacem — Avocat en droit public à Paris">
-  <meta name="twitter:description" content="Hakim Gacem, avocat au Barreau de Paris spécialisé en droit public. Conseil et contentieux en droit administratif, marchés publics, urbanisme pour entreprises et collectivités territoriales.">
+  <meta name="twitter:description" content="Hakim Gacem, avocat au Barreau de Paris en droit public : droit administratif, marchés publics, urbanisme, contentieux et recours CNAPS sécurité privée.">
   <meta name="twitter:image" content="https://www.gacem-avocat.com/assets/og-image.webp">
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
@@ -52,30 +52,43 @@
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "LegalService",
+        "@type": ["LegalService", "LocalBusiness", "Attorney"],
         "@id": "https://www.gacem-avocat.com/#cabinet",
         "name": "Gacem Avocat",
-        "description": "Cabinet d'avocat en droit public à Paris. Conseil et contentieux pour entreprises, collectivités territoriales et accompagnement des personnes.",
+        "description": "Cabinet d'avocat en droit public à Paris. Conseil et contentieux en droit administratif, marchés publics, urbanisme et sécurité privée (CNAPS) pour entreprises, collectivités territoriales et particuliers.",
         "url": "https://www.gacem-avocat.com",
         "logo": "https://www.gacem-avocat.com/assets/logo-gacem-avocat.svg",
+        "image": "https://www.gacem-avocat.com/assets/og-image.webp",
         "telephone": "+33768886453",
         "email": "contact@gacem-avocat.com",
-
+        "priceRange": "€€",
         "address": {
           "@type": "PostalAddress",
+          "streetAddress": "11 Boulevard Sébastopol, 5ème étage",
           "addressLocality": "Paris",
+          "postalCode": "75001",
+          "addressRegion": "Île-de-France",
           "addressCountry": "FR"
         },
-        "areaServed": {
-          "@type": "City",
-          "name": "Paris"
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 48.8589,
+          "longitude": 2.3490
         },
+        "areaServed": [
+          { "@type": "City", "name": "Paris" },
+          { "@type": "AdministrativeArea", "name": "Île-de-France" },
+          { "@type": "Country", "name": "France" }
+        ],
         "knowsAbout": [
           "Droit public",
           "Droit administratif",
           "Marchés publics",
           "Urbanisme",
-          "Contentieux administratif"
+          "Contentieux administratif",
+          "Sécurité privée",
+          "CNAPS",
+          "Droit pénal"
         ],
         "employee": {
           "@id": "https://www.gacem-avocat.com/#hakim-gacem"
@@ -188,7 +201,7 @@
     <div class="cabinet-card">
     <div class="cabinet-grid">
       <div class="cabinet-photo reveal">
-        <img src="assets/salle-reunion.webp" alt="Salle de réunion du cabinet Gacem Avocat" loading="lazy" width="1920" height="2560">
+        <img src="assets/salle-reunion.webp" alt="Cabinet d'avocat Gacem à Paris — salle de réunion pour consultations en droit public et droit administratif" loading="lazy" width="1920" height="2560">
       </div>
       <div class="cabinet-content reveal">
         <div class="cabinet-text">
@@ -196,15 +209,15 @@
         </div>
         <div class="cabinet-values">
           <div class="val">
-            <h4>Réactivité</h4>
+            <h3>Réactivité</h3>
             <p>Votre temps a de la valeur. Je réponds dans les meilleurs délais et tiens mes engagements.</p>
           </div>
           <div class="val">
-            <h4>Engagement</h4>
+            <h3>Engagement</h3>
             <p>De la première consultation à la décision, vous travaillez directement avec moi — sans intermédiaire.</p>
           </div>
           <div class="val">
-            <h4>Honnêteté</h4>
+            <h3>Honnêteté</h3>
             <p>Je vous expose la situation telle qu'elle est, avec ses forces et ses limites. Pas de faux espoirs.</p>
           </div>
         </div>
@@ -222,7 +235,7 @@
     <div class="exp-capsule">
     <div class="exp-grid">
       <div class="exp-card reveal reveal-delay-1">
-        <img src="/assets/droit-administratif.webp" alt="Droit administratif" loading="lazy">
+        <img src="/assets/droit-administratif.webp" alt="Droit administratif — conseil et contentieux contre les décisions de l'administration, Gacem Avocat Paris" loading="lazy">
         <div class="exp-card-body">
           <div class="exp-num">01</div>
           <h3 class="exp-card-title">Droit administratif</h3>
@@ -230,7 +243,7 @@
         </div>
       </div>
       <div class="exp-card reveal reveal-delay-2">
-        <img src="/assets/marches-publics.webp" alt="Marchés publics" loading="lazy">
+        <img src="/assets/marches-publics.webp" alt="Marchés publics — passation, exécution et contentieux des contrats de la commande publique" loading="lazy">
         <div class="exp-card-body">
           <div class="exp-num">02</div>
           <h3 class="exp-card-title">Marchés publics</h3>
@@ -238,7 +251,7 @@
         </div>
       </div>
       <div class="exp-card reveal reveal-delay-3">
-        <img src="/assets/urbanisme.webp" alt="Urbanisme" loading="lazy">
+        <img src="/assets/urbanisme.webp" alt="Urbanisme — permis de construire, PLU, opérations d'aménagement et recours" loading="lazy">
         <div class="exp-card-body">
           <div class="exp-num">03</div>
           <h3 class="exp-card-title">Urbanisme</h3>
@@ -246,7 +259,7 @@
         </div>
       </div>
       <div class="exp-card reveal reveal-delay-4">
-        <img src="/assets/contentieux.webp" alt="Contentieux administratif" loading="lazy">
+        <img src="/assets/contentieux.webp" alt="Contentieux administratif — défense devant le tribunal administratif, la cour d'appel et le Conseil d'État" loading="lazy">
         <div class="exp-card-body">
           <div class="exp-num">04</div>
           <h3 class="exp-card-title">Contentieux administratif</h3>
@@ -283,7 +296,7 @@
     <div class="parcours-card reveal">
       <div class="parcours-grid">
         <div class="parcours-photo">
-          <img src="assets/photo-professionnelle-v2.webp" alt="Hakim Gacem, avocat au Barreau de Paris" loading="lazy" width="832" height="1248">
+          <img src="assets/photo-professionnelle-v2.webp" alt="Hakim Gacem, avocat au Barreau de Paris spécialisé en droit public, droit administratif et contentieux" loading="lazy" width="832" height="1248">
           <div class="parcours-identity" aria-hidden="true">
             <span class="parcours-identity-name">Hakim Gacem</span>
             <span class="parcours-identity-role">Avocat au Barreau de Paris</span>

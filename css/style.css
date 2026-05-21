@@ -235,7 +235,7 @@
       gap: 32px;
     }
     .val { border-left: 2px solid var(--vert-sauge); padding-left: 20px; }
-    .val h4 {
+    .val h3 {
       font-family: 'Raleway', sans-serif; font-size: 12px;
       letter-spacing: 0.14em; text-transform: uppercase;
       color: var(--bleu-ardoise); margin-bottom: 6px; font-weight: 700;

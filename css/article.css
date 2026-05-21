@@ -66,6 +66,41 @@
 }
 .back-to-blog a:hover { color: var(--bleu-nuit); }
 
+/* ── ARTICLES CONNEXES ── */
+.related-articles {
+  margin-top: 72px; padding-top: 48px;
+  border-top: 1px solid rgba(45,63,92,0.1);
+}
+.related-title {
+  font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--bleu-ardoise); font-weight: 500;
+  margin-bottom: 28px;
+}
+.related-list { list-style: none; padding-left: 0; margin: 0; display: flex; flex-direction: column; gap: 4px; }
+.related-list li { padding-left: 0; margin: 0; }
+.related-list li::before { content: none; }
+.related-list a {
+  display: block; padding: 20px 0;
+  border-top: 1px solid rgba(45,63,92,0.08);
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+.related-list li:last-child a { border-bottom: 1px solid rgba(45,63,92,0.08); }
+.related-list a:hover { background: rgba(45,63,92,0.02); }
+.related-category {
+  display: block;
+  font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--vert-sauge); font-weight: 400;
+  margin-bottom: 6px;
+}
+.related-link-title {
+  display: block;
+  font-size: 17px; font-weight: 400; line-height: 1.45;
+  color: var(--bleu-nuit);
+  transition: color 0.2s ease;
+}
+.related-list a:hover .related-link-title { color: var(--bleu-ardoise); }
+
 /* ── RESPONSIVE 900px ── */
 @media (max-width: 900px) {
   .article-header { padding: 60px 24px 48px; }
@@ -74,6 +109,8 @@
   .article-body { padding: 48px 24px 60px; }
   .back-to-blog { padding: 24px 24px; }
   .article-cta { flex-direction: column; align-items: flex-start; }
+  .related-articles { margin-top: 56px; padding-top: 36px; }
+  .related-link-title { font-size: 16px; }
 }
 
 /* ── MOBILE 600px ── */
@@ -83,4 +120,8 @@
   .article-content h2 { font-size: 18px; }
   .article-body { padding: 40px 20px 48px; }
   .back-to-blog { padding: 20px; }
+  .related-articles { margin-top: 48px; padding-top: 32px; }
+  .related-title { font-size: 10px; margin-bottom: 20px; }
+  .related-list a { padding: 16px 0; }
+  .related-link-title { font-size: 15px; }
 }

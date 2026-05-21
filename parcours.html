@@ -28,12 +28,12 @@
   <link rel="stylesheet" href="/css/nav.css?v=4">
   <link rel="stylesheet" href="/css/parcours.css?v=1">
   <title>Parcours — Hakim Gacem, Avocat au Barreau de Paris</title>
-  <meta name="description" content="Découvrez le parcours de Hakim Gacem, avocat au Barreau de Paris, spécialisé en droit public — formation, expériences professionnelles et engagements.">
+  <meta name="description" content="Parcours de Hakim Gacem, avocat au Barreau de Paris : formation en droit public à Toulouse Capitole et Paris Dauphine PSL, EFB, Tribunal administratif de Versailles.">
   <link rel="canonical" href="https://www.gacem-avocat.com/parcours">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.gacem-avocat.com/parcours">
   <meta property="og:title" content="Parcours — Hakim Gacem, Avocat au Barreau de Paris">
-  <meta property="og:description" content="Découvrez le parcours de Hakim Gacem, avocat au Barreau de Paris, spécialisé en droit public — formation, expériences professionnelles et engagements.">
+  <meta property="og:description" content="Parcours de Hakim Gacem, avocat au Barreau de Paris : formation en droit public à Toulouse Capitole et Paris Dauphine PSL, EFB, Tribunal administratif de Versailles.">
   <meta property="og:image" content="https://www.gacem-avocat.com/assets/og-image.webp">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -41,27 +41,57 @@
   <meta property="og:site_name" content="Gacem Avocat">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Parcours — Hakim Gacem, Avocat au Barreau de Paris">
-  <meta name="twitter:description" content="Découvrez le parcours de Hakim Gacem, avocat au Barreau de Paris, spécialisé en droit public.">
+  <meta name="twitter:description" content="Parcours de Hakim Gacem, avocat au Barreau de Paris : formation en droit public à Toulouse Capitole et Paris Dauphine PSL, EFB, Tribunal administratif de Versailles.">
   <meta name="twitter:image" content="https://www.gacem-avocat.com/assets/og-image.webp">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "@id": "https://www.gacem-avocat.com/#hakim-gacem",
-    "name": "Hakim Gacem",
-    "givenName": "Hakim",
-    "familyName": "Gacem",
-    "jobTitle": "Avocat au Barreau de Paris",
-    "telephone": "+33768886453",
-    "email": "contact@gacem-avocat.com",
-    "url": "https://www.gacem-avocat.com/parcours",
-    "worksFor": { "@type": "Organization", "name": "Gacem Avocat", "url": "https://www.gacem-avocat.com" },
-    "alumniOf": [
-      { "@type": "EducationalOrganization", "name": "Paris Dauphine — PSL" },
-      { "@type": "EducationalOrganization", "name": "Université Toulouse I Capitole" },
-      { "@type": "EducationalOrganization", "name": "École de Formation du Barreau de Paris" }
-    ],
-    "knowsAbout": ["Droit public", "Droit administratif", "Marchés publics", "Urbanisme", "Contentieux administratif"]
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://www.gacem-avocat.com/#hakim-gacem",
+        "name": "Hakim Gacem",
+        "givenName": "Hakim",
+        "familyName": "Gacem",
+        "jobTitle": "Avocat au Barreau de Paris",
+        "telephone": "+33768886453",
+        "email": "contact@gacem-avocat.com",
+        "url": "https://www.gacem-avocat.com/parcours",
+        "image": "https://www.gacem-avocat.com/assets/photo-professionnelle-v2.webp",
+        "worksFor": { "@id": "https://www.gacem-avocat.com/#cabinet" },
+        "memberOf": { "@type": "Organization", "name": "Barreau de Paris" },
+        "alumniOf": [
+          { "@type": "EducationalOrganization", "name": "Paris Dauphine — PSL" },
+          { "@type": "EducationalOrganization", "name": "Université Toulouse I Capitole" },
+          { "@type": "EducationalOrganization", "name": "École de Formation du Barreau de Paris" }
+        ],
+        "knowsAbout": ["Droit public", "Droit administratif", "Marchés publics", "Urbanisme", "Contentieux administratif", "Sécurité privée", "CNAPS"]
+      },
+      {
+        "@type": ["LegalService", "Attorney"],
+        "@id": "https://www.gacem-avocat.com/#cabinet",
+        "name": "Gacem Avocat",
+        "url": "https://www.gacem-avocat.com",
+        "telephone": "+33768886453",
+        "email": "contact@gacem-avocat.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "11 Boulevard Sébastopol, 5ème étage",
+          "addressLocality": "Paris",
+          "postalCode": "75001",
+          "addressCountry": "FR"
+        },
+        "areaServed": { "@type": "City", "name": "Paris" },
+        "employee": { "@id": "https://www.gacem-avocat.com/#hakim-gacem" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.gacem-avocat.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Parcours", "item": "https://www.gacem-avocat.com/parcours" }
+        ]
+      }
+    ]
   }
   </script>
 </head>
@@ -122,7 +152,7 @@
   <div class="presentation-card">
   <div class="presentation-grid">
     <div class="presentation-photo reveal-left">
-      <img src="assets/photo-professionnelle-v2.webp" alt="Hakim Gacem, avocat au Barreau de Paris" width="832" height="1248">
+      <img src="assets/photo-professionnelle-v2.webp" alt="Hakim Gacem, avocat au Barreau de Paris spécialisé en droit public et contentieux administratif" width="832" height="1248">
       <div class="parcours-identity" aria-hidden="true">
         <span class="parcours-identity-name">Hakim Gacem</span>
         <span class="parcours-identity-role">Avocat au Barreau de Paris</span>
