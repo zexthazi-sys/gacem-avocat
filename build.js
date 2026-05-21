@@ -223,7 +223,7 @@ ${related.map(p => `            <li><a href="/blog/${p.slug}"><span class="relat
 <!-- @partial header -->
 <!-- /@partial -->
 
-  <main id="main">
+  <main id="main" tabindex="-1">
     <header class="article-header">
       <div class="article-header-inner">
         <a href="/blog" class="article-back">&larr; Blog</a>
