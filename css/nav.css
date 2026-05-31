@@ -150,69 +150,94 @@
   transition: transform 0.2s ease;
 }
 
-/* ── MEGA MENU (desktop Expertises) ── */
-.mega-menu {
+/* ── NAV FLYOUT (desktop — panneau déroulant data-driven, style Apple) ── */
+.nav-flyout {
   position: fixed;
   top: 52px;
   left: 0;
   right: 0;
   background: transparent;
-  -webkit-backdrop-filter: none;
-  backdrop-filter: none;
-  border-bottom: none;
-  padding: 28px 48px;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  flex-wrap: wrap;
-  gap: 10px;
+  padding: 40px 48px 48px;
   pointer-events: none;
   -webkit-clip-path: inset(0 0 100% 0);
   clip-path: inset(0 0 100% 0);
-  -webkit-transition: -webkit-clip-path 0.22s cubic-bezier(0.32, 0.72, 0, 1), background 0.35s ease;
-  transition: clip-path 0.22s cubic-bezier(0.32, 0.72, 0, 1), background 0.35s ease;
+  -webkit-transition: -webkit-clip-path 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+  transition: clip-path 0.4s cubic-bezier(0.32, 0.72, 0, 1);
   z-index: 199;
 }
 
-.mega-menu.open {
+.nav-flyout.open {
   pointer-events: auto;
   -webkit-clip-path: inset(0 0 0% 0);
   clip-path: inset(0 0 0% 0);
+}
+
+/* Swap entre deux panneaux : pas de ré-animation d'entrée */
+.nav-flyout.open.no-anim {
   -webkit-transition: none;
   transition: none;
 }
 
-.mega-menu a {
+.nav-flyout-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  gap: 48px 96px;
+}
+
+.nav-flyout-group { min-width: 0; }
+
+.nav-flyout-group ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.nav-flyout-group-title {
+  margin: 0 0 20px;
   font-family: 'Raleway', sans-serif;
   font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   font-weight: 500;
-  color: var(--blanc-65);
+  color: var(--blanc-50);
+}
+
+.nav-flyout-link {
+  font-family: 'Raleway', sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--blanc-82);
   text-decoration: none;
-  padding: 11px 22px;
-  border: none;
-  -webkit-transition: color 0.2s;
-  transition: color 0.2s;
-  white-space: nowrap;
+  -webkit-transition: color 0.2s ease;
+  transition: color 0.2s ease;
 }
+.nav-flyout-link:hover,
+.nav-flyout-link:focus-visible { color: var(--blanc); }
 
-.mega-menu a:hover {
-  color: var(--blanc);
+.nav-flyout-link--sm {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--blanc-65);
 }
+.nav-flyout-link--sm:hover,
+.nav-flyout-link--sm:focus-visible { color: var(--blanc); }
 
-
-/* Mega-menu : transparent — le nav-backdrop fournit le verre unifié */
-.site-header.header-opaque .mega-menu {
-  border-bottom: none;
-}
-
-.site-header.header-opaque .mega-menu a {
-  color: var(--bleu-ardoise);
-}
-.site-header.header-opaque .mega-menu a:hover {
-  color: var(--bleu-nuit);
-}
+/* Variante header opaque (fond clair) */
+.site-header.header-opaque .nav-flyout-link { color: var(--bleu-ardoise); }
+.site-header.header-opaque .nav-flyout-link:hover,
+.site-header.header-opaque .nav-flyout-link:focus-visible { color: var(--bleu-nuit); }
+.site-header.header-opaque .nav-flyout-group-title { color: var(--bleu-ardoise-50); }
 
 /* ── PAGE BLUR OVERLAY (desktop mega-menu) ── */
 .page-blur-overlay {
@@ -305,7 +330,8 @@
   pointer-events: auto;
 }
 
-/* Panel slider */
+/* Panel slider — track unique : un seul élément peint glisse, donc
+   l'animation est symétrique à l'aller comme au retour. */
 .menu-panels {
   display: -webkit-flex;
   display: flex;
@@ -419,7 +445,8 @@
 @media (prefers-reduced-motion: reduce) {
   .site-header,
   .nav-backdrop,
-  .mega-menu,
+  .nav-flyout,
+  .nav-flyout-link,
   .mobile-menu,
   .menu-panels,
   .nav-exp-chevron,
@@ -436,7 +463,7 @@
 
 @media (max-width: 900px) {
   .nav-desktop { display: none !important; }
-  .mega-menu { display: none !important; }
+  .nav-flyout { display: none !important; }
   .nav-burger { display: -webkit-flex; display: flex; }
   .header-inner { padding: 0 20px; }
   .nav-logo { font-size: 16px; }

@@ -4,7 +4,7 @@
     <a class="nav-logo" href="/" aria-label="Gacem Avocat — Retour à l'accueil">Gacem <span>Avocat</span></a>
     <nav class="nav-desktop" aria-label="Navigation principale">
       <a href="/#cabinet">Cabinet</a>
-      <button class="nav-exp-btn" aria-expanded="false" aria-haspopup="true">Expertises</button>
+      <button class="nav-exp-btn" data-nav-panel="expertises" aria-expanded="false" aria-haspopup="true" aria-controls="nav-flyout-expertises">Expertises</button>
       <a href="/parcours">Parcours</a>
       <a href="/#contact">Contact</a>
       <a href="/blog">Blog</a>
@@ -13,31 +13,19 @@
       <span></span><span></span><span></span>
     </button>
   </div>
-  <div class="mega-menu" role="region" aria-label="Expertises">
-    <a href="/#expertises">Droit administratif</a>
-    <a href="/#expertises">Marchés publics</a>
-    <a href="/#expertises">Urbanisme</a>
-    <a href="/#expertises">Contentieux administratif</a>
-    <a href="/cnaps" class="nav-exp-cnaps">Sécurité privée — CNAPS</a>
-  </div>
+  <!-- Panneaux déroulants desktop générés par nav.js depuis NAV_PANELS -->
 </header>
 <div class="page-blur-overlay" aria-hidden="true"></div>
 <div class="mobile-menu" aria-hidden="true">
   <div class="menu-panels">
     <div class="menu-panel menu-panel-main">
       <a href="/#cabinet">Cabinet</a>
-      <button class="menu-exp-btn">Expertises<span class="nav-exp-chevron" aria-hidden="true"></span></button>
+      <button class="menu-exp-btn" data-nav-panel="expertises" aria-expanded="false">Expertises<span class="nav-exp-chevron" aria-hidden="true"></span></button>
       <a href="/parcours">Parcours</a>
       <a href="/#contact">Contact</a>
       <a href="/blog">Blog</a>
     </div>
-    <div class="menu-panel menu-panel-exp">
-      <button class="back-btn"><span class="back-chevron" aria-hidden="true"></span></button>
-      <a href="/#expertises">Droit administratif</a>
-      <a href="/#expertises">Marchés publics</a>
-      <a href="/#expertises">Urbanisme</a>
-      <a href="/#expertises">Contentieux administratif</a>
-      <a href="/cnaps" class="nav-exp-cnaps">Sécurité privée — CNAPS</a>
-    </div>
+    <!-- Sous-panneau mobile généré par nav.js depuis NAV_PANELS -->
+    <div class="menu-panel menu-panel-exp"></div>
   </div>
 </div>
