@@ -795,16 +795,16 @@
         opacity: 1 !important;
         transform: none !important;
       }
-      .wa-float { transition: none; }
+      .wa-float { transition: none; -webkit-animation: none; animation: none; }
     }
 
     /* ── BOUTON FLOTTANT WHATSAPP ── */
-    /* Dimensions & offsets alignés sur le widget cookies Axeptio (48px,
-       10px du bas, 18px du bord) pour former une paire symétrique. */
+    /* Le widget cookies Axeptio (même coin) est masqué par défaut
+       (#axeptio_overlay > div) ; réouverture via le lien footer. */
     .wa-float {
       position: fixed;
-      bottom: 10px;
-      right: 18px;
+      bottom: 22px;
+      right: 22px;
       z-index: 150;
       display: -webkit-flex;
       display: flex;
@@ -812,21 +812,53 @@
       align-items: center;
       -webkit-justify-content: center;
       justify-content: center;
-      width: 48px;
-      height: 48px;
+      width: 49px;
+      height: 49px;
       border-radius: 50%;
-      background: var(--bleu-nuit);
+      background: #25d366;
       color: var(--blanc);
-      box-shadow: 0 6px 24px rgba(26, 26, 46, 0.28);
-      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.32);
+      -webkit-animation: wa-float-bob 3.4s ease-in-out infinite;
+      animation: wa-float-bob 3.4s ease-in-out infinite;
+      transition: box-shadow 0.25s ease, background 0.25s ease;
     }
     .wa-float:hover {
-      background: var(--bleu-ardoise);
-      transform: translateY(-2px) scale(1.04);
-      box-shadow: 0 10px 32px rgba(26, 26, 46, 0.36);
+      background: #1ebe5a;
+      box-shadow: 0 12px 32px rgba(37, 211, 102, 0.42);
     }
     .wa-float:focus-visible {
-      outline: 2px solid var(--vert-sauge);
+      outline: 2px solid var(--bleu-nuit);
       outline-offset: 3px;
     }
-    .wa-float svg { display: block; width: 24px; height: 24px; }
+    .wa-float svg {
+      display: block; width: 25px; height: 25px;
+      transition: transform 0.25s ease;
+    }
+    .wa-float:hover svg { transform: scale(1.12); }
+
+    @-webkit-keyframes wa-float-bob {
+      0%, 100% { -webkit-transform: translateY(0); }
+      50% { -webkit-transform: translateY(-5px); }
+    }
+    @keyframes wa-float-bob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    /* Widget flottant Axeptio masqué ; le bandeau de 1er consentement et la
+       réouverture (lien footer) sont gérés en JS via display:block inline. */
+    #axeptio_overlay > div { display: none !important; }
+
+    /* Lien "Gérer les cookies" dans le footer */
+    .footer-links {
+      display: -webkit-flex; display: flex;
+      -webkit-align-items: center; align-items: center;
+      gap: 18px;
+    }
+    .footer-cookies {
+      font-family: 'Raleway', sans-serif; font-size: 11px;
+      color: rgba(255,255,255,0.55); letter-spacing: 0.1em; font-weight: 400;
+      background: none; border: 0; padding: 0; cursor: pointer;
+      -webkit-transition: color 0.2s; transition: color 0.2s;
+    }
+    .footer-cookies:hover { color: rgba(255,255,255,0.85); }
