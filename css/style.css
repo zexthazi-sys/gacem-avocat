@@ -799,10 +799,12 @@
     }
 
     /* ── BOUTON FLOTTANT WHATSAPP ── */
+    /* Dimensions & offsets alignés sur le widget cookies Axeptio (48px,
+       10px du bas, 18px du bord) pour former une paire symétrique. */
     .wa-float {
       position: fixed;
-      bottom: 24px;
-      right: 24px;
+      bottom: 10px;
+      right: 18px;
       z-index: 150;
       display: -webkit-flex;
       display: flex;
@@ -810,8 +812,8 @@
       align-items: center;
       -webkit-justify-content: center;
       justify-content: center;
-      width: 56px;
-      height: 56px;
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
       background: var(--bleu-nuit);
       color: var(--blanc);
@@ -827,8 +829,4 @@
       outline: 2px solid var(--vert-sauge);
       outline-offset: 3px;
     }
-    .wa-float svg { display: block; }
-    @media (max-width: 600px) {
-      .wa-float { bottom: 18px; right: 18px; width: 52px; height: 52px; }
-      .wa-float svg { width: 26px; height: 26px; }
-    }
+    .wa-float svg { display: block; width: 24px; height: 24px; }
