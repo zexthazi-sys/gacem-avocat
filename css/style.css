@@ -795,4 +795,40 @@
         opacity: 1 !important;
         transform: none !important;
       }
+      .wa-float { transition: none; }
+    }
+
+    /* ── BOUTON FLOTTANT WHATSAPP ── */
+    .wa-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 150;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-align-items: center;
+      align-items: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--bleu-nuit);
+      color: var(--blanc);
+      box-shadow: 0 6px 24px rgba(26, 26, 46, 0.28);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    }
+    .wa-float:hover {
+      background: var(--bleu-ardoise);
+      transform: translateY(-2px) scale(1.04);
+      box-shadow: 0 10px 32px rgba(26, 26, 46, 0.36);
+    }
+    .wa-float:focus-visible {
+      outline: 2px solid var(--vert-sauge);
+      outline-offset: 3px;
+    }
+    .wa-float svg { display: block; }
+    @media (max-width: 600px) {
+      .wa-float { bottom: 18px; right: 18px; width: 52px; height: 52px; }
+      .wa-float svg { width: 26px; height: 26px; }
     }
