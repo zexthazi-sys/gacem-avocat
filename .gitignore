@@ -16,3 +16,8 @@ npm-debug.log*
 
 # Fichiers de travail design/prompts
 PROMPT_*.txt
+
+# Fichiers générés par build.js (régénérés par Vercel à chaque déploiement)
+/blog/*.html
+/sitemap.xml
+/posts/index.json
