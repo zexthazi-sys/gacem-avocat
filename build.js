@@ -31,7 +31,7 @@ const VERSIONS = {
   NAV_CSS:        8,   // /css/nav.css
   ARTICLE_CSS:    2,   // /css/article.css
   BLOG_CSS:       1,   // /css/blog.css
-  LANDING_CSS:    1,   // /css/landing.css (socle partagé landing pages)
+  LANDING_CSS:    2,   // /css/landing.css (socle partagé landing pages)
   PARCOURS_CSS:   1,   // /css/parcours.css
   ML_CSS:         1,   // /css/mentions-legales.css
   NAV_JS:         8,   // /js/nav.js
