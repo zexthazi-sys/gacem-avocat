@@ -28,7 +28,7 @@
           title: 'Accompagnement dédié',
           links: [
             { label: 'Sécurité privée — CNAPS', href: '/cnaps', small: true },
-            { label: 'Contester une OQTF',       href: '/contester-oqtf', small: true },
+            { label: 'Recours OQTF',             href: '/contester-oqtf', small: true },
             { label: 'Effacement TAJ / B2',      href: '/effacement-taj-b2', small: true }
           ]
         }

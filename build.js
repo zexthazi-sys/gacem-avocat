@@ -34,7 +34,7 @@ const VERSIONS = {
   LANDING_CSS:    1,   // /css/landing.css (socle partagé landing pages)
   PARCOURS_CSS:   1,   // /css/parcours.css
   ML_CSS:         1,   // /css/mentions-legales.css
-  NAV_JS:         7,   // /js/nav.js
+  NAV_JS:         8,   // /js/nav.js
   SCROLL_REVEAL_JS: 2, // /js/scroll-reveal.js
   PAGE_TRANSITION_JS: 1,
   SPLASH_JS:      1,
