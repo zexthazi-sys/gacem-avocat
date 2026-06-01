@@ -27,7 +27,9 @@
         {
           title: 'Accompagnement dédié',
           links: [
-            { label: 'Sécurité privée — CNAPS', href: '/cnaps', small: true }
+            { label: 'Sécurité privée — CNAPS', href: '/cnaps', small: true },
+            { label: 'Contester une OQTF',       href: '/contester-oqtf', small: true },
+            { label: 'Effacement TAJ / B2',      href: '/effacement-taj-b2', small: true }
           ]
         }
       ]
@@ -372,6 +374,8 @@
     { match: /^\/parcours$/,           selector: '.nav-desktop a[href="/parcours"], .menu-panel-main a[href="/parcours"]' },
     { match: /^\/blog(\/.*)?$/,        selector: '.nav-desktop a[href="/blog"], .menu-panel-main a[href="/blog"]' },
     { match: /^\/cnaps$/,              selector: 'a[href="/cnaps"]' },
+    { match: /^\/contester-oqtf$/,     selector: 'a[href="/contester-oqtf"]' },
+    { match: /^\/effacement-taj-b2$/,  selector: 'a[href="/effacement-taj-b2"]' },
     { match: /^\/mentions-legales$/,   selector: '.footer-bar a[href="/mentions-legales"]', cls: 'footer-active' }
   ];
   rules.forEach(function (r) {

@@ -28,17 +28,17 @@ const PARTIALS_DIR = path.join(__dirname, 'partials');
 // pages HTML en remplaçant les markers __V_*__.
 const VERSIONS = {
   STYLE_CSS:     67,   // /css/style.css
-  NAV_CSS:        7,   // /css/nav.css
+  NAV_CSS:        8,   // /css/nav.css
   ARTICLE_CSS:    2,   // /css/article.css
   BLOG_CSS:       1,   // /css/blog.css
-  CNAPS_CSS:      3,   // /css/cnaps.css
+  LANDING_CSS:    1,   // /css/landing.css (socle partagé landing pages)
   PARCOURS_CSS:   1,   // /css/parcours.css
   ML_CSS:         1,   // /css/mentions-legales.css
-  NAV_JS:         5,   // /js/nav.js
-  SCROLL_REVEAL_JS: 1, // /js/scroll-reveal.js
+  NAV_JS:         7,   // /js/nav.js
+  SCROLL_REVEAL_JS: 2, // /js/scroll-reveal.js
   PAGE_TRANSITION_JS: 1,
   SPLASH_JS:      1,
-  CAROUSEL_JS:    2,
+  CAROUSEL_JS:    3,
   FAQ_JS:         1,
   AXEPTIO_JS:     2,
   SCROLL_INIT_JS: 1,
@@ -362,7 +362,7 @@ console.log('  ✓ blog.html (listing statique)');
 // ── Pages statiques : injection partials + versions ──────────────────────────
 // Toutes les pages HTML à la racine contiennent des markers <!-- @partial ... -->
 // et __V_*__. Build.js les transforme à chaque exécution.
-const STATIC_PAGES = ['index.html', 'cnaps.html', 'parcours.html', 'mentions-legales.html', '404.html'];
+const STATIC_PAGES = ['index.html', 'cnaps.html', 'contester-oqtf.html', 'effacement-taj-b2.html', 'parcours.html', 'mentions-legales.html', '404.html'];
 STATIC_PAGES.forEach(function (filename) {
   const filepath = path.join(__dirname, filename);
   if (!fs.existsSync(filepath)) {
@@ -381,6 +381,8 @@ STATIC_PAGES.forEach(function (filename) {
 // qui change réellement quand on publie un article).
 const lastModIndex   = getLastModDate(path.join(__dirname, 'index.html'));
 const lastModCnaps   = getLastModDate(path.join(__dirname, 'cnaps.html'));
+const lastModOqtf    = getLastModDate(path.join(__dirname, 'contester-oqtf.html'));
+const lastModTajB2   = getLastModDate(path.join(__dirname, 'effacement-taj-b2.html'));
 const lastModML      = getLastModDate(path.join(__dirname, 'mentions-legales.html'));
 const lastModParc    = getLastModDate(path.join(__dirname, 'parcours.html'));
 
@@ -416,6 +418,20 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
   <url>
     <loc>${SITE_URL}/cnaps</loc>
     <lastmod>${lastModCnaps}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>${SITE_URL}/contester-oqtf</loc>
+    <lastmod>${lastModOqtf}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>${SITE_URL}/effacement-taj-b2</loc>
+    <lastmod>${lastModTajB2}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>

@@ -1,3 +1,11 @@
+    /* ════════════════════════════════════════════════════════════════════
+       SOCLE LANDING PAGES — style partagé des pages dédiées (CNAPS, OQTF,
+       effacement TAJ/B2…). Chargé via /css/landing.css sur chaque landing.
+       Tout repose sur les variables globales de style.css (couleurs, dégradé).
+       Classes génériques réutilisables : .lp-* (cartes), .page-hero,
+       .section-*, .motifs-*, .recours-*, .accompagnement-*, .faq-*.
+       ════════════════════════════════════════════════════════════════════ */
+
     /* ── CONTRASTE — fonds sombres ── */
     .section-dark .s-tag { color: var(--vert-sauge); }
     .section-dark .s-line { background: var(--vert-sauge); }
@@ -43,37 +51,37 @@
     .section-dark .section-header h2 { color: var(--blanc); }
 
     /* ── CARDS GRILLE 2×2 ── */
-    .cnaps-grid {
+    .lp-grid {
       display: grid; grid-template-columns: repeat(2, 1fr);
       gap: 2px;
     }
-    .cnaps-card {
+    .lp-card {
       background: var(--blanc); padding: 40px 36px;
       transition: background 0.4s, box-shadow 0.4s, border-color 0.4s;
       cursor: default; position: relative; overflow: hidden;
       border-bottom: 2px solid transparent;
     }
-    .section-light .cnaps-card { background: #ffffff; }
-    .cnaps-card:hover {
+    .section-light .lp-card { background: #ffffff; }
+    .lp-card:hover {
       background: var(--bleu-ardoise);
       box-shadow: 0 8px 32px rgba(45,63,92,0.18);
       border-bottom-color: var(--vert-sauge);
     }
-    .cnaps-card:hover .cnaps-num,
-    .cnaps-card:hover .cnaps-card-title,
-    .cnaps-card:hover .cnaps-card-text { color: var(--blanc); }
-    .cnaps-card:hover .cnaps-num { color: var(--vert-sauge); }
-    .cnaps-num {
+    .lp-card:hover .lp-num,
+    .lp-card:hover .lp-card-title,
+    .lp-card:hover .lp-card-text { color: var(--blanc); }
+    .lp-card:hover .lp-num { color: var(--vert-sauge); }
+    .lp-num {
       font-family: 'Raleway', sans-serif; font-size: 11px;
       letter-spacing: 0.15em; color: var(--bleu-ardoise);
       margin-bottom: 20px; font-weight: 500; position: relative; z-index: 1;
     }
-    .cnaps-card-title {
+    .lp-card-title {
       font-family: 'Raleway', sans-serif; font-size: 20px;
       font-weight: 500; color: var(--bleu-nuit); margin-bottom: 14px;
       transition: color 0.3s; position: relative; z-index: 1;
     }
-    .cnaps-card-text {
+    .lp-card-text {
       font-family: 'Raleway', sans-serif; font-size: 14px;
       color: var(--gris-ardoise); line-height: 1.75; font-weight: 400;
       transition: color 0.3s; position: relative; z-index: 1;
@@ -268,11 +276,11 @@
 
     /* ── MOBILE ── */
     @media screen and (max-width: 600px) {
-      /* Carousel cnaps-grid */
-      .cnaps-grid { display: flex; flex-direction: row; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scroll-padding-left: 20px; overscroll-behavior-x: contain; touch-action: pan-x pan-y; will-change: scroll-position; gap: 10px; padding: 4px 20px 20px; scrollbar-width: none; }
-      .cnaps-grid::-webkit-scrollbar { display: none; }
-      .cnaps-card { flex: 0 0 82%; scroll-snap-align: start; border-radius: 16px; touch-action: pan-x pan-y; }
-      .cnaps-card * { touch-action: pan-x pan-y; }
+      /* Carousel lp-grid */
+      .lp-grid { display: flex; flex-direction: row; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scroll-padding-left: 20px; overscroll-behavior-x: contain; touch-action: pan-x pan-y; will-change: scroll-position; gap: 10px; padding: 4px 20px 20px; scrollbar-width: none; }
+      .lp-grid::-webkit-scrollbar { display: none; }
+      .lp-card { flex: 0 0 82%; scroll-snap-align: start; border-radius: 16px; touch-action: pan-x pan-y; }
+      .lp-card * { touch-action: pan-x pan-y; }
       .page-hero { padding: 64px 20px 52px; }
       .page-hero-tag { font-size: 9px; margin-bottom: 24px; }
       .page-hero h1 { font-size: 28px; }

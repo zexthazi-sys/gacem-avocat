@@ -1,7 +1,7 @@
 (function () {
   var capsules = document.querySelectorAll('.exp-capsule');
   capsules.forEach(function (capsule) {
-    var grid    = capsule.querySelector('.exp-grid, .cnaps-grid');
+    var grid    = capsule.querySelector('.exp-grid, .lp-grid');
     var nav     = capsule.nextElementSibling;
     if (!grid || !nav) return;
     var prevBtn = nav.querySelector('.exp-nav-prev');
@@ -13,7 +13,7 @@
     /* Cache cardStep — recalculé uniquement au resize, pas à chaque scroll */
     var cachedStep = 0;
     function computeStep() {
-      var card = grid.querySelector('.exp-card, .cnaps-card');
+      var card = grid.querySelector('.exp-card, .lp-card');
       if (!card) return grid.clientWidth;
       var gap = parseFloat(window.getComputedStyle(grid).gap) || 10;
       cachedStep = card.offsetWidth + gap;

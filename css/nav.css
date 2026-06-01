@@ -398,6 +398,12 @@
 .mobile-menu.open .menu-exp-btn:nth-child(5)  { opacity: 1; -webkit-transform: none; transform: none; -webkit-transition-delay: 0.42s; transition-delay: 0.42s; }
 .mobile-menu.open .menu-panel a:nth-child(6),
 .mobile-menu.open .menu-exp-btn:nth-child(6)  { opacity: 1; -webkit-transform: none; transform: none; -webkit-transition-delay: 0.48s; transition-delay: 0.48s; }
+.mobile-menu.open .menu-panel a:nth-child(7),
+.mobile-menu.open .menu-exp-btn:nth-child(7)  { opacity: 1; -webkit-transform: none; transform: none; -webkit-transition-delay: 0.54s; transition-delay: 0.54s; }
+/* Filet de sécurité : tout lien au-delà du stagger énuméré reste visible
+   (évite qu'un lien ajouté plus tard apparaisse à opacity:0). */
+.mobile-menu.open .menu-panel a,
+.mobile-menu.open .menu-exp-btn               { opacity: 1; -webkit-transform: none; transform: none; }
 
 .menu-panel a:active { opacity: 0.5; }
 

@@ -22,7 +22,7 @@
      déclenchent jamais l'observer individuel (IO peu fiable dans un conteneur
      à scroll horizontal, notamment sur iOS Safari) → elles resteraient à
      opacity:0 une fois atteintes. */
-  const carousels = document.querySelectorAll('.exp-grid, .cnaps-grid');
+  const carousels = document.querySelectorAll('.exp-grid, .lp-grid');
   carousels.forEach(function (grid) {
     const cards = grid.querySelectorAll('.reveal, .reveal-left, .reveal-right');
     if (!cards.length) return;
