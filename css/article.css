@@ -21,30 +21,67 @@
 .article-body { padding: 72px 64px 88px; background: var(--blanc); }
 .article-content { max-width: 720px; }
 .article-content h2 {
-  font-size: 24px; font-weight: 400; color: var(--bleu-nuit);
-  margin-top: 56px; margin-bottom: 20px; padding-left: 20px;
-  border-left: 2px solid var(--vert-sauge); line-height: 1.3;
+  font-size: 26px; font-weight: 400; color: var(--bleu-nuit);
+  margin-top: 64px; margin-bottom: 22px; line-height: 1.3;
+}
+/* Filet sauge court au-dessus du titre de section — repère éditorial sobre */
+.article-content h2::before {
+  content: ''; display: block; width: 36px; height: 2px;
+  background: var(--vert-sauge); margin-bottom: 22px;
 }
 .article-content h3 {
-  font-size: 14px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
-  color: var(--bleu-ardoise); margin-top: 36px; margin-bottom: 14px;
+  font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--bleu-ardoise); margin-top: 40px; margin-bottom: 14px;
 }
-.article-content p { font-size: 15px; font-weight: 400; line-height: 1.95; color: var(--bleu-fonce); margin-bottom: 20px; }
-.article-content ul, .article-content ol { padding-left: 0; margin-bottom: 20px; list-style: none; }
+.article-content p { font-size: 17px; font-weight: 400; line-height: 1.9; color: var(--bleu-fonce); margin-bottom: 22px; }
+/* Chapô : premier paragraphe mis en avant pour amorcer la lecture */
+.article-content > p:first-of-type {
+  font-size: 20px; font-weight: 400; line-height: 1.7;
+  color: var(--bleu-nuit); margin-bottom: 28px;
+}
+.article-content strong { font-weight: 600; color: var(--bleu-nuit); }
+/* Liens de prose — soulignement sauge raffiné (exclut le bouton CTA et la liste « À lire aussi ») */
+.article-content p a, .article-content li a, .article-content blockquote a, .callout a {
+  color: var(--bleu-ardoise); text-decoration: underline;
+  text-decoration-color: var(--vert-sauge); text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+.article-content p a:hover, .article-content li a:hover,
+.article-content blockquote a:hover, .callout a:hover {
+  color: var(--bleu-nuit); text-decoration-color: var(--bleu-nuit);
+}
+.article-content p a:focus-visible, .article-content li a:focus-visible,
+.article-content blockquote a:focus-visible, .callout a:focus-visible {
+  outline: 2px solid var(--vert-sauge); outline-offset: 3px; border-radius: 2px;
+}
+.article-content ul, .article-content ol { padding-left: 0; margin-bottom: 22px; list-style: none; }
 .article-content ul li, .article-content ol li {
-  font-size: 15px; font-weight: 400; line-height: 1.9; color: var(--bleu-fonce);
-  padding-left: 20px; position: relative; margin-bottom: 10px;
+  font-size: 17px; font-weight: 400; line-height: 1.85; color: var(--bleu-fonce);
+  padding-left: 24px; position: relative; margin-bottom: 12px;
 }
 .article-content ul li::before { content: '—'; position: absolute; left: 0; color: var(--vert-sauge); font-weight: 400; }
 .article-content ol { counter-reset: ol-counter; }
 .article-content ol li { counter-increment: ol-counter; }
 .article-content ol li::before {
   content: counter(ol-counter) '.'; position: absolute; left: 0;
-  color: var(--vert-sauge); font-weight: 400; font-size: 13px;
+  color: var(--vert-sauge); font-weight: 500; font-size: 14px;
 }
-.callout { background: #f0f2f4; border-left: 3px solid var(--vert-sauge); padding: 24px 28px; margin: 36px 0; border-radius: 0 12px 12px 0; }
-.callout p { font-size: 14px; font-weight: 400; line-height: 1.85; color: var(--bleu-ardoise); margin-bottom: 0; }
-.callout strong { font-weight: 500; color: var(--bleu-nuit); }
+/* Séparateur discret (Markdown ---) */
+.article-content hr { border: none; height: 1px; background: rgba(45,63,92,0.12); width: 80px; margin: 56px auto; }
+/* Citation simple (blockquote) — repli si pas de .callout */
+.article-content blockquote {
+  margin: 40px 0; padding: 6px 0 6px 28px; border-left: 2px solid var(--vert-sauge);
+  font-size: 18px; line-height: 1.7; font-style: italic; color: var(--bleu-nuit);
+}
+.article-content blockquote p { font-size: inherit; line-height: inherit; color: inherit; }
+/* Encadré citation / point clé (loi, jurisprudence) */
+.callout { background: #f5f6f7; border-left: 2px solid var(--vert-sauge); padding: 28px 32px; margin: 40px 0; border-radius: 0 10px 10px 0; }
+.callout p { font-size: 15.5px; font-weight: 400; line-height: 1.85; color: var(--bleu-ardoise); margin-bottom: 0; }
+.callout p + p { margin-top: 14px; }
+.callout strong { font-weight: 600; color: var(--bleu-nuit); }
+/* Référence de décision en fin de citation : caption sobre, non italique */
+.callout em { font-style: normal; font-size: 13px; letter-spacing: 0.02em; color: var(--gris-texte); }
 .article-cta {
   margin-top: 64px; padding-top: 48px; border-top: 1px solid rgba(45,63,92,0.1);
   display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px;
@@ -105,7 +142,8 @@
 @media (max-width: 900px) {
   .article-header { padding: 60px 24px 48px; }
   .article-header h1 { font-size: 28px; }
-  .article-content h2 { font-size: 20px; }
+  .article-content h2 { font-size: 23px; }
+  .article-content > p:first-of-type { font-size: 19px; }
   .article-body { padding: 48px 24px 60px; }
   .back-to-blog { padding: 24px 24px; }
   .article-cta { flex-direction: column; align-items: flex-start; }
@@ -117,7 +155,9 @@
 @media (max-width: 600px) {
   .article-header { padding: 64px 20px 44px; }
   .article-header h1 { font-size: 24px; }
-  .article-content h2 { font-size: 18px; }
+  .article-content h2 { font-size: 21px; }
+  .article-content > p:first-of-type { font-size: 18px; }
+  .article-content p, .article-content ul li, .article-content ol li { font-size: 16px; }
   .article-body { padding: 40px 20px 48px; }
   .back-to-blog { padding: 20px; }
   .related-articles { margin-top: 48px; padding-top: 32px; }
