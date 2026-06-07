@@ -1,164 +1,127 @@
-# Guide — Ajouter un article de blog
+# Guide — Publier un article de blog
 
-## Structure des fichiers
+> **En une phrase :** déposez un fichier Markdown dans `/posts/`, committez, poussez sur `main`. C'est tout. Vercel génère automatiquement la page de l'article, la carte sur le blog, le sitemap et les balises SEO.
 
-```
-/
-├── index.html              ← Site principal (one-page)
-├── blog.html               ← Page listant tous les articles
-├── sitemap.xml             ← Sitemap SEO (à mettre à jour)
-└── blog/
-    ├── recours-permis-construire.html
-    ├── allotissement-marches-publics.html
-    └── mon-nouvel-article.html   ← Vos futurs articles ici
-```
+Vous n'avez **jamais** à toucher au HTML, ni à `blog.html`, ni au `sitemap.xml`. Ces fichiers sont générés à chaque déploiement par `build.js` (ils sont d'ailleurs ignorés par Git, c'est normal qu'ils n'apparaissent pas dans le dépôt).
 
 ---
 
-## Étape 1 — Créer le fichier de l'article
+## Le seul fichier à créer
 
-Dupliquez un article existant (ex: `blog/recours-permis-construire.html`) et renommez-le avec un nom de fichier en minuscules, sans accents, avec des tirets :
+Créez un fichier dans `/posts/` nommé en minuscules, sans accents, avec des tirets. Ce nom devient l'adresse de l'article.
 
 ```
-blog/nom-de-mon-article.html
+posts/carte-sejour-etudiant.html   ❌  (pas de .html)
+posts/carte-sejour-etudiant.md     ✅
 ```
+
+→ donnera l'URL `https://www.gacem-avocat.com/blog/carte-sejour-etudiant`
 
 **Exemples de noms valides :**
-- `blog/responsabilite-etat-travaux-publics.html`
-- `blog/contrat-de-concession-enjeux-2026.html`
+- `posts/responsabilite-etat-travaux-publics.md`
+- `posts/recours-oqtf-delais.md`
 
 ---
 
-## Étape 2 — Modifier le `<head>` de l'article
+## La structure du fichier
 
-Mettez à jour les 4 éléments suivants dans le `<head>` :
+Un fichier d'article a deux parties : l'**en-tête** (entre les deux `---`) et le **contenu** (en dessous).
+
+```markdown
+---
+title: "Titre complet de l'article"
+date: 2026-06-07
+category: Droit des étrangers
+description: "Texte affiché dans les résultats Google, environ 155 caractères."
+excerpt: "Accroche de 2-3 phrases affichée sous le titre et sur la carte du blog."
+---
+Premier paragraphe de l'article. Pas besoin de répéter le titre, il est déjà affiché automatiquement.
+
+## 1. Mon premier titre de section
+
+Mon texte...
+```
+
+### Les 5 champs de l'en-tête
+
+| Champ | Rôle |
+|-------|------|
+| `title` | Titre de l'article (onglet, Google, gros titre en haut de la page) |
+| `date` | Date de publication, **toujours** au format `AAAA-MM-JJ` (ex. `2026-06-07`). Sert au tri : l'article le plus récent apparaît en premier. |
+| `category` | Étiquette affichée sur la carte (ex. `Droit administratif`, `Marchés publics`, `Urbanisme`, `Droit pénal`, `Droit des étrangers`) |
+| `description` | Résumé pour Google (~155 caractères) |
+| `excerpt` | Accroche affichée sous le titre de l'article et sur la carte du blog |
+
+### ⚠️ Règle d'or : les guillemets
+
+Si une valeur contient un **deux-points** « : », un **«** ou un **#**, mettez-la entre guillemets doubles `"..."`. Sinon le déploiement échoue (erreur de syntaxe).
+
+```markdown
+description: Réalité et sérieux des études : ce que dit la loi    ❌  casse le build
+description: "Réalité et sérieux des études : ce que dit la loi"  ✅
+```
+
+Dans le doute, **mettez toujours `title`, `description` et `excerpt` entre guillemets** — ça ne coûte rien et ça évite l'erreur.
+
+---
+
+## Rédiger le contenu (Markdown)
+
+En dessous du second `---`, on écrit en Markdown :
+
+```markdown
+## 1. Titre de section
+
+Un paragraphe normal. On met un mot en **gras** avec deux étoiles,
+ou en *italique* avec une étoile.
+
+### Sous-titre
+
+* Élément de liste à puces
+* Autre élément
+
+1. Première étape (liste numérotée)
+2. Deuxième étape
+```
+
+### Mettre en avant une citation ou un point important (encadré)
+
+Pour un encadré gris stylé (idéal pour citer un texte de loi ou une décision de justice), collez ce bloc HTML tel quel dans le Markdown :
 
 ```html
-<!-- 1. Titre de l'onglet et résultat Google -->
-<title>Titre de mon article — Gacem Avocat</title>
-
-<!-- 2. Description affichée dans les résultats Google (155 caractères max) -->
-<meta name="description" content="Courte description de l'article, environ 155 caractères, avec les mots-clés principaux.">
-
-<!-- 3. URL canonique (remplacer avec l'URL réelle) -->
-<link rel="canonical" href="https://gacem-avocat.com/blog/nom-de-mon-article.html">
-
-<!-- 4. Données structurées Schema.org (pour Google) -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Titre de mon article",
-  "datePublished": "2026-04-01",       ← Date au format YYYY-MM-DD
-  "author": { "@type": "Person", "name": "Hakim Gacem" },
-  "publisher": { "@type": "Organization", "name": "Gacem Avocat" },
-  "description": "Même texte que la meta description."
-}
-</script>
+<div class="callout"><p><strong>Article L. 422-1 du CESEDA :</strong> « L'étranger qui établit qu'il suit un enseignement en France… »</p></div>
 ```
 
----
-
-## Étape 3 — Modifier le header de l'article
-
-Dans le `<body>`, repérez la section `<header class="article-header">` et mettez à jour :
+Pour une citation de jurisprudence avec sa référence en dessous, utilisez `<br>` et `<em>` (italique) :
 
 ```html
-<header class="article-header">
-  <div class="article-header-inner">
-    <a href="/blog.html" class="article-back">← Blog</a>
-    <div class="article-meta">
-      <span class="article-category-badge">Catégorie</span>  ← ex: Urbanisme / Marchés publics / Droit administratif
-      <span class="article-date-badge">1er avril 2026</span> ← Date lisible en français
-    </div>
-    <h1>Titre complet de l'article</h1>
-    <p class="article-intro">Accroche introductive de 2-3 phrases résumant l'article.</p>
-  </div>
-</header>
+<div class="callout"><p>« Il appartient à l'administration… »<br><em>CAA de Lyon, 18 juin 2020, n° 19LY04733</em></p></div>
 ```
 
 ---
 
-## Étape 4 — Rédiger le contenu
+## Mettre en ligne
 
-Dans `<div class="article-content">`, utilisez ces balises :
+1. Enregistrez le fichier dans `/posts/`.
+2. Committez et poussez sur la branche `main`.
+3. Vercel détecte le push et reconstruit le site (~1 à 2 minutes).
+4. L'article apparaît sur `https://www.gacem-avocat.com/blog`.
 
-```html
-<!-- Titre de section (niveau 2) -->
-<h2>1. Mon titre de section</h2>
-
-<!-- Sous-titre (niveau 3) -->
-<h3>Sous-titre</h3>
-
-<!-- Paragraphe -->
-<p>Mon texte...</p>
-
-<!-- Liste à puces -->
-<ul>
-  <li>Élément 1</li>
-  <li>Élément 2</li>
-</ul>
-
-<!-- Liste numérotée -->
-<ol>
-  <li>Première étape</li>
-  <li>Deuxième étape</li>
-</ol>
-
-<!-- Encadré mis en avant (callout) -->
-<div class="callout">
-  <p><strong>À retenir :</strong> Information importante à mettre en avant.</p>
-</div>
-```
+> Si rien n'apparaît après quelques minutes, c'est presque toujours une **erreur dans l'en-tête** (un « : » sans guillemets, une date mal formée). Dans ce cas, l'ancienne version du site reste en ligne — le site n'est jamais cassé — il suffit de corriger l'en-tête et de pousser à nouveau. Le statut du déploiement est consultable dans le tableau de bord Vercel (un build raté apparaît en rouge « Error »).
 
 ---
 
-## Étape 5 — Ajouter la carte sur blog.html
+## Checklist avant de publier
 
-Ouvrez `blog.html` et ajoutez une nouvelle carte dans `<div class="articles-grid">` **au début** (les articles les plus récents en premier) :
-
-```html
-<a href="/blog/nom-de-mon-article.html" class="article-card" role="listitem">
-  <div class="article-card-meta">
-    <span class="article-date">1er avril 2026</span>
-    <span class="article-category">Catégorie</span>
-  </div>
-  <div class="article-card-body">
-    <h2 class="article-card-title">Titre de l'article</h2>
-    <p class="article-card-excerpt">Court résumé de l'article en 2-3 phrases. Doit donner envie de lire la suite.</p>
-    <span class="article-read-more">Lire l'article →</span>
-  </div>
-</a>
-```
+- [ ] Fichier `.md` dans `/posts/`, nom en minuscules-avec-tirets, sans accents
+- [ ] En-tête entre `---` avec les 5 champs (`title`, `date`, `category`, `description`, `excerpt`)
+- [ ] `date` au format `AAAA-MM-JJ`
+- [ ] `title`, `description`, `excerpt` entre guillemets doubles
+- [ ] Contenu rédigé en Markdown sous le second `---`
+- [ ] Commit + push sur `main` → Vercel déploie tout seul
 
 ---
 
-## Étape 6 — Mettre à jour sitemap.xml
+## Ce que vous n'avez PLUS à faire
 
-Ajoutez une entrée dans `sitemap.xml` à la racine du site :
-
-```xml
-<url>
-  <loc>https://gacem-avocat.com/blog/nom-de-mon-article.html</loc>
-  <lastmod>2026-04-01</lastmod>    ← Date de publication (YYYY-MM-DD)
-  <changefreq>yearly</changefreq>
-  <priority>0.7</priority>
-</url>
-```
-
-Mettez également à jour la `<lastmod>` de `blog.html` avec la date du jour.
-
----
-
-## Checklist avant publication
-
-- [ ] Fichier HTML créé dans `/blog/` avec un nom de fichier clair
-- [ ] `<title>` unique et descriptif (60 caractères max)
-- [ ] `<meta name="description">` rédigée (155 caractères max)
-- [ ] `<link rel="canonical">` correct
-- [ ] Données Schema.org mises à jour (`datePublished`, `headline`)
-- [ ] Date lisible dans le header (`article-date-badge`)
-- [ ] Catégorie renseignée (`article-category-badge`)
-- [ ] Carte ajoutée en tête de `blog.html`
-- [ ] `sitemap.xml` mis à jour
-- [ ] Push sur GitHub → Vercel déploie automatiquement
+L'ancienne version de ce guide demandait de créer le HTML à la main, d'ajouter une carte dans `blog.html` et de modifier `sitemap.xml`. **Tout cela est désormais automatique.** Un seul fichier Markdown suffit.
