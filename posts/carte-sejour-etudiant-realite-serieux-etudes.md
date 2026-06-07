@@ -2,8 +2,8 @@
 title: "Carte de séjour « étudiant » : comment le juge apprécie-t-il la réalité et le sérieux des études ?"
 date: 2026-06-07
 category: Droit des étrangers
-description: Réalité et sérieux des études d'un étudiant étranger : ce que disent l'article L. 422-1 du CESEDA, la circulaire de 2008 et la jurisprudence administrative.
-excerpt: Redoublement, semestre non validé, réorientation… Au renouvellement du titre de séjour « étudiant », l'administration apprécie la réalité et le sérieux des études. Décryptage des critères dégagés par le texte, la circulaire de 2008 et le juge administratif.
+description: "Réalité et sérieux des études d'un étudiant étranger : ce que disent l'article L. 422-1 du CESEDA, la circulaire de 2008 et la jurisprudence administrative."
+excerpt: "Redoublement, semestre non validé, réorientation… Au renouvellement du titre de séjour « étudiant », l'administration apprécie la réalité et le sérieux des études. Décryptage des critères dégagés par le texte, la circulaire de 2008 et le juge administratif."
 ---
 Quand on est étudiant étranger en France et qu'arrive le moment du renouvellement à la préfecture, on peut s'inquiéter de ne pas se voir renouveler son titre de séjour étudiant en raison d'un redoublement, d'un semestre non validé, voire d'une réorientation en cours de cursus.
 
