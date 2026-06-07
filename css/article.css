@@ -1,6 +1,6 @@
 /* ── ARTICLE CONTENT ── */
 .article-header { background: var(--degrade); padding: 88px 64px 72px; }
-.article-header-inner { max-width: 720px; }
+.article-header-inner { max-width: 720px; margin: 0 auto; }
 .article-back {
   display: inline-block; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
   color: rgba(255,255,255,0.4); text-decoration: none; font-weight: 400;
@@ -19,7 +19,7 @@
 }
 .article-intro { font-weight: 300; font-size: 15px; line-height: 1.9; color: rgba(255,255,255,0.6); max-width: 600px; }
 .article-body { padding: 72px 64px 88px; background: var(--blanc); }
-.article-content { max-width: 720px; }
+.article-content { max-width: 720px; margin: 0 auto; }
 .article-content h2 {
   font-size: 26px; font-weight: 400; color: var(--bleu-nuit);
   margin-top: 64px; margin-bottom: 22px; line-height: 1.3;

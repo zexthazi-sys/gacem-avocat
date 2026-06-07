@@ -29,7 +29,7 @@ const PARTIALS_DIR = path.join(__dirname, 'partials');
 const VERSIONS = {
   STYLE_CSS:     67,   // /css/style.css
   NAV_CSS:        8,   // /css/nav.css
-  ARTICLE_CSS:    3,   // /css/article.css
+  ARTICLE_CSS:    4,   // /css/article.css
   BLOG_CSS:       1,   // /css/blog.css
   LANDING_CSS:    2,   // /css/landing.css (socle partagé landing pages)
   PARCOURS_CSS:   1,   // /css/parcours.css
