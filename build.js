@@ -27,7 +27,7 @@ const PARTIALS_DIR = path.join(__dirname, 'partials');
 // ici (et seulement ici). Build.js propage la nouvelle version dans toutes les
 // pages HTML en remplaçant les markers __V_*__.
 const VERSIONS = {
-  STYLE_CSS:     67,   // /css/style.css
+  STYLE_CSS:     68,   // /css/style.css
   NAV_CSS:        8,   // /css/nav.css
   ARTICLE_CSS:    4,   // /css/article.css
   BLOG_CSS:       1,   // /css/blog.css

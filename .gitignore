@@ -21,3 +21,6 @@ PROMPT_*.txt
 /blog/*.html
 /sitemap.xml
 /posts/index.json
+
+# Worktrees temporaires de Claude Code
+/.claude/worktrees/

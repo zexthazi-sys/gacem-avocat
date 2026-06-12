@@ -812,8 +812,8 @@
       align-items: center;
       -webkit-justify-content: center;
       justify-content: center;
-      width: 49px;
-      height: 49px;
+      width: 56px;
+      height: 56px;
       border-radius: 50%;
       background: #25d366;
       color: var(--blanc);
@@ -831,7 +831,7 @@
       outline-offset: 3px;
     }
     .wa-float svg {
-      display: block; width: 25px; height: 25px;
+      display: block; width: 28px; height: 28px;
       transition: transform 0.25s ease;
     }
     .wa-float:hover svg { transform: scale(1.12); }
