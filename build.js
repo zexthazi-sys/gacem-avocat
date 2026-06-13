@@ -28,13 +28,13 @@ const PARTIALS_DIR = path.join(__dirname, 'partials');
 // pages HTML en remplaçant les markers __V_*__.
 const VERSIONS = {
   STYLE_CSS:     68,   // /css/style.css
-  NAV_CSS:        8,   // /css/nav.css
+  NAV_CSS:        9,   // /css/nav.css
   ARTICLE_CSS:    4,   // /css/article.css
   BLOG_CSS:       1,   // /css/blog.css
-  LANDING_CSS:    2,   // /css/landing.css (socle partagé landing pages)
+  LANDING_CSS:    9,   // /css/landing.css (socle partagé landing pages)
   PARCOURS_CSS:   1,   // /css/parcours.css
   ML_CSS:         1,   // /css/mentions-legales.css
-  NAV_JS:         8,   // /js/nav.js
+  NAV_JS:         15,   // /js/nav.js
   SCROLL_REVEAL_JS: 2, // /js/scroll-reveal.js
   PAGE_TRANSITION_JS: 1,
   SPLASH_JS:      1,
@@ -362,7 +362,7 @@ console.log('  ✓ blog.html (listing statique)');
 // ── Pages statiques : injection partials + versions ──────────────────────────
 // Toutes les pages HTML à la racine contiennent des markers <!-- @partial ... -->
 // et __V_*__. Build.js les transforme à chaque exécution.
-const STATIC_PAGES = ['index.html', 'cnaps.html', 'contester-oqtf.html', 'effacement-taj-b2.html', 'parcours.html', 'mentions-legales.html', '404.html'];
+const STATIC_PAGES = ['index.html', 'droit-des-etrangers.html', 'cnaps.html', 'contester-oqtf.html', 'titre-de-sejour.html', 'refus-titre-sejour.html', 'naturalisation.html', 'regroupement-familial.html', 'visa-refus-crrv.html', 'effacement-taj-b2.html', 'parcours.html', 'mentions-legales.html', '404.html'];
 STATIC_PAGES.forEach(function (filename) {
   const filepath = path.join(__dirname, filename);
   if (!fs.existsSync(filepath)) {
@@ -382,6 +382,12 @@ STATIC_PAGES.forEach(function (filename) {
 const lastModIndex   = getLastModDate(path.join(__dirname, 'index.html'));
 const lastModCnaps   = getLastModDate(path.join(__dirname, 'cnaps.html'));
 const lastModOqtf    = getLastModDate(path.join(__dirname, 'contester-oqtf.html'));
+const lastModDDE     = getLastModDate(path.join(__dirname, 'droit-des-etrangers.html'));
+const lastModTitre   = getLastModDate(path.join(__dirname, 'titre-de-sejour.html'));
+const lastModRefus   = getLastModDate(path.join(__dirname, 'refus-titre-sejour.html'));
+const lastModNatu    = getLastModDate(path.join(__dirname, 'naturalisation.html'));
+const lastModRegr    = getLastModDate(path.join(__dirname, 'regroupement-familial.html'));
+const lastModVisa    = getLastModDate(path.join(__dirname, 'visa-refus-crrv.html'));
 const lastModTajB2   = getLastModDate(path.join(__dirname, 'effacement-taj-b2.html'));
 const lastModML      = getLastModDate(path.join(__dirname, 'mentions-legales.html'));
 const lastModParc    = getLastModDate(path.join(__dirname, 'parcours.html'));
@@ -416,6 +422,12 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
   </url>
 
   <url>
+    <loc>${SITE_URL}/droit-des-etrangers</loc>
+    <lastmod>${lastModDDE}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>${SITE_URL}/cnaps</loc>
     <lastmod>${lastModCnaps}</lastmod>
     <changefreq>monthly</changefreq>
@@ -429,6 +441,36 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
     <priority>0.9</priority>
   </url>
 
+  <url>
+    <loc>${SITE_URL}/titre-de-sejour</loc>
+    <lastmod>${lastModTitre}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>${SITE_URL}/refus-titre-sejour</loc>
+    <lastmod>${lastModRefus}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>${SITE_URL}/naturalisation</loc>
+    <lastmod>${lastModNatu}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>${SITE_URL}/regroupement-familial</loc>
+    <lastmod>${lastModRegr}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>${SITE_URL}/visa-refus-crrv</loc>
+    <lastmod>${lastModVisa}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
   <url>
     <loc>${SITE_URL}/effacement-taj-b2</loc>
     <lastmod>${lastModTajB2}</lastmod>

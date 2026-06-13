@@ -6,9 +6,23 @@
        .section-*, .motifs-*, .recours-*, .accompagnement-*, .faq-*.
        ════════════════════════════════════════════════════════════════════ */
 
+    /* ── ACCENT VERT LISIBLE SUR FOND CLAIR ──
+       Le sauge signature #BDC9BE est trop pâle pour se voir sur blanc.
+       On garde le sauge sur fonds sombres, et on utilise ce vert profond
+       (même famille, plus saturé) pour les accents sur fonds clairs. ── */
+    :root { --vert-sauge-fonce: #5f7563; }
+
     /* ── CONTRASTE — fonds sombres ── */
     .section-dark .s-tag { color: var(--vert-sauge); }
     .section-dark .s-line { background: var(--vert-sauge); }
+
+    /* ── Accents de marque sur fonds clairs (surtitre + filet) ── */
+    .section-light .s-tag,
+    .section-white .s-tag,
+    .section-grey .s-tag { color: var(--vert-sauge-fonce); font-weight: 600; }
+    .section-light .s-line,
+    .section-white .s-line,
+    .section-grey .s-line { background: var(--vert-sauge-fonce); height: 2px; }
 
     /* ── HERO ── */
     .page-hero {
@@ -19,36 +33,30 @@
     .page-hero-tag {
       font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase;
       color: rgba(255,255,255,0.62); margin-bottom: 36px;
+      line-height: 1.9;
     }
     .page-hero h1 {
-      font-weight: 300; font-size: 52px;
-      letter-spacing: 0.03em; color: var(--blanc); line-height: 1.15;
+      font-weight: 400; font-size: 54px;
+      letter-spacing: 0.01em; color: var(--blanc); line-height: 1.15;
       margin-bottom: 32px; max-width: 900px; margin-left: auto; margin-right: auto;
     }
-    .page-hero h1 strong { font-weight: 400; color: var(--vert-sauge); }
+    .page-hero h1 strong { font-weight: 600; color: var(--vert-sauge); }
     .page-hero-sub {
       font-weight: 300; font-size: 18px;
       color: var(--vert-sauge); letter-spacing: 0.06em;
       text-transform: uppercase; margin-bottom: 36px;
     }
     .page-hero-text {
-      font-size: 15px; line-height: 1.9; font-weight: 300;
-      color: rgba(255,255,255,0.76); max-width: 520px; margin: 0 auto 48px;
+      font-size: 16px; line-height: 1.85; font-weight: 400;
+      color: rgba(255,255,255,0.84); max-width: 540px; margin: 0 auto 48px;
     }
 
-    /* Mot-clé accentué — remplace le bloc .highlight-offset sur les heros landing */
+    /* Mot-clé accentué en vert (sans soulignement) sur les heros landing */
     .page-hero h1 strong { font-weight: 400; color: var(--blanc); }
     .page-hero .highlight-offset {
       background: none; padding: 0; color: var(--vert-sauge);
-      position: relative; white-space: nowrap;
+      white-space: nowrap;
     }
-    .page-hero .highlight-offset::after {
-      content: ''; position: absolute; left: 0; right: 0; bottom: -0.1em;
-      height: 2px; background: var(--vert-sauge);
-      transform: scaleX(0); transform-origin: left;
-      animation: heroUnderline 0.9s cubic-bezier(0.22,0.61,0.36,1) 0.45s forwards;
-    }
-    @keyframes heroUnderline { to { transform: scaleX(1); } }
 
     /* CTA — pastille blanche contrastée + soulèvement */
     .page-hero .hero-cta {
@@ -91,10 +99,17 @@
 
     .section-header { margin-bottom: 52px; }
     .section-header h2 {
-      font-weight: 200; font-size: 36px;
-      letter-spacing: 0.03em; color: var(--bleu-nuit); line-height: 1.3;
+      font-weight: 500; font-size: 40px;
+      letter-spacing: 0.01em; color: var(--bleu-nuit); line-height: 1.25;
     }
     .section-dark .section-header h2 { color: var(--blanc); }
+
+    /* Mot-clé coloré dans les titres de section (accent de marque) */
+    .section-header h2 .hl { color: var(--vert-sauge-fonce); }
+    .section-dark .section-header h2 .hl { color: var(--vert-sauge); }
+
+    /* Carte de procédure posée sur la section sombre : elle doit flotter */
+    .section-dark .recours-card { box-shadow: 0 24px 60px rgba(0,0,0,0.40); }
 
     /* ── INDEX DE SECTION (numéro pâle, rythme éditorial) ── */
     #main { counter-reset: lp-section; }
@@ -103,9 +118,9 @@
       content: counter(lp-section, decimal-leading-zero);
       display: block;
       font-family: 'Raleway', sans-serif;
-      font-size: 56px; font-weight: 200; line-height: 1;
+      font-size: 56px; font-weight: 300; line-height: 1;
       letter-spacing: 0.02em;
-      color: rgba(45,63,92,0.13);
+      color: rgba(95,117,99,0.22);
       margin-bottom: 16px;
     }
     .section-dark .section-header::before { color: rgba(255,255,255,0.16); }
@@ -113,32 +128,29 @@
     /* ── CARDS GRILLE 2×2 ── */
     .lp-grid {
       display: grid; grid-template-columns: repeat(2, 1fr);
-      gap: 2px;
+      gap: 16px;
     }
+    /* Cartes « flottantes » (même esprit que les cartes de la page Parcours) */
     .lp-card {
-      background: var(--blanc); padding: 40px 36px;
-      transition: background 0.4s, box-shadow 0.4s, border-color 0.4s;
+      background: var(--blanc); padding: 38px 34px;
+      border-radius: 16px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
       cursor: default; position: relative; overflow: hidden;
-      border-bottom: 2px solid transparent;
     }
     .section-light .lp-card { background: #ffffff; }
     .lp-card:hover {
-      background: var(--bleu-ardoise);
-      box-shadow: 0 8px 32px rgba(45,63,92,0.18);
-      border-bottom-color: var(--vert-sauge);
+      box-shadow: 0 12px 34px rgba(45,63,92,0.14);
+      -webkit-transform: translateY(-3px); transform: translateY(-3px);
     }
-    .lp-card:hover .lp-num,
-    .lp-card:hover .lp-card-title,
-    .lp-card:hover .lp-card-text { color: var(--blanc); }
-    .lp-card:hover .lp-num { color: var(--vert-sauge); }
     .lp-num {
-      font-family: 'Raleway', sans-serif; font-size: 11px;
-      letter-spacing: 0.15em; color: var(--bleu-ardoise);
-      margin-bottom: 20px; font-weight: 500; position: relative; z-index: 1;
+      font-family: 'Raleway', sans-serif; font-size: 13px;
+      letter-spacing: 0.15em; color: var(--vert-sauge-fonce);
+      margin-bottom: 20px; font-weight: 700; position: relative; z-index: 1;
     }
     .lp-card-title {
-      font-family: 'Raleway', sans-serif; font-size: 20px;
-      font-weight: 500; color: var(--bleu-nuit); margin-bottom: 14px;
+      font-family: 'Raleway', sans-serif; font-size: 21px;
+      font-weight: 600; color: var(--bleu-nuit); margin-bottom: 14px;
       transition: color 0.3s; position: relative; z-index: 1;
     }
     .lp-card-text {
@@ -149,12 +161,12 @@
 
     /* ── MOTIFS (val style) ── */
     .motifs-list { display: flex; flex-direction: column; gap: 28px; margin-top: 8px; }
-    .motif-item { border-left: 1px solid var(--vert-sauge); padding-left: 20px; }
+    .motif-item { border-left: 3px solid var(--vert-sauge-fonce); padding-left: 22px; }
     .motif-item h3,
     .motif-item h4 {
-      font-family: 'Raleway', sans-serif; font-size: 13px;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--bleu-ardoise); margin-bottom: 7px; font-weight: 500;
+      font-family: 'Raleway', sans-serif; font-size: 14px;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--vert-sauge-fonce); margin-bottom: 7px; font-weight: 700;
     }
     .motif-item p {
       font-family: 'Raleway', sans-serif; font-size: 14px;
@@ -176,15 +188,53 @@
       content: ''; position: absolute; left: 0; top: 0.72em;
       width: 10px; height: 1px; background: var(--vert-sauge);
     }
+
+    /* ── EN-TÊTE : « Droit des étrangers » cliquable vers la page-sommaire (maillage) ── */
+    .page-hero-tag a {
+      color: inherit; text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.32); padding-bottom: 1px;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+    .page-hero-tag a:hover { color: var(--vert-sauge); border-color: var(--vert-sauge); }
+
+    /* ── HUB — grille de cartes-liens vers les 6 pages (page-sommaire) ── */
+    .hub-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 16px; margin-top: 8px;
+    }
+    .hub-card {
+      display: flex; flex-direction: column; gap: 10px;
+      padding: 32px 30px; background: var(--blanc);
+      border-radius: 16px; text-decoration: none;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+    .hub-card:hover {
+      box-shadow: 0 12px 34px rgba(45,63,92,0.14);
+      -webkit-transform: translateY(-3px); transform: translateY(-3px);
+    }
+    .hub-card-title {
+      font-family: 'Raleway', sans-serif; font-size: 19px; font-weight: 600;
+      color: var(--bleu-nuit); letter-spacing: 0.01em;
+    }
+    .hub-card-title::after {
+      content: ' \2192'; color: var(--vert-sauge-fonce);
+      display: inline-block; transition: transform 0.25s ease;
+    }
+    .hub-card:hover .hub-card-title::after { transform: translateX(4px); }
+    .hub-card-text {
+      font-family: 'Raleway', sans-serif; font-size: 14px; line-height: 1.65;
+      color: var(--gris-ardoise); font-weight: 400;
+    }
     .motifs-intro {
-      font-size: 15px; line-height: 1.85; color: var(--gris-ardoise); font-weight: 300;
+      font-size: 16px; line-height: 1.8; color: var(--gris-ardoise); font-weight: 400;
       margin-bottom: 36px;
     }
     .motifs-conclusion {
       margin-top: 48px;
       background: var(--bleu-nuit);
       color: var(--blanc);
-      font-size: 16px; line-height: 1.85; font-weight: 300;
+      font-size: 16px; line-height: 1.8; font-weight: 400;
       padding: 36px 40px;
       border-radius: 20px;
       box-shadow: 0 8px 40px rgba(26,26,46,0.22), 0 2px 8px rgba(26,26,46,0.12);
@@ -196,8 +246,8 @@
     .recours-item { display: flex; gap: 28px; }
     .recours-left { display: flex; flex-direction: column; align-items: center; }
     .recours-dot {
-      width: 10px; height: 10px; border-radius: 50%;
-      background: var(--vert-sauge); flex-shrink: 0; margin-top: 4px;
+      width: 12px; height: 12px; border-radius: 50%;
+      background: var(--vert-sauge-fonce); flex-shrink: 0; margin-top: 4px;
     }
     .recours-connector {
       width: 1px; flex: 1; min-height: 32px;
@@ -206,15 +256,15 @@
     .recours-item:last-child .recours-connector { display: none; }
     .recours-right { padding-bottom: 40px; }
     .recours-step-num {
-      font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--bleu-ardoise); margin-bottom: 6px; font-weight: 500;
+      font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--vert-sauge-fonce); margin-bottom: 6px; font-weight: 700;
     }
     .recours-step-title {
-      font-size: 17px; font-weight: 500; color: var(--bleu-nuit);
-      margin-bottom: 10px; letter-spacing: 0.02em;
+      font-size: 19px; font-weight: 600; color: var(--bleu-nuit);
+      margin-bottom: 10px; letter-spacing: 0.01em;
     }
     .recours-step-text {
-      font-size: 14px; color: var(--gris-ardoise); line-height: 1.85; font-weight: 300;
+      font-size: 15px; color: var(--gris-ardoise); line-height: 1.8; font-weight: 400;
     }
 
     /* ── ACCOMPAGNEMENT ── */
@@ -242,7 +292,7 @@
     }
     .accompagnement-content { flex: 1; }
     .accompagnement-intro {
-      font-size: 15px; line-height: 1.85; color: var(--gris-ardoise); font-weight: 300;
+      font-size: 16px; line-height: 1.8; color: var(--gris-ardoise); font-weight: 400;
       margin-bottom: 32px;
     }
     .accompagnement-steps { display: flex; flex-direction: column; gap: 0; margin-bottom: 32px; }
@@ -253,19 +303,18 @@
     .acc-step:last-child { border-bottom: none; }
     .acc-step:first-child { padding-top: 0; }
     .acc-step-num {
-      font-size: 30px; letter-spacing: 0.04em; font-weight: 400;
-      color: rgba(45,63,92,0.22); flex-shrink: 0; min-width: 48px; line-height: 1;
+      font-size: 30px; letter-spacing: 0.04em; font-weight: 500;
+      color: var(--vert-sauge-fonce); flex-shrink: 0; min-width: 48px; line-height: 1;
       padding-top: 2px;
     }
-    .acc-step:first-child .acc-step-num { color: var(--vert-sauge); }
     .acc-step-body {}
     .acc-step-title {
-      font-size: 11px; font-weight: 500; color: var(--bleu-nuit);
+      font-size: 12px; font-weight: 700; color: var(--bleu-nuit);
       margin-bottom: 6px; letter-spacing: 0.04em; text-transform: uppercase;
     }
-    .acc-step-text { font-size: 14px; color: var(--gris-ardoise); line-height: 1.75; font-weight: 300; }
+    .acc-step-text { font-size: 15px; color: var(--gris-ardoise); line-height: 1.75; font-weight: 400; }
     .accompagnement-note {
-      font-size: 13px; color: var(--gris-ardoise); line-height: 1.7; font-weight: 300;
+      font-size: 13px; color: var(--gris-ardoise); line-height: 1.7; font-weight: 400;
       border-top: 1px solid rgba(45,63,92,0.08); padding-top: 20px; font-style: italic;
     }
 

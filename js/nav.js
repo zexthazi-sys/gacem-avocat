@@ -16,20 +16,37 @@
       label: 'Expertises',
       groups: [
         {
+          // Domaines « classiques » du cabinet, en premier (vers la section d'accueil).
+          // IMPORTANT : aucune hiérarchie de taille — tous les liens du menu
+          // ont la même taille. La distinction se fait par CATÉGORIE, jamais
+          // par la typo. Ne pas réintroduire `small: true` ici.
           title: 'Domaines d’intervention',
           links: [
-            { label: 'Droit administratif',      href: '/#expertises' },
-            { label: 'Marchés publics',      href: '/#expertises' },
+            { label: 'Droit administratif',       href: '/#expertises' },
+            { label: 'Marchés publics',           href: '/#expertises' },
             { label: 'Urbanisme',                 href: '/#expertises' },
             { label: 'Contentieux administratif', href: '/#expertises' }
           ]
         },
         {
-          title: 'Accompagnement dédié',
+          // 1er domaine dédié : droit des étrangers (axe de croissance).
+          title: 'Droit des étrangers',
           links: [
-            { label: 'Sécurité privée — CNAPS', href: '/cnaps', small: true },
-            { label: 'Recours OQTF',             href: '/contester-oqtf', small: true },
-            { label: 'Effacement TAJ / B2',      href: '/effacement-taj-b2', small: true }
+            { label: 'Titre de séjour',           href: '/titre-de-sejour' },
+            { label: 'Refus de titre de séjour',  href: '/refus-titre-sejour' },
+            { label: 'Contester une OQTF',        href: '/contester-oqtf' },
+            { label: 'Naturalisation',            href: '/naturalisation' },
+            { label: 'Regroupement familial',     href: '/regroupement-familial' },
+            { label: 'Refus de visa (CRRV)',      href: '/visa-refus-crrv' }
+          ]
+        },
+        {
+          // 2e domaine dédié : la sécurité privée, à laquelle se rattache
+          // l'effacement des fichiers TAJ / B2 (un fichage bloque l'agrément).
+          title: 'Sécurité privée & fichiers',
+          links: [
+            { label: 'Sécurité privée — CNAPS',       href: '/cnaps' },
+            { label: 'Effacer un fichier (TAJ / B2)', href: '/effacement-taj-b2' }
           ]
         }
       ]
@@ -240,6 +257,12 @@
       subPanel.appendChild(mobileBackBtn);
 
       mobileCfg.groups.forEach(function (group) {
+        if (group.title) {
+          var gt = document.createElement('p');
+          gt.className = 'menu-sub-group-title';
+          gt.textContent = group.title;
+          subPanel.appendChild(gt);
+        }
         group.links.forEach(function (link) {
           var a = document.createElement('a');
           a.href = link.href;
@@ -375,6 +398,11 @@
     { match: /^\/blog(\/.*)?$/,        selector: '.nav-desktop a[href="/blog"], .menu-panel-main a[href="/blog"]' },
     { match: /^\/cnaps$/,              selector: 'a[href="/cnaps"]' },
     { match: /^\/contester-oqtf$/,     selector: 'a[href="/contester-oqtf"]' },
+    { match: /^\/titre-de-sejour$/,    selector: 'a[href="/titre-de-sejour"]' },
+    { match: /^\/refus-titre-sejour$/, selector: 'a[href="/refus-titre-sejour"]' },
+    { match: /^\/naturalisation$/,     selector: 'a[href="/naturalisation"]' },
+    { match: /^\/regroupement-familial$/, selector: 'a[href="/regroupement-familial"]' },
+    { match: /^\/visa-refus-crrv$/,    selector: 'a[href="/visa-refus-crrv"]' },
     { match: /^\/effacement-taj-b2$/,  selector: 'a[href="/effacement-taj-b2"]' },
     { match: /^\/mentions-legales$/,   selector: '.footer-bar a[href="/mentions-legales"]', cls: 'footer-active' }
   ];
