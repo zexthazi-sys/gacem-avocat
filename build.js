@@ -34,7 +34,7 @@ const VERSIONS = {
   LANDING_CSS:    9,   // /css/landing.css (socle partagé landing pages)
   PARCOURS_CSS:   1,   // /css/parcours.css
   ML_CSS:         1,   // /css/mentions-legales.css
-  NAV_JS:         15,   // /js/nav.js
+  NAV_JS:         16,   // /js/nav.js
   SCROLL_REVEAL_JS: 2, // /js/scroll-reveal.js
   PAGE_TRANSITION_JS: 1,
   SPLASH_JS:      1,
@@ -366,7 +366,7 @@ console.log('  ✓ blog.html (listing statique)');
 // ── Pages statiques : injection partials + versions ──────────────────────────
 // Toutes les pages HTML à la racine contiennent des markers <!-- @partial ... -->
 // et __V_*__. Build.js les transforme à chaque exécution.
-const STATIC_PAGES = ['index.html', 'droit-des-etrangers.html', 'cnaps.html', 'contester-oqtf.html', 'titre-de-sejour.html', 'refus-titre-sejour.html', 'naturalisation.html', 'regroupement-familial.html', 'visa-refus-crrv.html', 'effacement-taj-b2.html', 'parcours.html', 'mentions-legales.html', '404.html'];
+const STATIC_PAGES = ['index.html', 'droit-des-etrangers.html', 'cnaps.html', 'contester-oqtf.html', 'titre-de-sejour.html', 'refus-titre-sejour.html', 'naturalisation.html', 'regroupement-familial.html', 'visa-refus-crrv.html', 'effacement-taj-b2.html', 'parcours.html', 'honoraires.html', 'mentions-legales.html', '404.html'];
 STATIC_PAGES.forEach(function (filename) {
   const filepath = path.join(__dirname, filename);
   if (!fs.existsSync(filepath)) {
@@ -395,6 +395,7 @@ const lastModVisa    = getLastModDate(path.join(__dirname, 'visa-refus-crrv.html
 const lastModTajB2   = getLastModDate(path.join(__dirname, 'effacement-taj-b2.html'));
 const lastModML      = getLastModDate(path.join(__dirname, 'mentions-legales.html'));
 const lastModParc    = getLastModDate(path.join(__dirname, 'parcours.html'));
+const lastModHono    = getLastModDate(path.join(__dirname, 'honoraires.html'));
 
 // Pour /blog, on prend max(date du fichier blog.html source, date la plus récente parmi les posts)
 const blogFileDate = getLastModDate(path.join(__dirname, 'blog.html'));
@@ -492,6 +493,13 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
   <url>
     <loc>${SITE_URL}/parcours</loc>
     <lastmod>${lastModParc}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>${SITE_URL}/honoraires</loc>
+    <lastmod>${lastModHono}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

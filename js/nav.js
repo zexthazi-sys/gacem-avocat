@@ -395,6 +395,7 @@
   var path = location.pathname.replace(/\/$/, '') || '/';
   var rules = [
     { match: /^\/parcours$/,           selector: '.nav-desktop a[href="/parcours"], .menu-panel-main a[href="/parcours"]' },
+    { match: /^\/honoraires$/,         selector: '.nav-desktop a[href="/honoraires"], .menu-panel-main a[href="/honoraires"]' },
     { match: /^\/blog(\/.*)?$/,        selector: '.nav-desktop a[href="/blog"], .menu-panel-main a[href="/blog"]' },
     { match: /^\/cnaps$/,              selector: 'a[href="/cnaps"]' },
     { match: /^\/contester-oqtf$/,     selector: 'a[href="/contester-oqtf"]' },
