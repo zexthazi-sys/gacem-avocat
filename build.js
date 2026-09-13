@@ -37,12 +37,10 @@ const VERSIONS = {
   NAV_JS:         16,   // /js/nav.js
   SCROLL_REVEAL_JS: 2, // /js/scroll-reveal.js
   PAGE_TRANSITION_JS: 1,
-  SPLASH_JS:      1,
+  SPLASH_JS:      2,
   CAROUSEL_JS:    3,
   FAQ_JS:         1,
-  AXEPTIO_JS:     2,
-  SCROLL_INIT_JS: 1,
-  GTAG_INIT_JS:   1,
+  HEAD_INIT_JS:   1,
 };
 
 // ── Partials (HTML factorisés) ────────────────────────────────────────────────
@@ -159,11 +157,8 @@ ${related.map(p => `            <li><a href="/blog/${p.slug}"><span class="relat
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <!-- Axeptio — doit être le premier script du head -->
-  <script src="/js/axeptio-init.js?v=__V_AXEPTIO_JS__"><\/script>
-  <script src="/js/scroll-init.js?v=__V_SCROLL_INIT_JS__"><\/script>
-  <!-- Google tag (gtag.js) — Google Ads -->
-  <script src="/js/gtag-init.js?v=__V_GTAG_INIT_JS__"><\/script>
+  <script src="/js/head-init.js?v=__V_HEAD_INIT_JS__"><\/script>
+  <link rel="preconnect" href="https://www.googletagmanager.com">
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18364175365"><\/script>
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">

@@ -5,10 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <!-- Axeptio — doit être le premier script du head -->
-  <script src="/js/axeptio-init.js?v=__V_AXEPTIO_JS__"></script>
-  <script src="/js/scroll-init.js?v=__V_SCROLL_INIT_JS__"></script>
-  <!-- Google tag (gtag.js) — Google Ads -->
-  <script src="/js/gtag-init.js?v=__V_GTAG_INIT_JS__"></script>
+  <script src="/js/head-init.js?v=__V_HEAD_INIT_JS__"></script>
+  <link rel="preconnect" href="https://www.googletagmanager.com">
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18364175365"></script>
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
@@ -154,7 +152,7 @@
     <div class="cabinet-card">
     <div class="cabinet-grid">
       <div class="cabinet-photo reveal">
-        <img src="assets/salle-reunion.webp" alt="Cabinet d'avocat Gacem à Paris — salle de réunion pour consultations en droit public et droit administratif" loading="lazy" width="1920" height="2560">
+        <img src="assets/salle-reunion.webp" srcset="assets/salle-reunion-960.webp 720w, assets/salle-reunion-1440.webp 1080w, assets/salle-reunion.webp 1920w" sizes="(max-width: 900px) 100vw, 422px" alt="Cabinet d'avocat Gacem à Paris — salle de réunion pour consultations en droit public et droit administratif" loading="lazy" width="1920" height="2560">
       </div>
       <div class="cabinet-content reveal">
         <div class="cabinet-text">
@@ -188,7 +186,7 @@
     <div class="exp-capsule">
     <div class="exp-grid">
       <div class="exp-card reveal reveal-delay-1">
-        <img src="/assets/droit-administratif.webp" alt="Droit administratif — conseil et contentieux contre les décisions de l'administration, Gacem Avocat Paris" loading="lazy">
+        <img src="/assets/droit-administratif.webp" alt="Droit administratif — conseil et contentieux contre les décisions de l'administration, Gacem Avocat Paris" loading="lazy" width="960" height="960">
         <div class="exp-card-body">
           <div class="exp-num">01</div>
           <h3 class="exp-card-title">Droit administratif</h3>
@@ -196,7 +194,7 @@
         </div>
       </div>
       <div class="exp-card reveal reveal-delay-2">
-        <img src="/assets/marches-publics.webp" alt="Marchés publics — passation, exécution et contentieux des contrats de la commande publique" loading="lazy">
+        <img src="/assets/marches-publics.webp" alt="Marchés publics — passation, exécution et contentieux des contrats de la commande publique" loading="lazy" width="960" height="960">
         <div class="exp-card-body">
           <div class="exp-num">02</div>
           <h3 class="exp-card-title">Marchés publics</h3>
@@ -204,7 +202,7 @@
         </div>
       </div>
       <div class="exp-card reveal reveal-delay-3">
-        <img src="/assets/urbanisme.webp" alt="Urbanisme — permis de construire, PLU, opérations d'aménagement et recours" loading="lazy">
+        <img src="/assets/urbanisme.webp" alt="Urbanisme — permis de construire, PLU, opérations d'aménagement et recours" loading="lazy" width="960" height="960">
         <div class="exp-card-body">
           <div class="exp-num">03</div>
           <h3 class="exp-card-title">Urbanisme</h3>
@@ -212,7 +210,7 @@
         </div>
       </div>
       <div class="exp-card reveal reveal-delay-4">
-        <img src="/assets/contentieux.webp" alt="Contentieux administratif — défense devant le tribunal administratif, la cour d'appel et le Conseil d'État" loading="lazy">
+        <img src="/assets/contentieux.webp" alt="Contentieux administratif — défense devant le tribunal administratif, la cour d'appel et le Conseil d'État" loading="lazy" width="960" height="960">
         <div class="exp-card-body">
           <div class="exp-num">04</div>
           <h3 class="exp-card-title">Contentieux administratif</h3>

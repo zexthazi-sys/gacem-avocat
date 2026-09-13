@@ -1,5 +1,13 @@
+/* ── head-init.js ───────────────────────────────────────────────────────
+ * Fusion de 3 scripts de tête (axeptio-init.js + scroll-init.js +
+ * gtag-init.js) en un seul fichier, pour économiser 2 requêtes bloquantes
+ * dans le <head> de chaque page. Ordre d'exécution préservé à l'identique
+ * (important pour le Consent Mode Google : les defaults de consentement
+ * doivent être posés avant que le SDK gtag externe (chargé en async plus
+ * bas dans le <head>) ne traite la file d'attente dataLayer).
+ * ──────────────────────────────────────────────────────────────────── */
+
 /* ── Axeptio (cookie consent) — initialisation ────────────────────────
- * Doit être chargé en premier dans le <head> de chaque page.
  * Externalisé du HTML pour permettre une CSP sans 'unsafe-inline'.
  */
 window.axeptioSettings = {
@@ -57,3 +65,30 @@ window._axcb.push(function (sdk) {
     sdk.openCookies();
   });
 });
+
+/* ── Reset scroll position au chargement ──────────────────────────────
+ * Externalisé du HTML pour permettre une CSP sans 'unsafe-inline'.
+ */
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);
+
+/* ── Google tag (gtag.js) — Google Ads AW-18364175365 ──────────────────
+ * Externalisé du HTML pour permettre une CSP sans 'unsafe-inline'
+ * (même contrainte que ci-dessus).
+ * Consent Mode v2 : tout refusé par défaut tant qu'Axeptio n'a pas
+ * enregistré de consentement (wait_for_update laisse 500ms à Axeptio
+ * pour pousser sa décision si elle est déjà connue — visiteur récurrent).
+ */
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+gtag('consent', 'default', {
+  ad_storage: 'denied',
+  ad_user_data: 'denied',
+  ad_personalization: 'denied',
+  analytics_storage: 'denied',
+  wait_for_update: 500,
+});
+gtag('js', new Date());
+gtag('config', 'AW-18364175365');
